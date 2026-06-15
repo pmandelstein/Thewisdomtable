@@ -1,0 +1,13 @@
+name: Copy preview to index
+on: push
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: cp preview-launch.html index.html
+      - run: git config user.email "action@github.com"
+      - run: git config user.name "GitHub Action"
+      - run: git add index.html
+      - run: git commit -m "Update index.html" || echo "No changes"
+      - run: git push
