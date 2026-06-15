@@ -4518,25 +4518,12 @@ async function conveneCouncil() {
 function crWaitlist() {
   const email = document.getElementById('cr-waitlist-email')?.value?.trim();
   if (!email) return;
-  // Sends to Formspree waitlist form — uses same FORMSPREE_ID when activated
   const output = document.getElementById('council-output');
   if (output) output.innerHTML = `<div style="text-align:center;padding:32px;color:rgba(245,237,216,.7);font-style:italic;font-family:'Playfair Display',serif;font-size:1.1rem">"The table is set. We will save your seat."<br><span style="font-size:.8rem;font-style:normal;color:rgba(245,237,216,.4);font-family:'EB Garamond',serif">You'll hear from us within days.</span></div>`;
 }
-  const dilemma = document.getElementById('council-input').value.trim();
-  if (!dilemma) {
-    document.getElementById('council-input').focus();
-    return;
-  }
-  const panelists = getCheckedPanelists();
-  if (panelists.length < 2) {
-    alert('Please select at least 2 panelists for a dialogue.');
-    return;
-  }
 
-  const btn = document.querySelector('.council-btn');
-  btn.disabled = true;
-  btn.textContent = 'The Council is convening…';
-
+// ── Original conveneCouncil logic preserved for when backend is ready ──
+async function _conveneCouncilLive(dilemma, panelists, btn) {
   document.getElementById('council-dilemma-display').textContent = '"' + dilemma + '"';
   document.getElementById('council-dialogue').innerHTML = '<div style="padding:24px 0;text-align:center;font-style:italic;color:var(--muted)">The council is gathering…</div>';
   document.getElementById('council-share').style.display = 'none';
@@ -4580,7 +4567,6 @@ Keep each response to 2-3 sentences. Make it feel like a real conversation, not 
     document.getElementById('council-dialogue').innerHTML = dialogue;
     document.getElementById('council-share').style.display = 'flex';
 
-    // Store for sharing
     window._lastCouncil = { dilemma, panelists, dialogue };
 
   } catch(e) {
