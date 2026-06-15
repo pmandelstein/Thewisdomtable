@@ -12,6 +12,6 @@ jobs:
       - run: cp preview-launch.html index.html
       - run: git config user.email "action@github.com"
       - run: git config user.name "GitHub Action"
-      - run: git add index.html
-      - run: git commit -m "Update index.html" || echo "No changes"
+      - run: git add -f index.html
+      - run: git diff --cached --quiet || git commit -m "Sync index.html from preview-launch.html"
       - run: git push
