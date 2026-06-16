@@ -5543,6 +5543,29 @@ updatePanelistCount();
     }, 600);
   }
 })();
+  // ── NAV SCROLL FIX ──
+var navMap = {
+  'Questions':     'hero',
+  'Council Room':  'council',
+  'Traditions':    'traditions',
+  'Ways of Knowing': 'ways-of-knowing',
+  'Compare':       'compare-section',
+  'Discover':      'discover',
+  'Humanity Asks': 'humanity-asks',
+  'Last Wisdom':   'last-wisdom-section'
+};
+document.querySelectorAll('.mnl').forEach(function(el) {
+  var text = el.textContent.trim();
+  var id = navMap[text];
+  if (id) {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.getElementById(id);
+      if (target) target.scrollIntoView({behavior:'smooth'});
+    });
+  }
+});
+
 
 </script>
 </body>
