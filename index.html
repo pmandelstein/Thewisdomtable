@@ -5542,15 +5542,7 @@ updatePanelistCount();
       barEl.style.width = Math.min((FOUNDING_CURRENT / FOUNDING_TARGET) * 100, 100) + '%';
     }, 600);
   }
-})();// ── NAV SCROLL FIX ──
-document.querySelectorAll('a.mnl[onclick]').forEach(function(el) {
-  var match = el.getAttribute('onclick').match(/'([^']+)'/);
-  if (match) {
-    el.href = '#' + match[1];
-    el.removeAttribute('onclick');
-  }
-});
-
+})();
 
 </script>
 </body>
