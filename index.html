@@ -3027,8 +3027,8 @@ document.addEventListener('keydown', e => {
   if (e.key === 'k' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); toggleSearch(); }
 });
 
-// Init
-renderEntries(ALL_ENTRIES);
+// Init deferred — ALL_ENTRIES defined in second script block
+// renderEntries(ALL_ENTRIES); — moved to after ALL_ENTRIES definition
 
 // DW init
 (function(){
