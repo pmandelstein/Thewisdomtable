@@ -3741,7 +3741,7 @@ updatePanelistCount();
 // Example: const API_PROXY_URL = 'https://your-worker.workers.dev/api';
 // When set, all AI calls route through your proxy instead of directly to Anthropic.
 
-const API_PROXY_URL = null; // Set this to your proxy URL before public launch
+const API_PROXY_URL = "https://wisdomtable.pmandelstein.workers.dev"; // Wisdom Table AI proxy
 
 function getAPIEndpoint() {
   return API_PROXY_URL || "https://api.anthropic.com/v1/messages";
