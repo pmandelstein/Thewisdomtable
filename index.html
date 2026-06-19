@@ -3675,7 +3675,7 @@ Respond as each panelist in their authentic voice.`;
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({
-      model: "claude-sonnet-4-20250514",
+      model: "claude-sonnet-4-6",
       max_tokens: 1500,
       system: systemPrompt,
       messages: [{role: "user", content: userPrompt}]
@@ -3741,8 +3741,7 @@ updatePanelistCount();
 // Example: const API_PROXY_URL = 'https://your-worker.workers.dev/api';
 // When set, all AI calls route through your proxy instead of directly to Anthropic.
 
-const API_PROXY_URL = "https://wisdomtable.pmandelstein.workers.dev";
-
+const API_PROXY_URL = "https://wisdomtable.pmandelstein.workers.dev"; // Wisdom Table AI proxy
 
 function getAPIEndpoint() {
   return API_PROXY_URL || "https://api.anthropic.com/v1/messages";
@@ -3825,7 +3824,7 @@ Do NOT use markdown. Length: 500–800 words. End with something a sincere seeke
 async function fetchW(title, trad) {
   const r = await fetch(getAPIEndpoint(), {
     method:"POST", headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({ model:"claude-sonnet-4-20250514", max_tokens:1000, system:SYS,
+    body:JSON.stringify({ model:"claude-sonnet-4-6", max_tokens:1000, system:SYS,
       messages:[{role:"user", content:`Write a Sanctuary entry for: "${title}" (${trad}). Include perspectives from relevant traditions, genuine convergences and divergences, and a closing reflection for any sincere seeker — religious or not.`}]
     })
   });
@@ -3844,7 +3843,7 @@ async function runCompare() {
   try {
     const r = await fetch(getAPIEndpoint(), {
       method:"POST", headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({ model:"claude-sonnet-4-20250514", max_tokens:1000, system:SYS,
+      body:JSON.stringify({ model:"claude-sonnet-4-6", max_tokens:1000, system:SYS,
         messages:[{role:"user", content:`Compare how these traditions approach: "${topic}"\nTraditions: ${trads.join(', ')}\n\nFor each tradition, 2–3 substantive paragraphs. End with a section on convergences and divergences. Use <h4> for tradition names, <p> for content. Be fair and deep with all, including secular/atheist.`}]
       })
     });
@@ -4166,7 +4165,7 @@ async function rpAsk(){
 
 async function callAI_treasury(prompt){
   try{
-    const r=await fetch(getAPIEndpoint(),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1000,system:`You are the Wisdom Table guide — scholarly, warm, spanning all traditions. Respond in HTML using only <h4> headings and <p> paragraphs. End with something the seeker can use today.`,messages:[{role:"user",content:prompt}]})});
+    const r=await fetch(getAPIEndpoint(),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:1000,system:`You are the Wisdom Table guide — scholarly, warm, spanning all traditions. Respond in HTML using only <h4> headings and <p> paragraphs. End with something the seeker can use today.`,messages:[{role:"user",content:prompt}]})});
     return (await r.json()).content?.[0]?.text||'<p>Could not retrieve.</p>';
   }catch{return'<p>Could not connect.</p>';}
 }
@@ -4553,7 +4552,7 @@ Keep each response to 2-3 sentences. Make it feel like a real conversation, not 
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
+        model: "claude-sonnet-4-6",
         max_tokens: 1200,
         system: "You are the Wisdom Table Council facilitator. Generate warm, specific, actionable dialogue between wisdom traditions responding to a personal dilemma. Use only the HTML structure specified. Each voice should feel distinct and authentic.",
         messages: [{ role: "user", content: prompt }]
@@ -5402,7 +5401,7 @@ Respond as each panelist in their authentic voice.`;
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({
-      model: "claude-sonnet-4-20250514",
+      model: "claude-sonnet-4-6",
       max_tokens: 1500,
       system: systemPrompt,
       messages: [{role: "user", content: userPrompt}]
