@@ -1170,7 +1170,7 @@ textarea{resize:vertical;line-height:1.65}
       </div>
 
       <!-- STORY: Firelight, circle of listeners -->
-      <div class="wok-card" onclick="filterAndScroll('mythology')" style="cursor:pointer;background:linear-gradient(165deg,#201408 0%,#342008 40%,#241408 70%,#181206 100%)">
+      <div class="wok-card" onclick="filterAndScroll('story')" style="cursor:pointer;background:linear-gradient(165deg,#201408 0%,#342008 40%,#241408 70%,#181206 100%)">
         <div style="position:absolute;inset:0;background:
           radial-gradient(ellipse at 50% 55%,rgba(240,150,40,.38) 0%,transparent 50%),
           radial-gradient(ellipse at 50% 55%,rgba(200,100,20,.28) 0%,transparent 35%)">
@@ -3351,7 +3351,7 @@ function renderEntries(entries){
 
 function filterEntries(trad,q){
   let entries=[...ALL_ENTRIES];
-  if(trad&&trad!=='all')entries=entries.filter(e=>e.tradition.includes(trad));
+  if(trad&&trad!=='all')entries=entries.filter(e=>e.tradition.toLowerCase().includes(trad.toLowerCase())||e.category.toLowerCase().includes(trad.toLowerCase())||(e.tags||[]).some(t=>t.toLowerCase().includes(trad.toLowerCase())));
   if(q&&q.length>1){const lq=q.toLowerCase();entries=entries.filter(e=>[e.title,e.tradition,e.category,...(e.tags||[]),e.body||''].some(s=>s.toLowerCase().includes(lq)));}
   return entries;
 }
