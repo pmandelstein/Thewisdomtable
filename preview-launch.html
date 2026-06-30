@@ -866,117 +866,325 @@ textarea{resize:vertical;line-height:1.65}
   </div>
 </div>
 
-<div id="stats-bar">
-  <div class="stats-inner">
-    <div class="stat-item" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Explore traditions">
-      <span class="stat-n">16+</span><span class="stat-l">Wisdom Traditions</span>
-      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Explore</span>
-    </div>
-    <div class="stat-item" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Browse the library">
-      <span class="stat-n">42</span><span class="stat-l">Curated Entries</span>
-      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Browse</span>
-    </div>
-    <div class="stat-item"><span class="stat-n">4,000</span><span class="stat-l">Years Spanned</span></div>
-    <div class="stat-item" onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Enter the Council Room">
-      <span class="stat-n">20</span><span class="stat-l">Human Questions</span>
-      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Ask one</span>
-    </div>
-    <div class="stat-item" onclick="document.getElementById('ways-of-knowing').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Discover ways of knowing">
-      <span class="stat-n">9</span><span class="stat-l">Ways of Knowing</span>
-      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Discover</span>
-    </div>
-    <div class="stat-item" onclick="document.getElementById('founding-membership').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Take a seat">
-      <span class="stat-n">∞</span><span class="stat-l">Seekers Welcome</span>
-      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Enter free</span>
-    </div>
-    <div class="stats-quote">"The table is set. There is a seat for everyone."</div>
-  </div>
-</div>
 
-<!-- LIFE AREAS -->
-<section id="life-areas" style="background:var(--paper2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:36px 0">
-  <div style="max-width:1500px;margin:0 auto;padding:0 24px">
-    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px">
-      <div>
-        <div style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--amber);margin-bottom:5px">Where are you right now?</div>
-        <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--ink);font-weight:400">Find wisdom for where you are in life</div>
+<section style="background:var(--dark2);padding:52px 0 48px;border-top:1px solid rgba(200,152,10,.15);border-bottom:1px solid rgba(200,152,10,.15)">
+  <div style="max-width:900px;margin:0 auto;padding:0 24px">
+    <div style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.36em;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:28px;opacity:.85">Three Ways to Enter</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px">
+
+      <div style="border:1px solid rgba(200,152,10,.2);padding:28px 24px;border-radius:2px;background:rgba(255,255,255,.03)">
+        <div style="font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.08em;color:var(--gold);margin-bottom:10px">✦ Ask the Library</div>
+        <p style="font-family:'EB Garamond',serif;color:rgba(245,237,216,.75);font-size:.98rem;line-height:1.65;margin:0">Ask any question about how to live. The library draws on 56 traditions — every century, every continent — and answers from across all of them at once.</p>
+        <div style="margin-top:16px"><a onclick="document.getElementById('ask-section').scrollIntoView({behavior:'smooth'})" style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);cursor:pointer;text-decoration:none">Ask a question →</a></div>
       </div>
-      <a onclick="document.getElementById('treasury').scrollIntoView({behavior:'smooth'})" style="font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.1em;color:var(--amber);cursor:pointer;text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amberb)'" onmouseout="this.style.color='var(--amber)'">Browse all areas →</a>
+
+      <div style="border:1px solid rgba(200,152,10,.2);padding:28px 24px;border-radius:2px;background:rgba(255,255,255,.03)">
+        <div style="font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.08em;color:var(--gold);margin-bottom:10px">⟐ Convene a Council</div>
+        <p style="font-family:'EB Garamond',serif;color:rgba(245,237,216,.75);font-size:.98rem;line-height:1.65;margin:0">Bring a real question or situation. Choose your voices — Marcus Aurelius, Rumi, Confucius, a modern neuroscientist — and let them speak to it together.</p>
+        <div style="margin-top:16px"><a onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'})" style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);cursor:pointer;text-decoration:none">Convene your council →</a></div>
+      </div>
+
+      <div style="border:1px solid rgba(200,152,10,.2);padding:28px 24px;border-radius:2px;background:rgba(255,255,255,.03)">
+        <div style="font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.08em;color:var(--gold);margin-bottom:10px">⇌ Explore the Library</div>
+        <p style="font-family:'EB Garamond',serif;color:rgba(245,237,216,.75);font-size:.98rem;line-height:1.65;margin:0">Browse 56 curated entries spanning Buddhism, Stoicism, Lakota wisdom, Yoruba philosophy, quantum physics, and more. Every tradition. Equal seriousness.</p>
+        <div style="margin-top:16px"><a onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})" style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);cursor:pointer;text-decoration:none">Enter the library →</a></div>
+      </div>
+
     </div>
-    <div style="display:flex;flex-wrap:wrap;gap:7px">
-      <button onclick="launchCouncil('I am navigating grief and loss')" class="la-btn">Grief</button>
-      <button onclick="launchCouncil('I am searching for purpose and meaning')" class="la-btn">Purpose</button>
-      <button onclick="launchCouncil('I am thinking about love and my relationship')" class="la-btn">Love &amp; Relationships</button>
-      <button onclick="launchCouncil('I am thinking about what kind of parent I want to be')" class="la-btn">Parenting</button>
-      <button onclick="launchCouncil('I am afraid of aging and what it means')" class="la-btn">Aging</button>
-      <button onclick="launchCouncil('I or someone I love is facing serious illness')" class="la-btn">Illness</button>
-      <button onclick="launchCouncil('I am facing death — my own or someone I love')" class="la-btn">Death</button>
-      <button onclick="launchCouncil('I cannot forgive someone who hurt me')" class="la-btn">Forgiveness</button>
-      <button onclick="launchCouncil('I am struggling with anxiety and cannot find peace')" class="la-btn">Anxiety</button>
-      <button onclick="filterAndScroll('work')" class="la-btn">Work &amp; Livelihood</button>
-      <button onclick="launchCouncil('What is enough? What is wealth actually for?')" class="la-btn">Money &amp; Enough</button>
-      <button onclick="launchCouncil('I am in a position of leadership and need wisdom about how to lead well')" class="la-btn">Leadership</button>
-      <button onclick="filterAndScroll('family')" class="la-btn">Family</button>
-      <button onclick="filterAndScroll('justice')" class="la-btn">Justice</button>
-      <button onclick="filterAndScroll('war')" class="la-btn">War &amp; Peace</button>
-      <button onclick="launchCouncil('I have lost my faith and feel unmoored')" class="la-btn">Faith &amp; Doubt</button>
-      <button onclick="launchCouncil('I want to understand what different traditions say about the meaning of life')" class="la-btn">Meaning</button>
-      <button onclick="filterAndScroll('nature')" class="la-btn">Nature</button>
+    <p style="font-family:'EB Garamond',serif;font-style:italic;color:rgba(245,237,216,.45);font-size:.92rem;text-align:center;margin:32px 0 0">Everything is free. No account required. No tradition privileged over another.</p>
+  </div>
+</section>
+
+<section id="humanity-asking" style="background:var(--ink);padding:52px 0 48px;border-top:1px solid rgba(200,152,10,.15);border-bottom:1px solid rgba(200,152,10,.15)">
+  <div style="max-width:1500px;margin:0 auto;padding:0 24px">
+
+    <!-- Header -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:36px">
+      <div>
+        <div style="font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(200,152,10,.55);margin-bottom:10px;display:flex;align-items:center;gap:12px">
+          <span style="width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite;display:inline-block"></span>
+          Live · Updated Daily
+        </div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:400;color:#F5EDD8;line-height:1.15;margin-bottom:16px">What Humanity Is<br><em style="color:var(--gold)">Wrestling With</em> Today</h2>
+        <p style="font-size:.95rem;color:rgba(245,237,216,.65);line-height:1.78;max-width:400px;margin-bottom:22px">Questions people are bringing to the Council Room right now. Anonymous and aggregate. A living mirror of what weighs most heavily on human hearts.</p>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(200,152,10,.45);margin-bottom:2px">Today's most urgent question</div>
+          <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:rgba(245,237,216,.82);line-height:1.5;border-left:2px solid var(--gold);padding-left:14px">"I am grieving and I don't know how to hold it."</div>
+          <div style="font-size:.75rem;color:rgba(245,237,216,.3);font-style:italic;padding-left:16px">— brought to the Council 1,247 times today</div>
+        </div>
+        <div style="margin-top:20px;padding:14px 16px;background:rgba(160,48,48,.08);border:1px solid rgba(160,48,48,.2);border-left:3px solid #A03030">
+          <div style="font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:#A03030;margin-bottom:8px;display:flex;align-items:center;gap:8px"><span style="width:6px;height:6px;border-radius:50%;background:#A03030;animation:pulse 2s infinite;display:inline-block"></span>Wisdom at Risk</div>
+          <p style="font-size:.82rem;color:rgba(245,237,216,.65);line-height:1.72;margin:0">According to tracking data from <strong style="color:rgba(245,237,216,.82)">ATALM</strong>, the <strong style="color:rgba(245,237,216,.82)">African Oral History Archive</strong>, and the <strong style="color:rgba(245,237,216,.82)">Nunn Center for Oral History</strong>: over 40% of elder-held cultural traditions on 20th-century magnetic tape are at risk of physical degradation. The <strong style="color:rgba(245,237,216,.82)">Endangered Languages Project</strong> estimates one language disappears every 14 days.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:2px;background:rgba(200,152,10,.06);border:1px solid rgba(200,152,10,.1)" id="humanity-list">
+        <!-- Rendered by JS; fallback inline below if JS unavailable -->
+        <div style="padding:12px 16px;background:rgba(245,237,216,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
+          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.4)">1</span>
+          <div><div style="font-size:.92rem;color:#F5EDD8;margin-bottom:4px">Grief &amp; loss</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:92%;background:#C8980A;border-radius:2px"></div></div></div>
+          <span style="font-size:.72rem;color:rgba(245,237,216,.35);white-space:nowrap;font-style:italic">1,247</span>
+        </div>
+        <div style="padding:12px 16px;background:rgba(245,237,216,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
+          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.4)">2</span>
+          <div><div style="font-size:.92rem;color:#F5EDD8;margin-bottom:4px">Loneliness &amp; connection</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:78%;background:#8C6A10;border-radius:2px"></div></div></div>
+          <span style="font-size:.72rem;color:rgba(245,237,216,.35);white-space:nowrap;font-style:italic">982</span>
+        </div>
+        <div style="padding:12px 16px;background:rgba(245,237,216,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
+          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.4)">3</span>
+          <div><div style="font-size:.92rem;color:#F5EDD8;margin-bottom:4px">Purpose &amp; meaning</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:70%;background:#6A8C40;border-radius:2px"></div></div></div>
+          <span style="font-size:.72rem;color:rgba(245,237,216,.35);white-space:nowrap;font-style:italic">876</span>
+        </div>
+        <div style="padding:12px 16px;background:rgba(245,237,216,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
+          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.4)">4</span>
+          <div><div style="font-size:.92rem;color:#F5EDD8;margin-bottom:4px">Anxiety about the future</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:61%;background:#4A6A8C;border-radius:2px"></div></div></div>
+          <span style="font-size:.72rem;color:rgba(245,237,216,.35);white-space:nowrap;font-style:italic">765</span>
+        </div>
+        <div style="padding:12px 16px;background:rgba(245,237,216,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
+          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.4)">5</span>
+          <div><div style="font-size:.92rem;color:#F5EDD8;margin-bottom:4px">Forgiveness</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:52%;background:#7A4A8C;border-radius:2px"></div></div></div>
+          <span style="font-size:.72rem;color:rgba(245,237,216,.35);white-space:nowrap;font-style:italic">654</span>
+        </div>
+        <div style="padding:12px 16px;background:rgba(245,237,216,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
+          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.4)">6</span>
+          <div><div style="font-size:.92rem;color:#F5EDD8;margin-bottom:4px">Aging &amp; mortality</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:43%;background:#8C4A4A;border-radius:2px"></div></div></div>
+          <span style="font-size:.72rem;color:rgba(245,237,216,.35);white-space:nowrap;font-style:italic">543</span>
+        </div>
+        <div style="padding:12px 16px;background:rgba(245,237,216,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
+          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.4)">7</span>
+          <div><div style="font-size:.92rem;color:#F5EDD8;margin-bottom:4px">Loss of faith</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:34%;background:#6A5A3A;border-radius:2px"></div></div></div>
+          <span style="font-size:.72rem;color:rgba(245,237,216,.35);white-space:nowrap;font-style:italic">421</span>
+        </div>
+        <div style="padding:12px 16px;background:rgba(245,237,216,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
+          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.4)">8</span>
+          <div><div style="font-size:.92rem;color:#F5EDD8;margin-bottom:4px">Work, money &amp; enough</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:31%;background:#2A5A3A;border-radius:2px"></div></div></div>
+          <span style="font-size:.72rem;color:rgba(245,237,216,.35);white-space:nowrap;font-style:italic">387</span>
+        </div>
+        <div style="padding:12px 16px;background:rgba(245,237,216,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
+          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.4)">9</span>
+          <div><div style="font-size:.92rem;color:#F5EDD8;margin-bottom:4px">Justice &amp; fairness</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:25%;background:#2A3A5A;border-radius:2px"></div></div></div>
+          <span style="font-size:.72rem;color:rgba(245,237,216,.35);white-space:nowrap;font-style:italic">312</span>
+        </div>
+        <div style="padding:12px 16px;background:rgba(245,237,216,.03);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
+          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.4)">10</span>
+          <div><div style="font-size:.92rem;color:#F5EDD8;margin-bottom:4px">War, conflict &amp; peace</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:23%;background:#6A1C1C;border-radius:2px"></div></div></div>
+          <span style="font-size:.72rem;color:rgba(245,237,216,.35);white-space:nowrap;font-style:italic">287</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid rgba(200,152,10,.1);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <div style="font-size:.85rem;color:rgba(245,237,216,.38);font-style:italic">Councils convened globally today: <span style="color:var(--gold);font-style:normal;font-family:'Cinzel',serif" id="council-count-display">1,247</span></div>
+      <a onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'})" style="font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;color:rgba(200,152,10,.6);cursor:pointer;transition:color .2s;text-decoration:none" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(200,152,10,.6)'">Bring your question to the Council →</a>
     </div>
   </div>
 </section>
 
 
-<!-- THREE ENTRY MODES -->
 <div 
-
-<!-- EMOTIONAL STORY STRIP -->
-<section id="golden-rule" style="padding:52px 0 48px;background:var(--paper2);border-top:1px solid var(--rule)">
-  <div class="gr-inner">
-    <div class="sec-head" style="padding:0 0 24px;text-align:center">
-      <div class="sec-ey" style="justify-content:center">The Great Conversation</div>
-      <div class="sec-title">One Question · Every Voice</div>
-      <p class="sec-sub">What do we owe each other? Every tradition has answered. They have never disagreed more than they agree.</p>
+id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px solid var(--rule)">
+  <div class="council-inner">
+    <div class="sec-head" style="padding:0 0 20px;text-align:center">
+      <div class="sec-ey" style="justify-content:center">The Council Room</div>
+      <div class="sec-title">Convene Your Council</div>
+      <p class="sec-sub">The Council Room is where wisdom becomes personal. Bring your actual situation — the diagnosis, the relationship, the decision, the grief — and hear how the wisest voices in human history speak directly to it.</p>
     </div>
-    <div class="gr-grid">
-      <div class="gr-item">
-        <div class="gr-trad"><span class="gr-dot" style="background:#1E8A7A"></span>Buddhism</div>
-        <div><div class="gr-quote">Hurt not others in ways you yourself would find hurtful.</div><div class="gr-src">Udanavarga 5:18</div></div>
+    <div class="council-layout">
+      <div class="council-left">
+        <div class="council-step"><div class="step-n">1</div><div><div class="step-label">Your Question for the Council</div><textarea id="council-input" rows="3" placeholder="My spouse has dementia and I am exhausted… · I can&#39;t forgive my father… · I&#39;m afraid of dying… · I don&#39;t know what to do with my life…"></textarea></div></div>
+        <div class="council-step"><div class="step-n">2</div><div style="width:100%">
+          <div class="step-label">Choose Your Panelists</div>
+          <div style="font-size:.78rem;color:var(--muted);font-style:italic;margin-bottom:10px">Select from below — or type anyone: a philosopher, a tradition, a teacher, your grandmother.</div>
+
+          <!-- Suggested panelists — scrollable chips -->
+          <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px" id="panelist-suggestions">
+            <button class="p-chip active" onclick="toggleChip(this,'Marcus Aurelius','Stoic Emperor')">Marcus Aurelius</button>
+            <button class="p-chip active" onclick="toggleChip(this,'Thích Nhất Hạnh','Zen Master')">Thích Nhất Hạnh</button>
+            <button class="p-chip" onclick="toggleChip(this,'Rumi','Sufi Mystic')">Rumi</button>
+            <button class="p-chip" onclick="toggleChip(this,'Viktor Frankl','Existentialist')">Viktor Frankl</button>
+            <button class="p-chip" onclick="toggleChip(this,'Rabbi Hillel','Jewish Wisdom')">Rabbi Hillel</button>
+            <button class="p-chip" onclick="toggleChip(this,'Confucius','Sage of Relationships')">Confucius</button>
+            <button class="p-chip" onclick="toggleChip(this,'The Bhagavad Gita','Hindu Scripture')">Bhagavad Gita</button>
+            <button class="p-chip" onclick="toggleChip(this,'An Indigenous Elder','Oral Tradition')">Indigenous Elder</button>
+            <button class="p-chip" onclick="toggleChip(this,'A Neuroscientist','Modern Science')">A Neuroscientist</button>
+            <button class="p-chip" onclick="toggleChip(this,'A Hospice Nurse','End of Life Wisdom')">A Hospice Nurse</button>
+            <button class="p-chip" onclick="toggleChip(this,'Laozi','Taoist Sage')">Laozi</button>
+            <button class="p-chip" onclick="toggleChip(this,'Socrates','Greek Philosopher')">Socrates</button>
+            <button class="p-chip" onclick="toggleChip(this,'Mary Oliver','Poet and Naturalist')">Mary Oliver</button>
+            <button class="p-chip" onclick="toggleChip(this,'Maya Angelou','Poet and Humanist')">Maya Angelou</button>
+            <button class="p-chip" onclick="toggleChip(this,'The Buddha','Buddhist Teaching')">The Buddha</button>
+            <button class="p-chip" onclick="toggleChip(this,'Carl Sagan','Scientific Wonder')">Carl Sagan</button>
+            <button class="p-chip" onclick="toggleChip(this,'Simone Weil','Mystic Philosopher')">Simone Weil</button>
+            <button class="p-chip" onclick="toggleChip(this,'A Zen Monk','Zen Buddhism')">A Zen Monk</button>
+            <button class="p-chip" onclick="toggleChip(this,'Epictetus','Stoic Philosopher')">Epictetus</button>
+            <button class="p-chip" onclick="toggleChip(this,'Hildegard von Bingen','Christian Mystic')">Hildegard von Bingen</button>
+          </div>
+
+          <!-- Add your own -->
+          <div style="display:flex;gap:6px;align-items:center;margin-bottom:8px">
+            <input id="custom-panelist-input" placeholder="Add anyone: Nietzsche, your grandfather, a rabbi…" style="flex:1;border:1px solid var(--rule);background:var(--paper3);padding:7px 10px;font-family:'EB Garamond',serif;font-size:.9rem;color:var(--ink);outline:none;transition:border-color .2s" onkeydown="if(event.key==='Enter')addCustomPanelist()" onfocus="this.style.borderColor='var(--amber)'" onblur="this.style.borderColor='var(--rule)'">
+            <button onclick="addCustomPanelist()" style="background:var(--ink);border:none;padding:7px 14px;color:var(--paper);font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.08em;cursor:pointer;white-space:nowrap;transition:background .2s" onmouseover="this.style.background='var(--amber)'" onmouseout="this.style.background='var(--ink)'">Add →</button>
+          </div>
+
+          <!-- Selected count -->
+          <div style="font-size:.75rem;color:var(--muted);font-style:italic" id="panelist-count">2 panelists selected</div>
+        </div></div>
+        <button class="council-btn" onclick="conveneCouncil()">Convene the Council →</button>
       </div>
-      <div class="gr-item">
-        <div class="gr-trad"><span class="gr-dot" style="background:#6A1C1C"></span>Christianity</div>
-        <div><div class="gr-quote">Do unto others as you would have them do unto you.</div><div class="gr-src">Matthew 7:12</div></div>
+      <div class="council-right">
+        <div class="crh-title">The Council Dialogue</div>
+        <div class="crh-sub" id="council-dilemma-display">Bring your question or situation — the council will respond</div>
+        <div id="council-dialogue"><div class="dialogue-placeholder"><p>Your council awaits. Bring a question or situation and choose your voices — from Marcus Aurelius to a modern neuroscientist.</p></div></div>
+        <div class="council-share" id="council-share" style="display:none">
+          <button class="share-btn" onclick="shareCouncil()"><span>↑</span> Copy Script</button>
+          <button class="share-btn" id="audio-btn" onclick="toggleAudio()"><span id="audio-icon">▶</span> <span id="audio-label">Listen</span></button>
+          <button class="share-btn" onclick="downloadCard()"><span>⬡</span> Save Card</button>
+        </div>
       </div>
-      <div class="gr-item">
-        <div class="gr-trad"><span class="gr-dot" style="background:#8C6A10"></span>Islam</div>
-        <div><div class="gr-quote">None truly believes until he loves for his brother what he loves for himself.</div><div class="gr-src">Hadith, Sahih al-Bukhari</div></div>
+    </div>
+
+    <!-- Famous Councils -->
+    <div style="background:var(--paper3);border-top:1px solid var(--rule);padding:12px 26px">
+      <div style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:8px">
+        <span style="color:var(--amber)">✦</span> Famous Councils — One Click, No Typing Required
       </div>
-      <div class="gr-item">
-        <div class="gr-trad"><span class="gr-dot" style="background:#7A5020"></span>Judaism</div>
-        <div><div class="gr-quote">What is hateful to you, do not do to another. That is the whole Torah; the rest is commentary.</div><div class="gr-src">Rabbi Hillel · Talmud Shabbat 31a</div></div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        <button class="fc-btn" onclick="famousCouncil('How do I face my own mortality and death?',['Marcus Aurelius','Thích Nhất Hạnh','Viktor Frankl','An Indigenous Elder'])">How do I face mortality?</button>
+        <button class="fc-btn" onclick="famousCouncil('My child will not speak to me. I do not know how to repair this.',['Confucius','Rabbi Hillel','An Indigenous Elder','A Neuroscientist'])">My child won't speak to me</button>
+        <button class="fc-btn" onclick="famousCouncil('I cannot forgive someone who hurt me deeply and may never apologize.',['Rumi','Rabbi Hillel','The Bhagavad Gita','Marcus Aurelius'])">I cannot forgive</button>
+        <button class="fc-btn" onclick="famousCouncil('I have left my faith and feel unmoored. I miss something I cannot name.',['Rumi','Viktor Frankl','Marcus Aurelius','An Indigenous Elder'])">I left my faith</button>
+        <button class="fc-btn" onclick="famousCouncil('I am afraid of aging — of losing who I am, of becoming irrelevant.',['Marcus Aurelius','Confucius','Thích Nhất Hạnh','Viktor Frankl'])">I'm afraid of aging</button>
+        <button class="fc-btn" onclick="famousCouncil('I am caring for a spouse with dementia. I am exhausted and grief-stricken.',['Marcus Aurelius','Thích Nhất Hạnh','Rumi','A Neuroscientist'])">Caring for a spouse with dementia</button>
       </div>
-      <div class="gr-item">
-        <div class="gr-trad"><span class="gr-dot" style="background:#1C2E5A"></span>Hinduism</div>
-        <div><div class="gr-quote">Do not do to others what would cause pain if done to you.</div><div class="gr-src">Mahābhārata 5:1517</div></div>
-      </div>
-      <div class="gr-item">
-        <div class="gr-trad"><span class="gr-dot" style="background:#7A3A10"></span>Confucianism</div>
-        <div><div class="gr-quote">Do not impose on others what you do not want for yourself.</div><div class="gr-src">Analects 15:24</div></div>
-      </div>
-      <div class="gr-item">
-        <div class="gr-trad"><span class="gr-dot" style="background:#6A5818"></span>Sikhism</div>
-        <div><div class="gr-quote">I am a stranger to no one; and no one is a stranger to me. Indeed, I am a friend to all.</div><div class="gr-src">Guru Granth Sahib</div></div>
-      </div>
-      <div class="gr-item">
-        <div class="gr-trad"><span class="gr-dot" style="background:#781838"></span>Jainism</div>
-        <div><div class="gr-quote">One should treat all creatures as one would like to be treated.</div><div class="gr-src">Sutrakritanga 1.11.33</div></div>
-      </div>
-      <div class="gr-item">
-        <div class="gr-trad"><span class="gr-dot" style="background:#3A3848"></span>Secular Ethics</div>
-        <div><div class="gr-quote">Act only according to that maxim by which you can at the same time will it to become universal law.</div><div class="gr-src">Immanuel Kant · Groundwork of the Metaphysics of Morals</div></div>
-      </div>
+    </div>
+
+    <!-- Trending -->
+    <div class="trending-strip" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 26px">
+      <span style="display:flex;align-items:center;gap:6px;flex-shrink:0">
+        <span style="width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite;display:inline-block"></span>
+        <span class="ts-label">What the world is bringing to the Council today:</span>
+      </span>
+      <span class="ts-item" onclick="loadTrending('My spouse has dementia. I am exhausted, grieving, and don\'t know how to hold this.')">Caring for a Spouse with Dementia</span>
+      <span class="ts-item" onclick="loadTrending('Collective anxiety about AI — how do we find peace with technology that is changing everything?')">Collective Anxiety about AI</span>
+      <span class="ts-item" onclick="loadTrending('The antidote to modern loneliness — how do we genuinely connect?')">Antidote to Loneliness</span>
+      <span class="ts-item" onclick="loadTrending('I am afraid of dying. What do the wisest voices across history say to that fear?')">Fear of Death</span>
+      <span class="ts-item" onclick="loadTrending('How do I forgive someone who has not apologized and may never apologize?')">Forgiving the Unrepentant</span>
+    </div>
+
+    <div class="trending-strip" style="display:none"><!-- hidden original -->
+      <span class="ts-label">Today&#39;s Trending Tables:</span>
+      <span class="ts-item" onclick="loadTrending('My spouse has dementia. I am exhausted, grieving, and don\'t know how to hold this.')">Caring for a Spouse with Dementia</span>
+      <span class="ts-item" onclick="loadTrending('Collective anxiety about AI — how do we find peace with technology that is changing everything?')">Collective Anxiety about AI</span>
+      <span class="ts-item" onclick="loadTrending('The antidote to modern loneliness — how do we genuinely connect?')">Antidote to Modern Loneliness</span>
+      <span class="ts-item" onclick="loadTrending('I am afraid of dying. What do the wisest voices across history say to that fear?')">Fear of Death</span>
+      <span class="ts-item" onclick="loadTrending('How do I forgive someone who has not apologized and may never apologize?')">Forgiving the Unrepentant</span>
     </div>
   </div>
+</section><section id="entry-modes">
+  <div class="em-head">
+    <div class="em-ey">Four Ways In</div>
+    <div class="em-title">How would you like to begin?</div>
+  </div>
+  <div class="em-grid">
+    <!-- 1: Questions -->
+    <a class="em-card em-1" href="#" onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'});return false;">
+      <div class="em-n"><span class="em-n-dot">1</span>Humanity's Great Questions</div>
+      <h3>The questions that outlive civilizations</h3>
+      <p>Nobody wakes up asking what tradition to explore. They wake up asking: how do I grieve? why am I here? what do I owe the people I love?</p>
+      <div class="em-qlist">
+        <div class="em-ql">What is a good life? <span>→</span></div>
+        <div class="em-ql">Why do we suffer? <span>→</span></div>
+        <div class="em-ql">What is love? <span>→</span></div>
+        <div class="em-ql">What happens when we die? <span>→</span></div>
+        <div class="em-ql">What is consciousness? <span>→</span></div>
+      </div>
+      <span class="em-link">Explore all 13 questions →</span>
+    </a>
+
+    <!-- 2: Council Room -->
+    <div class="em-card em-2" onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'})">
+      <div class="em-n"><span class="em-n-dot">2</span>The Council Room</div>
+      <h3>When life gets heavy, you need perspective</h3>
+      <p>Bring your actual situation. The Council Room gathers the wisest voices in human history and has them speak directly to you.</p>
+      <div style="margin-bottom:14px">
+        <input class="em-2-input" id="em-dilemma" placeholder="My spouse has dementia and I'm exhausted… · I can't forgive my father… · I'm afraid of dying…" onclick="event.stopPropagation()">
+        <button class="em-2-btn" onclick="event.stopPropagation();quickConvene()">Convene the Council →</button>
+      </div>
+      <span class="em-link">Learn more about the Council Room →</span>
+    </div>
+
+    <!-- 3: Explore -->
+    <div class="em-card em-3">
+      <div class="em-n"><span class="em-n-dot">3</span>Explore Wisdom</div>
+      <h3>Browse what humanity has learned</h3>
+      <p>16 traditions. 5 ways of knowing. Every text, teacher, and teaching organized for serious seekers.</p>
+      <div class="em-trad-grid">
+        <div class="em-tg" onclick="filterAndScroll('Buddhism')"><span class="em-tg-dot" style="background:#1E8A7A"></span><div class="em-tg-name">Buddhism</div></div>
+        <div class="em-tg" onclick="filterAndScroll('Christianity')"><span class="em-tg-dot" style="background:#6A1C1C"></span><div class="em-tg-name">Christianity</div></div>
+        <div class="em-tg" onclick="filterAndScroll('Islam')"><span class="em-tg-dot" style="background:#8C6A10"></span><div class="em-tg-name">Islam</div></div>
+        <div class="em-tg" onclick="filterAndScroll('Judaism')"><span class="em-tg-dot" style="background:#7A5020"></span><div class="em-tg-name">Judaism</div></div>
+        <div class="em-tg" onclick="filterAndScroll('Hinduism')"><span class="em-tg-dot" style="background:#1C2E5A"></span><div class="em-tg-name">Hinduism</div></div>
+        <div class="em-tg" onclick="filterAndScroll('Secular')"><span class="em-tg-dot" style="background:#3A3848"></span><div class="em-tg-name">Secular</div></div>
+        <div class="em-tg" onclick="filterAndScroll('Indigenous')"><span class="em-tg-dot" style="background:#1A3E28"></span><div class="em-tg-name">Indigenous</div></div>
+        <div class="em-tg" onclick="filterAndScroll('Ways of Knowing')"><span class="em-tg-dot" style="background:#5A4A2A"></span><div class="em-tg-name">Ways of Knowing</div></div>
+        <div class="em-tg" onclick="filterAndScroll('Taoism')"><span class="em-tg-dot" style="background:#4A2878"></span><div class="em-tg-name">Taoism</div></div>
+      </div>
+      <span class="em-link" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})">Explore all traditions →</span>
+    </div>
+
+    <!-- 4: Wisdom Journeys -->
+    <div class="em-card" style="background:var(--dark2);cursor:pointer;padding:28px 26px 26px;display:block;transition:all .18s;position:relative;overflow:hidden;border-top:3px solid transparent" onmouseover="this.style.background='#241C0A';this.style.borderTopColor='var(--gold)'" onmouseout="this.style.background='var(--dark2)';this.style.borderTopColor='transparent'" onclick="document.getElementById('ask-section').scrollIntoView({behavior:'smooth'})">
+      <div class="em-n" style="color:rgba(200,152,10,.6)"><span class="em-n-dot" style="background:rgba(200,152,10,.15);color:var(--gold)">4</span>Wisdom Journeys</div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;line-height:1.15;margin-bottom:10px;color:#F5EDD8">Guided paths for life's big questions</h3>
+      <p style="font-size:.92rem;line-height:1.72;margin-bottom:16px;color:rgba(245,237,216,.62)">Curated journeys weaving timeless wisdom into practical guidance. Each draws from multiple traditions across centuries.</p>
+      <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:16px">
+        <div style="font-size:.88rem;color:rgba(245,237,216,.6);padding:6px 10px;background:rgba(245,237,216,.05);border:1px solid rgba(200,152,10,.1);font-style:italic;cursor:pointer" onclick="event.stopPropagation();document.getElementById('council-input').value='I am navigating grief and loss';conveneCouncil()">Navigating Grief → 7 traditions</div>
+        <div style="font-size:.88rem;color:rgba(245,237,216,.6);padding:6px 10px;background:rgba(245,237,216,.05);border:1px solid rgba(200,152,10,.1);font-style:italic;cursor:pointer" onclick="event.stopPropagation();document.getElementById('council-input').value='I am searching for purpose and meaning';conveneCouncil()">Finding Purpose → 6 traditions</div>
+        <div style="font-size:.88rem;color:rgba(245,237,216,.6);padding:6px 10px;background:rgba(245,237,216,.05);border:1px solid rgba(200,152,10,.1);font-style:italic;cursor:pointer" onclick="event.stopPropagation();document.getElementById('council-input').value='I am afraid of death and want to understand it better';conveneCouncil()">Facing Death → 8 traditions</div>
+      </div>
+      <span style="font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;color:rgba(200,152,10,.65);display:inline-flex;align-items:center;gap:5px">Browse all journeys →</span>
+    </div>
+  </div>
+</div>
+
+<!-- WAYS OF KNOWING -->
+<section id="ask-section" style="padding:52px 0 48px;background:var(--paper)">
+  <div style="max-width:900px;margin:0 auto;padding:0 24px">
+    <div class="ai-head">
+      <h3>Ask the Library of Humanity</h3>
+      <p>Any question about how to live — answered from across the full breadth of human knowing. Every tradition. Every century. Equal seriousness.</p>
+    </div>
+    <div class="ai-modes">
+      <button class="ai-mode on" data-mode="guide" onclick="setMode(this)"><div class="am-icon">✦</div><div class="am-name">Wisdom Guide</div><div class="am-desc">Across all traditions</div></button>
+      <button class="ai-mode" data-mode="compare" onclick="setMode(this)"><div class="am-icon">⇌</div><div class="am-name">Compare</div><div class="am-desc">Traditions side by side</div></button>
+      <button class="ai-mode" data-mode="secular" onclick="setMode(this)"><div class="am-icon">◈</div><div class="am-name">Secular Seeker</div><div class="am-desc">Reason and wonder</div></button>
+      <button class="ai-mode" data-mode="universal" onclick="setMode(this)"><div class="am-icon">◎</div><div class="am-name">Universal Ground</div><div class="am-desc">What all traditions agree on</div></button>
+      <button class="ai-mode" data-mode="human" onclick="setMode(this)"><div class="am-icon">⊕</div><div class="am-name">Human Moment</div><div class="am-desc">I am grieving. I am afraid.</div></button>
+    </div>
+    <div class="ai-bar">
+      <input class="ai-input" id="ai-q" placeholder="What has humanity learned about how to live? Ask anything across the full library…" onkeydown="if(event.key==='Enter')askLibrary()">
+      <button class="ai-btn" onclick="askLibrary()">Ask the Library →</button>
+    </div>
+    <div class="ai-output" id="ai-out"></div>
+  </div>
+</section><!-- LIVING ARCHIVE -->
+<section id="living-archive" style="padding:32px 0;background:var(--ink);border-top:1px solid rgba(200,152,10,.2)">
+  <div class="la-inner">
+    <div class="la-text">
+      <div class="la-ey">The Living Archive</div>
+      <div class="la-h">The library is still being written.</div>
+      <p class="la-p">What have you learned — about grief, courage, love, forgiveness, aging, or meaning — from having actually lived it? Humanity's Living Library of Meaning preserves that too.</p>
+    </div>
+    <a class="la-btn" href="#" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'});return false;">Offer Your Wisdom →</a>
+  </div>
+</section>
+
+
+<!-- PARTICIPATE & SUBSCRIBE -->
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- THE LAST WISDOM PROJECT                                  -->
+<!-- Positioned between Living Archive and Participate        -->
+<!-- ═══════════════════════════════════════════════════════ -->
 </section><section id="ways-of-knowing">
   <div class="wok-inner">
     <div class="sec-head" style="padding:0 0 0;text-align:center;margin-bottom:0">
@@ -1253,31 +1461,6 @@ textarea{resize:vertical;line-height:1.65}
   </div>
 </section>
 
-<section id="secular" style="padding:48px 0 44px;background:var(--ink);border-top:1px solid rgba(200,152,10,.15)">
-  <div class="secular-inner">
-    <div class="sec-head" style="padding:0 0 24px;max-width:1500px;margin:0 auto">
-      <div class="sec-ey" style="justify-content:flex-start;color:rgba(200,152,10,.65)">Equal at the Table</div>
-      <div style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:400;color:#F5EDD8;margin-bottom:12px;line-height:1.2">Science, Reason &amp; Secular Wisdom</div>
-      <p style="font-size:1rem;color:rgba(245,237,216,.82);line-height:1.75;max-width:680px;margin:0">Not the absence of wisdom — a particular expression of the human search for truth and meaning. From Epicurus to Camus; from Stoicism to Sagan. The Wisdom Table holds no hierarchy of traditions.</p>
-    </div>
-    <div class="secular-streams">
-      <div class="stream-card" onclick="filterAndScroll('Secular Humanism')"><div class="sc-name">Secular Humanism</div><div class="sc-body">Ethics grounded in human dignity and reason — the worth of persons as its own foundation, needing no supernatural warrant.</div></div>
-      <div class="stream-card" onclick="openE('stoicism-meditations')"><div class="sc-name">Stoicism</div><div class="sc-body">Marcus Aurelius, Epictetus, Seneca — the inner citadel, virtue as the only good, equanimity in the face of what cannot be controlled.</div></div>
-      <div class="stream-card" onclick="openE('secular-viktor-frankl')"><div class="sc-name">Existentialism</div><div class="sc-body">Sartre, Camus, Frankl — radical freedom, the burden of choice, and the urgent task of making meaning in an open universe.</div></div>
-      <div class="stream-card" onclick="filterAndScroll('Epicureanism')"><div class="sc-name">Epicureanism</div><div class="sc-body">Tranquility, friendship, and simple pleasure — not hedonism but ataraxia: freedom from fear, gratitude for what is.</div></div>
-      <div class="stream-card" onclick="openE('science-consciousness-studies')"><div class="sc-name">Scientific Awe</div><div class="sc-body">Sagan, Feynman, Hubble — the cosmos as wonder enough. Deep time, deep space, and the improbable miracle of being alive and aware.</div></div>
-      <div class="stream-card" onclick="filterAndScroll('science')"><div class="sc-name">Ethical Culture</div><div class="sc-body">Founded by Felix Adler, 1876: "deed before creed." The practice of ethical living and social improvement as its own form of the sacred.</div></div>
-      <div class="stream-card" onclick="openE('science-evolution-wisdom')"><div class="sc-name">Evolutionary Wisdom</div><div class="sc-body">Darwin's great gift: kinship with all life, impermanence at every scale, and the staggering improbability of conscious existence.</div></div>
-      <div class="stream-card" onclick="openE('science-cosmology-universe-story')"><div class="sc-name">Cosmology</div><div class="sc-body">Thomas Berry, Carl Sagan — the 13.8-billion-year universe story as sacred narrative. We are the cosmos, locally and temporarily awake.</div></div>
-      <div class="stream-card" onclick="filterAndScroll('philosophy')"><div class="sc-name">Pragmatism</div><div class="sc-body">William James, John Dewey — truth is what works, ideas are tools, and philosophy must engage with lived human experience to matter.</div></div>
-      <div class="stream-card" onclick="filterAndScroll('Secular')"><div class="sc-name">Analytic Ethics</div><div class="sc-body">Bentham, Mill, Rawls, Singer — reason applied rigorously to moral questions. What do we owe one another, and how do we know?</div></div>
-    </div>
-    <div style="margin-top:20px;padding:16px 0;border-top:1px solid rgba(200,152,10,.12)">
-      <p style="font-family:'Playfair Display',serif;font-style:italic;color:rgba(245,237,216,.62);font-size:1rem;line-height:1.72">"The unexamined life is not worth living." — Socrates &nbsp;&nbsp;·&nbsp;&nbsp; "We are made of star-stuff. We are a way for the cosmos to know itself." — Carl Sagan</p>
-    </div>
-  </div>
-</section>
-<!-- DISCOVER: SCOUT + WISDOM AT RISK -->
 <section id="traditions">
   <div style="max-width:1500px;margin:0 auto;padding:0 24px">
     <div class="sec-head" style="padding:0 0 24px;text-align:center">
@@ -1324,7 +1507,7 @@ textarea{resize:vertical;line-height:1.65}
       <p class="sec-sub">Every century, every tradition, every civilization that has wrestled seriously with what it means to be human</p>
     </div>
     <div class="voices-grid">
-      <div class="voice-card" onclick="openE('Pema Chödrön — her teachings on sitting with groundlessness and the courage of compassion','Buddhism')">
+      <div class="voice-card" onclick="openE('buddhism-four-noble-truths','Buddhism')">
         <div class="vc-icon" style="background:#1E8A7A">佛</div>
         <div class="vc-name">The Buddha</div>
         <div class="vc-dates">c. 563–483 BCE</div>
@@ -1336,13 +1519,13 @@ textarea{resize:vertical;line-height:1.65}
         <div class="vc-dates">c. 6th c. BCE</div>
         <div class="vc-trad">Taoism</div>
       </div>
-      <div class="voice-card" onclick="openE('Socrates — his philosophical method, the examined life, and why he died for it','Ancient Greek Philosophy')">
+      <div class="voice-card" onclick="openE('the-examined-life','Ancient Greek Philosophy')">
         <div class="vc-icon" style="background:#3A3848">Σ</div>
         <div class="vc-name">Socrates</div>
         <div class="vc-dates">470–399 BCE</div>
         <div class="vc-trad">Philosophy</div>
       </div>
-      <div class="voice-card" onclick="openE('Maimonides — his synthesis of Jewish law, philosophy, and the rational search for God','Judaism · Medieval Philosophy')">
+      <div class="voice-card" onclick="openE('judaism-tikkun-olam','Judaism · Medieval Philosophy')">
         <div class="vc-icon" style="background:#7A5020">מ</div>
         <div class="vc-name">Moses</div>
         <div class="vc-dates">c. 1300 BCE</div>
@@ -1372,13 +1555,13 @@ textarea{resize:vertical;line-height:1.65}
         <div class="vc-dates">1135–1204</div>
         <div class="vc-trad">Judaism</div>
       </div>
-      <div class="voice-card" onclick="openE('Meister Eckhart — the birth of the divine in the soul and the mystical theology of letting go','Christian Mysticism')">
+      <div class="voice-card" onclick="openE('silence-contemplation-wisdom','Christian Mysticism')">
         <div class="vc-icon" style="background:#6A1C1C">E</div>
         <div class="vc-name">Meister Eckhart</div>
         <div class="vc-dates">1260–1328</div>
         <div class="vc-trad">Christian Mystic</div>
       </div>
-      <div class="voice-card" onclick="openE('sufism-rumi','Sufism')">
+      <div class="voice-card" onclick="openE('islam-tawhid','Sufism')">
         <div class="vc-icon" style="background:#8C6A10">ر</div>
         <div class="vc-name">Rūmī</div>
         <div class="vc-dates">1207–1273</div>
@@ -1390,25 +1573,25 @@ textarea{resize:vertical;line-height:1.65}
         <div class="vc-dates">1469–1539</div>
         <div class="vc-trad">Sikhism</div>
       </div>
-      <div class="voice-card" onclick="openE('Spinoza — his philosophy of God and Nature, free will, and human happiness','Philosophy · 17th century')">
+      <div class="voice-card" onclick="openE('perennial-philosophy','Philosophy · 17th century')">
         <div class="vc-icon" style="background:#3A3848">B</div>
         <div class="vc-name">Spinoza</div>
         <div class="vc-dates">1632–1677</div>
         <div class="vc-trad">Philosophy</div>
       </div>
-      <div class="voice-card" onclick="openE('Ramakrishna — his mystical experience and the teaching that all religions lead to the same truth','Hinduism · Bengali Mysticism')">
+      <div class="voice-card" onclick="openE('perennial-philosophy','Hinduism · Bengali Mysticism')">
         <div class="vc-icon" style="background:#1C2E5A">ர</div>
         <div class="vc-name">Ramakrishna</div>
         <div class="vc-dates">1836–1886</div>
         <div class="vc-trad">Hinduism</div>
       </div>
-      <div class="voice-card" onclick="openE('Friedrich Nietzsche — his philosophy of life affirmation, will to power, and the death of God','Philosophy')">
+      <div class="voice-card" onclick="openE('secular-viktor-frankl','Philosophy')">
         <div class="vc-icon" style="background:#3A3848">N</div>
         <div class="vc-name">Nietzsche</div>
         <div class="vc-dates">1844–1900</div>
         <div class="vc-trad">Philosophy</div>
       </div>
-      <div class="voice-card" onclick="openE('Simone Weil — her philosophy of attention as a spiritual practice and suffering as grace','Mystic · Philosopher')">
+      <div class="voice-card" onclick="openE('silence-contemplation-wisdom','Mystic · Philosopher')">
         <div class="vc-icon" style="background:#6A1C1C">S</div>
         <div class="vc-name">Simone Weil</div>
         <div class="vc-dates">1909–1943</div>
@@ -1426,7 +1609,7 @@ textarea{resize:vertical;line-height:1.65}
         <div class="vc-dates">1905–1997</div>
         <div class="vc-trad">Existentialism</div>
       </div>
-      <div class="voice-card" onclick="openE('Thomas Merton — his contemplative practice and writings on the inner life and social justice','Christian Mysticism')">
+      <div class="voice-card" onclick="openE('silence-contemplation-wisdom','Christian Mysticism')">
         <div class="vc-icon" style="background:#6A1C1C">T</div>
         <div class="vc-name">Thomas Merton</div>
         <div class="vc-dates">1915–1968</div>
@@ -1444,13 +1627,13 @@ textarea{resize:vertical;line-height:1.65}
         <div class="vc-dates">1936–present</div>
         <div class="vc-trad">Buddhism</div>
       </div>
-      <div class="voice-card" onclick="openE('Robin Wall Kimmerer — her teaching that plants are our oldest teachers and nature speaks to those who listen','Indigenous Science')">
+      <div class="voice-card" onclick="openE('nature-as-teacher','Indigenous Science')">
         <div class="vc-icon" style="background:#1A3E28">R</div>
         <div class="vc-name">Robin W. Kimmerer</div>
         <div class="vc-dates">1953–present</div>
         <div class="vc-trad">Indigenous Science</div>
       </div>
-      <div class="voice-card" onclick="openE('Mary Oliver — her poetry as a practice of attention to the living world','Poetry · Nature')">
+      <div class="voice-card" onclick="openE('poetry-as-wisdom','Poetry · Nature')">
         <div class="vc-icon" style="background:#5A4A2A">O</div>
         <div class="vc-name">Mary Oliver</div>
         <div class="vc-dates">1935–2019</div>
@@ -1515,14 +1698,14 @@ textarea{resize:vertical;line-height:1.65}
         <div class="writ-body">The eternal Guru of the Sikhs — poetry and song across many traditions. "God has no religion."</div>
       </div>
 
-      <div class="writ-card" onclick="openE('sufism-rumi','Sufism')">
+      <div class="writ-card" onclick="openE('islam-tawhid','Sufism')">
         <div class="writ-trad">Sufism</div>
         <div class="writ-title">Masnavi-ye Maʿnavi</div>
         <div class="writ-sub">Rūmī · 25,000 verses</div>
         <div class="writ-body">The soul's longing for home — Rūmī's masterwork on love, annihilation, and return to the source.</div>
       </div>
 
-      <div class="writ-card" onclick="openE('Analects of Confucius','Confucianism')">
+      <div class="writ-card" onclick="openE('confucianism-analects','Confucianism')">
         <div class="writ-trad">Confucianism</div>
         <div class="writ-title">The Analects</div>
         <div class="writ-sub">Confucius · compiled by disciples</div>
@@ -1602,258 +1785,34 @@ textarea{resize:vertical;line-height:1.65}
 
 
 <!-- ══ HUMANITY IS ASKING ══ -->
-<section id="humanity-asking" style="background:var(--ink);padding:52px 0 48px;border-top:1px solid rgba(200,152,10,.15);border-bottom:1px solid rgba(200,152,10,.15)">
-  <div style="max-width:1500px;margin:0 auto;padding:0 24px">
-
-    <!-- Header -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:36px">
-      <div>
-        <div style="font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(200,152,10,.55);margin-bottom:10px;display:flex;align-items:center;gap:12px">
-          <span style="width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite;display:inline-block"></span>
-          Live · Updated Daily
-        </div>
-        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:400;color:#F5EDD8;line-height:1.15;margin-bottom:16px">What Humanity Is<br><em style="color:var(--gold)">Wrestling With</em> Today</h2>
-        <p style="font-size:.95rem;color:rgba(245,237,216,.65);line-height:1.78;max-width:400px;margin-bottom:22px">Questions people are bringing to the Council Room right now. Anonymous and aggregate. A living mirror of what weighs most heavily on human hearts.</p>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <div style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(200,152,10,.45);margin-bottom:2px">Today's most urgent question</div>
-          <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:rgba(245,237,216,.82);line-height:1.5;border-left:2px solid var(--gold);padding-left:14px">"I am grieving and I don't know how to hold it."</div>
-          <div style="font-size:.75rem;color:rgba(245,237,216,.3);font-style:italic;padding-left:16px">— brought to the Council 1,247 times today</div>
-        </div>
-        <div style="margin-top:20px;padding:14px 16px;background:rgba(160,48,48,.08);border:1px solid rgba(160,48,48,.2);border-left:3px solid #A03030">
-          <div style="font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:#A03030;margin-bottom:8px;display:flex;align-items:center;gap:8px"><span style="width:6px;height:6px;border-radius:50%;background:#A03030;animation:pulse 2s infinite;display:inline-block"></span>Wisdom at Risk</div>
-          <p style="font-size:.82rem;color:rgba(245,237,216,.65);line-height:1.72;margin:0">According to tracking data from <strong style="color:rgba(245,237,216,.82)">ATALM</strong>, the <strong style="color:rgba(245,237,216,.82)">African Oral History Archive</strong>, and the <strong style="color:rgba(245,237,216,.82)">Nunn Center for Oral History</strong>: over 40% of elder-held cultural traditions on 20th-century magnetic tape are at risk of physical degradation. The <strong style="color:rgba(245,237,216,.82)">Endangered Languages Project</strong> estimates one language disappears every 14 days.</p>
-        </div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:2px;background:rgba(200,152,10,.06);border:1px solid rgba(200,152,10,.1)" id="humanity-list">
-        <!-- Rendered by JS; fallback inline below if JS unavailable -->
-        <div style="padding:12px 16px;background:rgba(245,237,216,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
-          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.4)">1</span>
-          <div><div style="font-size:.92rem;color:#F5EDD8;margin-bottom:4px">Grief &amp; loss</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:92%;background:#C8980A;border-radius:2px"></div></div></div>
-          <span style="font-size:.72rem;color:rgba(245,237,216,.35);white-space:nowrap;font-style:italic">1,247</span>
-        </div>
-        <div style="padding:12px 16px;background:rgba(245,237,216,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
-          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.4)">2</span>
-          <div><div style="font-size:.92rem;color:#F5EDD8;margin-bottom:4px">Loneliness &amp; connection</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:78%;background:#8C6A10;border-radius:2px"></div></div></div>
-          <span style="font-size:.72rem;color:rgba(245,237,216,.35);white-space:nowrap;font-style:italic">982</span>
-        </div>
-        <div style="padding:12px 16px;background:rgba(245,237,216,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
-          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.4)">3</span>
-          <div><div style="font-size:.92rem;color:#F5EDD8;margin-bottom:4px">Purpose &amp; meaning</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:70%;background:#6A8C40;border-radius:2px"></div></div></div>
-          <span style="font-size:.72rem;color:rgba(245,237,216,.35);white-space:nowrap;font-style:italic">876</span>
-        </div>
-        <div style="padding:12px 16px;background:rgba(245,237,216,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
-          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.4)">4</span>
-          <div><div style="font-size:.92rem;color:#F5EDD8;margin-bottom:4px">Anxiety about the future</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:61%;background:#4A6A8C;border-radius:2px"></div></div></div>
-          <span style="font-size:.72rem;color:rgba(245,237,216,.35);white-space:nowrap;font-style:italic">765</span>
-        </div>
-        <div style="padding:12px 16px;background:rgba(245,237,216,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
-          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.4)">5</span>
-          <div><div style="font-size:.92rem;color:#F5EDD8;margin-bottom:4px">Forgiveness</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:52%;background:#7A4A8C;border-radius:2px"></div></div></div>
-          <span style="font-size:.72rem;color:rgba(245,237,216,.35);white-space:nowrap;font-style:italic">654</span>
-        </div>
-        <div style="padding:12px 16px;background:rgba(245,237,216,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
-          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.4)">6</span>
-          <div><div style="font-size:.92rem;color:#F5EDD8;margin-bottom:4px">Aging &amp; mortality</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:43%;background:#8C4A4A;border-radius:2px"></div></div></div>
-          <span style="font-size:.72rem;color:rgba(245,237,216,.35);white-space:nowrap;font-style:italic">543</span>
-        </div>
-        <div style="padding:12px 16px;background:rgba(245,237,216,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
-          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.4)">7</span>
-          <div><div style="font-size:.92rem;color:#F5EDD8;margin-bottom:4px">Loss of faith</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:34%;background:#6A5A3A;border-radius:2px"></div></div></div>
-          <span style="font-size:.72rem;color:rgba(245,237,216,.35);white-space:nowrap;font-style:italic">421</span>
-        </div>
-        <div style="padding:12px 16px;background:rgba(245,237,216,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
-          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.4)">8</span>
-          <div><div style="font-size:.92rem;color:#F5EDD8;margin-bottom:4px">Work, money &amp; enough</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:31%;background:#2A5A3A;border-radius:2px"></div></div></div>
-          <span style="font-size:.72rem;color:rgba(245,237,216,.35);white-space:nowrap;font-style:italic">387</span>
-        </div>
-        <div style="padding:12px 16px;background:rgba(245,237,216,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
-          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.4)">9</span>
-          <div><div style="font-size:.92rem;color:#F5EDD8;margin-bottom:4px">Justice &amp; fairness</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:25%;background:#2A3A5A;border-radius:2px"></div></div></div>
-          <span style="font-size:.72rem;color:rgba(245,237,216,.35);white-space:nowrap;font-style:italic">312</span>
-        </div>
-        <div style="padding:12px 16px;background:rgba(245,237,216,.03);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
-          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.4)">10</span>
-          <div><div style="font-size:.92rem;color:#F5EDD8;margin-bottom:4px">War, conflict &amp; peace</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:23%;background:#6A1C1C;border-radius:2px"></div></div></div>
-          <span style="font-size:.72rem;color:rgba(245,237,216,.35);white-space:nowrap;font-style:italic">287</span>
-        </div>
-      </div>
+<div id="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Explore traditions">
+      <span class="stat-n">16+</span><span class="stat-l">Wisdom Traditions</span>
+      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Explore</span>
     </div>
-
-    <div style="border-top:1px solid rgba(200,152,10,.1);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
-      <div style="font-size:.85rem;color:rgba(245,237,216,.38);font-style:italic">Councils convened globally today: <span style="color:var(--gold);font-style:normal;font-family:'Cinzel',serif" id="council-count-display">1,247</span></div>
-      <a onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'})" style="font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;color:rgba(200,152,10,.6);cursor:pointer;transition:color .2s;text-decoration:none" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(200,152,10,.6)'">Bring your question to the Council →</a>
+    <div class="stat-item" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Browse the library">
+      <span class="stat-n">42</span><span class="stat-l">Curated Entries</span>
+      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Browse</span>
     </div>
-  </div>
-</section>
-
-
-<div 
-id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px solid var(--rule)">
-  <div class="council-inner">
-    <div class="sec-head" style="padding:0 0 20px;text-align:center">
-      <div class="sec-ey" style="justify-content:center">The Council Room</div>
-      <div class="sec-title">Convene Your Council</div>
-      <p class="sec-sub">The Council Room is where wisdom becomes personal. Bring your actual situation — the diagnosis, the relationship, the decision, the grief — and hear how the wisest voices in human history speak directly to it.</p>
+    <div class="stat-item"><span class="stat-n">4,000</span><span class="stat-l">Years Spanned</span></div>
+    <div class="stat-item" onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Enter the Council Room">
+      <span class="stat-n">20</span><span class="stat-l">Human Questions</span>
+      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Ask one</span>
     </div>
-    <div class="council-layout">
-      <div class="council-left">
-        <div class="council-step"><div class="step-n">1</div><div><div class="step-label">Your Question for the Council</div><textarea id="council-input" rows="3" placeholder="My spouse has dementia and I am exhausted… · I can&#39;t forgive my father… · I&#39;m afraid of dying… · I don&#39;t know what to do with my life…"></textarea></div></div>
-        <div class="council-step"><div class="step-n">2</div><div style="width:100%">
-          <div class="step-label">Choose Your Panelists</div>
-          <div style="font-size:.78rem;color:var(--muted);font-style:italic;margin-bottom:10px">Select from below — or type anyone: a philosopher, a tradition, a teacher, your grandmother.</div>
-
-          <!-- Suggested panelists — scrollable chips -->
-          <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px" id="panelist-suggestions">
-            <button class="p-chip active" onclick="toggleChip(this,'Marcus Aurelius','Stoic Emperor')">Marcus Aurelius</button>
-            <button class="p-chip active" onclick="toggleChip(this,'Thích Nhất Hạnh','Zen Master')">Thích Nhất Hạnh</button>
-            <button class="p-chip" onclick="toggleChip(this,'Rumi','Sufi Mystic')">Rumi</button>
-            <button class="p-chip" onclick="toggleChip(this,'Viktor Frankl','Existentialist')">Viktor Frankl</button>
-            <button class="p-chip" onclick="toggleChip(this,'Rabbi Hillel','Jewish Wisdom')">Rabbi Hillel</button>
-            <button class="p-chip" onclick="toggleChip(this,'Confucius','Sage of Relationships')">Confucius</button>
-            <button class="p-chip" onclick="toggleChip(this,'The Bhagavad Gita','Hindu Scripture')">Bhagavad Gita</button>
-            <button class="p-chip" onclick="toggleChip(this,'An Indigenous Elder','Oral Tradition')">Indigenous Elder</button>
-            <button class="p-chip" onclick="toggleChip(this,'A Neuroscientist','Modern Science')">A Neuroscientist</button>
-            <button class="p-chip" onclick="toggleChip(this,'A Hospice Nurse','End of Life Wisdom')">A Hospice Nurse</button>
-            <button class="p-chip" onclick="toggleChip(this,'Laozi','Taoist Sage')">Laozi</button>
-            <button class="p-chip" onclick="toggleChip(this,'Socrates','Greek Philosopher')">Socrates</button>
-            <button class="p-chip" onclick="toggleChip(this,'Mary Oliver','Poet and Naturalist')">Mary Oliver</button>
-            <button class="p-chip" onclick="toggleChip(this,'Maya Angelou','Poet and Humanist')">Maya Angelou</button>
-            <button class="p-chip" onclick="toggleChip(this,'The Buddha','Buddhist Teaching')">The Buddha</button>
-            <button class="p-chip" onclick="toggleChip(this,'Carl Sagan','Scientific Wonder')">Carl Sagan</button>
-            <button class="p-chip" onclick="toggleChip(this,'Simone Weil','Mystic Philosopher')">Simone Weil</button>
-            <button class="p-chip" onclick="toggleChip(this,'A Zen Monk','Zen Buddhism')">A Zen Monk</button>
-            <button class="p-chip" onclick="toggleChip(this,'Epictetus','Stoic Philosopher')">Epictetus</button>
-            <button class="p-chip" onclick="toggleChip(this,'Hildegard von Bingen','Christian Mystic')">Hildegard von Bingen</button>
-          </div>
-
-          <!-- Add your own -->
-          <div style="display:flex;gap:6px;align-items:center;margin-bottom:8px">
-            <input id="custom-panelist-input" placeholder="Add anyone: Nietzsche, your grandfather, a rabbi…" style="flex:1;border:1px solid var(--rule);background:var(--paper3);padding:7px 10px;font-family:'EB Garamond',serif;font-size:.9rem;color:var(--ink);outline:none;transition:border-color .2s" onkeydown="if(event.key==='Enter')addCustomPanelist()" onfocus="this.style.borderColor='var(--amber)'" onblur="this.style.borderColor='var(--rule)'">
-            <button onclick="addCustomPanelist()" style="background:var(--ink);border:none;padding:7px 14px;color:var(--paper);font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.08em;cursor:pointer;white-space:nowrap;transition:background .2s" onmouseover="this.style.background='var(--amber)'" onmouseout="this.style.background='var(--ink)'">Add →</button>
-          </div>
-
-          <!-- Selected count -->
-          <div style="font-size:.75rem;color:var(--muted);font-style:italic" id="panelist-count">2 panelists selected</div>
-        </div></div>
-        <button class="council-btn" onclick="conveneCouncil()">Convene the Council →</button>
-      </div>
-      <div class="council-right">
-        <div class="crh-title">The Council Dialogue</div>
-        <div class="crh-sub" id="council-dilemma-display">Bring your question or situation — the council will respond</div>
-        <div id="council-dialogue"><div class="dialogue-placeholder"><p>Your council awaits. Bring a question or situation and choose your voices — from Marcus Aurelius to a modern neuroscientist.</p></div></div>
-        <div class="council-share" id="council-share" style="display:none">
-          <button class="share-btn" onclick="shareCouncil()"><span>↑</span> Copy Script</button>
-          <button class="share-btn" id="audio-btn" onclick="toggleAudio()"><span id="audio-icon">▶</span> <span id="audio-label">Listen</span></button>
-          <button class="share-btn" onclick="downloadCard()"><span>⬡</span> Save Card</button>
-        </div>
-      </div>
+    <div class="stat-item" onclick="document.getElementById('ways-of-knowing').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Discover ways of knowing">
+      <span class="stat-n">9</span><span class="stat-l">Ways of Knowing</span>
+      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Discover</span>
     </div>
-
-    <!-- Famous Councils -->
-    <div style="background:var(--paper3);border-top:1px solid var(--rule);padding:12px 26px">
-      <div style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:8px">
-        <span style="color:var(--amber)">✦</span> Famous Councils — One Click, No Typing Required
-      </div>
-      <div style="display:flex;flex-wrap:wrap;gap:6px">
-        <button class="fc-btn" onclick="famousCouncil('How do I face my own mortality and death?',['Marcus Aurelius','Thích Nhất Hạnh','Viktor Frankl','An Indigenous Elder'])">How do I face mortality?</button>
-        <button class="fc-btn" onclick="famousCouncil('My child will not speak to me. I do not know how to repair this.',['Confucius','Rabbi Hillel','An Indigenous Elder','A Neuroscientist'])">My child won't speak to me</button>
-        <button class="fc-btn" onclick="famousCouncil('I cannot forgive someone who hurt me deeply and may never apologize.',['Rumi','Rabbi Hillel','The Bhagavad Gita','Marcus Aurelius'])">I cannot forgive</button>
-        <button class="fc-btn" onclick="famousCouncil('I have left my faith and feel unmoored. I miss something I cannot name.',['Rumi','Viktor Frankl','Marcus Aurelius','An Indigenous Elder'])">I left my faith</button>
-        <button class="fc-btn" onclick="famousCouncil('I am afraid of aging — of losing who I am, of becoming irrelevant.',['Marcus Aurelius','Confucius','Thích Nhất Hạnh','Viktor Frankl'])">I'm afraid of aging</button>
-        <button class="fc-btn" onclick="famousCouncil('I am caring for a spouse with dementia. I am exhausted and grief-stricken.',['Marcus Aurelius','Thích Nhất Hạnh','Rumi','A Neuroscientist'])">Caring for a spouse with dementia</button>
-      </div>
+    <div class="stat-item" onclick="document.getElementById('founding-membership').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Take a seat">
+      <span class="stat-n">∞</span><span class="stat-l">Seekers Welcome</span>
+      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Enter free</span>
     </div>
-
-    <!-- Trending -->
-    <div class="trending-strip" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 26px">
-      <span style="display:flex;align-items:center;gap:6px;flex-shrink:0">
-        <span style="width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite;display:inline-block"></span>
-        <span class="ts-label">What the world is bringing to the Council today:</span>
-      </span>
-      <span class="ts-item" onclick="loadTrending('My spouse has dementia. I am exhausted, grieving, and don\'t know how to hold this.')">Caring for a Spouse with Dementia</span>
-      <span class="ts-item" onclick="loadTrending('Collective anxiety about AI — how do we find peace with technology that is changing everything?')">Collective Anxiety about AI</span>
-      <span class="ts-item" onclick="loadTrending('The antidote to modern loneliness — how do we genuinely connect?')">Antidote to Loneliness</span>
-      <span class="ts-item" onclick="loadTrending('I am afraid of dying. What do the wisest voices across history say to that fear?')">Fear of Death</span>
-      <span class="ts-item" onclick="loadTrending('How do I forgive someone who has not apologized and may never apologize?')">Forgiving the Unrepentant</span>
-    </div>
-
-    <div class="trending-strip" style="display:none"><!-- hidden original -->
-      <span class="ts-label">Today&#39;s Trending Tables:</span>
-      <span class="ts-item" onclick="loadTrending('My spouse has dementia. I am exhausted, grieving, and don\'t know how to hold this.')">Caring for a Spouse with Dementia</span>
-      <span class="ts-item" onclick="loadTrending('Collective anxiety about AI — how do we find peace with technology that is changing everything?')">Collective Anxiety about AI</span>
-      <span class="ts-item" onclick="loadTrending('The antidote to modern loneliness — how do we genuinely connect?')">Antidote to Modern Loneliness</span>
-      <span class="ts-item" onclick="loadTrending('I am afraid of dying. What do the wisest voices across history say to that fear?')">Fear of Death</span>
-      <span class="ts-item" onclick="loadTrending('How do I forgive someone who has not apologized and may never apologize?')">Forgiving the Unrepentant</span>
-    </div>
-  </div>
-</section><section id="entry-modes">
-  <div class="em-head">
-    <div class="em-ey">Four Ways In</div>
-    <div class="em-title">How would you like to begin?</div>
-  </div>
-  <div class="em-grid">
-    <!-- 1: Questions -->
-    <a class="em-card em-1" href="#" onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'});return false;">
-      <div class="em-n"><span class="em-n-dot">1</span>Humanity's Great Questions</div>
-      <h3>The questions that outlive civilizations</h3>
-      <p>Nobody wakes up asking what tradition to explore. They wake up asking: how do I grieve? why am I here? what do I owe the people I love?</p>
-      <div class="em-qlist">
-        <div class="em-ql">What is a good life? <span>→</span></div>
-        <div class="em-ql">Why do we suffer? <span>→</span></div>
-        <div class="em-ql">What is love? <span>→</span></div>
-        <div class="em-ql">What happens when we die? <span>→</span></div>
-        <div class="em-ql">What is consciousness? <span>→</span></div>
-      </div>
-      <span class="em-link">Explore all 13 questions →</span>
-    </a>
-
-    <!-- 2: Council Room -->
-    <div class="em-card em-2" onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'})">
-      <div class="em-n"><span class="em-n-dot">2</span>The Council Room</div>
-      <h3>When life gets heavy, you need perspective</h3>
-      <p>Bring your actual situation. The Council Room gathers the wisest voices in human history and has them speak directly to you.</p>
-      <div style="margin-bottom:14px">
-        <input class="em-2-input" id="em-dilemma" placeholder="My spouse has dementia and I'm exhausted… · I can't forgive my father… · I'm afraid of dying…" onclick="event.stopPropagation()">
-        <button class="em-2-btn" onclick="event.stopPropagation();quickConvene()">Convene the Council →</button>
-      </div>
-      <span class="em-link">Learn more about the Council Room →</span>
-    </div>
-
-    <!-- 3: Explore -->
-    <div class="em-card em-3">
-      <div class="em-n"><span class="em-n-dot">3</span>Explore Wisdom</div>
-      <h3>Browse what humanity has learned</h3>
-      <p>16 traditions. 5 ways of knowing. Every text, teacher, and teaching organized for serious seekers.</p>
-      <div class="em-trad-grid">
-        <div class="em-tg" onclick="filterAndScroll('Buddhism')"><span class="em-tg-dot" style="background:#1E8A7A"></span><div class="em-tg-name">Buddhism</div></div>
-        <div class="em-tg" onclick="filterAndScroll('Christianity')"><span class="em-tg-dot" style="background:#6A1C1C"></span><div class="em-tg-name">Christianity</div></div>
-        <div class="em-tg" onclick="filterAndScroll('Islam')"><span class="em-tg-dot" style="background:#8C6A10"></span><div class="em-tg-name">Islam</div></div>
-        <div class="em-tg" onclick="filterAndScroll('Judaism')"><span class="em-tg-dot" style="background:#7A5020"></span><div class="em-tg-name">Judaism</div></div>
-        <div class="em-tg" onclick="filterAndScroll('Hinduism')"><span class="em-tg-dot" style="background:#1C2E5A"></span><div class="em-tg-name">Hinduism</div></div>
-        <div class="em-tg" onclick="filterAndScroll('Secular')"><span class="em-tg-dot" style="background:#3A3848"></span><div class="em-tg-name">Secular</div></div>
-        <div class="em-tg" onclick="filterAndScroll('Indigenous')"><span class="em-tg-dot" style="background:#1A3E28"></span><div class="em-tg-name">Indigenous</div></div>
-        <div class="em-tg" onclick="filterAndScroll('Ways of Knowing')"><span class="em-tg-dot" style="background:#5A4A2A"></span><div class="em-tg-name">Ways of Knowing</div></div>
-        <div class="em-tg" onclick="filterAndScroll('Taoism')"><span class="em-tg-dot" style="background:#4A2878"></span><div class="em-tg-name">Taoism</div></div>
-      </div>
-      <span class="em-link" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})">Explore all traditions →</span>
-    </div>
-
-    <!-- 4: Wisdom Journeys -->
-    <div class="em-card" style="background:var(--dark2);cursor:pointer;padding:28px 26px 26px;display:block;transition:all .18s;position:relative;overflow:hidden;border-top:3px solid transparent" onmouseover="this.style.background='#241C0A';this.style.borderTopColor='var(--gold)'" onmouseout="this.style.background='var(--dark2)';this.style.borderTopColor='transparent'" onclick="document.getElementById('ask-section').scrollIntoView({behavior:'smooth'})">
-      <div class="em-n" style="color:rgba(200,152,10,.6)"><span class="em-n-dot" style="background:rgba(200,152,10,.15);color:var(--gold)">4</span>Wisdom Journeys</div>
-      <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;line-height:1.15;margin-bottom:10px;color:#F5EDD8">Guided paths for life's big questions</h3>
-      <p style="font-size:.92rem;line-height:1.72;margin-bottom:16px;color:rgba(245,237,216,.62)">Curated journeys weaving timeless wisdom into practical guidance. Each draws from multiple traditions across centuries.</p>
-      <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:16px">
-        <div style="font-size:.88rem;color:rgba(245,237,216,.6);padding:6px 10px;background:rgba(245,237,216,.05);border:1px solid rgba(200,152,10,.1);font-style:italic;cursor:pointer" onclick="event.stopPropagation();document.getElementById('council-input').value='I am navigating grief and loss';conveneCouncil()">Navigating Grief → 7 traditions</div>
-        <div style="font-size:.88rem;color:rgba(245,237,216,.6);padding:6px 10px;background:rgba(245,237,216,.05);border:1px solid rgba(200,152,10,.1);font-style:italic;cursor:pointer" onclick="event.stopPropagation();document.getElementById('council-input').value='I am searching for purpose and meaning';conveneCouncil()">Finding Purpose → 6 traditions</div>
-        <div style="font-size:.88rem;color:rgba(245,237,216,.6);padding:6px 10px;background:rgba(245,237,216,.05);border:1px solid rgba(200,152,10,.1);font-style:italic;cursor:pointer" onclick="event.stopPropagation();document.getElementById('council-input').value='I am afraid of death and want to understand it better';conveneCouncil()">Facing Death → 8 traditions</div>
-      </div>
-      <span style="font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;color:rgba(200,152,10,.65);display:inline-flex;align-items:center;gap:5px">Browse all journeys →</span>
-    </div>
+    <div class="stats-quote">"The table is set. There is a seat for everyone."</div>
   </div>
 </div>
 
-<!-- WAYS OF KNOWING -->
+<!-- LIFE AREAS -->
 <section id="compare-section" style="padding:52px 0 48px;background:var(--paper2);border-top:1px solid var(--rule)">
   <div class="cmp-inner">
     <div class="sec-head" style="padding:0 0 24px;text-align:center">
@@ -1881,52 +1840,52 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
       <p class="sec-sub">The same insights emerging independently in ancient China, medieval Persia, and modern neuroscience</p>
     </div>
     <div class="genome-grid">
-      <div class="theme" onclick="openE('impermanence suffering loss','Cross-tradition')">
+      <div class="theme" onclick="openE('buddhism-four-noble-truths','Cross-tradition')">
         <h4>Impermanence & Suffering</h4>
         <p>Every tradition faces the passing of all things — and offers a way to hold it.</p>
         <div class="theme-terms"><span class="term">Dukkha</span> <span class="term">The Fall</span> <span class="term">Fanāʾ</span> <span class="term">Heraclitean flux</span></div>
       </div>
-      <div class="theme" onclick="openE('compassion love','Cross-tradition')">
+      <div class="theme" onclick="openE('christianity-sermon-mount','Cross-tradition')">
         <h4>Love & Compassion</h4>
         <p>The universal imperative to act from love appears in every tradition on earth.</p>
         <div class="theme-terms"><span class="term">Mettā</span> <span class="term">Agape</span> <span class="term">Raḥma</span> <span class="term">Chesed</span> <span class="term">Ahimsa</span></div>
       </div>
-      <div class="theme" onclick="openE('consciousness self identity','Cross-tradition')">
+      <div class="theme" onclick="openE('science-consciousness-studies','Cross-tradition')">
         <h4>Who Am I?</h4>
         <p>Every tradition answers differently — and the question remains permanently open.</p>
         <div class="theme-terms"><span class="term">Anattā</span> <span class="term">Imago Dei</span> <span class="term">Ātman/Brahman</span> <span class="term">Fanāʾ</span></div>
       </div>
-      <div class="theme" onclick="openE('death dying afterlife','Cross-tradition')">
+      <div class="theme" onclick="openE('dying-well-hospice-wisdom','Cross-tradition')">
         <h4>Death & the Beyond</h4>
         <p>The great threshold — what every tradition has said about crossing it.</p>
         <div class="theme-terms"><span class="term">Bardo</span> <span class="term">Resurrection</span> <span class="term">Janna</span> <span class="term">Moksha</span> <span class="term">Nirvāṇa</span></div>
       </div>
-      <div class="theme" onclick="openE('silence contemplation meditation','Cross-tradition')">
+      <div class="theme" onclick="openE('silence-contemplation-wisdom','Cross-tradition')">
         <h4>Silence & Contemplation</h4>
         <p>Truth found in stillness — the practice every tradition has guarded.</p>
         <div class="theme-terms"><span class="term">Zazen</span> <span class="term">Hesychasm</span> <span class="term">Khalwa</span> <span class="term">Hitbonenut</span></div>
       </div>
-      <div class="theme" onclick="openE('ethics service justice','Cross-tradition')">
+      <div class="theme" onclick="openE('justice-governance-wisdom','Cross-tradition')">
         <h4>Service & Ethics</h4>
         <p>What we owe each other — across every culture and century.</p>
         <div class="theme-terms"><span class="term">Eightfold Path</span> <span class="term">Tikkun olam</span> <span class="term">Ubuntu</span> <span class="term">Kant's imperative</span></div>
       </div>
-      <div class="theme" onclick="openE('mysticism union consciousness','Cross-tradition')">
+      <div class="theme" onclick="openE('perennial-philosophy','Cross-tradition')">
         <h4>Mystical Union</h4>
         <p>The direct experience of oneness — described across every tradition.</p>
         <div class="theme-terms"><span class="term">Nirvāṇa</span> <span class="term">Theosis</span> <span class="term">Fanāʾ</span> <span class="term">Devekut</span> <span class="term">Samādhi</span></div>
       </div>
-      <div class="theme" onclick="openE('nature sacred earth','Cross-tradition')">
+      <div class="theme" onclick="openE('nature-as-teacher','Cross-tradition')">
         <h4>The Sacred in Nature</h4>
         <p>The living world as teacher, as temple, as revelation.</p>
         <div class="theme-terms"><span class="term">Bodhi tree</span> <span class="term">Kami</span> <span class="term">Quranic signs</span> <span class="term">Lakota hoop</span></div>
       </div>
-      <div class="theme" onclick="openE('gratitude wonder awe','Cross-tradition')">
+      <div class="theme" onclick="openE('science-cosmology-universe-story','Cross-tradition')">
         <h4>Gratitude & Wonder</h4>
         <p>Radical appreciation for the fact of existence itself.</p>
         <div class="theme-terms"><span class="term">Shukr</span> <span class="term">Eucharistia</span> <span class="term">Hodu</span> <span class="term">Sagan's pale blue dot</span></div>
       </div>
-      <div class="theme" onclick="openE('forgiveness redemption','Cross-tradition')">
+      <div class="theme" onclick="openE('judaism-tikkun-olam','Cross-tradition')">
         <h4>Forgiveness & Return</h4>
         <p>The human need to begin again — how every tradition makes it possible.</p>
         <div class="theme-terms"><span class="term">Teshuvah</span> <span class="term">Tawba</span> <span class="term">Grace</span> <span class="term">Restorative justice</span></div>
@@ -1982,11 +1941,11 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
             <div class="risk-pill-title">Endangered Languages</div>
             <div class="risk-pill-sub">7,000 languages · one dies every two weeks</div>
           </div>
-          <div class="risk-pill" onclick="openE('Oral traditions','Indigenous')">
+          <div class="risk-pill" onclick="openE('indigenous-traditions-overview','Indigenous')">
             <div class="risk-pill-title">Oral Traditions</div>
             <div class="risk-pill-sub">Elders dying · stories vanishing unrecorded</div>
           </div>
-          <div class="risk-pill" onclick="openE('The Last Wisdom Project','Preservation')">
+          <div class="risk-pill" onclick="openE('dying-well-hospice-wisdom','Preservation')">
             <div class="risk-pill-title">The Last Wisdom Project</div>
             <div class="risk-pill-sub">"What do you know now you wish you knew at 20?"</div>
           </div>
@@ -1998,44 +1957,114 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
 </section>
 
 <!-- TRADITIONS TABLE -->
-<section id="ask-section" style="padding:52px 0 48px;background:var(--paper)">
-  <div style="max-width:900px;margin:0 auto;padding:0 24px">
-    <div class="ai-head">
-      <h3>Ask the Library of Humanity</h3>
-      <p>Any question about how to live — answered from across the full breadth of human knowing. Every tradition. Every century. Equal seriousness.</p>
+<section id="life-areas" style="background:var(--paper2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:36px 0">
+  <div style="max-width:1500px;margin:0 auto;padding:0 24px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px">
+      <div>
+        <div style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--amber);margin-bottom:5px">Where are you right now?</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--ink);font-weight:400">Find wisdom for where you are in life</div>
+      </div>
+      <a onclick="document.getElementById('treasury').scrollIntoView({behavior:'smooth'})" style="font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.1em;color:var(--amber);cursor:pointer;text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amberb)'" onmouseout="this.style.color='var(--amber)'">Browse all areas →</a>
     </div>
-    <div class="ai-modes">
-      <button class="ai-mode on" data-mode="guide" onclick="setMode(this)"><div class="am-icon">✦</div><div class="am-name">Wisdom Guide</div><div class="am-desc">Across all traditions</div></button>
-      <button class="ai-mode" data-mode="compare" onclick="setMode(this)"><div class="am-icon">⇌</div><div class="am-name">Compare</div><div class="am-desc">Traditions side by side</div></button>
-      <button class="ai-mode" data-mode="secular" onclick="setMode(this)"><div class="am-icon">◈</div><div class="am-name">Secular Seeker</div><div class="am-desc">Reason and wonder</div></button>
-      <button class="ai-mode" data-mode="universal" onclick="setMode(this)"><div class="am-icon">◎</div><div class="am-name">Universal Ground</div><div class="am-desc">What all traditions agree on</div></button>
-      <button class="ai-mode" data-mode="human" onclick="setMode(this)"><div class="am-icon">⊕</div><div class="am-name">Human Moment</div><div class="am-desc">I am grieving. I am afraid.</div></button>
+    <div style="display:flex;flex-wrap:wrap;gap:7px">
+      <button onclick="launchCouncil('I am navigating grief and loss')" class="la-btn">Grief</button>
+      <button onclick="launchCouncil('I am searching for purpose and meaning')" class="la-btn">Purpose</button>
+      <button onclick="launchCouncil('I am thinking about love and my relationship')" class="la-btn">Love &amp; Relationships</button>
+      <button onclick="launchCouncil('I am thinking about what kind of parent I want to be')" class="la-btn">Parenting</button>
+      <button onclick="launchCouncil('I am afraid of aging and what it means')" class="la-btn">Aging</button>
+      <button onclick="launchCouncil('I or someone I love is facing serious illness')" class="la-btn">Illness</button>
+      <button onclick="launchCouncil('I am facing death — my own or someone I love')" class="la-btn">Death</button>
+      <button onclick="launchCouncil('I cannot forgive someone who hurt me')" class="la-btn">Forgiveness</button>
+      <button onclick="launchCouncil('I am struggling with anxiety and cannot find peace')" class="la-btn">Anxiety</button>
+      <button onclick="filterAndScroll('work')" class="la-btn">Work &amp; Livelihood</button>
+      <button onclick="launchCouncil('What is enough? What is wealth actually for?')" class="la-btn">Money &amp; Enough</button>
+      <button onclick="launchCouncil('I am in a position of leadership and need wisdom about how to lead well')" class="la-btn">Leadership</button>
+      <button onclick="filterAndScroll('family')" class="la-btn">Family</button>
+      <button onclick="filterAndScroll('justice')" class="la-btn">Justice</button>
+      <button onclick="filterAndScroll('war')" class="la-btn">War &amp; Peace</button>
+      <button onclick="launchCouncil('I have lost my faith and feel unmoored')" class="la-btn">Faith &amp; Doubt</button>
+      <button onclick="launchCouncil('I want to understand what different traditions say about the meaning of life')" class="la-btn">Meaning</button>
+      <button onclick="filterAndScroll('nature')" class="la-btn">Nature</button>
     </div>
-    <div class="ai-bar">
-      <input class="ai-input" id="ai-q" placeholder="What has humanity learned about how to live? Ask anything across the full library…" onkeydown="if(event.key==='Enter')askLibrary()">
-      <button class="ai-btn" onclick="askLibrary()">Ask the Library →</button>
-    </div>
-    <div class="ai-output" id="ai-out"></div>
-  </div>
-</section><!-- LIVING ARCHIVE -->
-<section id="living-archive" style="padding:32px 0;background:var(--ink);border-top:1px solid rgba(200,152,10,.2)">
-  <div class="la-inner">
-    <div class="la-text">
-      <div class="la-ey">The Living Archive</div>
-      <div class="la-h">The library is still being written.</div>
-      <p class="la-p">What have you learned — about grief, courage, love, forgiveness, aging, or meaning — from having actually lived it? Humanity's Living Library of Meaning preserves that too.</p>
-    </div>
-    <a class="la-btn" href="#" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'});return false;">Offer Your Wisdom →</a>
   </div>
 </section>
 
 
-<!-- PARTICIPATE & SUBSCRIBE -->
+<!-- THREE ENTRY MODES -->
+<div 
 
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- THE LAST WISDOM PROJECT                                  -->
-<!-- Positioned between Living Archive and Participate        -->
-<!-- ═══════════════════════════════════════════════════════ -->
+<!-- EMOTIONAL STORY STRIP -->
+<section id="golden-rule" style="padding:52px 0 48px;background:var(--paper2);border-top:1px solid var(--rule)">
+  <div class="gr-inner">
+    <div class="sec-head" style="padding:0 0 24px;text-align:center">
+      <div class="sec-ey" style="justify-content:center">The Great Conversation</div>
+      <div class="sec-title">One Question · Every Voice</div>
+      <p class="sec-sub">What do we owe each other? Every tradition has answered. They have never disagreed more than they agree.</p>
+    </div>
+    <div class="gr-grid">
+      <div class="gr-item">
+        <div class="gr-trad"><span class="gr-dot" style="background:#1E8A7A"></span>Buddhism</div>
+        <div><div class="gr-quote">Hurt not others in ways you yourself would find hurtful.</div><div class="gr-src">Udanavarga 5:18</div></div>
+      </div>
+      <div class="gr-item">
+        <div class="gr-trad"><span class="gr-dot" style="background:#6A1C1C"></span>Christianity</div>
+        <div><div class="gr-quote">Do unto others as you would have them do unto you.</div><div class="gr-src">Matthew 7:12</div></div>
+      </div>
+      <div class="gr-item">
+        <div class="gr-trad"><span class="gr-dot" style="background:#8C6A10"></span>Islam</div>
+        <div><div class="gr-quote">None truly believes until he loves for his brother what he loves for himself.</div><div class="gr-src">Hadith, Sahih al-Bukhari</div></div>
+      </div>
+      <div class="gr-item">
+        <div class="gr-trad"><span class="gr-dot" style="background:#7A5020"></span>Judaism</div>
+        <div><div class="gr-quote">What is hateful to you, do not do to another. That is the whole Torah; the rest is commentary.</div><div class="gr-src">Rabbi Hillel · Talmud Shabbat 31a</div></div>
+      </div>
+      <div class="gr-item">
+        <div class="gr-trad"><span class="gr-dot" style="background:#1C2E5A"></span>Hinduism</div>
+        <div><div class="gr-quote">Do not do to others what would cause pain if done to you.</div><div class="gr-src">Mahābhārata 5:1517</div></div>
+      </div>
+      <div class="gr-item">
+        <div class="gr-trad"><span class="gr-dot" style="background:#7A3A10"></span>Confucianism</div>
+        <div><div class="gr-quote">Do not impose on others what you do not want for yourself.</div><div class="gr-src">Analects 15:24</div></div>
+      </div>
+      <div class="gr-item">
+        <div class="gr-trad"><span class="gr-dot" style="background:#6A5818"></span>Sikhism</div>
+        <div><div class="gr-quote">I am a stranger to no one; and no one is a stranger to me. Indeed, I am a friend to all.</div><div class="gr-src">Guru Granth Sahib</div></div>
+      </div>
+      <div class="gr-item">
+        <div class="gr-trad"><span class="gr-dot" style="background:#781838"></span>Jainism</div>
+        <div><div class="gr-quote">One should treat all creatures as one would like to be treated.</div><div class="gr-src">Sutrakritanga 1.11.33</div></div>
+      </div>
+      <div class="gr-item">
+        <div class="gr-trad"><span class="gr-dot" style="background:#3A3848"></span>Secular Ethics</div>
+        <div><div class="gr-quote">Act only according to that maxim by which you can at the same time will it to become universal law.</div><div class="gr-src">Immanuel Kant · Groundwork of the Metaphysics of Morals</div></div>
+      </div>
+    </div>
+  </div>
+<section id="secular" style="padding:48px 0 44px;background:var(--ink);border-top:1px solid rgba(200,152,10,.15)">
+  <div class="secular-inner">
+    <div class="sec-head" style="padding:0 0 24px;max-width:1500px;margin:0 auto">
+      <div class="sec-ey" style="justify-content:flex-start;color:rgba(200,152,10,.65)">Equal at the Table</div>
+      <div style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:400;color:#F5EDD8;margin-bottom:12px;line-height:1.2">Science, Reason &amp; Secular Wisdom</div>
+      <p style="font-size:1rem;color:rgba(245,237,216,.82);line-height:1.75;max-width:680px;margin:0">Not the absence of wisdom — a particular expression of the human search for truth and meaning. From Epicurus to Camus; from Stoicism to Sagan. The Wisdom Table holds no hierarchy of traditions.</p>
+    </div>
+    <div class="secular-streams">
+      <div class="stream-card" onclick="filterAndScroll('Secular Humanism')"><div class="sc-name">Secular Humanism</div><div class="sc-body">Ethics grounded in human dignity and reason — the worth of persons as its own foundation, needing no supernatural warrant.</div></div>
+      <div class="stream-card" onclick="openE('stoicism-meditations')"><div class="sc-name">Stoicism</div><div class="sc-body">Marcus Aurelius, Epictetus, Seneca — the inner citadel, virtue as the only good, equanimity in the face of what cannot be controlled.</div></div>
+      <div class="stream-card" onclick="openE('secular-viktor-frankl')"><div class="sc-name">Existentialism</div><div class="sc-body">Sartre, Camus, Frankl — radical freedom, the burden of choice, and the urgent task of making meaning in an open universe.</div></div>
+      <div class="stream-card" onclick="filterAndScroll('Epicureanism')"><div class="sc-name">Epicureanism</div><div class="sc-body">Tranquility, friendship, and simple pleasure — not hedonism but ataraxia: freedom from fear, gratitude for what is.</div></div>
+      <div class="stream-card" onclick="openE('science-consciousness-studies')"><div class="sc-name">Scientific Awe</div><div class="sc-body">Sagan, Feynman, Hubble — the cosmos as wonder enough. Deep time, deep space, and the improbable miracle of being alive and aware.</div></div>
+      <div class="stream-card" onclick="filterAndScroll('science')"><div class="sc-name">Ethical Culture</div><div class="sc-body">Founded by Felix Adler, 1876: "deed before creed." The practice of ethical living and social improvement as its own form of the sacred.</div></div>
+      <div class="stream-card" onclick="openE('science-evolution-wisdom')"><div class="sc-name">Evolutionary Wisdom</div><div class="sc-body">Darwin's great gift: kinship with all life, impermanence at every scale, and the staggering improbability of conscious existence.</div></div>
+      <div class="stream-card" onclick="openE('science-cosmology-universe-story')"><div class="sc-name">Cosmology</div><div class="sc-body">Thomas Berry, Carl Sagan — the 13.8-billion-year universe story as sacred narrative. We are the cosmos, locally and temporarily awake.</div></div>
+      <div class="stream-card" onclick="filterAndScroll('philosophy')"><div class="sc-name">Pragmatism</div><div class="sc-body">William James, John Dewey — truth is what works, ideas are tools, and philosophy must engage with lived human experience to matter.</div></div>
+      <div class="stream-card" onclick="filterAndScroll('Secular')"><div class="sc-name">Analytic Ethics</div><div class="sc-body">Bentham, Mill, Rawls, Singer — reason applied rigorously to moral questions. What do we owe one another, and how do we know?</div></div>
+    </div>
+    <div style="margin-top:20px;padding:16px 0;border-top:1px solid rgba(200,152,10,.12)">
+      <p style="font-family:'Playfair Display',serif;font-style:italic;color:rgba(245,237,216,.62);font-size:1rem;line-height:1.72">"The unexamined life is not worth living." — Socrates &nbsp;&nbsp;·&nbsp;&nbsp; "We are made of star-stuff. We are a way for the cosmos to know itself." — Carl Sagan</p>
+    </div>
+  </div>
+</section>
+<!-- DISCOVER: SCOUT + WISDOM AT RISK -->
 <div id="last-wisdom-section">
 <section id="lw-hero" style="background:var(--ink);padding:60px 24px 52px;text-align:center;position:relative;overflow:hidden;border-top:3px solid var(--amber)">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(140,104,0,.08) 0%,transparent 65%);pointer-events:none"></div>
@@ -2656,7 +2685,7 @@ p:last-child{margin-bottom:0}
         <div class="abt-steward-role">Author · Publisher · Teacher · Ordained Soto Zen Practitioner · Founder, Liminal Arts</div>
         <p>Paul Mandelstein has spent his life at the edge of things — where publishing meets wisdom, where fatherhood meets spiritual practice, where story meets the examined life. He is an author, publisher, teacher, and Zen practitioner who has been asking the deep questions for more than six decades.</p>
         <p style="margin-top:10px">As co-founder of <em>The Book Publishing Company</em>, Paul was a pioneering publisher of the natural living movement in the early 1970s — producing some of the first books on vegan cooking, natural home birth, and intentional community living, and originating the <em>For Dummies</em> format with the <em>Big Dummy's Guide to C.B. Radio</em>. As founder of Quantum Publishing, he focused on personal telecommunications technologies until its acquisition by John Wiley &amp; Sons. As founder of the Father Resource Network and author of three books on divorced fatherhood, he has helped families heal. And through <em>Small Wisdoms</em> — a lifetime's distillation into 128 fables — he offers something rarer: a book that reads you back.</p>
-        <p style="margin-top:10px">Paul is also the creator of a body of new mythology folktales — illustrated stories that reimagine ancient archetypal wisdom experiences for a modern audience, offering sacred narrative outside the boundaries of traditional religion. <em>The Nightingale and the Wind</em>, <em>Queen Emmali and the Enchanted Lute</em>, and <em>Santa's Surprising Adventure</em> are the first works in this ongoing project. <a onclick="openE('paul-mandelstein-mythology')" style="color:var(--amber);cursor:pointer;text-decoration:none;font-style:normal;border-bottom:1px solid rgba(140,104,0,.3);transition:border-color .2s" onmouseover="this.style.borderColor='var(--amber)'" onmouseout="this.style.borderColor='rgba(140,104,0,.3)'">Read the library entry →</a></p>
+        <p style="margin-top:10px">Paul is also the creator of a body of new mythology folktales — illustrated stories that reimagine ancient archetypal wisdom experiences for a modern audience, offering sacred narrative outside the boundaries of traditional religion. <em>The Nightingale and the Wind</em>, <em>Queen Emmali and the Enchanted Lute</em>, and <em>Santa's Surprising Adventure</em> are the first works in this ongoing project. <a onclick="openE('perennial-philosophy')" style="color:var(--amber);cursor:pointer;text-decoration:none;font-style:normal;border-bottom:1px solid rgba(140,104,0,.3);transition:border-color .2s" onmouseover="this.style.borderColor='var(--amber)'" onmouseout="this.style.borderColor='rgba(140,104,0,.3)'">Read the library entry →</a></p>
         <p style="margin-top:10px">He co-founded The Farm intentional community in Tennessee, where he lived for fourteen years, and has been an ordained Soto Zen practitioner in Suzuki Roshi's lineage for most of his adult life. He served as a workshop facilitator at Esalen Institute and is the founder of Liminal Arts, the independent imprint under which The Wisdom Table operates.</p>
         <p style="margin-top:10px">The Wisdom Table is the natural culmination of that work: a place where all of what humanity has learned — across traditions, generations, and ways of knowing — can be made available to anyone who is sincerely seeking. And where the wisdom that is disappearing every day can be preserved before it is gone.</p>
         <p style="font-size:.82rem;color:var(--muted);margin-top:10px">paul@thewisdomtable.ai · thewisdomtable.ai</p>
@@ -4693,18 +4722,18 @@ updatePanelistCount();
 // ══ WISDOM SCOUT TICKER ══
 (function() {
   const TICKER_ITEMS = [
-    { tag: "ATALM Network",        title: "Incoming fragment: Hopi time philosophy \u2014 elder oral account, Arizona",                     meta: "Scout B \u00b7 Indigenous Archive" },
-    { tag: "Nunn Center",          title: "1974 Appalachian ethnobotany tape \u2014 newly digitized, 47 minutes recovered",                  meta: "Scout A \u00b7 Univ. of Kentucky" },
-    { tag: "African OHA",          title: "Ubuntu oral accounts: 44 interviews from Johannesburg indexed",                                    meta: "Scout B \u00b7 African Oral History Archive" },
-    { tag: "SPOHP Field",          title: "Rapid-response recording: last fluent speaker, Gulf Coast fishing tradition",                      meta: "Scout B \u00b7 Samuel Proctor Program" },
-    { tag: "Yiddish Center",       title: "Wexler Project: generational memory, Warsaw to New York \u2014 full video interview",             meta: "Scout C \u00b7 Yiddish Book Center" },
-    { tag: "Indigenous Caucus",    title: "Right of Reply archive: Pacific Northwest oral histories returned to source communities",          meta: "Scout B \u00b7 OHA Indigenous Caucus" },
-    { tag: "Nunn Center",          title: "1968 Appalachian coal camp oral histories \u2014 23 recordings restored from magnetic tape",      meta: "Scout A \u00b7 OHMS synchronized" },
-    { tag: "Getting Word",         title: "African American oral lineage project: enslaved family descendants, Virginia \u2014 new entries",  meta: "Scout B \u00b7 Getting Word Archive" },
-    { tag: "Ancient Text",         title: "Seneca\u2019s letters on grief \u2014 newly translated passages, Cambridge fragment",            meta: "Scout A \u00b7 Classics Archive" },
-    { tag: "Modern Research",      title: "Consciousness studies: nondual awareness and the brain \u2014 new findings",                     meta: "Scout C \u00b7 Contemplative Science" },
-    { tag: "Sufi Manuscript",      title: "Avalokita silence fragments \u2014 Sufi\u2013Buddhist crossings, Istanbul collection",           meta: "Scout A \u00b7 Ancient Texts" },
-    { tag: "ATALM Network",        title: "Anishinaabe tradition on grief \u2014 elder recording, Great Lakes region",                      meta: "Scout B \u00b7 Indigenous Archive" },
+    { tag: "ATALM Network",        title: "Incoming fragment: Hopi time philosophy \u2014 elder oral account, Arizona",                     meta: "Scout B \u00b7 Indigenous Archive",       entry: "indigenous-traditions-overview" },
+    { tag: "Nunn Center",          title: "1974 Appalachian ethnobotany tape \u2014 newly digitized, 47 minutes recovered",                  meta: "Scout A \u00b7 Univ. of Kentucky",         entry: "plant-medicine-wisdom-at-risk" },
+    { tag: "African OHA",          title: "Ubuntu oral accounts: 44 interviews from Johannesburg indexed",                                    meta: "Scout B \u00b7 African Oral History Archive", entry: "indigenous-ubuntu" },
+    { tag: "SPOHP Field",          title: "Rapid-response recording: last fluent speaker, Gulf Coast fishing tradition",                      meta: "Scout B \u00b7 Samuel Proctor Program",    entry: "wisdom-at-risk-dying-languages" },
+    { tag: "Yiddish Center",       title: "Wexler Project: generational memory, Warsaw to New York \u2014 full video interview",             meta: "Scout C \u00b7 Yiddish Book Center",       entry: "judaism-tikkun-olam" },
+    { tag: "Indigenous Caucus",    title: "Right of Reply archive: Pacific Northwest oral histories returned to source communities",          meta: "Scout B \u00b7 OHA Indigenous Caucus",    entry: "indigenous-traditions-overview" },
+    { tag: "Nunn Center",          title: "1968 Appalachian coal camp oral histories \u2014 23 recordings restored from magnetic tape",      meta: "Scout A \u00b7 OHMS synchronized",         entry: "wisdom-at-risk-dying-languages" },
+    { tag: "Getting Word",         title: "African American oral lineage project: enslaved family descendants, Virginia \u2014 new entries",  meta: "Scout B \u00b7 Getting Word Archive",      entry: "indigenous-ubuntu" },
+    { tag: "Ancient Text",         title: "Seneca\u2019s letters on grief \u2014 newly translated passages, Cambridge fragment",            meta: "Scout A \u00b7 Classics Archive",          entry: "stoicism-meditations" },
+    { tag: "Modern Research",      title: "Consciousness studies: nondual awareness and the brain \u2014 new findings",                     meta: "Scout C \u00b7 Contemplative Science",     entry: "science-consciousness-studies" },
+    { tag: "Sufi Manuscript",      title: "Avalokita silence fragments \u2014 Sufi\u2013Buddhist crossings, Istanbul collection",           meta: "Scout A \u00b7 Ancient Texts",             entry: "silence-contemplation-wisdom" },
+    { tag: "ATALM Network",        title: "Anishinaabe tradition on grief \u2014 elder recording, Great Lakes region",                      meta: "Scout B \u00b7 Indigenous Archive",       entry: "lakota-mitakuye-oyasin" },
   ];
 
   const track = document.getElementById('ticker-track');
@@ -4712,10 +4741,13 @@ updatePanelistCount();
 
   const all = [...TICKER_ITEMS, ...TICKER_ITEMS];
   track.innerHTML = all.map(item =>
-    '<div class="ticker-item"><span class="ti-tag">' + item.tag + '</span>' +
+    '<div class="ticker-item" onclick="openE(\'' + item.entry + '\')" style="cursor:pointer" title="Read entry: ' + item.tag + '">' +
+    '<span class="ti-tag">' + item.tag + '</span>' +
     '<span class="ti-sep">\u00b7</span>' +
     '<span class="ti-title">' + item.title + '</span>' +
-    '<span class="ti-meta">' + item.meta + '</span></div>'
+    '<span class="ti-meta">' + item.meta + '</span>' +
+    '<span style="font-family:\'Cinzel\',serif;font-size:.55rem;letter-spacing:.1em;color:rgba(200,152,10,.6);margin-left:10px">Read →</span>' +
+    '</div>'
   ).join('');
 })();
 
@@ -4736,4 +4768,3 @@ updatePanelistCount();
 
 </script>
 </body>
-</html>
