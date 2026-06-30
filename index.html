@@ -560,8 +560,8 @@ footer{background:var(--dark);padding:44px 24px 24px;border-top:1px solid rgba(2
 .lw-form-inner{max-width:720px;margin:0 auto;padding:0 24px}
 .lw-form-box{border:1px solid var(--rule);border-top:3px solid var(--amber);background:var(--paper)}
 .lw-fb-head{background:var(--ink);padding:18px 24px;border-bottom:1px solid rgba(200,152,10,.2)}
-.fb-head h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;font-style:italic;color:#F5EDD8;margin-bottom:4px}
-.fb-head p{font-size:.85rem;color:rgba(245,237,216,.55)}
+.lw-fb-head h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;font-style:italic;color:#F5EDD8;margin-bottom:4px}
+.lw-fb-head p{font-size:.85rem;color:rgba(245,237,216,.55)}
 .lw-fb-body{padding:24px}
 .field{margin-bottom:18px}
 label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px}
@@ -623,6 +623,7 @@ textarea{resize:vertical;line-height:1.65}
 .wok-card svg * {
   vector-effect:non-scaling-stroke;
 }
+@media(max-width:950px) and (min-width:601px){.wok-strip{grid-template-columns:repeat(5,1fr)}}
 @media(max-width:600px){.wok-strip{grid-template-columns:repeat(3,1fr)}}
 
 .p-chip{background:var(--paper2);border:1px solid var(--rule);padding:5px 12px;font-family:'EB Garamond',serif;font-size:.88rem;color:var(--muted);cursor:pointer;transition:all .18s;font-style:italic}
@@ -1788,11 +1789,11 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
 <div id="stats-bar">
   <div class="stats-inner">
     <div class="stat-item" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Explore traditions">
-      <span class="stat-n">16+</span><span class="stat-l">Wisdom Traditions</span>
+      <span class="stat-n">23+</span><span class="stat-l">Wisdom Traditions</span>
       <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Explore</span>
     </div>
     <div class="stat-item" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Browse the library">
-      <span class="stat-n">42</span><span class="stat-l">Curated Entries</span>
+      <span class="stat-n">56</span><span class="stat-l">Curated Entries</span>
       <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Browse</span>
     </div>
     <div class="stat-item"><span class="stat-n">4,000</span><span class="stat-l">Years Spanned</span></div>
@@ -4768,3 +4769,4 @@ updatePanelistCount();
 
 </script>
 </body>
+</html>
