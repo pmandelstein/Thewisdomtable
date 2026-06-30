@@ -3019,12 +3019,29 @@ function setMode(btn) {
   currentMode = btn.dataset.mode;
 }
 
+const AI_LOADING_PHRASES = [
+  "Drawing from the library…",
+  "Consulting the traditions…",
+  "Searching across centuries…",
+  "Weighing many voices…",
+  "Gathering wisdom…"
+];
+
 async function askLibrary() {
   const q = document.getElementById('ai-q')?.value.trim();
   if (!q) return;
   const out = document.getElementById('ai-out');
-  out.innerHTML = '<span style="font-style:italic;color:var(--muted)">Drawing from the library…</span>';
   out.classList.add('vis');
+
+  let phraseIdx = 0;
+  out.innerHTML = '<span style="font-style:italic;color:var(--muted)">' + AI_LOADING_PHRASES[0] + '</span>';
+  const loadingInterval = setInterval(() => {
+    phraseIdx = (phraseIdx + 1) % AI_LOADING_PHRASES.length;
+    if (out.querySelector('span[data-loading]') || out.innerHTML.includes(AI_LOADING_PHRASES[(phraseIdx + AI_LOADING_PHRASES.length - 1) % AI_LOADING_PHRASES.length])) {
+      out.innerHTML = '<span data-loading style="font-style:italic;color:var(--muted)">' + AI_LOADING_PHRASES[phraseIdx] + '</span>';
+    }
+  }, 1400);
+
   const prompts = {
     guide: `Answer this question with wisdom from as many relevant traditions as possible: "${q}". Use <h4> for tradition names, <p> for content. End with "For the Seeker Today".`,
     compare: `Compare how at least 5 traditions answer: "${q}". Be specific. Show real agreements and disagreements.`,
@@ -3032,7 +3049,16 @@ async function askLibrary() {
     universal: `What do all or most wisdom traditions agree on regarding: "${q}"? Find the common ground without flattening real differences.`,
     human: `Someone is asking: "${q}" — respond with warmth and wisdom from traditions that speak directly to this human experience. Make it personal, not academic.`
   };
-  const html = await callAI_treasury(prompts[currentMode] || prompts.guide);
+
+  let firstChunk = true;
+  const html = await callAI_treasury(prompts[currentMode] || prompts.guide, (partial) => {
+    if (firstChunk) {
+      clearInterval(loadingInterval);
+      firstChunk = false;
+    }
+    out.innerHTML = partial;
+  });
+  clearInterval(loadingInterval);
   out.innerHTML = html;
 }
 
@@ -3484,10 +3510,40 @@ async function rpAsk(){
   res.innerHTML=await callAI_treasury(`Regarding "${currentE?.title}" (${currentE?.tradition}): ${q}\n\nContext: ${(currentE?.body||'').replace(/<[^>]+>/g,'').slice(0,600)}`);
 }
 
-async function callAI_treasury(prompt){
+async function callAI_treasury(prompt, onChunk){
   try{
-    const r=await fetch(getAPIEndpoint(),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:1000,system:`You are the Wisdom Table guide — scholarly, warm, spanning all traditions. Respond in HTML using only <h4> headings and <p> paragraphs. End with something the seeker can use today.`,messages:[{role:"user",content:prompt}]})});
-    return (await r.json()).content?.[0]?.text||'<p>Could not retrieve.</p>';
+    const r=await fetch(getAPIEndpoint(),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:1000,stream:true,system:`You are the Wisdom Table guide — scholarly, warm, spanning all traditions. Respond in HTML using only <h4> headings and <p> paragraphs. End with something the seeker can use today.`,messages:[{role:"user",content:prompt}]})});
+    if (!r.ok || !r.body) {
+      // Fallback: try to read as plain JSON (non-streaming proxy or error)
+      try {
+        const data = await r.json();
+        return data.content?.[0]?.text || '<p>Could not retrieve.</p>';
+      } catch { return '<p>Could not retrieve.</p>'; }
+    }
+    const reader = r.body.getReader();
+    const decoder = new TextDecoder();
+    let full = '';
+    let buffer = '';
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split('\n');
+      buffer = lines.pop(); // keep any incomplete line for next chunk
+      for (const line of lines) {
+        if (!line.startsWith('data: ')) continue;
+        const payload = line.slice(6).trim();
+        if (payload === '[DONE]') continue;
+        try {
+          const evt = JSON.parse(payload);
+          if (evt.type === 'content_block_delta' && evt.delta?.text) {
+            full += evt.delta.text;
+            if (onChunk) onChunk(full);
+          }
+        } catch { /* ignore malformed SSE lines */ }
+      }
+    }
+    return full || '<p>Could not retrieve.</p>';
   }catch{return'<p>Could not connect.</p>';}
 }
 
@@ -4581,6 +4637,13 @@ function updatePanelistCount() {
 
 // Override conveneCouncil to use selectedPanelists
 const _origConvene = conveneCouncil;
+const COUNCIL_LOADING_PHRASES = [
+  "The council is gathering…",
+  "Consulting each voice…",
+  "Weighing your question…",
+  "The panelists are reflecting…"
+];
+
 conveneCouncil = function() {
   const dilemma = document.getElementById('council-input')?.value.trim();
   if (!dilemma) {
@@ -4596,7 +4659,15 @@ conveneCouncil = function() {
   const dialogue = document.getElementById('council-dialogue');
   const display = document.getElementById('council-dilemma-display');
   if (display) display.textContent = '"' + dilemma + '"';
-  if (dialogue) dialogue.innerHTML = '<div style="padding:20px;font-style:italic;color:var(--muted);text-align:center">The council is gathering…</div>';
+
+  let phraseIdx = 0;
+  if (dialogue) dialogue.innerHTML = '<div data-loading style="padding:20px;font-style:italic;color:var(--muted);text-align:center">' + COUNCIL_LOADING_PHRASES[0] + '</div>';
+  const loadingInterval = setInterval(() => {
+    phraseIdx = (phraseIdx + 1) % COUNCIL_LOADING_PHRASES.length;
+    if (dialogue && dialogue.querySelector('[data-loading]')) {
+      dialogue.innerHTML = '<div data-loading style="padding:20px;font-style:italic;color:var(--muted);text-align:center">' + COUNCIL_LOADING_PHRASES[phraseIdx] + '</div>';
+    }
+  }, 1500);
   
   const btn = document.querySelector('.council-btn');
   if (btn) { btn.disabled = true; btn.textContent = 'Gathering the council…'; }
@@ -4617,36 +4688,71 @@ Panelists: ${panelList.join(', ')}
 
 Respond as each panelist in their authentic voice.`;
 
-  fetch(getAPIEndpoint(), {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({
-      model: "claude-sonnet-4-6",
-      max_tokens: 1500,
-      system: systemPrompt,
-      messages: [{role: "user", content: userPrompt}]
-    })
-  })
-  .then(r => {
-    if(!r.ok) throw new Error('API error '+r.status);
-    return r.json();
-  })
-  .then(data => {
-    if(data.error) throw new Error(data.error.message||'API error');
-    const text = data.content?.[0]?.text || '<p>The council could not gather at this time.</p>';
-    if (dialogue) dialogue.innerHTML = text;
-    const share = document.getElementById('council-share');
-    if (share) share.style.display = 'flex';
-    if (btn) { btn.disabled = false; btn.textContent = 'Convene the Council →'; }
-    // Store for share card
-    window._lastCouncilDilemma = dilemma;
-    window._lastCouncilText = text;
-    window._lastCouncilPanelists = panelList;
-  })
-  .catch(() => {
-    if (dialogue) dialogue.innerHTML = '<p style="color:var(--muted);font-style:italic">Could not connect. Please try again.</p>';
-    if (btn) { btn.disabled = false; btn.textContent = 'Convene the Council →'; }
-  });
+  (async () => {
+    try {
+      const r = await fetch(getAPIEndpoint(), {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+          model: "claude-sonnet-4-6",
+          max_tokens: 1500,
+          stream: true,
+          system: systemPrompt,
+          messages: [{role: "user", content: userPrompt}]
+        })
+      });
+
+      let text = '';
+      let firstChunk = true;
+
+      if (!r.ok || !r.body) {
+        // Fallback: try plain JSON
+        const data = await r.json();
+        if (data.error) throw new Error(data.error.message || 'API error');
+        text = data.content?.[0]?.text || '<p>The council could not gather at this time.</p>';
+        if (dialogue) dialogue.innerHTML = text;
+      } else {
+        const reader = r.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = '';
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          buffer += decoder.decode(value, { stream: true });
+          const lines = buffer.split('\n');
+          buffer = lines.pop();
+          for (const line of lines) {
+            if (!line.startsWith('data: ')) continue;
+            const payload = line.slice(6).trim();
+            if (payload === '[DONE]') continue;
+            try {
+              const evt = JSON.parse(payload);
+              if (evt.type === 'content_block_delta' && evt.delta?.text) {
+                if (firstChunk) { clearInterval(loadingInterval); firstChunk = false; }
+                text += evt.delta.text;
+                if (dialogue) dialogue.innerHTML = text;
+              }
+            } catch { /* ignore malformed SSE lines */ }
+          }
+        }
+        if (!text) text = '<p>The council could not gather at this time.</p>';
+        if (dialogue) dialogue.innerHTML = text;
+      }
+
+      clearInterval(loadingInterval);
+      const share = document.getElementById('council-share');
+      if (share) share.style.display = 'flex';
+      if (btn) { btn.disabled = false; btn.textContent = 'Convene the Council →'; }
+      window._lastCouncilDilemma = dilemma;
+      window._lastCouncilText = text;
+      window._lastCouncilPanelists = panelList;
+
+    } catch (err) {
+      clearInterval(loadingInterval);
+      if (dialogue) dialogue.innerHTML = '<p style="color:var(--muted);font-style:italic">Could not connect. Please try again.</p>';
+      if (btn) { btn.disabled = false; btn.textContent = 'Convene the Council →'; }
+    }
+  })();
 };
 
 // Also update famousCouncil to work with new system
