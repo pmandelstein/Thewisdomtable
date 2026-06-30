@@ -893,9 +893,35 @@ textarea{resize:vertical;line-height:1.65}
 
     </div>
     <p style="font-family:'EB Garamond',serif;font-style:italic;color:rgba(245,237,216,.45);font-size:.92rem;text-align:center;margin:32px 0 0">Everything is free. No account required. No tradition privileged over another.</p>
-    <p style="font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,237,216,.75);text-align:center;margin:14px 0 0">56 curated entries · 23 traditions · scholarship, not algorithms · sourced from the world's leading oral history archives</p>
   </div>
 </section>
+
+<div id="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Explore traditions">
+      <span class="stat-n">23+</span><span class="stat-l">Wisdom Traditions</span>
+      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Explore</span>
+    </div>
+    <div class="stat-item" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Browse the library">
+      <span class="stat-n">56</span><span class="stat-l">Curated Entries</span>
+      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Browse</span>
+    </div>
+    <div class="stat-item"><span class="stat-n">4,000</span><span class="stat-l">Years Spanned</span></div>
+    <div class="stat-item" onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Enter the Council Room">
+      <span class="stat-n">20</span><span class="stat-l">Human Questions</span>
+      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Ask one</span>
+    </div>
+    <div class="stat-item" onclick="document.getElementById('ways-of-knowing').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Discover ways of knowing">
+      <span class="stat-n">9</span><span class="stat-l">Ways of Knowing</span>
+      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Discover</span>
+    </div>
+    <div class="stat-item" onclick="document.getElementById('founding-membership').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Take a seat">
+      <span class="stat-n">∞</span><span class="stat-l">Seekers Welcome</span>
+      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Enter free</span>
+    </div>
+    <div class="stats-quote">"The table is set. There is a seat for everyone."</div>
+  </div>
+</div>
 
 <section id="humanity-asking" style="background:var(--ink);padding:52px 0 48px;border-top:1px solid rgba(200,152,10,.15);border-bottom:1px solid rgba(200,152,10,.15)">
   <div style="max-width:1500px;margin:0 auto;padding:0 24px">
@@ -1786,33 +1812,7 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
 </section>
 
 
-<!-- ══ HUMANITY IS ASKING ══ -->
-<div id="stats-bar">
-  <div class="stats-inner">
-    <div class="stat-item" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Explore traditions">
-      <span class="stat-n">23+</span><span class="stat-l">Wisdom Traditions</span>
-      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Explore</span>
-    </div>
-    <div class="stat-item" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Browse the library">
-      <span class="stat-n">56</span><span class="stat-l">Curated Entries</span>
-      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Browse</span>
-    </div>
-    <div class="stat-item"><span class="stat-n">4,000</span><span class="stat-l">Years Spanned</span></div>
-    <div class="stat-item" onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Enter the Council Room">
-      <span class="stat-n">20</span><span class="stat-l">Human Questions</span>
-      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Ask one</span>
-    </div>
-    <div class="stat-item" onclick="document.getElementById('ways-of-knowing').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Discover ways of knowing">
-      <span class="stat-n">9</span><span class="stat-l">Ways of Knowing</span>
-      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Discover</span>
-    </div>
-    <div class="stat-item" onclick="document.getElementById('founding-membership').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Take a seat">
-      <span class="stat-n">∞</span><span class="stat-l">Seekers Welcome</span>
-      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Enter free</span>
-    </div>
-    <div class="stats-quote">"The table is set. There is a seat for everyone."</div>
-  </div>
-</div>
+<!-- stats bar moved to orientation panel -->
 
 <!-- LIFE AREAS -->
 <section id="compare-section" style="padding:52px 0 48px;background:var(--paper2);border-top:1px solid var(--rule)">
@@ -2080,6 +2080,16 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
     <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:400;color:#F5EDD8;line-height:1.1;margin-bottom:18px">What do you know now<br>that you wish you knew <em style="color:var(--gold);font-style:italic">at 20?</em></h1>
     <p style="font-size:1.05rem;color:rgba(245,237,216,.65);line-height:1.78;max-width:620px;margin:0 auto 28px">Every elder who dies takes a library with them. The hospice nurse who has sat with 300 people at the end. The farmer who worked the same land for sixty years. The grandmother who survived things she never told anyone. Their wisdom is not in any book. It lives only in them — and it is disappearing every day.</p>
     <div style="font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2.2vw,1.6rem);font-style:italic;color:var(--gold);border-top:1px solid rgba(200,152,10,.2);border-bottom:1px solid rgba(200,152,10,.2);padding:18px 0;margin-bottom:28px">"The last word is never written in a book. It is spoken to someone who is listening."</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:28px;max-width:680px;margin-left:auto;margin-right:auto">
+      <span style="font-family:'EB Garamond',serif;font-size:.88rem;font-style:italic;color:rgba(245,237,216,.5);padding:5px 12px;border:1px solid rgba(200,152,10,.15);border-radius:1px">What did love teach you?</span>
+      <span style="font-family:'EB Garamond',serif;font-size:.88rem;font-style:italic;color:rgba(245,237,216,.5);padding:5px 12px;border:1px solid rgba(200,152,10,.15);border-radius:1px">What has brought you the deepest joy?</span>
+      <span style="font-family:'EB Garamond',serif;font-size:.88rem;font-style:italic;color:rgba(245,237,216,.5);padding:5px 12px;border:1px solid rgba(200,152,10,.15);border-radius:1px">What did loss teach you?</span>
+      <span style="font-family:'EB Garamond',serif;font-size:.88rem;font-style:italic;color:rgba(245,237,216,.5);padding:5px 12px;border:1px solid rgba(200,152,10,.15);border-radius:1px">What did your work teach you?</span>
+      <span style="font-family:'EB Garamond',serif;font-size:.88rem;font-style:italic;color:rgba(245,237,216,.5);padding:5px 12px;border:1px solid rgba(200,152,10,.15);border-radius:1px">What is disappearing with you?</span>
+      <span style="font-family:'EB Garamond',serif;font-size:.88rem;font-style:italic;color:rgba(245,237,216,.5);padding:5px 12px;border:1px solid rgba(200,152,10,.15);border-radius:1px">What have the dying taught you?</span>
+      <span style="font-family:'EB Garamond',serif;font-size:.88rem;font-style:italic;color:rgba(245,237,216,.5);padding:5px 12px;border:1px solid rgba(200,152,10,.15);border-radius:1px">What did crossing worlds teach you?</span>
+      <span style="font-family:'EB Garamond',serif;font-size:.88rem;font-style:italic;color:rgba(245,237,216,.5);padding:5px 12px;border:1px solid rgba(200,152,10,.15);border-radius:1px">What beauty have you witnessed?</span>
+    </div>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
       <a href="#lw-submit" style="background:var(--amber);border:none;padding:13px 32px;color:var(--dark);font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.14em;cursor:pointer;text-decoration:none;transition:background .2s" onmouseover="this.style.background='var(--amberb)'" onmouseout="this.style.background='var(--amber)'">Share Your Wisdom</a>
       <a href="#lw-stories" style="background:none;border:1px solid rgba(200,152,10,.4);padding:13px 28px;color:rgba(245,237,216,.7);font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.12em;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='var(--gold)';this.style.color='#F5EDD8'" onmouseout="this.style.borderColor='rgba(200,152,10,.4)';this.style.color='rgba(245,237,216,.7)'">Read the Stories</a>
@@ -2160,27 +2170,6 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
         <div class="sc-q">What did your practice teach you about living?</div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- THE QUESTION -->
-<section id="lw-the-question">
-  <div class="tq-inner">
-    <div class="sec-ey" style="justify-content:center;margin-bottom:16px">The Central Question</div>
-    <div class="tq-q">"What do you know now that you wish you knew at 20?"</div>
-    <p class="tq-sub">But we also ask: What did love teach you? What has brought you the deepest joy? What did loss teach you? What did your work teach you? What beauty have you witnessed that the world should know? What do you know about dying that the living need to hear? What is disappearing with you that the world should not lose?</p>
-    <div class="tq-examples">
-      <span class="tq-ex">What did love teach you?</span>
-      <span class="tq-ex">What has brought you the deepest joy?</span>
-      <span class="tq-ex">What did loss teach you?</span>
-      <span class="tq-ex">What did your work teach you?</span>
-      <span class="tq-ex">What beauty have you witnessed?</span>
-      <span class="tq-ex">What would you tell your younger self?</span>
-      <span class="tq-ex">What is disappearing with you?</span>
-      <span class="tq-ex">What have the dying taught you?</span>
-      <span class="tq-ex">What did crossing worlds teach you?</span>
-      <span class="tq-ex">What do you know about wonder?</span>
     </div>
   </div>
 </section>
@@ -2364,6 +2353,35 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
 
 
 <!-- ══ ABOUT / MISSION ══ -->
+
+<!-- TREASURY -->
+<div id="treasury">
+  <div class="tr-head">
+    <h2>All Entries</h2>
+    <span class="tr-badge">Treasury</span>
+    <span class="tr-ct" id="tr-ct"></span>
+    <div class="tr-search">
+      <input type="text" id="tr-q" placeholder="Search entries…" oninput="trSearch(this.value)" onkeydown="if(event.key==='Escape')trClear()">
+      <button onclick="trClear()">✕</button>
+    </div>
+  </div>
+  <div id="rp">
+    <div class="rp-hd">
+      <div class="rp-meta"><div class="rp-ey" id="rp-ey"></div><div class="rp-ttl" id="rp-ttl"></div></div>
+      <button onclick="currentE&&saveEntry(currentE.id)" title="Save to Notebook" class="rp-save-btn" style="background:none;border:1px solid var(--rule);padding:4px 10px;cursor:pointer;font-size:.82rem;color:var(--muted);transition:all .2s;margin-right:4px;flex-shrink:0" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amber)'" onmouseout="this.style.borderColor='var(--rule)';this.style.color='var(--muted)'">★ Save</button>
+      <button class="rp-x" onclick="closeRP()">✕</button>
+    </div>
+    <div class="rp-tabs">
+      <button class="rp-tab on" onclick="rpTab('entry',this)">Entry</button>
+      <button class="rp-tab" onclick="rpTab('lineage',this)">Lineage</button>
+      <button class="rp-tab" onclick="rpTab('wiki',this)">Wikipedia</button>
+      <button class="rp-tab" onclick="rpTab('sources',this)">Sources</button>
+      <button class="rp-tab" onclick="rpTab('ask',this)">Ask AI</button>
+    </div>
+    <div class="rp-body" id="rp-body"></div>
+  </div>
+  <div id="tr-grid"></div>
+</div>
 <div id="about-section">
 <style>
 /* ── ABOUT PAGE CSS ── */
@@ -2878,35 +2896,6 @@ p:last-child{margin-bottom:0}
     </div>
   </div>
 </section>
-
-<!-- TREASURY -->
-<div id="treasury">
-  <div class="tr-head">
-    <h2>All Entries</h2>
-    <span class="tr-badge">Treasury</span>
-    <span class="tr-ct" id="tr-ct"></span>
-    <div class="tr-search">
-      <input type="text" id="tr-q" placeholder="Search entries…" oninput="trSearch(this.value)" onkeydown="if(event.key==='Escape')trClear()">
-      <button onclick="trClear()">✕</button>
-    </div>
-  </div>
-  <div id="rp">
-    <div class="rp-hd">
-      <div class="rp-meta"><div class="rp-ey" id="rp-ey"></div><div class="rp-ttl" id="rp-ttl"></div></div>
-      <button onclick="currentE&&saveEntry(currentE.id)" title="Save to Notebook" class="rp-save-btn" style="background:none;border:1px solid var(--rule);padding:4px 10px;cursor:pointer;font-size:.82rem;color:var(--muted);transition:all .2s;margin-right:4px;flex-shrink:0" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amber)'" onmouseout="this.style.borderColor='var(--rule)';this.style.color='var(--muted)'">★ Save</button>
-      <button class="rp-x" onclick="closeRP()">✕</button>
-    </div>
-    <div class="rp-tabs">
-      <button class="rp-tab on" onclick="rpTab('entry',this)">Entry</button>
-      <button class="rp-tab" onclick="rpTab('lineage',this)">Lineage</button>
-      <button class="rp-tab" onclick="rpTab('wiki',this)">Wikipedia</button>
-      <button class="rp-tab" onclick="rpTab('sources',this)">Sources</button>
-      <button class="rp-tab" onclick="rpTab('ask',this)">Ask AI</button>
-    </div>
-    <div class="rp-body" id="rp-body"></div>
-  </div>
-  <div id="tr-grid"></div>
-</div>
 
 <!-- FOOTER -->
 <footer>
@@ -4886,4 +4875,3 @@ updatePanelistCount();
 </script>
 </body>
 </html>
-
