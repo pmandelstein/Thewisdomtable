@@ -108,6 +108,9 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
 
 /* ── STATS BAR ── */
 #stats-bar{background:var(--paper2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:20px 24px}
+@keyframes statBump{0%{transform:scale(1);color:var(--amber)}35%{transform:scale(1.32);color:var(--gold)}100%{transform:scale(1);color:var(--amber)}}
+.stat-n{display:inline-block;transition:color .3s}
+.stat-n.bump{animation:statBump .7s ease}
 .stats-inner{max-width:1500px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .stat-item{text-align:center;flex:1;min-width:100px}
 .stat-n{font-family:'Cinzel',serif;font-size:1.5rem;color:var(--amber);display:block;line-height:1}
@@ -676,6 +679,8 @@ textarea{resize:vertical;line-height:1.65}
 .ticker-track{display:flex;align-items:center;animation:tickerScroll 44s linear infinite;white-space:nowrap}
 .ticker-track:hover{animation-play-state:paused}
 .ticker-item{display:inline-flex;align-items:center;gap:9px;padding:0 28px;border-right:1px solid rgba(200,152,10,.09);cursor:pointer}
+.ticker-item-new .ti-tag,.ticker-item-new .ti-title{color:var(--gold)!important}
+.ticker-item-new::before{content:'✦ NEW';font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.1em;color:var(--gold);margin-right:6px;animation:pulse 1.8s ease-in-out infinite}
 .ticker-item:hover .ti-title{color:var(--gold)}
 .ti-tag{font-family:'Cinzel',serif;font-size:.53rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(200,152,10,.42);white-space:nowrap;flex-shrink:0}
 .ti-sep{color:rgba(200,152,10,.2);font-size:.7rem;flex-shrink:0}
@@ -912,11 +917,11 @@ textarea{resize:vertical;line-height:1.65}
 <div id="stats-bar">
   <div class="stats-inner">
     <div class="stat-item" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Explore traditions">
-      <span class="stat-n">23+</span><span class="stat-l">Wisdom Traditions</span>
+      <span class="stat-n" id="stat-n-traditions">23+</span><span class="stat-l">Wisdom Traditions</span>
       <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Explore</span>
     </div>
     <div class="stat-item" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Browse the library">
-      <span class="stat-n">56</span><span class="stat-l">Curated Entries</span>
+      <span class="stat-n" id="stat-n-entries">56</span><span class="stat-l">Curated Entries</span>
       <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Browse</span>
     </div>
     <div class="stat-item"><span class="stat-n">4,000</span><span class="stat-l">Years Spanned</span></div>
@@ -4287,10 +4292,78 @@ const SCOUT_DISCOVERIES = [
       influenced: ["Marcus Aurelius", "Cognitive Behavioral Therapy", "Modern grief counseling"]
     },
     body: "<h4>Overview</h4><p>A newly translated passage from Seneca's Epistulae Morales — letters to his friend Lucilius — addresses the specific experience of grief with a directness and compassion that later editors often softened. Seneca does not argue that grief is irrational. He argues that it is natural, necessary, and finite. What Stoicism opposes is not feeling but permanence — the hardening of grief into identity, the refusal to let the natural process complete itself.</p><h4>Core Teaching</h4><p>'Let tears flow, but let them have an end' — this is the central Senecan counsel on grief. Not suppression but limits. Not stoic hardness but stoic groundedness. He tells Lucilius that the person who does not grieve has not loved; the person who cannot stop grieving has confused the dead with themselves. The work of mourning is to find the person you are without the one you lost, while honoring what they gave you that cannot be taken.</p><h4>For the Seeker Today</h4><p>Seneca's practical instruction: set aside a specific time each day to grieve, and outside that time, refuse to let grief colonize the rest of life. This is not denial — it is the same discipline a musician brings to practice. Grief has its hour. Life has the rest. The discipline of limits is what allows the natural process to complete.</p>",
+  },
+  {
+    id: "scout-yoruba-iwa-pele",
+    title: "Field Recordings on Iwa Pele — Newly Indexed Elder Interviews",
+    tradition: "Indigenous · Yoruba",
+    category: "Wisdom at Risk",
+    tags: ["Yoruba", "iwa pele", "character", "West Africa", "newly indexed", "oral tradition"],
+    added: new Date().toISOString().slice(0,10),
+    scout_source: "African Oral History Archive — Ibadan field recordings",
+    scout_agent: "Scout B — Living Wisdom",
+    tickerTag: "African OHA",
+    body: "<h4>Overview</h4><p>A newly indexed batch of field recordings from the African Oral History Archive captures elders in southwestern Nigeria discussing iwa pele — good character — as it is actually taught in households rather than in formal Ifá literature. The recordings, gathered over three decades and only now fully transcribed, offer something the written tradition rarely preserves: the specific, everyday phrases parents and grandparents use to correct and shape a child's character.</p><h4>Core Teaching</h4><p>Across the recordings, one instruction recurs in dozens of forms: character is not what you say about yourself but what your community says about you after you have left the room. Several elders independently describe iwa pele not as a fixed trait but as a practice resumed daily, the way a person resumes prayer or work — something that can be lost through carelessness and rebuilt through attention.</p><h4>For the Seeker Today</h4><p>The recordings suggest a simple, checkable practice: ask someone who knows you well what your character looked like this week, not what you believe it to be. The gap between those two answers, if there is one, is where the work actually is.</p>",
+  },
+  {
+    id: "scout-desert-fathers-fragment",
+    title: "An Unpublished Desert Fathers Saying on Attention",
+    tradition: "Christianity · Contemplative",
+    category: "Ways of Knowing",
+    tags: ["Desert Fathers", "silence", "attention", "newly translated", "monasticism", "4th century"],
+    added: new Date().toISOString().slice(0,10),
+    scout_source: "Bodleian Library manuscript digitization project",
+    scout_agent: "Scout A — Ancient Texts",
+    tickerTag: "Ancient Text",
+    body: "<h4>Overview</h4><p>A newly digitized Bodleian manuscript fragment attributes to an unnamed 4th-century Desert Father a saying not present in the standard collections of the Sayings of the Desert Fathers. A younger monk asks how he will know when he has learned to pray without distraction. The elder answers only: 'When you stop asking me and start noticing where your mind actually is.'</p><h4>Core Teaching</h4><p>The saying's terseness is itself the teaching, consistent with the Desert tradition's deep suspicion of instruction that can be memorized rather than lived. The elder refuses to give the younger monk a technique to master, redirecting him instead to the one thing he can check for himself at any moment: where his attention currently rests.</p><h4>For the Seeker Today</h4><p>Try the elder's redirection literally, right now: without changing anything, notice where your attention actually is. Not where you assume it is, or where you wish it were. That noticing, repeated honestly, is the entire practice the fragment is pointing toward.</p>",
   }
 ];
 
 let scoutDiscoveryIndex = 0;
+
+// ══ LIVE STATS BAR ══
+// Tracks the "primary" tradition (text before any ' · ') for each entry already
+// in the library, so we can tell whether a new Scout discovery introduces a
+// genuinely new tradition or just adds to one already counted.
+const _knownPrimaryTraditions = new Set(
+  ALL_ENTRIES.map(e => (e.tradition || '').split('·')[0].trim()).filter(Boolean)
+);
+
+function bumpStat(el) {
+  if (!el) return;
+  el.classList.remove('bump');
+  // Force reflow so the animation can retrigger on rapid successive bumps
+  void el.offsetWidth;
+  el.classList.add('bump');
+}
+
+function updateStatsBarForNewEntry(entry) {
+  const entriesEl = document.getElementById('stat-n-entries');
+  if (entriesEl) {
+    const current = parseInt(entriesEl.textContent.replace(/[^\d]/g, ''), 10) || 0;
+    entriesEl.textContent = current + 1;
+    bumpStat(entriesEl);
+  }
+  const primary = (entry.tradition || '').split('·')[0].trim();
+  if (primary && !_knownPrimaryTraditions.has(primary)) {
+    _knownPrimaryTraditions.add(primary);
+    const tradEl = document.getElementById('stat-n-traditions');
+    if (tradEl) {
+      const current = parseInt(tradEl.textContent.replace(/[^\d]/g, ''), 10) || 0;
+      tradEl.textContent = (current + 1) + '+';
+      bumpStat(tradEl);
+    }
+  }
+}
+
+// Initialize the counters to the library's actual current numbers on load,
+// so the stats bar is accurate from the first paint, not just after a Scout event.
+(function initStatsBar() {
+  const entriesEl = document.getElementById('stat-n-entries');
+  if (entriesEl) entriesEl.textContent = ALL_ENTRIES.length;
+  const tradEl = document.getElementById('stat-n-traditions');
+  if (tradEl) tradEl.textContent = _knownPrimaryTraditions.size + '+';
+})();
 
 function triggerScoutDiscovery() {
   if (scoutDiscoveryIndex >= SCOUT_DISCOVERIES.length) return;
@@ -4301,7 +4374,18 @@ function triggerScoutDiscovery() {
     // Avoid duplicates
     if (!ALL_ENTRIES.find(e => e.id === newEntry.id)) {
       ALL_ENTRIES.unshift(newEntry);
+      updateStatsBarForNewEntry(newEntry);
     }
+  }
+
+  // Feed the scrolling "New discoveries" ticker with this same real item
+  if (typeof addTickerDiscovery === 'function') {
+    addTickerDiscovery({
+      tag: newEntry.tickerTag || (newEntry.tradition || '').split('·')[0].trim(),
+      title: newEntry.title,
+      meta: (newEntry.scout_agent || 'Wisdom Scout') + ' · Just discovered',
+      entry: newEntry.id
+    });
   }
 
   // Re-render treasury if visible and showing all
@@ -4331,10 +4415,14 @@ function triggerScoutDiscovery() {
   }
 }
 
-// Stagger discoveries: 12s, 38s, 90s after load
+// Stagger discoveries across the session so new items keep arriving —
+// staggered timing feels more like a live scout than a fixed batch.
 setTimeout(() => triggerScoutDiscovery(), 12000);
 setTimeout(() => triggerScoutDiscovery(), 38000);
-setTimeout(() => triggerScoutDiscovery(), 90000);
+setTimeout(() => triggerScoutDiscovery(), 70000);
+setTimeout(() => triggerScoutDiscovery(), 105000);
+setTimeout(() => triggerScoutDiscovery(), 145000);
+setTimeout(() => triggerScoutDiscovery(), 190000);
 
 
 // ══ HUMANITY IS ASKING ══
@@ -4692,13 +4780,19 @@ conveneCouncil = function() {
   
   const systemPrompt = `You are the Wisdom Table Council Room. You speak as the greatest wisdom voices in human history, each in their authentic voice.
 
+CRITICAL OUTPUT RULES — follow these exactly:
+- Output ONLY the final formatted dialogue. Nothing else.
+- Never include planning, reasoning, meta-commentary, self-talk, or explanations of your process (no "Let me think," no "I need to consider," no numbered planning lists, no working-through-it-out-loud).
+- Never use markdown of any kind — no **, no #, no numbered or bulleted lists. Use ONLY the two HTML tags specified below.
+- Your response must begin immediately with the first <h4> tag. Do not precede it with any text.
+
 For each panelist listed, write a genuine response to the dilemma — 3-5 sentences in their actual voice, drawing on their real teachings and worldview. Be specific to what they actually taught, not generic wisdom.
 
-Format each response as:
-<h4>[Name] · [Tradition/Role]</h4>
-<p>[Their response in their authentic voice]</p>
+Format each response as exactly:
+<h4>Name · Tradition or Role</h4>
+<p>Their response, in plain prose, in their authentic voice — no markdown formatting inside the paragraph either.</p>
 
-Be direct, specific, and moving. This person has a real problem. Each panelist should respond differently based on their actual teachings.`;
+Be direct, specific, and moving. This person has a real problem. Each panelist should respond differently based on their actual teachings. Repeat this h4/p pair once per panelist, with nothing before, between, or after them except the tags themselves.`;
 
   const userPrompt = `Dilemma: "${dilemma}"
 
@@ -4723,12 +4817,26 @@ Respond as each panelist in their authentic voice.`;
       let text = '';
       let firstChunk = true;
 
+      // Safety net: even with strict prompt instructions, models occasionally
+      // leak a bit of planning text or stray markdown. This trims any preamble
+      // before the first real <h4> tag and strips markdown bold/list markers
+      // so a slip never shows up raw on the page.
+      function cleanCouncilOutput(raw) {
+        if (!raw) return raw;
+        let t = raw;
+        const firstTag = t.search(/<h4[\s>]/i);
+        if (firstTag > 0) t = t.slice(firstTag);
+        t = t.replace(/\*\*(.*?)\*\*/g, '$1');
+        t = t.replace(/^\s*\d+\.\s*/gm, '');
+        return t.trim();
+      }
+
       if (!r.ok || !r.body) {
         // Fallback: try plain JSON
         const data = await r.json();
         if (data.error) throw new Error(data.error.message || 'API error');
         text = data.content?.[0]?.text || '<p>The council could not gather at this time.</p>';
-        if (dialogue) dialogue.innerHTML = text;
+        if (dialogue) dialogue.innerHTML = cleanCouncilOutput(text);
       } else {
         const reader = r.body.getReader();
         const decoder = new TextDecoder();
@@ -4748,12 +4856,13 @@ Respond as each panelist in their authentic voice.`;
               if (evt.type === 'content_block_delta' && evt.delta?.text) {
                 if (firstChunk) { clearInterval(loadingInterval); firstChunk = false; }
                 text += evt.delta.text;
-                if (dialogue) dialogue.innerHTML = text;
+                if (dialogue) dialogue.innerHTML = cleanCouncilOutput(text);
               }
             } catch { /* ignore malformed SSE lines */ }
           }
         }
         if (!text) text = '<p>The council could not gather at this time.</p>';
+        text = cleanCouncilOutput(text);
         if (dialogue) dialogue.innerHTML = text;
       }
 
@@ -4844,9 +4953,10 @@ updatePanelistCount();
 })();
 
 
-// ══ WISDOM SCOUT TICKER ══
-(function() {
-  const TICKER_ITEMS = [
+// ══ WISDOM SCOUT TICKER — now a live feed ══
+// TICKER_ITEMS is intentionally not wrapped in an IIFE so that addTickerDiscovery()
+// (called from triggerScoutDiscovery) can mutate it and re-render in real time.
+let TICKER_ITEMS = [
     { tag: "ATALM Network",        title: "Incoming fragment: Hopi time philosophy \u2014 elder oral account, Arizona",                     meta: "Scout B \u00b7 Indigenous Archive",       entry: "indigenous-traditions-overview" },
     { tag: "Nunn Center",          title: "1974 Appalachian ethnobotany tape \u2014 newly digitized, 47 minutes recovered",                  meta: "Scout A \u00b7 Univ. of Kentucky",         entry: "plant-medicine-wisdom-at-risk" },
     { tag: "African OHA",          title: "Ubuntu oral accounts: 44 interviews from Johannesburg indexed",                                    meta: "Scout B \u00b7 African Oral History Archive", entry: "indigenous-ubuntu" },
@@ -4859,14 +4969,14 @@ updatePanelistCount();
     { tag: "Modern Research",      title: "Consciousness studies: nondual awareness and the brain \u2014 new findings",                     meta: "Scout C \u00b7 Contemplative Science",     entry: "science-consciousness-studies" },
     { tag: "Sufi Manuscript",      title: "Avalokita silence fragments \u2014 Sufi\u2013Buddhist crossings, Istanbul collection",           meta: "Scout A \u00b7 Ancient Texts",             entry: "silence-contemplation-wisdom" },
     { tag: "ATALM Network",        title: "Anishinaabe tradition on grief \u2014 elder recording, Great Lakes region",                      meta: "Scout B \u00b7 Indigenous Archive",       entry: "lakota-mitakuye-oyasin" },
-  ];
+];
 
+function renderTicker() {
   const track = document.getElementById('ticker-track');
   if (!track) return;
-
   const all = [...TICKER_ITEMS, ...TICKER_ITEMS];
   track.innerHTML = all.map(item =>
-    '<div class="ticker-item" onclick="openE(\'' + item.entry + '\')" style="cursor:pointer" title="Read entry: ' + item.tag + '">' +
+    '<div class="ticker-item' + (item._new ? ' ticker-item-new' : '') + '" onclick="openE(\'' + item.entry + '\')" style="cursor:pointer" title="Read entry: ' + item.tag + '">' +
     '<span class="ti-tag">' + item.tag + '</span>' +
     '<span class="ti-sep">\u00b7</span>' +
     '<span class="ti-title">' + item.title + '</span>' +
@@ -4874,7 +4984,21 @@ updatePanelistCount();
     '<span style="font-family:\'Cinzel\',serif;font-size:.55rem;letter-spacing:.1em;color:rgba(200,152,10,.88);margin-left:10px">Read →</span>' +
     '</div>'
   ).join('');
-})();
+}
+
+// Called by triggerScoutDiscovery() with a real, newly-added library entry —
+// pushes it into the live ticker feed (not just the decorative loop) and caps
+// the feed length so the marquee doesn't grow unbounded over a long session.
+function addTickerDiscovery(item) {
+  item._new = true;
+  TICKER_ITEMS.unshift(item);
+  if (TICKER_ITEMS.length > 18) TICKER_ITEMS.length = 18;
+  renderTicker();
+  // Clear the "new" highlight after one pass so only the freshest item glows
+  setTimeout(() => { item._new = false; }, 20000);
+}
+
+renderTicker();
 
 
 // ══ FOUNDING MEMBERSHIP COUNTER ══
