@@ -676,7 +676,7 @@ textarea{resize:vertical;line-height:1.65}
 .ticker-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
 .ticker-heading{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(200,152,10,.85);white-space:nowrap}
 .ticker-track-wrap{flex:1;overflow:hidden;height:100%;display:flex;align-items:center;mask-image:linear-gradient(to right,transparent,black 4%,black 93%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 4%,black 93%,transparent)}
-.ticker-track{display:flex;align-items:center;animation:tickerScroll 44s linear infinite;white-space:nowrap}
+.ticker-track{display:flex;align-items:center;animation:tickerScroll 95s linear infinite;white-space:nowrap}
 .ticker-track:hover{animation-play-state:paused}
 .ticker-item{display:inline-flex;align-items:center;gap:9px;padding:0 28px;border-right:1px solid rgba(200,152,10,.09);cursor:pointer}
 .ticker-item-new .ti-tag,.ticker-item-new .ti-title{color:var(--gold)!important}
@@ -940,6 +940,70 @@ textarea{resize:vertical;line-height:1.65}
     <div class="stats-quote">"The table is set. There is a seat for everyone."</div>
   </div>
 </div>
+
+<section id="discover">
+  <div class="disc-inner">
+    <div class="sec-head" style="padding:0 0 24px">
+      <div class="sec-ey" style="justify-content:flex-start">Discovery &amp; Preservation</div>
+    </div>
+    <div class="disc-grid">
+      <!-- Scout panel -->
+      <div class="disc-panel">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;flex-wrap:wrap;gap:8px">
+          <div class="scout-live"><span class="scout-dot"></span><span class="scout-title" style="font-family:'Cinzel',serif;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase">★ Wisdom Scout — New Discoveries</span></div>
+          <div style="font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(140,106,16,.55);border:1px solid rgba(140,106,16,.2);padding:2px 8px">LIVE</div>
+        </div>
+        <div class="scout-sub">Our AI scouts search archives, oral repositories, and research journals daily. A living institution grows — it never stops discovering.</div>
+        <div class="disc-feed">
+          <div class="disc-item" onclick="openE('unearthed-herculaneum-scrolls')">
+            <div class="di-cat" style="color:#1A3E28">⛏ Ancient Text</div>
+            <div class="di-title">Herculaneum Scrolls</div>
+            <div class="di-meta">AI-recovered · 79 CE · 2 days ago</div>
+          </div>
+          <div class="disc-item" onclick="openE('unearthed-gospel-of-thomas')">
+            <div class="di-cat" style="color:#6A1C1C">📜 Rediscovered</div>
+            <div class="di-title">Gospel of Thomas</div>
+            <div class="di-meta">Nag Hammadi · Gnostic · 3 days ago</div>
+          </div>
+          <div class="disc-item" onclick="openE('plant-medicine-wisdom-at-risk')">
+            <div class="di-cat" style="color:#6A1C1C">⚠ At Risk</div>
+            <div class="di-title">Amazon Plant Medicine</div>
+            <div class="di-meta">Indigenous · Disappearing · 5 days ago</div>
+          </div>
+          <div class="disc-item" onclick="openE('science-consciousness-studies')">
+            <div class="di-cat" style="color:#185060">🔭 Research</div>
+            <div class="di-title">Consciousness Studies</div>
+            <div class="di-meta">Science meets contemplation · 1 week ago</div>
+          </div>
+        </div>
+        <a href="curator.html" style="font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;color:var(--amber);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amberb)'" onmouseout="this.style.color='var(--amber)'">View All Recent Discoveries →</a>
+      </div>
+      <!-- Wisdom at Risk -->
+      <div class="risk-panel" id="wisdom-at-risk">
+        <div class="risk-head">
+          <div class="risk-mission"><span class="risk-mission-dot"></span>Our Mission</div>
+          <h3 class="risk-h">Wisdom at Risk</h3>
+          <p class="risk-body">Languages are disappearing. Elders are passing. Traditions are being forgotten. Help us preserve humanity's wisdom before it is lost forever.</p>
+        </div>
+        <div class="risk-pillars">
+          <div class="risk-pill" onclick="openE('wisdom-at-risk-dying-languages')">
+            <div class="risk-pill-title">Endangered Languages</div>
+            <div class="risk-pill-sub">7,000 languages · one dies every two weeks</div>
+          </div>
+          <div class="risk-pill" onclick="openE('indigenous-traditions-overview','Indigenous')">
+            <div class="risk-pill-title">Oral Traditions</div>
+            <div class="risk-pill-sub">Elders dying · stories vanishing unrecorded</div>
+          </div>
+          <div class="risk-pill" onclick="openE('dying-well-hospice-wisdom','Preservation')">
+            <div class="risk-pill-title">The Last Wisdom Project</div>
+            <div class="risk-pill-sub">"What do you know now you wish you knew at 20?"</div>
+          </div>
+        </div>
+        <a class="risk-cta" href="#last-wisdom-section" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'});return false;">The Last Wisdom Project →</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="humanity-asking" style="background:var(--ink);padding:52px 0 48px;border-top:1px solid rgba(200,152,10,.15);border-bottom:1px solid rgba(200,152,10,.15)">
   <div style="max-width:1500px;margin:0 auto;padding:0 24px">
@@ -1909,68 +1973,6 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
         <h4>Forgiveness & Return</h4>
         <p>The human need to begin again — how every tradition makes it possible.</p>
         <div class="theme-terms"><span class="term">Teshuvah</span> <span class="term">Tawba</span> <span class="term">Grace</span> <span class="term">Restorative justice</span></div>
-      </div>
-    </div>
-  </div>
-</section><section id="discover">
-  <div class="disc-inner">
-    <div class="sec-head" style="padding:0 0 24px">
-      <div class="sec-ey" style="justify-content:flex-start">Discovery &amp; Preservation</div>
-    </div>
-    <div class="disc-grid">
-      <!-- Scout panel -->
-      <div class="disc-panel">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;flex-wrap:wrap;gap:8px">
-          <div class="scout-live"><span class="scout-dot"></span><span class="scout-title" style="font-family:'Cinzel',serif;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase">★ Wisdom Scout — New Discoveries</span></div>
-          <div style="font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(140,106,16,.55);border:1px solid rgba(140,106,16,.2);padding:2px 8px">LIVE</div>
-        </div>
-        <div class="scout-sub">Our AI scouts search archives, oral repositories, and research journals daily. A living institution grows — it never stops discovering.</div>
-        <div class="disc-feed">
-          <div class="disc-item" onclick="openE('unearthed-herculaneum-scrolls')">
-            <div class="di-cat" style="color:#1A3E28">⛏ Ancient Text</div>
-            <div class="di-title">Herculaneum Scrolls</div>
-            <div class="di-meta">AI-recovered · 79 CE · 2 days ago</div>
-          </div>
-          <div class="disc-item" onclick="openE('unearthed-gospel-of-thomas')">
-            <div class="di-cat" style="color:#6A1C1C">📜 Rediscovered</div>
-            <div class="di-title">Gospel of Thomas</div>
-            <div class="di-meta">Nag Hammadi · Gnostic · 3 days ago</div>
-          </div>
-          <div class="disc-item" onclick="openE('plant-medicine-wisdom-at-risk')">
-            <div class="di-cat" style="color:#6A1C1C">⚠ At Risk</div>
-            <div class="di-title">Amazon Plant Medicine</div>
-            <div class="di-meta">Indigenous · Disappearing · 5 days ago</div>
-          </div>
-          <div class="disc-item" onclick="openE('science-consciousness-studies')">
-            <div class="di-cat" style="color:#185060">🔭 Research</div>
-            <div class="di-title">Consciousness Studies</div>
-            <div class="di-meta">Science meets contemplation · 1 week ago</div>
-          </div>
-        </div>
-        <a href="curator.html" style="font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;color:var(--amber);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amberb)'" onmouseout="this.style.color='var(--amber)'">View All Recent Discoveries →</a>
-      </div>
-      <!-- Wisdom at Risk -->
-      <div class="risk-panel" id="wisdom-at-risk">
-        <div class="risk-head">
-          <div class="risk-mission"><span class="risk-mission-dot"></span>Our Mission</div>
-          <h3 class="risk-h">Wisdom at Risk</h3>
-          <p class="risk-body">Languages are disappearing. Elders are passing. Traditions are being forgotten. Help us preserve humanity's wisdom before it is lost forever.</p>
-        </div>
-        <div class="risk-pillars">
-          <div class="risk-pill" onclick="openE('wisdom-at-risk-dying-languages')">
-            <div class="risk-pill-title">Endangered Languages</div>
-            <div class="risk-pill-sub">7,000 languages · one dies every two weeks</div>
-          </div>
-          <div class="risk-pill" onclick="openE('indigenous-traditions-overview','Indigenous')">
-            <div class="risk-pill-title">Oral Traditions</div>
-            <div class="risk-pill-sub">Elders dying · stories vanishing unrecorded</div>
-          </div>
-          <div class="risk-pill" onclick="openE('dying-well-hospice-wisdom','Preservation')">
-            <div class="risk-pill-title">The Last Wisdom Project</div>
-            <div class="risk-pill-sub">"What do you know now you wish you knew at 20?"</div>
-          </div>
-        </div>
-        <a class="risk-cta" href="#last-wisdom-section" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'});return false;">The Last Wisdom Project →</a>
       </div>
     </div>
   </div>
