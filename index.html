@@ -4042,12 +4042,7 @@ function handleSubmit() {
     if (el.value.trim()) fields[label] = el.value.trim();
   });
 
-  // ── TO ACTIVATE LAST WISDOM SUBMISSIONS ──
-  // 1. Go to formspree.io (free account, 2 minutes)
-  // 2. Create a new form — it gives you an 8-character ID
-  // 3. Replace YOUR_FORM_ID below with that ID
-  // Example: if your URL is formspree.io/f/abcd1234, paste abcd1234
-  const FORMSPREE_ID = 'YOUR_FORM_ID'; // ← PASTE YOUR ID HERE
+  const FORMSPREE_ID = 'xjgqpeea'; // Last Wisdom Submissions — connected July 2026
 
   const submitBtn = formBox.querySelector('.submit-btn');
   submitBtn.textContent = 'Sending…';
@@ -4067,11 +4062,20 @@ function handleSubmit() {
     confirm.scrollIntoView({ behavior: 'smooth', block: 'center' });
   })
   .catch(() => {
-    console.warn('Set FORMSPREE_ID in handleSubmit() to activate real delivery to pmandelstein@gmail.com');
-    formBox.style.opacity = '.4';
-    formBox.style.pointerEvents = 'none';
-    document.getElementById('lw-submit-confirm').style.display = 'block';
-    document.getElementById('lw-submit-confirm').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Honest failure state — never claim success when the submission didn't
+    // actually go through. Re-enable the form so the person can try again.
+    submitBtn.textContent = 'Submit to the Archive →';
+    submitBtn.disabled = false;
+    let errBox = document.getElementById('lw-submit-error');
+    if (!errBox) {
+      errBox = document.createElement('div');
+      errBox.id = 'lw-submit-error';
+      errBox.style.cssText = 'background:#fdeaea;border:1px solid #c05050;border-left:4px solid #A03030;padding:14px 18px;margin-top:14px;font-size:.9rem;color:#6A1C1C';
+      errBox.textContent = 'Something went wrong sending this — nothing was lost, but please try again in a moment. If it keeps happening, email pmandelstein@gmail.com directly so your wisdom isn\'t lost.';
+      formBox.parentNode.insertBefore(errBox, formBox.nextSibling);
+    }
+    errBox.style.display = 'block';
+    errBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 }
 
