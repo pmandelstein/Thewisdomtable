@@ -4400,12 +4400,16 @@ function triggerScoutDiscovery() {
 
 // Stagger discoveries across the session so new items keep arriving —
 // staggered timing feels more like a live scout than a fixed batch.
-setTimeout(() => triggerScoutDiscovery(), 12000);
-setTimeout(() => triggerScoutDiscovery(), 38000);
-setTimeout(() => triggerScoutDiscovery(), 70000);
-setTimeout(() => triggerScoutDiscovery(), 105000);
-setTimeout(() => triggerScoutDiscovery(), 145000);
-setTimeout(() => triggerScoutDiscovery(), 190000);
+// DISABLED: the real Wisdom Scout worker (Cloudflare, scheduled crawler) has
+// replaced this client-side simulator as of July 2026. These fabricated
+// sample discoveries no longer fire. Real, approved discoveries are fetched
+// from the worker's /published endpoint instead — see fetchPublishedDiscoveries() below.
+// setTimeout(() => triggerScoutDiscovery(), 12000);
+// setTimeout(() => triggerScoutDiscovery(), 38000);
+// setTimeout(() => triggerScoutDiscovery(), 70000);
+// setTimeout(() => triggerScoutDiscovery(), 105000);
+// setTimeout(() => triggerScoutDiscovery(), 145000);
+// setTimeout(() => triggerScoutDiscovery(), 190000);
 
 
 // ══ HUMANITY IS ASKING ══
@@ -4975,6 +4979,53 @@ function addTickerDiscovery(item) {
 }
 
 renderTicker();
+
+// ══ REAL WISDOM SCOUT DISCOVERIES ══
+// Fetches genuinely real, human-approved discoveries from the Wisdom Scout
+// Cloudflare Worker (replaces the old fabricated client-side simulator).
+// This endpoint requires no password — it only ever returns entries that
+// have already passed your one-click review at /review?pw=...
+const WISDOM_SCOUT_PUBLISHED_URL = "https://wisdom-scout.pmandelstein.workers.dev/published";
+
+async function fetchPublishedDiscoveries() {
+  try {
+    const r = await fetch(WISDOM_SCOUT_PUBLISHED_URL);
+    if (!r.ok) return;
+    const items = await r.json();
+    if (!Array.isArray(items) || !items.length) return;
+
+    let addedAny = false;
+    items.forEach((item) => {
+      if (!item.id || ALL_ENTRIES.find((e) => e.id === item.id)) return; // skip duplicates
+      ALL_ENTRIES.unshift(item);
+      addedAny = true;
+
+      if (typeof updateStatsBarForNewEntry === 'function') updateStatsBarForNewEntry(item);
+      if (typeof addTickerDiscovery === 'function') {
+        addTickerDiscovery({
+          tag: item.scout_source || (item.tradition || '').split('·')[0].trim(),
+          title: item.title,
+          meta: 'Wisdom Scout · Real discovery',
+          entry: item.id
+        });
+      }
+      if (typeof showSaveToast === 'function') {
+        showSaveToast('✦ New discovery added: ' + item.title);
+      }
+    });
+
+    if (addedAny && typeof activeTr !== 'undefined' && activeTr === 'all' && typeof renderEntries === 'function') {
+      renderEntries(ALL_ENTRIES);
+    }
+  } catch (e) {
+    // Fail silently — the site works fine even if the worker is briefly unreachable
+    console.warn('Wisdom Scout published-discoveries fetch failed:', e);
+  }
+}
+
+// Check once on load, then periodically during a long session
+fetchPublishedDiscoveries();
+setInterval(fetchPublishedDiscoveries, 5 * 60 * 1000); // every 5 minutes
 
 
 // ══ FOUNDING MEMBERSHIP COUNTER ══
