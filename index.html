@@ -976,7 +976,7 @@ textarea{resize:vertical;line-height:1.65}
             <div class="di-meta">Science meets contemplation · 1 week ago</div>
           </div>
         </div>
-        <a href="curator.html" style="font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;color:var(--amber);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amberb)'" onmouseout="this.style.color='var(--amber)'">View All Recent Discoveries →</a>
+        <a onclick="document.getElementById('discover').scrollIntoView({behavior:'smooth'})" style="font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;color:var(--amber);text-decoration:none;transition:color .2s;cursor:pointer" onmouseover="this.style.color='var(--amberb)'" onmouseout="this.style.color='var(--amber)'">View All Recent Discoveries →</a>
       </div>
       <!-- Wisdom at Risk -->
       <div class="risk-panel" id="wisdom-at-risk">
@@ -1836,7 +1836,7 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
         <div style="font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2.5vw,1.7rem);color:#F5EDD8;font-weight:400;font-style:italic;line-height:1.2">Voices that would otherwise be lost</div>
         <div style="font-size:.72rem;color:rgba(245,237,216,.55);font-style:italic;margin-top:6px">Illustrative — the kind of story this project hopes to collect. Not yet real submissions.</div>
       </div>
-      <a href="contribute.html" style="font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;color:rgba(200,152,10,.88);text-decoration:none;white-space:nowrap;transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(200,152,10,.6)'">Share Your Wisdom →</a>
+      <a onclick="document.getElementById('lw-submit').scrollIntoView({behavior:'smooth'})" style="font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;color:rgba(200,152,10,.88);text-decoration:none;white-space:nowrap;transition:color .2s;cursor:pointer" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(200,152,10,.6)'">Share Your Wisdom →</a>
     </div>
 
     <!-- Story cards -->
@@ -1887,7 +1887,7 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
     <!-- CTA -->
     <div style="padding:20px 24px;display:flex;align-items:center;justify-content:center;gap:20px;border-top:1px solid rgba(200,152,10,.08);flex-wrap:wrap">
       <div style="font-size:.9rem;color:rgba(245,237,216,.84);font-style:italic">Your story belongs here too.</div>
-      <a href="contribute.html" style="background:none;border:1px solid rgba(200,152,10,.35);padding:8px 20px;color:rgba(245,237,216,.90);font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='var(--gold)';this.style.color='#F5EDD8'" onmouseout="this.style.borderColor='rgba(200,152,10,.35)';this.style.color='rgba(245,237,216,.65)'">Share What You've Learned →</a>
+      <a onclick="document.getElementById('lw-submit').scrollIntoView({behavior:'smooth'})" style="background:none;border:1px solid rgba(200,152,10,.35);padding:8px 20px;color:rgba(245,237,216,.90);font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;text-decoration:none;transition:all .2s;cursor:pointer" onmouseover="this.style.borderColor='var(--gold)';this.style.color='#F5EDD8'" onmouseout="this.style.borderColor='rgba(200,152,10,.35)';this.style.color='rgba(245,237,216,.65)'">Share What You've Learned →</a>
       <a href="#last-wisdom-section" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'});return false;" style="background:none;border:1px solid rgba(200,152,10,.2);padding:8px 20px;color:rgba(245,237,216,.86);font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='var(--gold)';this.style.color='rgba(245,237,216,.75)'" onmouseout="this.style.borderColor='rgba(200,152,10,.2)';this.style.color='rgba(245,237,216,.5)'">About the Project →</a>
     </div>
   </div>
@@ -2889,10 +2889,10 @@ p:last-child{margin-bottom:0}
       <h3 class="sub-h">Stay Connected</h3>
       <p class="sub-p">Weekly reflections, new discoveries, and stories from around the table.</p>
       <div class="sub-form">
-        <input type="email" id="sub-email" placeholder="Your email address">
-        <button class="sub-btn">Subscribe</button>
+        <input type="email" id="sub-email" placeholder="Your email address" onkeydown="if(event.key==='Enter')subscribeEmail()">
+        <button class="sub-btn" onclick="subscribeEmail()">Subscribe</button>
       </div>
-      <p class="sub-note">No spam. Unsubscribe any time. One email per week.</p>
+      <p class="sub-note" id="sub-note">No spam. Unsubscribe any time. One email per week.</p>
     </div>
   </div>
 </section>
@@ -2907,9 +2907,9 @@ p:last-child{margin-bottom:0}
     </div>
     <div class="fc"><h5>Traditions</h5><a onclick="openT('Buddhism')">Buddhism</a><a onclick="openT('Christianity')">Christianity</a><a onclick="openT('Islam')">Islam</a><a onclick="openT('Judaism')">Judaism</a><a onclick="openT('Hinduism')">Hinduism</a><a onclick="openT('Taoism')">Taoism</a></div>
     <div class="fc"><h5>More</h5><a onclick="openT('Sikhism')">Sikhism</a><a onclick="openT('Bahá')">Bahá'í</a><a onclick="openT('Indigenous')">Indigenous</a><a onclick="openT('African')">African</a><a onclick="openT('Secular')">Secular &amp; Atheist</a><a onclick="filterAndScroll('Ways of Knowing')">Ways of Knowing</a></div>
-    <div class="fc"><h5>Navigate</h5><a href="questions.html">Humanity's Questions</a><a href="quiet-room.html">The Quiet Room</a>
+    <div class="fc"><h5>Navigate</h5><a onclick="document.getElementById('life-areas').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">Humanity's Questions</a><a onclick="document.getElementById('discover').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">The Quiet Room</a>
       <a href="#" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'});return false;">The Living Archive</a>
-      <a href="#last-wisdom-section" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'});return false;">The Last Wisdom Project</a><a onclick="document.getElementById('wisdom-at-risk').scrollIntoView({behavior:'smooth'})">Wisdom at Risk</a><a href="#about-section" onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'});return false;">About the Project</a><a href="curator.html" style="color:rgba(200,152,10,.90)">✦ Curator's Desk</a></div>
+      <a href="#last-wisdom-section" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'});return false;">The Last Wisdom Project</a><a onclick="document.getElementById('wisdom-at-risk').scrollIntoView({behavior:'smooth'})">Wisdom at Risk</a><a href="#about-section" onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'});return false;">About the Project</a><a onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'})" style="color:rgba(200,152,10,.90);cursor:pointer">✦ Curator's Desk</a></div>
     <div class="fc"><h5>The Mission</h5><a>Nothing Excluded</a><a>Radical Transparency</a><a>Preserve Endangered Wisdom</a><br><h5 style="margin-top:14px">Contact</h5><a>thewisdomtable.ai</a></div>
   </div>
   <div class="f-btm">
@@ -4025,6 +4025,46 @@ renderEntries(ALL_ENTRIES);
 
 
 // ── LAST WISDOM PROJECT ──
+
+// ── NEWSLETTER SIGNUP ──
+// Uses the same Formspree form as Last Wisdom submissions, tagged with a
+// distinct subject line so the two are easy to tell apart in your inbox.
+function subscribeEmail() {
+  const input = document.getElementById('sub-email');
+  const note = document.getElementById('sub-note');
+  const email = input?.value.trim();
+
+  if (!email || !email.includes('@')) {
+    if (input) { input.style.borderColor = '#c05050'; input.focus(); }
+    return;
+  }
+
+  const btn = document.querySelector('.sub-btn');
+  const origText = btn.textContent;
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  fetch('https://formspree.io/f/xjgqpeea', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({ _subject: 'Newsletter Signup — The Wisdom Table', email })
+  })
+  .then(res => res.ok ? res : Promise.reject())
+  .then(() => {
+    input.value = '';
+    input.disabled = true;
+    btn.textContent = '✓ Subscribed';
+    if (note) note.textContent = "You're on the list. Thank you.";
+  })
+  .catch(() => {
+    btn.textContent = origText;
+    btn.disabled = false;
+    if (note) {
+      note.textContent = 'Something went wrong — please try again, or email pmandelstein@gmail.com directly.';
+      note.style.color = '#c05050';
+    }
+  });
+}
 
 function handleSubmit() {
   const formBox = document.querySelector('.lw-form-box');
