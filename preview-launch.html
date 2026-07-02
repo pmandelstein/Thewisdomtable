@@ -50,6 +50,11 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .mnl:hover{color:var(--gold)}
 .mnl.active{color:var(--gold);border-bottom-color:var(--gold)}
 .mnl.risk{color:rgba(180,80,80,.7)}
+.mnl-more-wrap{position:relative;display:flex;align-items:stretch;height:100%;flex-shrink:0}
+.mnl-more-panel{display:none;position:absolute;top:100%;left:0;background:var(--dark);border:1px solid rgba(200,152,10,.2);min-width:170px;z-index:50;flex-direction:column;padding:6px 0}
+.mnl-more-panel.open{display:flex}
+.mnl-more-panel a{padding:9px 16px;color:rgba(245,237,216,.87);text-decoration:none;font-family:'EB Garamond',serif;font-size:.88rem;cursor:pointer;transition:background .15s}
+.mnl-more-panel a:hover{background:rgba(200,152,10,.08);color:var(--gold)}
 .mnl.risk:hover{color:#C05050}
 .m-right{margin-left:auto;display:flex;align-items:center;gap:8px;padding-left:16px;flex-shrink:0}
 .m-search-btn{background:none;border:none;color:rgba(245,237,216,.85);cursor:pointer;font-size:1.1rem;padding:4px 8px;transition:color .2s}
@@ -718,14 +723,17 @@ textarea{resize:vertical;line-height:1.65}
       <a class="mnl" onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'})">Council Room</a>
       <a class="mnl" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})">Traditions</a>
       <a class="mnl" onclick="document.getElementById('ways-of-knowing').scrollIntoView({behavior:'smooth'})">Ways of Knowing</a>
-      <a class="mnl" onclick="document.getElementById('compare-section').scrollIntoView({behavior:'smooth'})">Compare</a>
       <a class="mnl" onclick="document.getElementById('discover').scrollIntoView({behavior:'smooth'})">Discover</a>
-      <a class="mnl" onclick="document.getElementById('humanity-asking').scrollIntoView({behavior:'smooth'})">Humanity Asks</a>
       <a class="mnl" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'})">Last Wisdom</a>
-      <a class="mnl risk" onclick="document.getElementById('wisdom-at-risk').scrollIntoView({behavior:'smooth'})">Wisdom at Risk</a>
-      <a class="mnl" onclick="document.getElementById('discover').scrollIntoView({behavior:'smooth'})" style="color:rgba(245,237,216,.85);font-style:italic">The Quiet Room</a>
       <a class="mnl" onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'})">About</a>
-      <a class="mnl" onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'})" style="color:rgba(200,152,10,.85);font-style:italic">Partners</a>
+      <div class="mnl-more-wrap">
+        <a class="mnl" onclick="toggleMoreNav(event)">More ▾</a>
+        <div class="mnl-more-panel" id="mnl-more-panel">
+          <a onclick="document.getElementById('compare-section').scrollIntoView({behavior:'smooth'});toggleMoreNav()">Compare</a>
+          <a onclick="document.getElementById('humanity-asking').scrollIntoView({behavior:'smooth'});toggleMoreNav()">Humanity Asks</a>
+          <a onclick="document.getElementById('wisdom-at-risk').scrollIntoView({behavior:'smooth'});toggleMoreNav()" style="color:#C05050">Wisdom at Risk</a>
+        </div>
+      </div>
     </nav>
     <div class="m-right">
       <button class="m-search-btn" onclick="toggleSearch()">⌕</button>
@@ -3991,6 +3999,19 @@ function shareCouncil() {
 
 
 // Search overlay
+// ── MASTHEAD "MORE" NAV DROPDOWN ──
+function toggleMoreNav(event) {
+  if (event) event.stopPropagation();
+  const panel = document.getElementById('mnl-more-panel');
+  if (panel) panel.classList.toggle('open');
+}
+document.addEventListener('click', (e) => {
+  const panel = document.getElementById('mnl-more-panel');
+  if (panel && panel.classList.contains('open') && !panel.contains(e.target)) {
+    panel.classList.remove('open');
+  }
+});
+
 function toggleSearch() {
   const o = document.getElementById('search-overlay');
   o.classList.toggle('vis');
