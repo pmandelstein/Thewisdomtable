@@ -724,12 +724,12 @@ textarea{resize:vertical;line-height:1.65}
       <a class="mnl" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})">Traditions</a>
       <a class="mnl" onclick="document.getElementById('ways-of-knowing').scrollIntoView({behavior:'smooth'})">Ways of Knowing</a>
       <a class="mnl" onclick="document.getElementById('discover').scrollIntoView({behavior:'smooth'})">Discover</a>
+      <a class="mnl" onclick="document.getElementById('compare-section').scrollIntoView({behavior:'smooth'})">Compare</a>
       <a class="mnl" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'})">Last Wisdom</a>
-      <a class="mnl" onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'})">About</a>
       <div class="mnl-more-wrap">
         <a class="mnl" onclick="toggleMoreNav(event)">More ▾</a>
         <div class="mnl-more-panel" id="mnl-more-panel">
-          <a onclick="document.getElementById('compare-section').scrollIntoView({behavior:'smooth'});toggleMoreNav()">Compare</a>
+          <a onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'});toggleMoreNav()">About</a>
           <a onclick="document.getElementById('humanity-asking').scrollIntoView({behavior:'smooth'});toggleMoreNav()">Humanity Asks</a>
           <a onclick="document.getElementById('wisdom-at-risk').scrollIntoView({behavior:'smooth'});toggleMoreNav()" style="color:#C05050">Wisdom at Risk</a>
         </div>
@@ -886,7 +886,7 @@ textarea{resize:vertical;line-height:1.65}
     <div style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.36em;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:28px;opacity:.85">Four Ways to Engage</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px">
 
-      <div style="border:1px solid rgba(200,152,10,.2);padding:28px 24px;border-radius:2px;background:rgba(255,255,255,.03)">
+      <div style="border:1px solid rgba(200,152,10,.4);padding:28px 24px;border-radius:2px;background:rgba(200,152,10,.06)">
         <div style="font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.08em;color:var(--gold);margin-bottom:10px">✦ Ask the Library</div>
         <p style="font-family:'EB Garamond',serif;color:rgba(245,237,216,.92);font-size:.98rem;line-height:1.65;margin:0">Ask any question about how to live. The library draws on 56 traditions — every century, every continent — and answers from across all of them at once.</p>
         <div style="margin-top:16px"><a onclick="document.getElementById('ask-section').scrollIntoView({behavior:'smooth'})" style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);cursor:pointer;text-decoration:none">Ask a question →</a></div>
@@ -909,6 +909,12 @@ textarea{resize:vertical;line-height:1.65}
         <div style="font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.08em;color:var(--gold);margin-bottom:10px">♀ Gender & Feminine Wisdom</div>
         <p style="font-family:'EB Garamond',serif;color:rgba(245,237,216,.75);font-size:.98rem;line-height:1.65;margin:0">The Feminine Divine across traditions. Women mystics and teachers. Gender beyond the binary. Feminist theology. What was suppressed. What persists.</p>
         <div style="margin-top:16px"><a onclick="filterAndScroll('feminine')" style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);cursor:pointer;text-decoration:none">Explore feminine wisdom →</a></div>
+      </div>
+
+      <div style="border:1px solid rgba(200,152,10,.2);padding:28px 24px;border-radius:2px;background:rgba(255,255,255,.03)">
+        <div style="font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.08em;color:var(--gold);margin-bottom:10px">⇌ Compare Traditions</div>
+        <p style="font-family:'EB Garamond',serif;color:rgba(245,237,216,.92);font-size:.98rem;line-height:1.65;margin:0">See how five or more traditions actually answer the same question, side by side — real agreements, real disagreements, no flattening of what makes each one distinct.</p>
+        <div style="margin-top:16px"><a onclick="document.getElementById('compare-section').scrollIntoView({behavior:'smooth'})" style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);cursor:pointer;text-decoration:none">Compare traditions →</a></div>
       </div>
 
       <div style="border:1px solid rgba(200,152,10,.35);padding:28px 24px;border-radius:2px;background:rgba(200,152,10,.05)">
@@ -3050,7 +3056,13 @@ async function askLibrary() {
   }, 1400);
 
   const prompts = {
-    guide: `Answer this question with wisdom from as many relevant traditions as possible: "${q}". Use <h4> for tradition names, <p> for content. End with "For the Seeker Today".`,
+    guide: `Answer this question: "${q}"
+
+If the question names a specific tradition, teacher, text, or figure (for example "What does Buddhism say about X" or "What did Marcus Aurelius think about Y"), answer primarily and specifically from within that tradition — do not pull in unrelated traditions just to be comprehensive. It's fine to structure the answer with sub-headers for different schools or periods within that one tradition if relevant (e.g. Theravada vs. Mahayana), but stay inside the tradition that was actually asked about.
+
+If the question is general and does not name a specific tradition, then draw on wisdom from multiple relevant traditions, each under its own <h4> header.
+
+Use <h4> for headers, <p> for content. End with "For the Seeker Today".`,
     compare: `Compare how at least 5 traditions answer: "${q}". Be specific. Show real agreements and disagreements.`,
     secular: `Answer this question from a secular, philosophical perspective: "${q}". Draw on Stoicism, Existentialism, scientific research, and secular humanism.`,
     universal: `What do all or most wisdom traditions agree on regarding: "${q}"? Find the common ground without flattening real differences.`,
