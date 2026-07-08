@@ -652,7 +652,7 @@ textarea{resize:vertical;line-height:1.65}
 .hero-stamp{font-size:.58rem;letter-spacing:.36em;text-transform:uppercase;color:rgba(200,152,10,.85);margin-bottom:32px;display:flex;align-items:center;justify-content:center;gap:14px;opacity:0;animation:rise .8s ease .1s forwards}
 .hero-stamp::before,.hero-stamp::after{content:'';display:block;width:48px;height:1px;background:rgba(200,152,10,.25)}
 
-.hero-question-stage{margin-bottom:26px;opacity:0;animation:rise .9s ease .3s forwards;min-height:130px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.hero-question-stage{margin-bottom:26px;opacity:0;animation:rise .9s ease .3s forwards;min-height:24px;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .hero-q-label{font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(200,152,10,.42);margin-bottom:16px}
 .hero-q-display{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.8vw,3.8rem);font-style:italic;font-weight:400;color:#F5EDD8;line-height:1.15;transition:opacity .45s ease;max-width:680px;text-wrap:balance}
 .hero-q-attribution{font-size:.76rem;color:rgba(200,152,10,.84);font-style:normal;margin-top:12px;letter-spacing:.05em;transition:opacity .45s ease;white-space:nowrap}
@@ -696,7 +696,7 @@ textarea{resize:vertical;line-height:1.65}
 .stats-quote{width:100%;text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:.9rem;color:var(--muted);padding-top:14px;margin-top:4px;border-top:1px solid var(--rule)}
 
 @media(max-width:768px){.hero-q-display{font-size:clamp(1.8rem,6vw,2.6rem);line-height:1.2}.hero-q-attribution{white-space:normal;font-size:.72rem}}
-@media(max-width:640px){#hero{padding:56px 20px 44px;min-height:auto}.hero-question-stage{min-height:90px}.hq-pill{font-size:.88rem;padding:7px 14px}.ticker-heading{display:none}}
+@media(max-width:640px){#hero{padding:56px 20px 44px;min-height:auto}.hero-question-stage{min-height:auto}.hq-pill{font-size:.88rem;padding:7px 14px}.ticker-heading{display:none}}
 </style>
 </head>
 <body>
@@ -804,27 +804,11 @@ textarea{resize:vertical;line-height:1.65}
     <!-- 1. Institution stamp -->
     <div class="hero-stamp">Humanity's Living Library of Meaning</div>
 
-    <!-- 2. THE GREAT QUESTION — this is now the headline -->
+    <!-- 2. Institution tagline -->
     <div class="hero-question-stage">
-      <div class="hero-q-label">Humanity's Great Questions</div>
-      <div class="hero-q-display" id="hq-rotating">What is a good life?</div>
-      <div class="hero-q-attribution" id="hq-attribution">— Aristotle · Nicomachean Ethics</div>
+      <div class="hero-q-label">Humanity's Great Questions — Answered Across Every Tradition</div>
     </div>
 
-    <!-- 3. Question navigation — eight timeless doorways, primary nav -->
-    <div class="hero-questions">
-      <div class="hq-doorlabel">Enter through a question</div>
-      <div class="hq-grid">
-        <a class="hq-pill hq-active" href="#" data-q="What is a good life?">What is a good life?</a>
-        <a class="hq-pill" href="#" data-q="Why do we suffer?">Why do we suffer?</a>
-        <a class="hq-pill" href="#" data-q="What is love?">What is love?</a>
-        <a class="hq-pill" href="#" data-q="What happens when we die?">What happens when we die?</a>
-        <a class="hq-pill" href="#" data-q="What is consciousness?">What is consciousness?</a>
-        <a class="hq-pill" href="#" data-q="What do we owe one another?">What do we owe one another?</a>
-        <a class="hq-pill" href="#" data-q="What is enough?">What is enough?</a>
-        <a class="hq-pill" href="#" data-q="What is wisdom?">What is wisdom?</a>
-      </div>
-    </div>
 
     <!-- Action line — between questions and wordmark -->
     <div style="margin-top:22px;margin-bottom:4px;opacity:0;animation:rise .9s ease .65s forwards;text-align:center">
@@ -864,6 +848,41 @@ textarea{resize:vertical;line-height:1.65}
       </div>
     </div>
 
+  </div>
+</section>
+
+<section id="ask-section" style="padding:52px 0 48px;background:var(--paper)">
+  <div style="max-width:900px;margin:0 auto;padding:0 24px">
+    <div class="ai-head">
+      <h3>Ask the Library of Humanity</h3>
+      <p>Any question about how to live — answered from across the full breadth of human knowing. Every tradition. Every century. Equal seriousness.</p>
+    </div>
+    <div style="text-align:center;margin-bottom:24px">
+      <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:var(--ink2);opacity:0;transition:opacity .4s" id="hq-rotating">What is a good life?</div>
+      <div style="font-size:.8rem;color:var(--muted);margin-top:4px;opacity:0;transition:opacity .4s" id="hq-attribution">— Aristotle · Nicomachean Ethics</div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin-bottom:28px">
+      <a class="hq-pill hq-active" href="#" data-q="What is a good life?">What is a good life?</a>
+      <a class="hq-pill" href="#" data-q="Why do we suffer?">Why do we suffer?</a>
+      <a class="hq-pill" href="#" data-q="What is love?">What is love?</a>
+      <a class="hq-pill" href="#" data-q="What happens when we die?">What happens when we die?</a>
+      <a class="hq-pill" href="#" data-q="What is consciousness?">What is consciousness?</a>
+      <a class="hq-pill" href="#" data-q="What do we owe each other?">What do we owe one another?</a>
+      <a class="hq-pill" href="#" data-q="What is enough?">What is enough?</a>
+      <a class="hq-pill" href="#" data-q="What is wisdom?">What is wisdom?</a>
+    </div>
+    <div class="ai-modes">
+      <button class="ai-mode on" data-mode="guide" onclick="setMode(this)"><div class="am-icon">✦</div><div class="am-name">Wisdom Guide</div><div class="am-desc">Across all traditions</div></button>
+      <button class="ai-mode" data-mode="compare" onclick="setMode(this)"><div class="am-icon">⇌</div><div class="am-name">Compare</div><div class="am-desc">Traditions side by side</div></button>
+      <button class="ai-mode" data-mode="secular" onclick="setMode(this)"><div class="am-icon">◈</div><div class="am-name">Secular Seeker</div><div class="am-desc">Reason and wonder</div></button>
+      <button class="ai-mode" data-mode="universal" onclick="setMode(this)"><div class="am-icon">◎</div><div class="am-name">Universal Ground</div><div class="am-desc">What all traditions agree on</div></button>
+      <button class="ai-mode" data-mode="human" onclick="setMode(this)"><div class="am-icon">⊕</div><div class="am-name">Human Moment</div><div class="am-desc">I am grieving. I am afraid.</div></button>
+    </div>
+    <div class="ai-bar">
+      <input class="ai-input" id="ai-q" placeholder="What has humanity learned about how to live? Ask anything across the full library…" onkeydown="if(event.key==='Enter')askLibrary()">
+      <button class="ai-btn" onclick="askLibrary()">Ask the Library →</button>
+    </div>
+    <div class="ai-output" id="ai-out"></div>
   </div>
 </section>
 
@@ -954,6 +973,8 @@ textarea{resize:vertical;line-height:1.65}
     <div class="stats-quote">"The table is set. There is a seat for everyone."</div>
   </div>
 </div>
+
+
 
 <section id="discover">
   <div class="disc-inner">
@@ -1270,26 +1291,7 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
 </div>
 
 <!-- WAYS OF KNOWING -->
-<section id="ask-section" style="padding:52px 0 48px;background:var(--paper)">
-  <div style="max-width:900px;margin:0 auto;padding:0 24px">
-    <div class="ai-head">
-      <h3>Ask the Library of Humanity</h3>
-      <p>Any question about how to live — answered from across the full breadth of human knowing. Every tradition. Every century. Equal seriousness.</p>
-    </div>
-    <div class="ai-modes">
-      <button class="ai-mode on" data-mode="guide" onclick="setMode(this)"><div class="am-icon">✦</div><div class="am-name">Wisdom Guide</div><div class="am-desc">Across all traditions</div></button>
-      <button class="ai-mode" data-mode="compare" onclick="setMode(this)"><div class="am-icon">⇌</div><div class="am-name">Compare</div><div class="am-desc">Traditions side by side</div></button>
-      <button class="ai-mode" data-mode="secular" onclick="setMode(this)"><div class="am-icon">◈</div><div class="am-name">Secular Seeker</div><div class="am-desc">Reason and wonder</div></button>
-      <button class="ai-mode" data-mode="universal" onclick="setMode(this)"><div class="am-icon">◎</div><div class="am-name">Universal Ground</div><div class="am-desc">What all traditions agree on</div></button>
-      <button class="ai-mode" data-mode="human" onclick="setMode(this)"><div class="am-icon">⊕</div><div class="am-name">Human Moment</div><div class="am-desc">I am grieving. I am afraid.</div></button>
-    </div>
-    <div class="ai-bar">
-      <input class="ai-input" id="ai-q" placeholder="What has humanity learned about how to live? Ask anything across the full library…" onkeydown="if(event.key==='Enter')askLibrary()">
-      <button class="ai-btn" onclick="askLibrary()">Ask the Library →</button>
-    </div>
-    <div class="ai-output" id="ai-out"></div>
-  </div>
-</section><!-- LIVING ARCHIVE -->
+<!-- LIVING ARCHIVE -->
 <section id="living-archive" style="padding:32px 0;background:var(--ink);border-top:1px solid rgba(200,152,10,.2)">
   <div class="la-inner">
     <div class="la-text">
@@ -4977,7 +4979,7 @@ updatePanelistCount();
 
 
 
-// ══ HERO REVISED: ROTATING GREAT QUESTION ══
+// ══ ASK-SECTION ROTATING GREAT QUESTION (moved from hero; pills now functional) ══
 (function() {
   const GREAT_QUESTIONS = [
     { q: "What is a good life?",          attr: "Aristotle · Nicomachean Ethics" },
@@ -4985,7 +4987,7 @@ updatePanelistCount();
     { q: "What is love?",                 attr: "Plato · The Symposium" },
     { q: "What happens when we die?",     attr: "Every tradition, for 100,000 years" },
     { q: "What is consciousness?",        attr: "William James · The Principles of Psychology" },
-    { q: "What do we owe one another?",   attr: "T.M. Scanlon · What We Owe to Each Other" },
+    { q: "What do we owe each other?",    attr: "T.M. Scanlon · What We Owe to Each Other" },
     { q: "What is enough?",               attr: "Ecclesiastes · 5,000 years of seekers" },
     { q: "What is wisdom?",               attr: "Socrates · The Apology" },
   ];
@@ -4994,6 +4996,7 @@ updatePanelistCount();
   const qDisplay = document.getElementById('hq-rotating');
   const qAttr = document.getElementById('hq-attribution');
   const qPills = document.querySelectorAll('.hq-pill');
+  let rotationTimer = null;
 
   function setQuestion(idx) {
     const { q, attr } = GREAT_QUESTIONS[idx];
@@ -5008,20 +5011,63 @@ updatePanelistCount();
     }, 420);
   }
 
-  setInterval(() => {
+  // Fade in on load (elements start at opacity:0 in their inline style)
+  setTimeout(() => {
+    if (qDisplay) qDisplay.style.opacity = '1';
+    if (qAttr) qAttr.style.opacity = '1';
+  }, 300);
+
+  rotationTimer = setInterval(() => {
     qIdx = (qIdx + 1) % GREAT_QUESTIONS.length;
     setQuestion(qIdx);
   }, 5000);
 
   qPills.forEach(pill => {
-    pill.addEventListener('click', () => {
+    pill.addEventListener('click', (e) => {
+      e.preventDefault();
       const q = pill.dataset.q;
       if (!q) return;
+
+      // Stop the auto-rotation on manual interaction — otherwise the quote
+      // display keeps drifting to other questions a few seconds after
+      // someone clicks, while the answer shown below stays on the one they
+      // actually picked, which looks like a mismatch.
+      if (rotationTimer) { clearInterval(rotationTimer); rotationTimer = null; }
+
       const match = GREAT_QUESTIONS.findIndex(item => item.q === q);
       if (match >= 0) { qIdx = match; setQuestion(match); }
+
+      // Prefer a real, pre-written curated answer if one exists for this exact
+      // question (ALL_QUESTIONS has hand-curated multi-voice answers). Only
+      // fall back to a live AI call when no curated answer exists.
+      const curated = (typeof ALL_QUESTIONS !== 'undefined') ? ALL_QUESTIONS.find(item => item.question === q) : null;
+      if (curated && curated.voices && curated.voices.length) {
+        renderCuratedAnswer(curated);
+      } else {
+        const input = document.getElementById('ai-q');
+        if (input) {
+          input.value = q;
+          askLibrary();
+        }
+      }
     });
   });
 })();
+
+// Renders a pre-written, curated multi-voice answer (from ALL_QUESTIONS) into
+// the Ask the Library output area — no AI call needed, since this content is
+// already real and human-written.
+function renderCuratedAnswer(questionObj) {
+  const out = document.getElementById('ai-out');
+  if (!out) return;
+  out.classList.add('vis');
+  const voicesHtml = questionObj.voices.map(v =>
+    `<h4>${v.name} · ${v.tradition}</h4><p>${v.answer}</p>`
+  ).join('');
+  const subLine = questionObj.sub ? `<p style="font-style:italic;color:var(--muted);margin-bottom:18px">${questionObj.sub}</p>` : '';
+  out.innerHTML = subLine + voicesHtml;
+  out.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
 
 
 // ══ WISDOM SCOUT TICKER — now a live feed ══
