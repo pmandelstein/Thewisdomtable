@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -206,7 +207,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
 /* ── DISCOVER STRIP ── */
 #discover{padding:48px 0 44px;background:var(--paper2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
 .disc-inner{max-width:1500px;margin:0 auto;padding:0 24px}
-.disc-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--rule);border:1px solid var(--rule)}
+.disc-grid{display:grid;grid-template-columns:1fr;gap:2px;background:var(--rule);border:1px solid var(--rule);max-width:640px;margin:0 auto}
 .disc-panel{background:var(--paper2);padding:28px 28px}
 
 /* Scout panel */
@@ -349,6 +350,9 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .pc-name{font-size:.85rem;color:var(--ink);font-weight:500;line-height:1.2}
 .pc-role{font-size:.7rem;color:var(--muted);font-style:italic}
 .council-btn{background:var(--ink);border:none;width:100%;padding:11px;color:var(--paper);font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.12em;cursor:pointer;transition:background .2s;margin-top:13px}
+.council-btn:disabled{background:var(--paper4);color:rgba(26,18,8,.4);cursor:not-allowed}
+.theme-chip{background:var(--paper3);border:1px solid var(--rule);padding:4px 12px;font-family:'EB Garamond',serif;font-size:.78rem;color:var(--ink2);cursor:pointer;transition:all .15s;border-radius:2px}
+.theme-chip:hover{border-color:var(--amber);color:var(--amber)}
 .council-btn:hover{background:var(--amber)}
 .council-btn:disabled{opacity:.5;cursor:not-allowed}
 .crh-title{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:4px}
@@ -1026,217 +1030,11 @@ textarea{resize:vertical;line-height:1.65}
         </div>
         <a onclick="document.getElementById('discover').scrollIntoView({behavior:'smooth'})" style="font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;color:var(--amber);text-decoration:none;transition:color .2s;cursor:pointer" onmouseover="this.style.color='var(--amberb)'" onmouseout="this.style.color='var(--amber)'">View All Recent Discoveries →</a>
       </div>
-      <!-- Wisdom at Risk -->
-      <div class="risk-panel" id="wisdom-at-risk">
-        <div class="risk-head">
-          <div class="risk-mission"><span class="risk-mission-dot"></span>Our Mission</div>
-          <h3 class="risk-h">Wisdom at Risk</h3>
-          <p class="risk-body">Languages are disappearing. Elders are passing. Traditions are being forgotten. Help us preserve humanity's wisdom before it is lost forever.</p>
-        </div>
-        <div class="risk-pillars">
-          <div class="risk-pill" onclick="openE('wisdom-at-risk-dying-languages')">
-            <div class="risk-pill-title">Endangered Languages</div>
-            <div class="risk-pill-sub">7,000 languages · one dies every two weeks, by some estimates</div>
-          </div>
-          <div class="risk-pill" onclick="openE('indigenous-traditions-overview','Indigenous')">
-            <div class="risk-pill-title">Oral Traditions</div>
-            <div class="risk-pill-sub">Elders dying · stories vanishing unrecorded</div>
-          </div>
-          <div class="risk-pill" onclick="openE('dying-well-hospice-wisdom','Preservation')">
-            <div class="risk-pill-title">The Last Wisdom Project</div>
-            <div class="risk-pill-sub">"What do you know now you wish you knew at 20?"</div>
-          </div>
-        </div>
-        <a class="risk-cta" href="#last-wisdom-section" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'});return false;">The Last Wisdom Project →</a>
-      </div>
     </div>
   </div>
 </section>
 
-<section id="humanity-asking" style="background:var(--paper);padding:52px 0 48px;border-top:1px solid rgba(200,152,10,.15);border-bottom:1px solid rgba(200,152,10,.15)">
-  <div style="max-width:1500px;margin:0 auto;padding:0 24px">
-
-    <!-- Header -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:36px">
-      <div>
-        <div style="font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(200,152,10,.85);margin-bottom:10px;display:flex;align-items:center;gap:12px">
-          Illustrative — Real Tracking Coming Soon
-        </div>
-        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:400;color:var(--ink);line-height:1.15;margin-bottom:16px">What Humanity Is<br><em style="color:var(--gold)">Wrestling With</em> Today</h2>
-        <p style="font-size:.95rem;color:rgba(26,18,8,.90);line-height:1.78;max-width:400px;margin-bottom:8px">Questions people are bringing to the Council Room right now. Anonymous and aggregate. A living mirror of what weighs most heavily on human hearts.</p>
-        <p style="font-size:.72rem;color:rgba(26,18,8,.5);font-style:italic;max-width:400px;margin-bottom:22px">The topics and counts below are illustrative — real usage data will appear here once the Council Room has been live long enough to measure.</p>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <div style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(200,152,10,.84);margin-bottom:2px">A question many people are likely to bring</div>
-          <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:rgba(26,18,8,.82);line-height:1.5;border-left:2px solid var(--gold);padding-left:14px">"I am grieving and I don't know how to hold it."</div>
-        </div>
-        <div style="margin-top:20px;padding:14px 16px;background:rgba(160,48,48,.08);border:1px solid rgba(160,48,48,.2);border-left:3px solid #A03030">
-          <div style="font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:#A03030;margin-bottom:8px;display:flex;align-items:center;gap:8px"><span style="width:6px;height:6px;border-radius:50%;background:#A03030;animation:pulse 2s infinite;display:inline-block"></span>Wisdom at Risk</div>
-          <p style="font-size:.82rem;color:rgba(26,18,8,.90);line-height:1.72;margin:0">According to tracking data from <strong style="color:rgba(26,18,8,.82)">ATALM</strong>, the <strong style="color:rgba(26,18,8,.82)">African Oral History Archive</strong>, and the <strong style="color:rgba(26,18,8,.82)">Nunn Center for Oral History</strong>: over 40% of elder-held cultural traditions on 20th-century magnetic tape are at risk of physical degradation. It's often cited — via the Endangered Languages Project and UNESCO — that a language disappears roughly every two weeks; more conservative academic estimates put the pace closer to every few months.</p>
-        </div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:2px;background:rgba(200,152,10,.06);border:1px solid rgba(200,152,10,.1)" id="humanity-list">
-        <!-- Rendered by JS; fallback inline below if JS unavailable -->
-        <div style="padding:12px 16px;background:rgba(26,18,8,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
-          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.82)">1</span>
-          <div><div style="font-size:.92rem;color:var(--ink);margin-bottom:4px">Grief &amp; loss</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:92%;background:#C8980A;border-radius:2px"></div></div></div>
-          <span style="font-size:.62rem;color:rgba(26,18,8,.4);white-space:nowrap;font-style:italic">illustrative</span>
-        </div>
-        <div style="padding:12px 16px;background:rgba(26,18,8,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
-          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.82)">2</span>
-          <div><div style="font-size:.92rem;color:var(--ink);margin-bottom:4px">Loneliness &amp; connection</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:78%;background:#8C6A10;border-radius:2px"></div></div></div>
-          <span style="font-size:.62rem;color:rgba(26,18,8,.4);white-space:nowrap;font-style:italic">illustrative</span>
-        </div>
-        <div style="padding:12px 16px;background:rgba(26,18,8,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
-          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.82)">3</span>
-          <div><div style="font-size:.92rem;color:var(--ink);margin-bottom:4px">Purpose &amp; meaning</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:70%;background:#6A8C40;border-radius:2px"></div></div></div>
-          <span style="font-size:.62rem;color:rgba(26,18,8,.4);white-space:nowrap;font-style:italic">illustrative</span>
-        </div>
-        <div style="padding:12px 16px;background:rgba(26,18,8,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
-          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.82)">4</span>
-          <div><div style="font-size:.92rem;color:var(--ink);margin-bottom:4px">Anxiety about the future</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:61%;background:#4A6A8C;border-radius:2px"></div></div></div>
-          <span style="font-size:.62rem;color:rgba(26,18,8,.4);white-space:nowrap;font-style:italic">illustrative</span>
-        </div>
-        <div style="padding:12px 16px;background:rgba(26,18,8,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
-          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.82)">5</span>
-          <div><div style="font-size:.92rem;color:var(--ink);margin-bottom:4px">Forgiveness</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:52%;background:#7A4A8C;border-radius:2px"></div></div></div>
-          <span style="font-size:.62rem;color:rgba(26,18,8,.4);white-space:nowrap;font-style:italic">illustrative</span>
-        </div>
-        <div style="padding:12px 16px;background:rgba(26,18,8,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
-          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.82)">6</span>
-          <div><div style="font-size:.92rem;color:var(--ink);margin-bottom:4px">Aging &amp; mortality</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:43%;background:#8C4A4A;border-radius:2px"></div></div></div>
-          <span style="font-size:.62rem;color:rgba(26,18,8,.4);white-space:nowrap;font-style:italic">illustrative</span>
-        </div>
-        <div style="padding:12px 16px;background:rgba(26,18,8,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
-          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.82)">7</span>
-          <div><div style="font-size:.92rem;color:var(--ink);margin-bottom:4px">Loss of faith</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:34%;background:#6A5A3A;border-radius:2px"></div></div></div>
-          <span style="font-size:.62rem;color:rgba(26,18,8,.4);white-space:nowrap;font-style:italic">illustrative</span>
-        </div>
-        <div style="padding:12px 16px;background:rgba(26,18,8,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
-          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.82)">8</span>
-          <div><div style="font-size:.92rem;color:var(--ink);margin-bottom:4px">Work, money &amp; enough</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:31%;background:#2A5A3A;border-radius:2px"></div></div></div>
-          <span style="font-size:.62rem;color:rgba(26,18,8,.4);white-space:nowrap;font-style:italic">illustrative</span>
-        </div>
-        <div style="padding:12px 16px;background:rgba(26,18,8,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
-          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.82)">9</span>
-          <div><div style="font-size:.92rem;color:var(--ink);margin-bottom:4px">Justice &amp; fairness</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:25%;background:#2A3A5A;border-radius:2px"></div></div></div>
-          <span style="font-size:.62rem;color:rgba(26,18,8,.4);white-space:nowrap;font-style:italic">illustrative</span>
-        </div>
-        <div style="padding:12px 16px;background:rgba(26,18,8,.03);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
-          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.82)">10</span>
-          <div><div style="font-size:.92rem;color:var(--ink);margin-bottom:4px">War, conflict &amp; peace</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:23%;background:#6A1C1C;border-radius:2px"></div></div></div>
-          <span style="font-size:.62rem;color:rgba(26,18,8,.4);white-space:nowrap;font-style:italic">illustrative</span>
-        </div>
-      </div>
-    </div>
-
-    <div style="border-top:1px solid rgba(200,152,10,.1);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
-      <div style="font-size:.85rem;color:rgba(26,18,8,.82);font-style:italic">Rankings shown are illustrative — <span style="color:var(--gold);font-style:normal;font-family:'Cinzel',serif" id="council-count-display"></span>real counts coming soon</div>
-      <a onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'})" style="font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;color:rgba(200,152,10,.88);cursor:pointer;transition:color .2s;text-decoration:none" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(200,152,10,.6)'">Bring your question to the Council →</a>
-    </div>
-  </div>
-</section>
-
-
-<div 
-id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px solid var(--rule)">
-  <div class="council-inner">
-    <div class="sec-head" style="padding:0 0 20px;text-align:center">
-      <div class="sec-ey" style="justify-content:center">The Council Room</div>
-      <div class="sec-title">Convene Your Council</div>
-      <p class="sec-sub">The Council Room is where wisdom becomes personal. Bring your actual situation — the diagnosis, the relationship, the decision, the grief — and hear how the wisest voices in human history speak directly to it.</p>
-    </div>
-    <div class="council-layout">
-      <div class="council-left">
-        <div class="council-step"><div class="step-n">1</div><div><div class="step-label">Your Question for the Council</div><textarea id="council-input" rows="3" placeholder="My spouse has dementia and I am exhausted… · I can&#39;t forgive my father… · I&#39;m afraid of dying… · I don&#39;t know what to do with my life…"></textarea></div></div>
-        <div class="council-step"><div class="step-n">2</div><div style="width:100%">
-          <div class="step-label">Choose Your Panelists</div>
-          <div style="font-size:.78rem;color:var(--muted);font-style:italic;margin-bottom:10px">Select from below — or type anyone: a philosopher, a tradition, a teacher, your grandmother.</div>
-
-          <!-- Suggested panelists — scrollable chips -->
-          <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px" id="panelist-suggestions">
-            <button class="p-chip active" onclick="toggleChip(this,'Marcus Aurelius','Stoic Emperor')">Marcus Aurelius</button>
-            <button class="p-chip active" onclick="toggleChip(this,'Thích Nhất Hạnh','Zen Master')">Thích Nhất Hạnh</button>
-            <button class="p-chip" onclick="toggleChip(this,'Rumi','Sufi Mystic')">Rumi</button>
-            <button class="p-chip" onclick="toggleChip(this,'Viktor Frankl','Existentialist')">Viktor Frankl</button>
-            <button class="p-chip" onclick="toggleChip(this,'Rabbi Hillel','Jewish Wisdom')">Rabbi Hillel</button>
-            <button class="p-chip" onclick="toggleChip(this,'Confucius','Sage of Relationships')">Confucius</button>
-            <button class="p-chip" onclick="toggleChip(this,'The Bhagavad Gita','Hindu Scripture')">Bhagavad Gita</button>
-            <button class="p-chip" onclick="toggleChip(this,'An Indigenous Elder','Oral Tradition')">Indigenous Elder</button>
-            <button class="p-chip" onclick="toggleChip(this,'A Neuroscientist','Modern Science')">A Neuroscientist</button>
-            <button class="p-chip" onclick="toggleChip(this,'A Hospice Nurse','End of Life Wisdom')">A Hospice Nurse</button>
-            <button class="p-chip" onclick="toggleChip(this,'Laozi','Taoist Sage')">Laozi</button>
-            <button class="p-chip" onclick="toggleChip(this,'Socrates','Greek Philosopher')">Socrates</button>
-            <button class="p-chip" onclick="toggleChip(this,'Mary Oliver','Poet and Naturalist')">Mary Oliver</button>
-            <button class="p-chip" onclick="toggleChip(this,'Maya Angelou','Poet and Humanist')">Maya Angelou</button>
-            <button class="p-chip" onclick="toggleChip(this,'The Buddha','Buddhist Teaching')">The Buddha</button>
-            <button class="p-chip" onclick="toggleChip(this,'Carl Sagan','Scientific Wonder')">Carl Sagan</button>
-            <button class="p-chip" onclick="toggleChip(this,'Simone Weil','Mystic Philosopher')">Simone Weil</button>
-            <button class="p-chip" onclick="toggleChip(this,'A Zen Monk','Zen Buddhism')">A Zen Monk</button>
-            <button class="p-chip" onclick="toggleChip(this,'Epictetus','Stoic Philosopher')">Epictetus</button>
-            <button class="p-chip" onclick="toggleChip(this,'Hildegard von Bingen','Christian Mystic')">Hildegard von Bingen</button>
-          </div>
-
-          <!-- Add your own -->
-          <div style="display:flex;gap:6px;align-items:center;margin-bottom:8px">
-            <input id="custom-panelist-input" placeholder="Add anyone: Nietzsche, your grandfather, a rabbi…" style="flex:1;border:1px solid var(--rule);background:var(--paper3);padding:7px 10px;font-family:'EB Garamond',serif;font-size:.9rem;color:var(--ink);outline:none;transition:border-color .2s" onkeydown="if(event.key==='Enter')addCustomPanelist()" onfocus="this.style.borderColor='var(--amber)'" onblur="this.style.borderColor='var(--rule)'">
-            <button onclick="addCustomPanelist()" style="background:var(--ink);border:none;padding:7px 14px;color:var(--paper);font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.08em;cursor:pointer;white-space:nowrap;transition:background .2s" onmouseover="this.style.background='var(--amber)'" onmouseout="this.style.background='var(--ink)'">Add →</button>
-          </div>
-
-          <!-- Selected count -->
-          <div style="font-size:.75rem;color:var(--muted);font-style:italic" id="panelist-count">2 panelists selected</div>
-        </div></div>
-        <button class="council-btn" onclick="conveneCouncil()">Convene the Council →</button>
-      </div>
-      <div class="council-right">
-        <div class="crh-title">The Council Dialogue</div>
-        <div class="crh-sub" id="council-dilemma-display">Bring your question or situation — the council will respond</div>
-        <div id="council-dialogue"><div class="dialogue-placeholder"><p>Your council awaits. Bring a question or situation and choose your voices — from Marcus Aurelius to a modern neuroscientist.</p></div></div>
-        <div class="council-share" id="council-share" style="display:none">
-          <button class="share-btn" onclick="shareCouncil()"><span>↑</span> Copy Script</button>
-          <button class="share-btn" id="audio-btn" onclick="toggleAudio()"><span id="audio-icon">▶</span> <span id="audio-label">Listen</span></button>
-          <button class="share-btn" onclick="downloadCard()"><span>⬡</span> Save Card</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Famous Councils -->
-    <div style="background:var(--paper3);border-top:1px solid var(--rule);padding:12px 26px">
-      <div style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:8px">
-        <span style="color:var(--amber)">✦</span> Famous Councils — One Click, No Typing Required
-      </div>
-      <div style="display:flex;flex-wrap:wrap;gap:6px">
-        <button class="fc-btn" onclick="famousCouncil('How do I face my own mortality and death?',['Marcus Aurelius','Thích Nhất Hạnh','Viktor Frankl','An Indigenous Elder'])">How do I face mortality?</button>
-        <button class="fc-btn" onclick="famousCouncil('My child will not speak to me. I do not know how to repair this.',['Confucius','Rabbi Hillel','An Indigenous Elder','A Neuroscientist'])">My child won't speak to me</button>
-        <button class="fc-btn" onclick="famousCouncil('I cannot forgive someone who hurt me deeply and may never apologize.',['Rumi','Rabbi Hillel','The Bhagavad Gita','Marcus Aurelius'])">I cannot forgive</button>
-        <button class="fc-btn" onclick="famousCouncil('I have left my faith and feel unmoored. I miss something I cannot name.',['Rumi','Viktor Frankl','Marcus Aurelius','An Indigenous Elder'])">I left my faith</button>
-        <button class="fc-btn" onclick="famousCouncil('I am afraid of aging — of losing who I am, of becoming irrelevant.',['Marcus Aurelius','Confucius','Thích Nhất Hạnh','Viktor Frankl'])">I'm afraid of aging</button>
-        <button class="fc-btn" onclick="famousCouncil('I am caring for a spouse with dementia. I am exhausted and grief-stricken.',['Marcus Aurelius','Thích Nhất Hạnh','Rumi','A Neuroscientist'])">Caring for a spouse with dementia</button>
-      </div>
-    </div>
-
-    <!-- Trending -->
-    <div class="trending-strip" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 26px">
-      <span style="display:flex;align-items:center;gap:6px;flex-shrink:0">
-        <span style="width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite;display:inline-block"></span>
-        <span class="ts-label">What the world is bringing to the Council today:</span>
-      </span>
-      <span class="ts-item" onclick="loadTrending('My spouse has dementia. I am exhausted, grieving, and don\'t know how to hold this.')">Caring for a Spouse with Dementia</span>
-      <span class="ts-item" onclick="loadTrending('Collective anxiety about AI — how do we find peace with technology that is changing everything?')">Collective Anxiety about AI</span>
-      <span class="ts-item" onclick="loadTrending('The antidote to modern loneliness — how do we genuinely connect?')">Antidote to Loneliness</span>
-      <span class="ts-item" onclick="loadTrending('I am afraid of dying. What do the wisest voices across history say to that fear?')">Fear of Death</span>
-      <span class="ts-item" onclick="loadTrending('How do I forgive someone who has not apologized and may never apologize?')">Forgiving the Unrepentant</span>
-    </div>
-
-    <div class="trending-strip" style="display:none"><!-- hidden original -->
-      <span class="ts-label">Today&#39;s Trending Tables:</span>
-      <span class="ts-item" onclick="loadTrending('My spouse has dementia. I am exhausted, grieving, and don\'t know how to hold this.')">Caring for a Spouse with Dementia</span>
-      <span class="ts-item" onclick="loadTrending('Collective anxiety about AI — how do we find peace with technology that is changing everything?')">Collective Anxiety about AI</span>
-      <span class="ts-item" onclick="loadTrending('The antidote to modern loneliness — how do we genuinely connect?')">Antidote to Modern Loneliness</span>
-      <span class="ts-item" onclick="loadTrending('I am afraid of dying. What do the wisest voices across history say to that fear?')">Fear of Death</span>
-      <span class="ts-item" onclick="loadTrending('How do I forgive someone who has not apologized and may never apologize?')">Forgiving the Unrepentant</span>
-    </div>
-  </div>
-</section><section id="entry-modes">
+<section id="entry-modes">
   <div class="em-head">
     <div class="em-ey">Four Ways In</div>
     <div class="em-title">How would you like to begin?</div>
@@ -2761,6 +2559,238 @@ p:last-child{margin-bottom:0}
 
 </div>
 
+
+<section id="preservation-data" style="background:var(--paper2);padding:52px 0 48px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
+  <div style="max-width:1500px;margin:0 auto;padding:0 24px">
+    <div class="sec-head" style="padding:0 0 24px;text-align:center">
+      <div class="sec-ey" style="justify-content:center">The Work Behind the Table</div>
+      <div class="sec-title">Preservation, in Numbers</div>
+      <p class="sec-sub">The data behind why this project exists — for anyone who wants to go deeper</p>
+    </div>
+    <div class="disc-grid" style="max-width:640px">
+      <div class="risk-panel" id="wisdom-at-risk">
+        <div class="risk-head">
+          <div class="risk-mission"><span class="risk-mission-dot"></span>Our Mission</div>
+          <h3 class="risk-h">Wisdom at Risk</h3>
+          <p class="risk-body">Languages are disappearing. Elders are passing. Traditions are being forgotten. Help us preserve humanity's wisdom before it is lost forever.</p>
+        </div>
+        <div class="risk-pillars">
+          <div class="risk-pill" onclick="openE('wisdom-at-risk-dying-languages')">
+            <div class="risk-pill-title">Endangered Languages</div>
+            <div class="risk-pill-sub">7,000 languages · one dies every few weeks, by some estimates</div>
+          </div>
+          <div class="risk-pill" onclick="openE('indigenous-traditions-overview','Indigenous')">
+            <div class="risk-pill-title">Oral Traditions</div>
+            <div class="risk-pill-sub">Elders dying · stories vanishing unrecorded</div>
+          </div>
+          <div class="risk-pill" onclick="openE('dying-well-hospice-wisdom','Preservation')">
+            <div class="risk-pill-title">The Last Wisdom Project</div>
+            <div class="risk-pill-sub">"What do you know now you wish you knew at 20?"</div>
+          </div>
+        </div>
+        <a class="risk-cta" href="#last-wisdom-section" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'});return false;">The Last Wisdom Project →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="humanity-asking" style="background:var(--paper);padding:52px 0 48px;border-top:1px solid rgba(200,152,10,.15);border-bottom:1px solid rgba(200,152,10,.15)">
+  <div style="max-width:1500px;margin:0 auto;padding:0 24px">
+
+    <!-- Header -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:36px">
+      <div>
+        <div style="font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(200,152,10,.85);margin-bottom:10px;display:flex;align-items:center;gap:12px">
+          Illustrative — Real Tracking Coming Soon
+        </div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:400;color:var(--ink);line-height:1.15;margin-bottom:16px">What Humanity Is<br><em style="color:var(--gold)">Wrestling With</em> Today</h2>
+        <p style="font-size:.95rem;color:rgba(26,18,8,.90);line-height:1.78;max-width:400px;margin-bottom:8px">Questions people are bringing to the Council Room right now. Anonymous and aggregate. A living mirror of what weighs most heavily on human hearts.</p>
+        <p style="font-size:.72rem;color:rgba(26,18,8,.5);font-style:italic;max-width:400px;margin-bottom:22px">The topics and counts below are illustrative — real usage data will appear here once the Council Room has been live long enough to measure.</p>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(200,152,10,.84);margin-bottom:2px">A question many people are likely to bring</div>
+          <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:rgba(26,18,8,.82);line-height:1.5;border-left:2px solid var(--gold);padding-left:14px">"I am grieving and I don't know how to hold it."</div>
+        </div>
+        <div style="margin-top:20px;padding:14px 16px;background:rgba(160,48,48,.08);border:1px solid rgba(160,48,48,.2);border-left:3px solid #A03030">
+          <div style="font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:#A03030;margin-bottom:8px;display:flex;align-items:center;gap:8px"><span style="width:6px;height:6px;border-radius:50%;background:#A03030;animation:pulse 2s infinite;display:inline-block"></span>Wisdom at Risk</div>
+          <p style="font-size:.82rem;color:rgba(26,18,8,.90);line-height:1.72;margin:0">According to tracking data from <strong style="color:rgba(26,18,8,.82)">ATALM</strong>, the <strong style="color:rgba(26,18,8,.82)">African Oral History Archive</strong>, and the <strong style="color:rgba(26,18,8,.82)">Nunn Center for Oral History</strong>: over 40% of elder-held cultural traditions on 20th-century magnetic tape are at risk of physical degradation. It's often cited — via the Endangered Languages Project and UNESCO — that a language disappears roughly every two weeks; more conservative academic estimates put the pace closer to every few months.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:2px;background:rgba(200,152,10,.06);border:1px solid rgba(200,152,10,.1)" id="humanity-list">
+        <!-- Rendered by JS; fallback inline below if JS unavailable -->
+        <div style="padding:12px 16px;background:rgba(26,18,8,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
+          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.82)">1</span>
+          <div><div style="font-size:.92rem;color:var(--ink);margin-bottom:4px">Grief &amp; loss</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:92%;background:#C8980A;border-radius:2px"></div></div></div>
+          <span style="font-size:.62rem;color:rgba(26,18,8,.4);white-space:nowrap;font-style:italic">illustrative</span>
+        </div>
+        <div style="padding:12px 16px;background:rgba(26,18,8,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
+          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.82)">2</span>
+          <div><div style="font-size:.92rem;color:var(--ink);margin-bottom:4px">Loneliness &amp; connection</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:78%;background:#8C6A10;border-radius:2px"></div></div></div>
+          <span style="font-size:.62rem;color:rgba(26,18,8,.4);white-space:nowrap;font-style:italic">illustrative</span>
+        </div>
+        <div style="padding:12px 16px;background:rgba(26,18,8,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
+          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.82)">3</span>
+          <div><div style="font-size:.92rem;color:var(--ink);margin-bottom:4px">Purpose &amp; meaning</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:70%;background:#6A8C40;border-radius:2px"></div></div></div>
+          <span style="font-size:.62rem;color:rgba(26,18,8,.4);white-space:nowrap;font-style:italic">illustrative</span>
+        </div>
+        <div style="padding:12px 16px;background:rgba(26,18,8,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
+          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.82)">4</span>
+          <div><div style="font-size:.92rem;color:var(--ink);margin-bottom:4px">Anxiety about the future</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:61%;background:#4A6A8C;border-radius:2px"></div></div></div>
+          <span style="font-size:.62rem;color:rgba(26,18,8,.4);white-space:nowrap;font-style:italic">illustrative</span>
+        </div>
+        <div style="padding:12px 16px;background:rgba(26,18,8,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
+          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.82)">5</span>
+          <div><div style="font-size:.92rem;color:var(--ink);margin-bottom:4px">Forgiveness</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:52%;background:#7A4A8C;border-radius:2px"></div></div></div>
+          <span style="font-size:.62rem;color:rgba(26,18,8,.4);white-space:nowrap;font-style:italic">illustrative</span>
+        </div>
+        <div style="padding:12px 16px;background:rgba(26,18,8,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
+          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.82)">6</span>
+          <div><div style="font-size:.92rem;color:var(--ink);margin-bottom:4px">Aging &amp; mortality</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:43%;background:#8C4A4A;border-radius:2px"></div></div></div>
+          <span style="font-size:.62rem;color:rgba(26,18,8,.4);white-space:nowrap;font-style:italic">illustrative</span>
+        </div>
+        <div style="padding:12px 16px;background:rgba(26,18,8,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
+          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.82)">7</span>
+          <div><div style="font-size:.92rem;color:var(--ink);margin-bottom:4px">Loss of faith</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:34%;background:#6A5A3A;border-radius:2px"></div></div></div>
+          <span style="font-size:.62rem;color:rgba(26,18,8,.4);white-space:nowrap;font-style:italic">illustrative</span>
+        </div>
+        <div style="padding:12px 16px;background:rgba(26,18,8,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
+          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.82)">8</span>
+          <div><div style="font-size:.92rem;color:var(--ink);margin-bottom:4px">Work, money &amp; enough</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:31%;background:#2A5A3A;border-radius:2px"></div></div></div>
+          <span style="font-size:.62rem;color:rgba(26,18,8,.4);white-space:nowrap;font-style:italic">illustrative</span>
+        </div>
+        <div style="padding:12px 16px;background:rgba(26,18,8,.03);border-bottom:1px solid rgba(200,152,10,.08);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
+          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.82)">9</span>
+          <div><div style="font-size:.92rem;color:var(--ink);margin-bottom:4px">Justice &amp; fairness</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:25%;background:#2A3A5A;border-radius:2px"></div></div></div>
+          <span style="font-size:.62rem;color:rgba(26,18,8,.4);white-space:nowrap;font-style:italic">illustrative</span>
+        </div>
+        <div style="padding:12px 16px;background:rgba(26,18,8,.03);display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center">
+          <span style="font-family:'Cinzel',serif;font-size:.72rem;color:rgba(200,152,10,.82)">10</span>
+          <div><div style="font-size:.92rem;color:var(--ink);margin-bottom:4px">War, conflict &amp; peace</div><div style="height:3px;background:rgba(200,152,10,.12);border-radius:2px"><div style="height:100%;width:23%;background:#6A1C1C;border-radius:2px"></div></div></div>
+          <span style="font-size:.62rem;color:rgba(26,18,8,.4);white-space:nowrap;font-style:italic">illustrative</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid rgba(200,152,10,.1);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <div style="font-size:.85rem;color:rgba(26,18,8,.82);font-style:italic">Rankings shown are illustrative — <span style="color:var(--gold);font-style:normal;font-family:'Cinzel',serif" id="council-count-display"></span>real counts coming soon</div>
+      <a onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'})" style="font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;color:rgba(200,152,10,.88);cursor:pointer;transition:color .2s;text-decoration:none" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(200,152,10,.6)'">Bring your question to the Council →</a>
+    </div>
+  </div>
+</section>
+
+
+<div 
+id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px solid var(--rule)">
+  <div class="council-inner">
+    <div class="sec-head" style="padding:0 0 20px;text-align:center">
+      <div class="sec-ey" style="justify-content:center">The Council Room</div>
+      <div class="sec-title">Convene Your Council</div>
+      <p class="sec-sub">The Council Room is where wisdom becomes personal. Bring your actual situation — the diagnosis, the relationship, the decision, the grief — and hear how the wisest voices in human history speak directly to it.</p>
+    </div>
+    <div class="council-layout">
+      <div class="council-left">
+        <div class="council-step"><div class="step-n">1</div><div style="width:100%"><div class="step-label">Your Question for the Council</div><textarea id="council-input" rows="3" placeholder="My spouse has dementia and I am exhausted… · I can&#39;t forgive my father… · I&#39;m afraid of dying… · I don&#39;t know what to do with my life…" oninput="updateConveneButtonState()"></textarea>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">
+            <span style="font-size:.68rem;color:var(--muted);align-self:center;margin-right:2px">Or start from a theme:</span>
+            <button class="theme-chip" onclick="fillCouncilTheme('grief','I am grieving someone I loved, and I do not know how to carry it.')">Grief</button>
+            <button class="theme-chip" onclick="fillCouncilTheme('purpose','I don\'t know what I\'m supposed to be doing with my life.')">Purpose</button>
+            <button class="theme-chip" onclick="fillCouncilTheme('transitions','Everything in my life is changing at once and I feel unmoored.')">Transitions</button>
+            <button class="theme-chip" onclick="fillCouncilTheme('relationships','Someone I love and I keep hurting each other, and I don\'t know how to stop.')">Relationships</button>
+          </div>
+        </div></div>
+        <div class="council-step"><div class="step-n">2</div><div style="width:100%">
+          <div class="step-label">Choose Your Panelists</div>
+          <div style="font-size:.78rem;color:var(--muted);font-style:italic;margin-bottom:10px">Select up to a few voices — or type anyone: a philosopher, a tradition, a teacher, your grandmother.</div>
+
+          <!-- Curated default set — 8 diverse archetypes, not an overwhelming wall -->
+          <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px" id="panelist-suggestions">
+            <button class="p-chip active" onclick="toggleChip(this,'Marcus Aurelius','Stoic Emperor')">Marcus Aurelius</button>
+            <button class="p-chip active" onclick="toggleChip(this,'Thích Nhất Hạnh','Zen Master')">Thích Nhất Hạnh</button>
+            <button class="p-chip" onclick="toggleChip(this,'Rumi','Sufi Mystic')">Rumi</button>
+            <button class="p-chip" onclick="toggleChip(this,'Viktor Frankl','Existentialist')">Viktor Frankl</button>
+            <button class="p-chip" onclick="toggleChip(this,'An Indigenous Elder','Oral Tradition')">Indigenous Elder</button>
+            <button class="p-chip" onclick="toggleChip(this,'A Neuroscientist','Modern Science')">A Neuroscientist</button>
+            <button class="p-chip" onclick="toggleChip(this,'A Hospice Nurse','End of Life Wisdom')">A Hospice Nurse</button>
+            <button class="p-chip" onclick="toggleChip(this,'The Buddha','Buddhist Teaching')">The Buddha</button>
+          </div>
+
+          <!-- More voices — hidden by default to keep the initial view calm -->
+          <div style="display:none;flex-wrap:wrap;gap:5px;margin-bottom:8px" id="panelist-suggestions-more">
+            <button class="p-chip" onclick="toggleChip(this,'Rabbi Hillel','Jewish Wisdom')">Rabbi Hillel</button>
+            <button class="p-chip" onclick="toggleChip(this,'Confucius','Sage of Relationships')">Confucius</button>
+            <button class="p-chip" onclick="toggleChip(this,'The Bhagavad Gita','Hindu Scripture')">Bhagavad Gita</button>
+            <button class="p-chip" onclick="toggleChip(this,'Laozi','Taoist Sage')">Laozi</button>
+            <button class="p-chip" onclick="toggleChip(this,'Socrates','Greek Philosopher')">Socrates</button>
+            <button class="p-chip" onclick="toggleChip(this,'Mary Oliver','Poet and Naturalist')">Mary Oliver</button>
+            <button class="p-chip" onclick="toggleChip(this,'Maya Angelou','Poet and Humanist')">Maya Angelou</button>
+            <button class="p-chip" onclick="toggleChip(this,'Carl Sagan','Scientific Wonder')">Carl Sagan</button>
+            <button class="p-chip" onclick="toggleChip(this,'Simone Weil','Mystic Philosopher')">Simone Weil</button>
+            <button class="p-chip" onclick="toggleChip(this,'A Zen Monk','Zen Buddhism')">A Zen Monk</button>
+            <button class="p-chip" onclick="toggleChip(this,'Epictetus','Stoic Philosopher')">Epictetus</button>
+            <button class="p-chip" onclick="toggleChip(this,'Hildegard von Bingen','Christian Mystic')">Hildegard von Bingen</button>
+          </div>
+          <a onclick="toggleMoreVoices(this)" id="more-voices-toggle" style="font-size:.72rem;color:var(--amber);cursor:pointer;text-decoration:none;display:inline-block;margin-bottom:10px">Show more voices ↓</a>
+
+          <!-- Add your own -->
+          <div style="display:flex;gap:6px;align-items:center;margin-bottom:8px">
+            <input id="custom-panelist-input" placeholder="Add anyone: Nietzsche, your grandfather, a rabbi…" style="flex:1;border:1px solid var(--rule);background:var(--paper3);padding:7px 10px;font-family:'EB Garamond',serif;font-size:.9rem;color:var(--ink);outline:none;transition:border-color .2s" onkeydown="if(event.key==='Enter')addCustomPanelist()" onfocus="this.style.borderColor='var(--amber)'" onblur="this.style.borderColor='var(--rule)'">
+            <button onclick="addCustomPanelist()" style="background:var(--ink);border:none;padding:7px 14px;color:var(--paper);font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.08em;cursor:pointer;white-space:nowrap;transition:background .2s" onmouseover="this.style.background='var(--amber)'" onmouseout="this.style.background='var(--ink)'">Add →</button>
+          </div>
+
+          <!-- Selected count -->
+          <div style="font-size:.75rem;color:var(--muted);font-style:italic" id="panelist-count">2 panelists selected</div>
+        </div></div>
+        <button class="council-btn" id="convene-btn" onclick="conveneCouncil()" disabled>Convene the Council →</button>
+      </div>
+      <div class="council-right">
+        <div class="crh-title">The Council Dialogue</div>
+        <div class="crh-sub" id="council-dilemma-display">Bring your question or situation — the council will respond</div>
+        <div id="council-dialogue"><div class="dialogue-placeholder"><p>Your council awaits. Bring a question or situation and choose your voices — from Marcus Aurelius to a modern neuroscientist.</p></div></div>
+        <div class="council-share" id="council-share" style="display:none">
+          <button class="share-btn" onclick="shareCouncil()"><span>↑</span> Copy Script</button>
+          <button class="share-btn" id="audio-btn" onclick="toggleAudio()"><span id="audio-icon">▶</span> <span id="audio-label">Listen</span></button>
+          <button class="share-btn" onclick="downloadCard()"><span>⬡</span> Save Card</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Famous Councils -->
+    <div style="background:var(--paper3);border-top:1px solid var(--rule);padding:12px 26px">
+      <div style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:8px">
+        <span style="color:var(--amber)">✦</span> Famous Councils — One Click, No Typing Required
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        <button class="fc-btn" onclick="famousCouncil('How do I face my own mortality and death?',['Marcus Aurelius','Thích Nhất Hạnh','Viktor Frankl','An Indigenous Elder'])">How do I face mortality?</button>
+        <button class="fc-btn" onclick="famousCouncil('My child will not speak to me. I do not know how to repair this.',['Confucius','Rabbi Hillel','An Indigenous Elder','A Neuroscientist'])">My child won't speak to me</button>
+        <button class="fc-btn" onclick="famousCouncil('I cannot forgive someone who hurt me deeply and may never apologize.',['Rumi','Rabbi Hillel','The Bhagavad Gita','Marcus Aurelius'])">I cannot forgive</button>
+        <button class="fc-btn" onclick="famousCouncil('I have left my faith and feel unmoored. I miss something I cannot name.',['Rumi','Viktor Frankl','Marcus Aurelius','An Indigenous Elder'])">I left my faith</button>
+        <button class="fc-btn" onclick="famousCouncil('I am afraid of aging — of losing who I am, of becoming irrelevant.',['Marcus Aurelius','Confucius','Thích Nhất Hạnh','Viktor Frankl'])">I'm afraid of aging</button>
+        <button class="fc-btn" onclick="famousCouncil('I am caring for a spouse with dementia. I am exhausted and grief-stricken.',['Marcus Aurelius','Thích Nhất Hạnh','Rumi','A Neuroscientist'])">Caring for a spouse with dementia</button>
+      </div>
+    </div>
+
+    <!-- Trending -->
+    <div class="trending-strip" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 26px">
+      <span style="display:flex;align-items:center;gap:6px;flex-shrink:0">
+        <span style="width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite;display:inline-block"></span>
+        <span class="ts-label">What the world is bringing to the Council today:</span>
+      </span>
+      <span class="ts-item" onclick="loadTrending('My spouse has dementia. I am exhausted, grieving, and don\'t know how to hold this.')">Caring for a Spouse with Dementia</span>
+      <span class="ts-item" onclick="loadTrending('Collective anxiety about AI — how do we find peace with technology that is changing everything?')">Collective Anxiety about AI</span>
+      <span class="ts-item" onclick="loadTrending('The antidote to modern loneliness — how do we genuinely connect?')">Antidote to Loneliness</span>
+      <span class="ts-item" onclick="loadTrending('I am afraid of dying. What do the wisest voices across history say to that fear?')">Fear of Death</span>
+      <span class="ts-item" onclick="loadTrending('How do I forgive someone who has not apologized and may never apologize?')">Forgiving the Unrepentant</span>
+    </div>
+
+    <div class="trending-strip" style="display:none"><!-- hidden original -->
+      <span class="ts-label">Today&#39;s Trending Tables:</span>
+      <span class="ts-item" onclick="loadTrending('My spouse has dementia. I am exhausted, grieving, and don\'t know how to hold this.')">Caring for a Spouse with Dementia</span>
+      <span class="ts-item" onclick="loadTrending('Collective anxiety about AI — how do we find peace with technology that is changing everything?')">Collective Anxiety about AI</span>
+      <span class="ts-item" onclick="loadTrending('The antidote to modern loneliness — how do we genuinely connect?')">Antidote to Modern Loneliness</span>
+      <span class="ts-item" onclick="loadTrending('I am afraid of dying. What do the wisest voices across history say to that fear?')">Fear of Death</span>
+      <span class="ts-item" onclick="loadTrending('How do I forgive someone who has not apologized and may never apologize?')">Forgiving the Unrepentant</span>
+    </div>
+  </div>
+</section>
 <section id="founding-membership" style="background:var(--dark);padding:72px 0 64px;border-top:1px solid rgba(200,152,10,.15)">
   <div style="max-width:1100px;margin:0 auto;padding:0 24px">
 
@@ -2990,6 +3020,7 @@ function launchCouncil(dilemma) {
   // Also fill the em-dilemma if present
   const em = document.getElementById('em-dilemma');
   if (em) em.value = dilemma;
+  if (typeof updateConveneButtonState === 'function') updateConveneButtonState();
   // Scroll to council
   document.getElementById('council').scrollIntoView({behavior: 'smooth', block: 'start'});
   // Auto-convene after scroll
@@ -4844,7 +4875,34 @@ function updatePanelistCount() {
   const el = document.getElementById('panelist-count');
   const n = selectedPanelists.size;
   if (el) el.textContent = n + ' panelist' + (n !== 1 ? 's' : '') + ' selected' + (n === 0 ? ' — choose at least one' : n >= 2 ? ' · ready to convene' : '');
+  updateConveneButtonState();
 }
+
+// ── COUNCIL ROOM — calm-wizard additions ──
+function fillCouncilTheme(theme, example) {
+  const input = document.getElementById('council-input');
+  if (input) { input.value = example; updateConveneButtonState(); input.focus(); }
+}
+
+function toggleMoreVoices(link) {
+  const more = document.getElementById('panelist-suggestions-more');
+  if (!more) return;
+  const isHidden = more.style.display === 'none' || !more.style.display;
+  more.style.display = isHidden ? 'flex' : 'none';
+  link.textContent = isHidden ? 'Show fewer voices ↑' : 'Show more voices ↓';
+}
+
+function updateConveneButtonState() {
+  const btn = document.getElementById('convene-btn');
+  const input = document.getElementById('council-input');
+  if (!btn || !input) return;
+  const hasQuestion = input.value.trim().length > 0;
+  const hasPanelist = (typeof selectedPanelists !== 'undefined') && selectedPanelists.size > 0;
+  btn.disabled = !(hasQuestion && hasPanelist);
+}
+
+// Initialize button state once the page has loaded and default panelists are set
+setTimeout(updateConveneButtonState, 300);
 
 // Override conveneCouncil to use selectedPanelists
 const _origConvene = conveneCouncil;
