@@ -3116,12 +3116,16 @@ function launchCouncil(dilemma) {
 // Quick convene from hero card
 function quickConvene() {
   const d = document.getElementById('em-dilemma')?.value.trim();
+  const realInput = document.getElementById('council-input');
+  document.getElementById('council').scrollIntoView({behavior:'smooth'});
   if (d) {
-    document.getElementById('council-input').value = d;
-    document.getElementById('council').scrollIntoView({behavior:'smooth'});
+    if (realInput) realInput.value = d;
+    if (typeof updateConveneButtonState === 'function') updateConveneButtonState();
     setTimeout(() => conveneCouncil(), 600);
   } else {
-    document.getElementById('council').scrollIntoView({behavior:'smooth'});
+    // Nothing typed in the preview yet — focus the real question box so it's
+    // obvious what to do next, rather than silently scrolling with no cue.
+    setTimeout(() => realInput?.focus(), 600);
   }
 }
 
