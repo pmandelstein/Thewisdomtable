@@ -379,10 +379,13 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .ai-head p{font-size:.95rem;color:var(--muted);font-style:italic;max-width:600px;margin:0 auto}
 .ai-modes{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--rule);border:1px solid var(--rule);margin-bottom:16px}
 .ai-mode{background:var(--paper2);padding:12px 10px;text-align:center;cursor:pointer;transition:all .15s;border-top:2px solid transparent;border:none}
-.ai-mode:hover,.ai-mode.on{background:var(--paper3);border-top-color:var(--amber)}
-.am-icon{font-size:1.1rem;margin-bottom:5px}
-.am-name{font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:3px}
-.am-desc{font-size:.75rem;color:var(--muted);line-height:1.45}
+.ai-mode:hover{background:var(--paper3);border-top-color:var(--amber)}
+.ai-mode.on{background:var(--amber);border-top-color:var(--amberb)}
+.am-icon{font-size:1.2rem;margin-bottom:5px}
+.am-name{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.02em;color:var(--ink);margin-bottom:3px}
+.am-desc{font-size:.78rem;color:var(--muted);line-height:1.45}
+.ai-mode.on .am-icon,.ai-mode.on .am-name{color:white}
+.ai-mode.on .am-desc{color:rgba(255,255,255,.85)}
 .ai-bar{display:flex;border:1px solid var(--rule);overflow:hidden;transition:border-color .3s}
 .ai-bar:focus-within{border-color:var(--amber)}
 .ai-input{flex:1;border:none;background:var(--paper2);padding:12px 16px;font-family:'Inter',sans-serif;font-size:1rem;color:var(--ink);outline:none}
@@ -867,6 +870,7 @@ textarea{resize:vertical;line-height:1.65}
       <button class="ai-mode" data-mode="universal" onclick="setMode(this)"><div class="am-icon">◎</div><div class="am-name">Universal Ground</div><div class="am-desc">What all traditions agree on</div></button>
       <button class="ai-mode" data-mode="human" onclick="setMode(this)"><div class="am-icon">⊕</div><div class="am-name">Human Moment</div><div class="am-desc">I am grieving. I am afraid.</div></button>
     </div>
+    <div id="mode-confirm" style="font-family:'Inter',sans-serif;font-size:.85rem;color:var(--muted);text-align:center;margin-bottom:12px">Asking in <strong style="color:var(--amberb)">Wisdom Guide</strong> mode</div>
     <div class="ai-bar">
       <input class="ai-input" id="ai-q" placeholder="What has humanity learned about how to live? Ask anything across the full library…" onkeydown="if(event.key==='Enter')askLibrary()">
       <button class="ai-btn" onclick="askLibrary()">Ask the Library →</button>
@@ -3121,6 +3125,9 @@ function setMode(btn) {
   document.querySelectorAll('.ai-mode').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
   currentMode = btn.dataset.mode;
+  const confirmEl = document.getElementById('mode-confirm');
+  const name = btn.querySelector('.am-name')?.textContent || currentMode;
+  if (confirmEl) confirmEl.innerHTML = 'Asking in <strong style="color:var(--amberb)">' + name + '</strong> mode';
 }
 
 const AI_LOADING_PHRASES = [
