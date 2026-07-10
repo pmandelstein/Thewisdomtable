@@ -1936,6 +1936,10 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
       <div class="cmp-body">
         <input type="text" class="cmp-q" id="cmp-q" placeholder="Enter a topic: forgiveness · consciousness · what happens after death · the good life…" onkeydown="if(event.key==='Enter')doCompare()">
         <div class="cmp-sels" id="cmp-sels"><button class="csel on" data-t="Buddhism">Buddhism</button><button class="csel on" data-t="Christianity">Christianity</button><button class="csel on" data-t="Islam">Islam</button><button class="csel on" data-t="Judaism">Judaism</button><button class="csel" data-t="Hinduism">Hinduism</button><button class="csel" data-t="Taoism">Taoism</button><button class="csel" data-t="Sikhism">Sikhism</button><button class="csel" data-t="Jainism">Jainism</button><button class="csel on" data-t="Stoicism">Stoicism</button><button class="csel" data-t="Indigenous">Indigenous</button><button class="csel" data-t="African">African</button><button class="csel" data-t="Secular / Atheist">Secular / Atheist</button></div>
+        <div style="display:flex;gap:6px;align-items:center;margin-top:10px;margin-bottom:4px">
+          <input type="text" id="cmp-custom-input" placeholder="Add your own tradition: Zoroastrianism, Shinto, your family's practice…" style="flex:1;border:1px solid var(--rule);background:var(--paper3);padding:7px 10px;font-family:'Inter',sans-serif;font-size:.85rem;color:var(--ink);outline:none;transition:border-color .2s" onkeydown="if(event.key==='Enter')addCustomTradition()" onfocus="this.style.borderColor='var(--amber)'" onblur="this.style.borderColor='var(--rule)'">
+          <button onclick="addCustomTradition()" style="background:var(--ink);border:none;padding:7px 14px;color:var(--paper);font-family:'Inter',sans-serif;font-size:.78rem;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .2s" onmouseover="this.style.background='var(--amber)'" onmouseout="this.style.background='var(--ink)'">Add →</button>
+        </div>
         <button class="cmp-btn" onclick="doCompare()">Compare Across Traditions →</button>
       </div>
       <div class="cmp-out" id="cmp-out"></div>
@@ -3161,6 +3165,27 @@ document.querySelectorAll('.csel').forEach(b => {
     else cmpSels.delete(b.dataset.t);
   });
 });
+
+function addCustomTradition() {
+  const input = document.getElementById('cmp-custom-input');
+  const name = input?.value.trim();
+  if (!name) { input?.focus(); return; }
+  if (cmpSels.has(name)) { input.value = ''; return; } // already added
+
+  const btn = document.createElement('button');
+  btn.className = 'csel on';
+  btn.dataset.t = name;
+  btn.textContent = name;
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('on');
+    if (btn.classList.contains('on')) cmpSels.add(name);
+    else cmpSels.delete(name);
+  });
+  document.getElementById('cmp-sels')?.appendChild(btn);
+  cmpSels.add(name);
+  input.value = '';
+  input.focus();
+}
 
 async function doCompare() {
   const q = document.getElementById('cmp-q')?.value.trim();
