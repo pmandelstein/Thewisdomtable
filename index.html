@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -817,7 +818,13 @@ textarea{resize:vertical;line-height:1.65}
       <div class="visual-card" role="img" aria-label="A symbolic wisdom table with people gathered in conversation at sunrise">
         <div class="sun"></div>
         <div class="mountain"></div>
-        <div class="vc-question"><strong>What's weighing on you today?</strong><span>Ask a real question. Choose the voices. Discover the common threads.</span></div>
+        <div class="vc-question">
+          <strong style="display:block;margin-bottom:8px">What's weighing on you today?</strong>
+          <div style="display:flex;gap:8px">
+            <input id="hero-vc-input" type="text" placeholder="Ask a real question…" style="flex:1;border:1px solid var(--rule);border-radius:10px;padding:9px 12px;font-family:'Inter',sans-serif;font-size:.85rem;color:var(--ink);background:white;outline:none" onkeydown="if(event.key==='Enter')heroVcAsk()">
+            <button onclick="heroVcAsk()" style="background:var(--amber);border:none;border-radius:10px;padding:9px 14px;color:white;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;flex-shrink:0" onmouseover="this.style.background='var(--amberb)'" onmouseout="this.style.background='var(--amber)'">→</button>
+          </div>
+        </div>
         <div class="vc-person vc-p1"></div>
         <div class="vc-person vc-p2"></div>
         <div class="vc-person vc-p3"></div>
@@ -3161,6 +3168,18 @@ const AI_LOADING_PHRASES = [
   "Weighing many voices…",
   "Gathering wisdom…"
 ];
+
+// Hero illustration's question box — a real input, not decorative.
+// Fills and submits the actual Ask the Library query below.
+function heroVcAsk() {
+  const heroInput = document.getElementById('hero-vc-input');
+  const q = heroInput?.value.trim();
+  if (!q) { heroInput?.focus(); return; }
+  const realInput = document.getElementById('ai-q');
+  if (realInput) realInput.value = q;
+  document.getElementById('ai-q')?.scrollIntoView({behavior: 'smooth', block: 'center'});
+  setTimeout(() => askLibrary(), 500);
+}
 
 async function askLibrary() {
   const q = document.getElementById('ai-q')?.value.trim();
