@@ -650,6 +650,17 @@ textarea{resize:vertical;line-height:1.65}
 .p-chip.custom.active{border-color:var(--amber);color:var(--amber);background:var(--amberl)}
 
 .la-btn{background:var(--paper);border:1px solid var(--rule);padding:7px 16px;font-family:'Inter',sans-serif;font-size:.92rem;color:var(--ink2);cursor:pointer;transition:all .2s}
+.hiw-card{background:var(--paper2);border:1px solid var(--rule);border-radius:20px;padding:32px 28px;transition:transform .2s,box-shadow .2s}
+.hiw-card:hover{transform:translateY(-3px);box-shadow:0 16px 32px rgba(13,27,38,.08)}
+.hiw-num{font-family:'Libre Baskerville',serif;font-size:2.2rem;color:var(--amberb);margin-bottom:14px}
+.hiw-title{font-family:'Libre Baskerville',serif;font-weight:700;font-size:1.55rem;letter-spacing:-.02em;color:var(--ink);margin-bottom:10px}
+.hiw-desc{font-family:'Inter',sans-serif;font-size:1rem;color:var(--ink2);line-height:1.6;margin-bottom:20px}
+.hiw-preview{background:var(--paper);border:1px solid var(--rule);border-radius:12px;padding:16px 18px;font-family:'Libre Baskerville',serif;font-size:1rem;color:var(--ink2);line-height:1.5}
+.hiw-preview em{font-family:'Inter',sans-serif;font-style:normal;color:var(--muted);font-size:.85rem}
+.hiw-avatars{display:flex;align-items:center;gap:8px;background:none;border:none;padding:0}
+.hiw-avatar{width:44px;height:44px;border-radius:50%;box-shadow:0 4px 10px rgba(13,27,38,.15);flex-shrink:0}
+.hiw-avatar-more{background:var(--paper);border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:700;color:var(--muted);font-size:1.1rem}
+
 .eq-card{background:var(--paper);border:1px solid var(--rule);padding:28px 16px;text-align:center;cursor:pointer;transition:all .2s}
 .eq-card:hover{border-color:var(--amber);transform:translateY(-2px)}
 .eq-icon{font-size:1.6rem;color:var(--amber);margin-bottom:10px}
@@ -820,25 +831,38 @@ textarea{resize:vertical;line-height:1.65}
 
 <!-- HOW IT WORKS — the missing explainer: what do I actually do here? -->
 <section id="how-it-works" style="background:var(--paper);padding:56px 0 52px;border-bottom:1px solid var(--rule)">
-  <div style="max-width:1100px;margin:0 auto;padding:0 24px">
-    <div style="font-family:'Libre Baskerville',serif;font-weight:400;font-size:clamp(2.2rem,4.7vw,2.6rem);letter-spacing:-.02em;text-align:center;color:var(--ink);margin-bottom:8px">How The Wisdom Table Works</div>
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <div style="font-family:'Libre Baskerville',serif;font-weight:700;font-size:clamp(2.2rem,4.7vw,3.2rem);letter-spacing:-.02em;text-align:center;color:var(--ink);margin-bottom:8px">How The Wisdom Table Works</div>
     <p style="font-family:'Inter',sans-serif;text-align:center;color:var(--muted);font-size:1.08rem;margin-bottom:40px">Three simple steps to wisdom and clarity.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:36px;text-align:center">
-      <div>
-        <div style="font-family:'Libre Baskerville',serif;font-size:2.2rem;color:var(--amberb);margin-bottom:10px">1</div>
-        <h3 style="font-family:'Libre Baskerville',serif;font-weight:400;font-size:1.55rem;letter-spacing:-.02em;color:var(--ink);margin-bottom:8px">Ask</h3>
-        <p style="font-family:'Inter',sans-serif;font-size:1rem;color:var(--ink2);line-height:1.6">Bring a question that's on your mind. "How do I forgive someone?" "What is grief for?" Whatever is real for you.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+
+      <div class="hiw-card">
+        <div class="hiw-num">1</div>
+        <h3 class="hiw-title">Ask</h3>
+        <p class="hiw-desc">Bring a question that's on your mind — practical, emotional, spiritual, or philosophical.</p>
+        <div class="hiw-preview"><em>Example:</em> "How do I find peace in uncertain times?"</div>
       </div>
-      <div>
-        <div style="font-family:'Libre Baskerville',serif;font-size:2.2rem;color:var(--amberb);margin-bottom:10px">2</div>
-        <h3 style="font-family:'Libre Baskerville',serif;font-weight:400;font-size:1.55rem;letter-spacing:-.02em;color:var(--ink);margin-bottom:8px">Choose voices</h3>
-        <p style="font-family:'Inter',sans-serif;font-size:1rem;color:var(--ink2);line-height:1.6">The library draws on every tradition at once — or choose exactly who speaks and convene a Council yourself.</p>
+
+      <div class="hiw-card">
+        <div class="hiw-num">2</div>
+        <h3 class="hiw-title">Choose voices</h3>
+        <p class="hiw-desc">Select the wisdom traditions, thinkers, elders, or experts you'd like to hear from.</p>
+        <div class="hiw-preview hiw-avatars">
+          <span class="hiw-avatar" style="background:linear-gradient(135deg,#0D1B26,#52616B)"></span>
+          <span class="hiw-avatar" style="background:linear-gradient(135deg,#B77B2F,#6c4b2b)"></span>
+          <span class="hiw-avatar" style="background:linear-gradient(135deg,#1E8A7A,#0D1B26)"></span>
+          <span class="hiw-avatar" style="background:linear-gradient(135deg,#8e5d22,#DDC9A8)"></span>
+          <span class="hiw-avatar hiw-avatar-more">+</span>
+        </div>
       </div>
-      <div>
-        <div style="font-family:'Libre Baskerville',serif;font-size:2.2rem;color:var(--amberb);margin-bottom:10px">3</div>
-        <h3 style="font-family:'Libre Baskerville',serif;font-weight:400;font-size:1.55rem;letter-spacing:-.02em;color:var(--ink);margin-bottom:8px">Receive insight</h3>
-        <p style="font-family:'Inter',sans-serif;font-size:1rem;color:var(--ink2);line-height:1.6">A genuine, specific answer showing where traditions agree, where they differ, and what that might mean for you.</p>
+
+      <div class="hiw-card">
+        <div class="hiw-num">3</div>
+        <h3 class="hiw-title">Receive insight</h3>
+        <p class="hiw-desc">See genuine, specific responses — where traditions agree, where they differ, and what that means for you.</p>
+        <div class="hiw-preview"><strong>Common thread:</strong> Begin with what you can control, then act with compassion.</div>
       </div>
+
     </div>
   </div>
 </section>
