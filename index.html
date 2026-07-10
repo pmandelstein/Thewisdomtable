@@ -350,11 +350,10 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .pc-name{font-size:.85rem;color:var(--ink);font-weight:500;line-height:1.2}
 .pc-role{font-size:.7rem;color:var(--muted);font-style:italic}
 .council-btn{background:var(--ink);border:none;width:100%;padding:11px;color:var(--paper);font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing:.12em;cursor:pointer;transition:background .2s;margin-top:13px}
-.council-btn:disabled{background:var(--paper4);color:rgba(13,27,38,.4);cursor:not-allowed}
+.council-btn:disabled{background:var(--paper3);color:var(--muted);cursor:not-allowed;opacity:1}
 .theme-chip{background:var(--paper3);border:1px solid var(--rule);padding:4px 12px;font-family:'Inter',sans-serif;font-size:.78rem;color:var(--ink2);cursor:pointer;transition:all .15s;border-radius:2px}
 .theme-chip:hover{border-color:var(--amber);color:var(--amber)}
 .council-btn:hover{background:var(--amber)}
-.council-btn:disabled{opacity:.5;cursor:not-allowed}
 .crh-title{font-family:'Inter',sans-serif;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:4px}
 .crh-sub{font-size:.85rem;color:var(--muted);font-style:italic;margin-bottom:14px}
 .dialogue-entry{padding:13px 0;border-bottom:1px solid var(--rule)}
@@ -4979,7 +4978,16 @@ function addCustomPanelist() {
 function updatePanelistCount() {
   const el = document.getElementById('panelist-count');
   const n = selectedPanelists.size;
-  if (el) el.textContent = n + ' panelist' + (n !== 1 ? 's' : '') + ' selected' + (n === 0 ? ' — choose at least one' : n >= 2 ? ' · ready to convene' : '');
+  const hasQuestion = (document.getElementById('council-input')?.value.trim().length || 0) > 0;
+  if (el) {
+    if (n === 0) {
+      el.textContent = '0 panelists selected — choose at least one';
+    } else if (!hasQuestion) {
+      el.textContent = n + ' panelist' + (n !== 1 ? 's' : '') + ' selected · type your question above to continue';
+    } else {
+      el.textContent = n + ' panelist' + (n !== 1 ? 's' : '') + ' selected · ready to convene';
+    }
+  }
   updateConveneButtonState();
 }
 
@@ -5004,6 +5012,13 @@ function updateConveneButtonState() {
   const hasQuestion = input.value.trim().length > 0;
   const hasPanelist = (typeof selectedPanelists !== 'undefined') && selectedPanelists.size > 0;
   btn.disabled = !(hasQuestion && hasPanelist);
+  if (!hasQuestion) {
+    btn.textContent = 'Type your question above ↑';
+  } else if (!hasPanelist) {
+    btn.textContent = 'Choose at least one panelist ↑';
+  } else {
+    btn.textContent = 'Convene the Council →';
+  }
 }
 
 // Initialize button state once the page has loaded and default panelists are set
