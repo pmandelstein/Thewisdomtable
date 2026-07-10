@@ -3210,21 +3210,30 @@ async function askLibrary() {
   const out = document.getElementById('ai-out');
   out.classList.add('vis');
 
-  // Compare mode genuinely asks for more — 5+ traditions in real depth — so it
-  // takes longer to generate. Say so, rather than showing the same generic
-  // phrases and letting it feel stuck.
+  // Compare mode genuinely asks for more — 3-4 traditions in real depth — so it
+  // takes longer to generate. Say so up front, with a real time estimate,
+  // rather than showing generic phrases and letting an open-ended wait feel stuck.
   const loadingPhrases = currentMode === 'compare'
-    ? ["Comparing across multiple traditions…", "This takes a bit longer for real depth…", "Weighing agreements and differences…", "Still comparing — almost there…"]
+    ? ["Comparing across traditions — usually 20-30 seconds…", "This takes a bit longer for real depth…", "Weighing agreements and differences…", "Still comparing — almost there…"]
     : AI_LOADING_PHRASES;
 
   let phraseIdx = 0;
   out.innerHTML = '<span style="font-style:italic;color:var(--muted)">' + loadingPhrases[0] + '</span>';
-  const loadingInterval = setInterval(() => {
-    phraseIdx = (phraseIdx + 1) % loadingPhrases.length;
-    if (out.querySelector('span[data-loading]') || out.innerHTML.includes(loadingPhrases[(phraseIdx + loadingPhrases.length - 1) % loadingPhrases.length])) {
-      out.innerHTML = '<span data-loading style="font-style:italic;color:var(--muted)">' + loadingPhrases[phraseIdx] + '</span>';
-    }
-  }, 1400);
+  // First rotation happens faster (900ms) so the very start feels responsive;
+  // settles into a steadier 1600ms pace after that for a longer wait like Compare.
+  let rotationDelay = 900;
+  function scheduleNextPhrase() {
+    loadingTimeout = setTimeout(() => {
+      phraseIdx = (phraseIdx + 1) % loadingPhrases.length;
+      if (out.querySelector('span[data-loading]') || out.innerHTML.includes(loadingPhrases[(phraseIdx + loadingPhrases.length - 1) % loadingPhrases.length])) {
+        out.innerHTML = '<span data-loading style="font-style:italic;color:var(--muted)">' + loadingPhrases[phraseIdx] + '</span>';
+        rotationDelay = 1600;
+        scheduleNextPhrase();
+      }
+    }, rotationDelay);
+  }
+  let loadingTimeout;
+  scheduleNextPhrase();
 
   const prompts = {
     guide: `Answer this question: "${q}"
@@ -3234,7 +3243,7 @@ If the question names a specific tradition, teacher, text, or figure (for exampl
 If the question is general and does not name a specific tradition, then draw on wisdom from multiple relevant traditions, each under its own <h4> header.
 
 Use <h4> for headers, <p> for content. End with "For the Seeker Today".`,
-    compare: `Compare how at least 5 traditions answer: "${q}". Be specific. Show real agreements and disagreements.`,
+    compare: `Compare how 3-4 traditions answer: "${q}". Start immediately with a single brief framing sentence in a <p> tag before anything else — don't spend time planning silently. Then compare each tradition under its own <h4> header, being specific. Show real agreements and disagreements. Keep each tradition's section concise rather than exhaustive, so the whole comparison stays readable.`,
     secular: `Answer this question from a secular, philosophical perspective: "${q}". Draw on Stoicism, Existentialism, scientific research, and secular humanism.`,
     universal: `What do all or most wisdom traditions agree on regarding: "${q}"? Find the common ground without flattening real differences.`,
     human: `Someone is asking: "${q}" — respond with warmth and wisdom from traditions that speak directly to this human experience. Make it personal, not academic.`
@@ -3243,12 +3252,12 @@ Use <h4> for headers, <p> for content. End with "For the Seeker Today".`,
   let firstChunk = true;
   const html = await callAI_treasury(prompts[currentMode] || prompts.guide, (partial) => {
     if (firstChunk) {
-      clearInterval(loadingInterval);
+      clearTimeout(loadingTimeout);
       firstChunk = false;
     }
     out.innerHTML = partial;
   });
-  clearInterval(loadingInterval);
+  clearTimeout(loadingTimeout);
   out.innerHTML = html;
 }
 
