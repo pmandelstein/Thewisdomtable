@@ -812,8 +812,10 @@ textarea{resize:vertical;line-height:1.65}
             <div style="font-family:'Inter',sans-serif;font-size:.95rem;font-weight:650;color:#1D2A35;line-height:1.4">Preserving humanity's most valuable insights</div>
           </div>
         </div>
-        <button onclick="document.getElementById('ai-q').scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>document.getElementById('ai-q').focus(),500)" style="background:var(--amber);border:none;padding:15px 24px;color:white;font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:.2s ease;border-radius:14px;box-shadow:0 12px 28px rgba(183,123,47,.22)" onmouseover="this.style.background='var(--amberb)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--amber)';this.style.transform='translateY(0)'">Ask Your First Question →</button>
-        <div style="margin-top:16px"><a onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})" style="font-family:'Inter',sans-serif;font-size:.95rem;font-weight:650;color:#0D1B26;cursor:pointer;text-decoration:underline;text-underline-offset:3px">Or explore the library</a></div>
+        <div style="display:flex;flex-wrap:wrap;gap:14px">
+          <button onclick="document.getElementById('ai-q').scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>document.getElementById('ai-q').focus(),500)" style="background:var(--amber);border:none;padding:15px 24px;color:white;font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:.2s ease;border-radius:14px;box-shadow:0 12px 28px rgba(183,123,47,.22)" onmouseover="this.style.background='var(--amberb)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--amber)';this.style.transform='translateY(0)'">Ask Your First Question →</button>
+          <button onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})" style="background:transparent;border:1px solid var(--rule);padding:15px 24px;color:var(--ink);font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:.2s ease;border-radius:14px" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='var(--rule)';this.style.color='var(--ink)'">Explore the Library</button>
+        </div>
       </div>
     </div>
 
