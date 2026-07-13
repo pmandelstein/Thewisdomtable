@@ -2917,37 +2917,51 @@ p:last-child{margin-bottom:0}
     </div>
 
     <!-- Membership tiers -->
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:2px;margin-bottom:48px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:2px;margin-bottom:48px">
 
-      <!-- Tier 1 -->
+      <!-- Tier 0 — Free -->
+      <div style="background:rgba(13,27,38,.03);border:1px solid rgba(183,123,47,.18);padding:28px 22px;text-align:center;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(183,123,47,.5)'" onmouseout="this.style.borderColor='rgba(183,123,47,.18)'">
+        <div style="font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(183,123,47,.84);margin-bottom:10px">Everyone</div>
+        <div style="font-family:'Libre Baskerville',serif;font-size:2.2rem;color:#0D1B26;margin-bottom:4px">Free</div>
+        <div style="font-size:.78rem;color:rgba(13,27,38,.82);margin-bottom:18px;font-style:italic">forever</div>
+        <ul style="list-style:none;padding:0;margin:0 0 22px;font-size:.82rem;color:rgba(13,27,38,.88);line-height:2;text-align:left">
+          <li>✦ &nbsp;Full library access</li>
+          <li>✦ &nbsp;Ask the Library</li>
+          <li>✦ &nbsp;Council Room</li>
+          <li>✦ &nbsp;No paywall, ever</li>
+        </ul>
+        <a onclick="document.getElementById('ai-q').scrollIntoView({behavior:'smooth',block:'center'})" style="display:block;background:none;border:1px solid rgba(183,123,47,.4);padding:10px;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.1em;color:rgba(183,123,47,.8);cursor:pointer;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(183,123,47,.1)';this.style.borderColor='var(--gold)'" onmouseout="this.style.background='none';this.style.borderColor='rgba(183,123,47,.4)'">Start now →</a>
+      </div>
+
+      <!-- Tier 1 — Sustaining Member, now $5/mo -->
+      <div style="background:rgba(13,27,38,.04);border:1px solid rgba(183,123,47,.25);padding:28px 22px;text-align:center;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(183,123,47,.6)'" onmouseout="this.style.borderColor='rgba(183,123,47,.25)'">
+        <div style="font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(183,123,47,.85);margin-bottom:10px">Sustaining Member</div>
+        <div style="font-family:'Libre Baskerville',serif;font-size:2.2rem;color:#0D1B26;margin-bottom:4px">$5</div>
+        <div style="font-size:.78rem;color:rgba(13,27,38,.82);margin-bottom:18px;font-style:italic">per month</div>
+        <ul style="list-style:none;padding:0;margin:0 0 22px;font-size:.82rem;color:rgba(13,27,38,.88);line-height:2;text-align:left">
+          <li>✦ &nbsp;Everything free</li>
+          <li>✦ &nbsp;Last Wisdom updates</li>
+          <li>✦ &nbsp;New entry notifications</li>
+          <li>✦ &nbsp;Name in annual archive</li>
+        </ul>
+        <a href="https://www.paypal.com/donate?business=pmandelstein@gmail.com&amount=5&item_name=Wisdom+Table+Sustaining+Member+Monthly" target="_blank" style="display:block;background:none;border:1px solid rgba(183,123,47,.5);padding:10px;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.1em;color:var(--gold);cursor:pointer;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(183,123,47,.12)'" onmouseout="this.style.background='none'">Join →</a>
+      </div>
+
+      <!-- Tier 2 — Early Believer, $25/yr -->
       <div style="background:rgba(13,27,38,.03);border:1px solid rgba(183,123,47,.18);padding:28px 22px;text-align:center;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(183,123,47,.5)'" onmouseout="this.style.borderColor='rgba(183,123,47,.18)'">
         <div style="font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(183,123,47,.84);margin-bottom:10px">Early Believer</div>
         <div style="font-family:'Libre Baskerville',serif;font-size:2.2rem;color:#0D1B26;margin-bottom:4px">$25</div>
         <div style="font-size:.78rem;color:rgba(13,27,38,.82);margin-bottom:18px;font-style:italic">per year</div>
         <ul style="list-style:none;padding:0;margin:0 0 22px;font-size:.82rem;color:rgba(13,27,38,.88);line-height:2;text-align:left">
-          <li>✦ &nbsp;Full library access</li>
-          <li>✦ &nbsp;Council Room sessions</li>
+          <li>✦ &nbsp;Everything above</li>
           <li>✦ &nbsp;Weekly wisdom digest</li>
           <li>✦ &nbsp;Founding member credit</li>
+          <li>✦ &nbsp;Better value than monthly</li>
         </ul>
         <a href="https://www.paypal.com/donate?business=pmandelstein@gmail.com&amount=25&item_name=Wisdom+Table+Founding+Member+Annual" target="_blank" style="display:block;background:none;border:1px solid rgba(183,123,47,.4);padding:10px;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.1em;color:rgba(183,123,47,.8);cursor:pointer;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(183,123,47,.1)';this.style.borderColor='var(--gold)'" onmouseout="this.style.background='none';this.style.borderColor='rgba(183,123,47,.4)'">Join →</a>
       </div>
 
-      <!-- Tier 2 -->
-      <div style="background:rgba(13,27,38,.04);border:1px solid rgba(183,123,47,.25);padding:28px 22px;text-align:center;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(183,123,47,.6)'" onmouseout="this.style.borderColor='rgba(183,123,47,.25)'">
-        <div style="font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(183,123,47,.85);margin-bottom:10px">Sustaining Member</div>
-        <div style="font-family:'Libre Baskerville',serif;font-size:2.2rem;color:#0D1B26;margin-bottom:4px">$10</div>
-        <div style="font-size:.78rem;color:rgba(13,27,38,.82);margin-bottom:18px;font-style:italic">per month</div>
-        <ul style="list-style:none;padding:0;margin:0 0 22px;font-size:.82rem;color:rgba(13,27,38,.88);line-height:2;text-align:left">
-          <li>✦ &nbsp;Everything above</li>
-          <li>✦ &nbsp;Last Wisdom updates</li>
-          <li>✦ &nbsp;New entry notifications</li>
-          <li>✦ &nbsp;Name in annual archive</li>
-        </ul>
-        <a href="https://www.paypal.com/donate?business=pmandelstein@gmail.com&amount=10&item_name=Wisdom+Table+Sustaining+Member+Monthly" target="_blank" style="display:block;background:none;border:1px solid rgba(183,123,47,.5);padding:10px;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.1em;color:var(--gold);cursor:pointer;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(183,123,47,.12)'" onmouseout="this.style.background='none'">Join →</a>
-      </div>
-
-      <!-- Tier 3 — Featured -->
+      <!-- Tier 3 — Library Builder, Featured -->
       <div style="background:rgba(183,123,47,.07);border:2px solid rgba(183,123,47,.6);padding:28px 22px;text-align:center;position:relative;transition:border-color .2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(183,123,47,.6)'">
         <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);padding:3px 14px;font-family:'Inter',sans-serif;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dark);white-space:nowrap">Most Meaningful</div>
         <div style="font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px">Library Builder</div>
@@ -2962,7 +2976,7 @@ p:last-child{margin-bottom:0}
         <a href="https://www.paypal.com/donate?business=pmandelstein@gmail.com&amount=100&item_name=Wisdom+Table+Library+Builder" target="_blank" style="display:block;background:var(--amber);border:none;padding:11px;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.1em;color:var(--dark);cursor:pointer;text-decoration:none;transition:background .2s" onmouseover="this.style.background='var(--amberb)'" onmouseout="this.style.background='var(--amber)'">Join →</a>
       </div>
 
-      <!-- Tier 4 -->
+      <!-- Tier 4 — Founding Patron -->
       <div style="background:rgba(13,27,38,.03);border:1px solid rgba(183,123,47,.18);padding:28px 22px;text-align:center;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(183,123,47,.5)'" onmouseout="this.style.borderColor='rgba(183,123,47,.18)'">
         <div style="font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(183,123,47,.84);margin-bottom:10px">Founding Patron</div>
         <div style="font-family:'Libre Baskerville',serif;font-size:2.2rem;color:#0D1B26;margin-bottom:4px">$500</div>
