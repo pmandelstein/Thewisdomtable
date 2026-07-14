@@ -2698,7 +2698,7 @@ p:last-child{margin-bottom:0}
   <!-- Traditions -->
   <div class="section">
     <div class="sec-label">The Library</div>
-    <h2>25 traditions · 63 entries · 24 human questions · 9 ways of knowing</h2>
+    <h2 id="preservation-stats-line">25 traditions · 63 entries · 24 human questions · 9 ways of knowing</h2>
     <p>The Wisdom Table currently spans 25 traditions, with entries, questions, and ways of knowing growing continuously through scholarship, curation, and the Wisdom Scout discovery system:</p>
     <div class="abt-trad-list">
       <div class="abt-tl-item"><span class="abt-tl-dot" style="background:#1E8A7A"></span>Buddhism</div>
@@ -4736,6 +4736,11 @@ function updateStatsBarForNewEntry(entry) {
       bumpStat(tradEl);
     }
   }
+  const statsLine = document.getElementById('preservation-stats-line');
+  if (statsLine) {
+    const wokCount = document.querySelectorAll('.wok-card').length || 9;
+    statsLine.textContent = _knownPrimaryTraditions.size + ' traditions · ' + ALL_ENTRIES.length + ' entries · ' + ALL_QUESTIONS.length + ' human questions · ' + wokCount + ' ways of knowing';
+  }
 }
 
 // Initialize the counters to the library's actual current numbers on load,
@@ -4745,6 +4750,11 @@ function updateStatsBarForNewEntry(entry) {
   if (entriesEl) entriesEl.textContent = ALL_ENTRIES.length;
   const tradEl = document.getElementById('stat-n-traditions');
   if (tradEl) tradEl.textContent = _knownPrimaryTraditions.size + '+';
+  const statsLine = document.getElementById('preservation-stats-line');
+  if (statsLine) {
+    const wokCount = document.querySelectorAll('.wok-card').length || 9;
+    statsLine.textContent = _knownPrimaryTraditions.size + ' traditions · ' + ALL_ENTRIES.length + ' entries · ' + ALL_QUESTIONS.length + ' human questions · ' + wokCount + ' ways of knowing';
+  }
 })();
 
 function triggerScoutDiscovery() {
