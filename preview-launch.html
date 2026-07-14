@@ -770,18 +770,7 @@ textarea{resize:vertical;line-height:1.65}
       <a class="mnl active" onclick="document.getElementById('life-areas').scrollIntoView({behavior:'smooth'})">Questions</a>
       <a class="mnl" onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'})">Council Room</a>
       <a class="mnl" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})">Traditions</a>
-      <a class="mnl" onclick="document.getElementById('ways-of-knowing').scrollIntoView({behavior:'smooth'})">Ways of Knowing</a>
-      <a class="mnl" onclick="document.getElementById('discover').scrollIntoView({behavior:'smooth'})">Discover</a>
       <a class="mnl" onclick="document.getElementById('compare-section').scrollIntoView({behavior:'smooth'})">Compare</a>
-      <a class="mnl" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'})">Last Wisdom</a>
-      <div class="mnl-more-wrap">
-        <a class="mnl" onclick="toggleMoreNav(event)">More ▾</a>
-        <div class="mnl-more-panel" id="mnl-more-panel">
-          <a onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'});toggleMoreNav()">About</a>
-          <a onclick="document.getElementById('humanity-asking').scrollIntoView({behavior:'smooth'});toggleMoreNav()">Humanity Asks</a>
-          <a onclick="document.getElementById('wisdom-at-risk').scrollIntoView({behavior:'smooth'});toggleMoreNav()" style="color:#C05050">Wisdom at Risk</a>
-        </div>
-      </div>
     </nav>
     <div class="m-right">
       <button class="m-search-btn" onclick="toggleSearch()">⌕</button>
@@ -1661,6 +1650,7 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
       <div class="sec-title">Authorities · Teachers · Contributors to the Search</div>
       <p class="sec-sub">Every century, every tradition, every civilization that has wrestled seriously with what it means to be human</p>
     </div>
+    <div id="collapse-hall" style="display:none">
     <div class="voices-grid">
       <div class="voice-card" onclick="openE('buddhism-four-noble-truths','Buddhism')">
         <div class="vc-icon" style="background:#1E8A7A">佛</div>
@@ -1806,6 +1796,10 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
         <div class="vc-dates">1904–1971</div>
         <div class="vc-trad">Zen Buddhism</div>
       </div>
+    </div>
+    </div>
+    <div style="text-align:center;padding:8px 0">
+      <button onclick="toggleCollapse('hall')" style="background:none;border:1px solid rgba(183,123,47,.4);padding:12px 28px;color:var(--amberb);font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;border-radius:10px;transition:all .2s" onmouseover="this.style.background='rgba(183,123,47,.08)'" onmouseout="this.style.background='none'">Explore the Hall of Humanity →</button>
     </div>
   </div>
 </section><section id="writings" style="padding:52px 0 48px;background:var(--paper)">
@@ -2096,6 +2090,7 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
       <div class="sec-title">One Question · Every Voice</div>
       <p class="sec-sub">What do we owe each other? Every tradition has answered. They have never disagreed more than they agree.</p>
     </div>
+    <div id="collapse-golden-rule" style="display:none">
     <div class="gr-grid">
       <div class="gr-item">
         <div class="gr-trad"><span class="gr-dot" style="background:#1E8A7A"></span>Buddhism</div>
@@ -2134,6 +2129,10 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
         <div><div class="gr-quote">Act only according to that maxim by which you can at the same time will it to become universal law.</div><div class="gr-src">Immanuel Kant · Groundwork of the Metaphysics of Morals</div></div>
       </div>
     </div>
+    </div>
+    <div style="text-align:center;padding:8px 0">
+      <button onclick="toggleCollapse('golden-rule')" style="background:none;border:1px solid rgba(183,123,47,.4);padding:12px 28px;color:var(--amberb);font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;border-radius:10px;transition:all .2s" onmouseover="this.style.background='rgba(183,123,47,.08)'" onmouseout="this.style.background='none'">Explore Every Voice →</button>
+    </div>
   </div>
 <section id="secular" style="padding:48px 0 44px;background:var(--paper);border-top:1px solid var(--rule)">
   <div class="secular-inner">
@@ -2142,6 +2141,7 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
       <div style="font-family:'Libre Baskerville',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:400;color:var(--ink);margin-bottom:12px;line-height:1.2">Science, Reason &amp; Secular Wisdom</div>
       <p style="font-size:1rem;color:rgba(13,27,38,.82);line-height:1.75;max-width:680px;margin:0">Not the absence of wisdom — a particular expression of the human search for truth and meaning. From Epicurus to Camus; from Stoicism to Sagan. The Wisdom Table holds no hierarchy of traditions.</p>
     </div>
+    <div id="collapse-secular" style="display:none">
     <div class="secular-streams">
       <div class="stream-card" onclick="filterAndScroll('Secular Humanism')"><div class="sc-name">Secular Humanism</div><div class="sc-body">Ethics grounded in human dignity and reason — the worth of persons as its own foundation, needing no supernatural warrant.</div></div>
       <div class="stream-card" onclick="openE('stoicism-meditations')"><div class="sc-name">Stoicism</div><div class="sc-body">Marcus Aurelius, Epictetus, Seneca — the inner citadel, virtue as the only good, equanimity in the face of what cannot be controlled.</div></div>
@@ -2153,6 +2153,10 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
       <div class="stream-card" onclick="openE('science-cosmology-universe-story')"><div class="sc-name">Cosmology</div><div class="sc-body">Thomas Berry, Carl Sagan — the 13.8-billion-year universe story as sacred narrative. We are the cosmos, locally and temporarily awake.</div></div>
       <div class="stream-card" onclick="filterAndScroll('philosophy')"><div class="sc-name">Pragmatism</div><div class="sc-body">William James, John Dewey — truth is what works, ideas are tools, and philosophy must engage with lived human experience to matter.</div></div>
       <div class="stream-card" onclick="filterAndScroll('Secular')"><div class="sc-name">Analytic Ethics</div><div class="sc-body">Bentham, Mill, Rawls, Singer — reason applied rigorously to moral questions. What do we owe one another, and how do we know?</div></div>
+    </div>
+    </div>
+    <div style="text-align:center;padding:8px 0">
+      <button onclick="toggleCollapse('secular')" style="background:none;border:1px solid rgba(183,123,47,.4);padding:12px 28px;color:var(--amberb);font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;border-radius:10px;transition:all .2s" onmouseover="this.style.background='rgba(183,123,47,.08)'" onmouseout="this.style.background='none'">Explore Secular Wisdom →</button>
     </div>
     <div style="margin-top:20px;padding:16px 0;border-top:1px solid rgba(183,123,47,.12)">
       <p style="font-family:'Libre Baskerville',serif;font-style:italic;color:rgba(13,27,38,.88);font-size:1rem;line-height:1.72">"The unexamined life is not worth living." — Socrates &nbsp;&nbsp;·&nbsp;&nbsp; "We are made of star-stuff. We are a way for the cosmos to know itself." — Carl Sagan</p>
@@ -3125,7 +3129,7 @@ p:last-child{margin-bottom:0}
     </div>
     <div class="fc"><h5>Traditions</h5><a onclick="openT('Buddhism')">Buddhism</a><a onclick="openT('Christianity')">Christianity</a><a onclick="openT('Islam')">Islam</a><a onclick="openT('Judaism')">Judaism</a><a onclick="openT('Hinduism')">Hinduism</a><a onclick="openT('Taoism')">Taoism</a></div>
     <div class="fc"><h5>More</h5><a onclick="openT('Sikhism')">Sikhism</a><a onclick="openT('Bahá')">Bahá'í</a><a onclick="openT('Indigenous')">Indigenous</a><a onclick="openT('African')">African</a><a onclick="openT('Secular')">Secular &amp; Atheist</a><a onclick="filterAndScroll('Ways of Knowing')">Ways of Knowing</a></div>
-    <div class="fc"><h5>Navigate</h5><a onclick="document.getElementById('life-areas').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">Humanity's Questions</a><a onclick="document.getElementById('discover').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">The Quiet Room</a>
+    <div class="fc"><h5>Navigate</h5><a onclick="document.getElementById('life-areas').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">Humanity's Questions</a><a onclick="document.getElementById('discover').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">The Quiet Room</a><a onclick="document.getElementById('humanity-asking').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">Humanity Asks</a>
       <a href="#" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'});return false;">The Living Archive</a>
       <a href="#last-wisdom-section" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'});return false;">The Last Wisdom Project</a><a onclick="document.getElementById('wisdom-at-risk').scrollIntoView({behavior:'smooth'})">Wisdom at Risk</a><a href="#about-section" onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'});return false;">About the Project</a><a onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'})" style="color:rgba(183,123,47,.90);cursor:pointer">✦ Curator's Desk</a></div>
     <div class="fc"><h5>The Mission</h5><a>Nothing Excluded</a><a>Radical Transparency</a><a>Preserve Endangered Wisdom</a><br><h5 style="margin-top:14px">Contact</h5><a>thewisdomtable.ai</a></div>
