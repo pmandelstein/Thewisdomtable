@@ -22,7 +22,7 @@
 }
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.75;overflow-x:hidden}
 
 /* Parchment texture overlay */
@@ -1023,6 +1023,10 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
           <button class="share-btn" id="audio-btn" onclick="toggleAudio()"><span id="audio-icon">▶</span> <span id="audio-label">Listen</span></button>
           <button class="share-btn" onclick="downloadCard()"><span>⬡</span> Save Card</button>
         </div>
+        <div id="reciprocity-prompt" style="display:none;margin-top:24px;padding:22px 26px;background:var(--paper2);border:1px solid rgba(183,123,47,.25);border-radius:10px;text-align:center">
+          <p style="font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.02rem;color:var(--ink);line-height:1.6;margin-bottom:14px">This council was built from the wisdom of thousands of lived lives. What have you learned from your own journey that belongs at this table?</p>
+          <button onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'})" style="background:var(--amber);border:none;padding:11px 26px;color:white;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;border-radius:10px;transition:background .2s" onmouseover="this.style.background='var(--amberb)'" onmouseout="this.style.background='var(--amber)'">Share Your Story →</button>
+        </div>
       </div>
     </div>
 
@@ -1030,6 +1034,7 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
     <div style="background:var(--paper3);border-top:1px solid var(--rule);padding:12px 26px">
       <div style="font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:8px">
         <span style="color:var(--amber)">✦</span> Famous Councils — One Click, No Typing Required
+        <span style="font-family:'Inter',sans-serif;font-size:.5rem;letter-spacing:.06em;color:var(--amberb);border:1px solid rgba(183,123,47,.4);border-radius:8px;padding:1px 6px" title="These are AI-generated dialogues drawing on real historical teachings — not verified archival recordings">✦ AI SYNTHESIS</span>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:6px">
         <button class="fc-btn" onclick="famousCouncil('How do I face my own mortality and death?',['Marcus Aurelius','Thích Nhất Hạnh','Viktor Frankl','An Indigenous Elder'])">How do I face mortality?</button>
@@ -1113,7 +1118,7 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
 
 <!-- WISDOM SCOUT TICKER — the institution's heartbeat -->
 <div id="scout-ticker">
-  <div class="ticker-label">
+  <div class="ticker-label" title="Sourced from real institutional archives — university oral history programs, indigenous archives, and preservation projects, not AI-generated content">
     <div class="ticker-dot"></div>
     <span class="ticker-heading">New discoveries</span>
   </div>
@@ -1613,6 +1618,7 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
       <p style="font-family:'Inter',sans-serif;color:var(--ink2);font-size:.92rem;line-height:1.6;margin:0 0 12px">A cross-cutting lens through every tradition above: the Feminine Divine, women mystics and teachers, gender beyond the binary, feminist theology, what was suppressed, and what persists.</p>
       <a onclick="filterAndScroll('feminine')" style="font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);cursor:pointer;text-decoration:none">Explore feminine wisdom →</a>
     </div>
+    <div id="collapse-traditions" style="display:none">
     <table class="trad-table">
       <thead>
         <tr>
@@ -1641,6 +1647,10 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
         <tr onclick="openT('Secular Humanism & Atheism')"><td><div class="td-mark"><span class="td-dot" style="background:#3A3848"></span><span class="td-name">Secular &amp; Atheist</span></div></td><td class="td-age">Ancient to Modern · Epicurus to Sagan</td><td class="td-desc">The tradition of finding meaning, ethics, and wonder through reason and human solidarity — without appeal to the supernatural. From Epicurus to Camus to Sagan.</td><td class="td-schools">Stoicism · Epicureanism · Existentialism · Secular Humanism · Scientific Naturalism</td></tr>
       </tbody>
     </table>
+    </div>
+    <div id="expand-traditions-btn" style="text-align:center;padding:8px 0">
+      <button onclick="toggleCollapse('traditions')" style="background:none;border:1px solid rgba(183,123,47,.4);padding:12px 28px;color:var(--amberb);font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;border-radius:10px;transition:all .2s" onmouseover="this.style.background='rgba(183,123,47,.08)'" onmouseout="this.style.background='none'">Explore All 25 Traditions →</button>
+    </div>
   </div>
 </section>
 
@@ -1805,6 +1815,7 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
       <div class="sec-title">Scripture · Philosophy · Science · Poetry</div>
       <p class="sec-sub">The texts humanity has returned to across centuries — not because they answer every question, but because they ask the right ones</p>
     </div>
+    <div id="collapse-writings" style="display:none">
     <div class="writings-grid">
       <div class="writ-card" onclick="openE('buddhism-four-noble-truths','Buddhism')">
         <div class="writ-trad">Buddhism</div>
@@ -1869,6 +1880,10 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
         <div class="writ-body">The sayings of Confucius on virtue, relationship, and governance — the ethical foundation of East Asian civilization for 2,500 years.</div>
       </div>
 
+    </div>
+    </div>
+    <div style="text-align:center;padding:8px 0">
+      <button onclick="toggleCollapse('writings')" style="background:none;border:1px solid rgba(183,123,47,.4);padding:12px 28px;color:var(--amberb);font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;border-radius:10px;transition:all .2s" onmouseover="this.style.background='rgba(183,123,47,.08)'" onmouseout="this.style.background='none'">Explore All 10 Great Writings →</button>
     </div>
   </div>
 </section><section id="story-strip" style="background:var(--paper);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:0">
@@ -1975,6 +1990,7 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
       <div class="sec-title">Patterns Across All Civilizations</div>
       <p class="sec-sub">The same insights emerging independently in ancient China, medieval Persia, and modern neuroscience</p>
     </div>
+    <div id="collapse-genome" style="display:none">
     <div class="genome-grid">
       <div class="theme" onclick="openE('buddhism-four-noble-truths','Cross-tradition')">
         <h4>Impermanence & Suffering</h4>
@@ -2026,6 +2042,10 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
         <p>The human need to begin again — how every tradition makes it possible.</p>
         <div class="theme-terms"><span class="term">Teshuvah</span> <span class="term">Tawba</span> <span class="term">Grace</span> <span class="term">Restorative justice</span></div>
       </div>
+    </div>
+    </div>
+    <div style="text-align:center;padding:8px 0">
+      <button onclick="toggleCollapse('genome')" style="background:none;border:1px solid rgba(183,123,47,.4);padding:12px 28px;color:var(--amberb);font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;border-radius:10px;transition:all .2s" onmouseover="this.style.background='rgba(183,123,47,.08)'" onmouseout="this.style.background='none'">Explore the Wisdom Genome →</button>
     </div>
   </div>
 </section>
@@ -3255,6 +3275,22 @@ const AI_LOADING_PHRASES = [
 
 // Hero illustration's question box — a real input, not decorative.
 // Fills and submits the actual Ask the Library query below.
+// Collapsed-by-default reference sections (Traditions table, Great Writings,
+// Wisdom Genome) — keeps the page short for first-time visitors while still
+// letting anyone go deep with one click.
+function toggleCollapse(name) {
+  const content = document.getElementById('collapse-' + name);
+  const btn = document.querySelector('[onclick="toggleCollapse(\'' + name + '\')"]');
+  if (!content || !btn) return;
+  const isHidden = content.style.display === 'none' || !content.style.display;
+  content.style.display = isHidden ? 'block' : 'none';
+  if (isHidden) {
+    btn.textContent = btn.textContent.replace('Explore', 'Show less of');
+  } else {
+    btn.textContent = btn.textContent.replace('Show less of', 'Explore');
+  }
+}
+
 function heroVcAsk() {
   const heroInput = document.getElementById('hero-vc-input');
   const q = heroInput?.value.trim();
@@ -5224,6 +5260,8 @@ Respond as each panelist in their authentic voice.`;
       clearInterval(loadingInterval);
       const share = document.getElementById('council-share');
       if (share) share.style.display = 'flex';
+      const reciprocity = document.getElementById('reciprocity-prompt');
+      if (reciprocity) reciprocity.style.display = 'block';
       if (btn) { btn.disabled = false; btn.textContent = 'Convene the Council →'; }
       window._lastCouncilDilemma = dilemma;
       window._lastCouncilText = text;
@@ -5377,6 +5415,7 @@ function renderTicker() {
   const all = [...TICKER_ITEMS, ...TICKER_ITEMS];
   track.innerHTML = all.map(item =>
     '<div class="ticker-item' + (item._new ? ' ticker-item-new' : '') + '" onclick="openE(\'' + item.entry + '\')" style="cursor:pointer" title="Read entry: ' + item.tag + '">' +
+    '<span style="font-family:\'Inter\',sans-serif;font-size:.5rem;letter-spacing:.06em;color:var(--teal);border:1px solid rgba(30,138,122,.4);border-radius:8px;padding:1px 6px;margin-right:8px;white-space:nowrap">● REAL ARCHIVE</span>' +
     '<span class="ti-tag">' + item.tag + '</span>' +
     '<span class="ti-sep">\u00b7</span>' +
     '<span class="ti-title">' + item.title + '</span>' +
