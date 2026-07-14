@@ -1899,6 +1899,7 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
     </div>
 
     <!-- Story cards -->
+    <div id="collapse-story-strip" style="display:none">
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(183,123,47,.08);border-top:1px solid rgba(183,123,47,.12);margin-top:22px">
 
       <div style="background:var(--paper2);padding:28px 24px 24px;cursor:pointer;transition:background .2s;border-top:3px solid transparent" onmouseover="this.style.background='rgba(140,104,0,.05)';this.style.borderTopColor='var(--gold)'" onmouseout="this.style.background='var(--paper2)';this.style.borderTopColor='transparent'" onclick="document.getElementById('council-input').value='My husband died after 54 years of marriage. I don\'t know who I am without him.';document.getElementById(\'council\').scrollIntoView({behavior:\'smooth\'});setTimeout(()=>conveneCouncil(),600)">
@@ -1941,6 +1942,10 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
         <div style="font-size:.68rem;color:rgba(183,123,47,.84);margin-top:12px;font-family:'Inter',sans-serif;letter-spacing:.08em">Bring this to the Council →</div>
       </div>
 
+    </div>
+    </div>
+    <div style="text-align:center;padding:16px 24px">
+      <button onclick="toggleCollapse('story-strip')" style="background:none;border:1px solid rgba(183,123,47,.4);padding:12px 28px;color:var(--amberb);font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;border-radius:10px;transition:all .2s" onmouseover="this.style.background='rgba(183,123,47,.08)'" onmouseout="this.style.background='none'">Explore These Stories →</button>
     </div>
 
     <!-- CTA -->
@@ -2226,6 +2231,7 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
     <div style="font-family:'Libre Baskerville',serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:400;color:var(--ink);text-align:center;margin-bottom:6px">Voices from the Library</div>
     <p style="font-size:.9rem;color:rgba(13,27,38,.86);font-style:italic;text-align:center;max-width:500px;margin:0 auto">The wisdom that lives only in people — and nowhere else</p>
     <p style="font-size:.72rem;color:rgba(13,27,38,.5);font-style:italic;text-align:center;max-width:560px;margin:8px auto 0">Illustrative — the kind of story this project hopes to collect. Not yet real submissions.</p>
+    <div id="collapse-lw-stories" style="display:none">
     <div class="stories-grid">
 
       <div class="story-card">
@@ -2270,6 +2276,10 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
         <div class="sc-q">What did your practice teach you about living?</div>
       </div>
 
+    </div>
+    </div>
+    <div style="text-align:center;padding:16px 0">
+      <button onclick="toggleCollapse('lw-stories')" style="background:none;border:1px solid rgba(183,123,47,.4);padding:12px 28px;color:var(--amberb);font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;border-radius:10px;transition:all .2s" onmouseover="this.style.background='rgba(183,123,47,.08)'" onmouseout="this.style.background='none'">Explore These Voices →</button>
     </div>
   </div>
 </section>
