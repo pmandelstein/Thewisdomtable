@@ -2470,7 +2470,12 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
     </div>
     <div class="rp-body" id="rp-body"></div>
   </div>
+  <div id="collapse-tr-grid" style="display:none">
   <div id="tr-grid"></div>
+  </div>
+  <div id="expand-tr-grid-wrap" style="text-align:center;padding:16px 0">
+    <button onclick="toggleCollapse('tr-grid')" style="background:none;border:1px solid rgba(183,123,47,.4);padding:12px 28px;color:var(--amberb);font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;border-radius:10px;transition:all .2s" onmouseover="this.style.background='rgba(183,123,47,.08)'" onmouseout="this.style.background='none'">Browse All 66 Entries →</button>
+  </div>
 </div>
 <div id="about-section">
 <style>
@@ -3215,9 +3220,17 @@ function heroAsk() {
 }
 
 // filterAndScroll helper
+function forceExpandTreasury() {
+  const content = document.getElementById('collapse-tr-grid');
+  const wrap = document.getElementById('expand-tr-grid-wrap');
+  if (content) content.style.display = 'block';
+  if (wrap) wrap.style.display = 'none';
+}
+
 function filterAndScroll(trad) {
   activeTr = trad;
   renderEntries(filterEntries(trad, ''));
+  forceExpandTreasury();
   document.getElementById('treasury').scrollIntoView({behavior:'smooth'});
 }
 
@@ -3225,6 +3238,7 @@ function filterAndScroll(trad) {
 function openT(trad) {
   activeTr = trad;
   renderEntries(filterEntries(trad, ''));
+  forceExpandTreasury();
   document.getElementById('treasury').scrollIntoView({behavior:'smooth'});
 }
 
@@ -3870,7 +3884,7 @@ async function callAI_treasury(prompt, onChunk){
 document.querySelectorAll('.ts-pill,.tpill').forEach(p=>{
   p.addEventListener('click',()=>{
     const m=p.getAttribute('onclick')?.match(/openTrad\('([^']+)'\)/)||p.getAttribute('onclick')?.match(/openT\('([^']+)'\)/);
-    if(m){activeTr=m[1];renderEntries(filterEntries(activeTr,''));document.getElementById('tr-title').textContent=activeTr;const t=document.getElementById('treasury');if(t)setTimeout(()=>t.scrollIntoView({behavior:'smooth',block:'start'}),300);}
+    if(m){activeTr=m[1];renderEntries(filterEntries(activeTr,''));forceExpandTreasury();document.getElementById('tr-title').textContent=activeTr;const t=document.getElementById('treasury');if(t)setTimeout(()=>t.scrollIntoView({behavior:'smooth',block:'start'}),300);}
   });
 });
 
@@ -4584,6 +4598,7 @@ function showNotebook() {
   // Filter treasury to saved entries
   activeTr = 'all';
   renderEntries(saved);
+  forceExpandTreasury();
   // Update the treasury header to show notebook context
   const head = document.querySelector('.tr-head h2');
   if (head) head.textContent = '★ My Wisdom Book';
@@ -4907,6 +4922,7 @@ function showWisdomBook() {
   if (saved.length) {
     activeTr = 'all';
     renderEntries(saved);
+    forceExpandTreasury();
     const head = document.querySelector('.tr-head h2');
     if (head) head.textContent = '★ My Wisdom Book';
     const badge = document.querySelector('.tr-badge');
