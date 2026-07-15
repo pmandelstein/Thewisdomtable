@@ -1849,8 +1849,8 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
     </div>
     <div class="cmp-box">
       <div class="cmp-head">
-        <h3>How do different traditions answer the same question?</h3>
-        <p>Select traditions, enter a topic, and the Wisdom Table sets their voices side by side.</p>
+        <h3>Pick any 2 or more traditions to view their exact perspectives side-by-side.</h3>
+        <p>Build your own comparison chart — choose the voices, enter a topic, see them set against each other.</p>
       </div>
       <div class="cmp-body">
         <input type="text" class="cmp-q" id="cmp-q" placeholder="Enter a topic: forgiveness · consciousness · what happens after death · the good life…" onkeydown="if(event.key==='Enter')doCompare()">
@@ -3046,8 +3046,44 @@ async function doCompare() {
   out.innerHTML = '<span style="font-style:italic;color:var(--muted)">Gathering voices…</span>';
   const trads = [...cmpSels].join(', ') || 'Buddhism, Christianity, Islam, Judaism, Stoicism';
   const html = await callAI_treasury(`Compare how these traditions answer: "${q}"\n\nTraditions: ${trads}\n\nFor each tradition give their actual, specific answer — not just that they addressed it. Use <h4> for tradition names, <p> for content. Be specific. Show real agreements and real disagreements.`);
-  out.innerHTML = html;
+  renderCompareGrid(out, html);
   out.classList.add('vis');
+}
+
+// Parses the AI's <h4>Tradition</h4><p>...</p> response into genuine
+// side-by-side cards — a real comparison layout, not flowing prose like
+// Ask the Library. This is the visual difference that makes Compare feel
+// like building a chart rather than reading an article.
+function renderCompareGrid(out, html) {
+  const temp = document.createElement('div');
+  temp.innerHTML = html;
+  const h4s = Array.from(temp.querySelectorAll('h4'));
+
+  if (h4s.length < 2) {
+    // Fallback: AI didn't structure it as expected — show as-is rather than break.
+    out.innerHTML = html;
+    return;
+  }
+
+  const cards = h4s.map(h4 => {
+    let content = '';
+    let node = h4.nextElementSibling;
+    while (node && node.tagName !== 'H4') {
+      content += node.outerHTML;
+      node = node.nextElementSibling;
+    }
+    return { name: h4.textContent, content };
+  });
+
+  out.innerHTML =
+    '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)">' +
+    cards.map(c =>
+      '<div style="background:var(--paper);padding:22px 20px">' +
+      '<div style="font-family:\'Libre Baskerville\',serif;font-weight:700;font-size:1.05rem;color:var(--ink);margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--amber)">' + c.name + '</div>' +
+      '<div style="font-size:.92rem;color:var(--ink2);line-height:1.6">' + c.content + '</div>' +
+      '</div>'
+    ).join('') +
+    '</div>';
 }
 
 // AI mode
