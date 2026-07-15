@@ -1163,6 +1163,18 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
 </section>
 
 <!-- WISDOM SCOUT TICKER — the institution's heartbeat -->
+<section id="scout-section" style="background:var(--paper2);padding:36px 0 0;border-top:1px solid var(--rule)">
+  <div style="max-width:1300px;margin:0 auto;padding:0 24px 24px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:10px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="ticker-dot" style="position:static"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)">★ Wisdom Scout — New Discoveries</span>
+      </div>
+      <div style="font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(140,106,16,.75);border:1px solid rgba(140,106,16,.3);padding:3px 10px;border-radius:3px">Live</div>
+    </div>
+    <p style="font-size:.92rem;color:var(--muted);max-width:720px;line-height:1.55;margin-bottom:4px">Our AI scouts search archives, oral repositories, and research journals daily. A living institution grows — it never stops discovering.</p>
+  </div>
+</section>
 <div id="scout-ticker">
   <div class="ticker-label" title="Sourced from real institutional archives — university oral history programs, indigenous archives, and preservation projects, not AI-generated content">
     <div class="ticker-dot"></div>
@@ -1207,19 +1219,12 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
 
 
 
-<section id="discover">
+<section id="discover" style="background:var(--paper2);padding:8px 0 36px">
   <div class="disc-inner">
-    <div class="sec-head" style="padding:0 0 24px">
-      <div class="sec-ey" style="justify-content:flex-start">Discovery &amp; Preservation</div>
-    </div>
     <div class="disc-grid">
       <!-- Scout panel -->
-      <div class="disc-panel">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;flex-wrap:wrap;gap:8px">
-          <div class="scout-live"><span class="scout-dot"></span><span class="scout-title" style="font-family:'Inter',sans-serif;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase">★ Wisdom Scout — New Discoveries</span></div>
-          <div style="font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(140,106,16,.55);border:1px solid rgba(140,106,16,.2);padding:2px 8px">LIVE</div>
-        </div>
-        <div class="scout-sub">Our AI scouts search archives, oral repositories, and research journals daily. A living institution grows — it never stops discovering.</div>
+      <div class="disc-panel" style="border:none;background:none;padding:0">
+        <div style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">Recently Added to the Library</div>
         <div class="disc-feed">
           <div class="disc-item" onclick="openE('unearthed-herculaneum-scrolls')">
             <div class="di-cat" style="color:#1A3E28">⛏ Ancient Text</div>
@@ -1242,7 +1247,6 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
             <div class="di-meta">Science meets contemplation · 1 week ago</div>
           </div>
         </div>
-        <a onclick="document.getElementById('discover').scrollIntoView({behavior:'smooth'})" style="font-family:'Inter',sans-serif;font-size:.68rem;letter-spacing:.1em;color:var(--amber);text-decoration:none;transition:color .2s;cursor:pointer" onmouseover="this.style.color='var(--amberb)'" onmouseout="this.style.color='var(--amber)'">View All Recent Discoveries →</a>
       </div>
     </div>
   </div>
