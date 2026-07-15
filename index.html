@@ -45,9 +45,9 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .m-brand-text{}
 .m-brand-name{font-family:'Inter',sans-serif;font-size:.92rem;letter-spacing:.16em;color:var(--ink);line-height:1}
 .m-brand-sub{font-size:.54rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-top:2px}
-.m-nav{display:flex;align-items:stretch;height:100%;margin-left:16px;overflow-x:auto;scrollbar-width:none;flex:1}
+.m-nav{display:flex;align-items:stretch;height:100%;margin-left:8px;overflow-x:auto;scrollbar-width:none;flex:1}
 .m-nav::-webkit-scrollbar{display:none}
-.mnl{display:flex;align-items:center;padding:0 13px;color:var(--ink2);text-decoration:none;font-family:'Inter',sans-serif;font-size:.95rem;font-weight:650;transition:color .2s;white-space:nowrap;border-bottom:2px solid transparent;cursor:pointer}
+.mnl{display:flex;align-items:center;padding:0 9px;color:var(--ink2);text-decoration:none;font-family:'Inter',sans-serif;font-size:.86rem;font-weight:650;transition:color .2s;white-space:nowrap;border-bottom:2px solid transparent;cursor:pointer}
 .mnl:hover{color:var(--gold)}
 .mnl.active{color:var(--gold);border-bottom-color:var(--gold)}
 .mnl.risk{color:rgba(180,80,80,.7)}
@@ -777,7 +777,7 @@ textarea{resize:vertical;line-height:1.65}
     <div class="m-right">
       <button class="m-search-btn" onclick="toggleSearch()">⌕</button>
       <button class="m-search-btn" onclick="showWisdomBook()" title="My Wisdom Book — click to open your saved teachings and life questions" style="font-size:.82rem;font-family:'Inter',sans-serif;letter-spacing:.06em" id="notebook-btn">📖 <span id="notebook-count" style="display:none"></span></button>
-      <a onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'})" style="padding:0 10px;color:var(--ink2);font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.1em;cursor:pointer;transition:color .2s;text-transform:uppercase;text-decoration:none" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--ink2)'">About</a>
+      <a onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'})" style="padding:0 8px;color:var(--ink2);font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.1em;cursor:pointer;transition:color .2s;text-transform:uppercase;text-decoration:none" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--ink2)'">About</a>
       <a class="m-cta" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'})">Contribute</a>
     </div>
   </div>
