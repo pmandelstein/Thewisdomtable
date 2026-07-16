@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -910,6 +911,34 @@ textarea{resize:vertical;line-height:1.65}
 function toggleMobileNav() {
   document.getElementById('mobile-nav-panel')?.classList.toggle('open');
 }
+
+// Pre-fill the question dropdown (or the wisdom textarea as a fallback)
+// from a ?q= URL parameter, so the homepage's question pills actually lead somewhere.
+(function prefillFromQuery() {
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get('q');
+  if (!q) return;
+
+  const select = document.querySelector('.lw-fb-body select');
+  const textarea = document.querySelector('.lw-fb-body textarea');
+  let matched = false;
+
+  if (select) {
+    for (const opt of select.options) {
+      if (opt.textContent.trim().toLowerCase().includes(q.trim().toLowerCase()) ||
+          q.trim().toLowerCase().includes(opt.textContent.trim().toLowerCase())) {
+        select.value = opt.value || opt.textContent;
+        matched = true;
+        break;
+      }
+    }
+  }
+
+  if (textarea) {
+    textarea.placeholder = q + '\n\n' + textarea.placeholder;
+    if (matched) textarea.focus();
+  }
+})();
 
 function handleSubmit() {
   const formBox = document.querySelector('.lw-form-box');
