@@ -513,8 +513,15 @@ footer{background:var(--dark);padding:44px 24px 24px;border-top:1px solid rgba(1
 
 /* ── RESPONSIVE ── */
 @media(max-width:1100px){.foot-inner{grid-template-columns:1fr 1fr 1fr;gap:24px}.em-grid{grid-template-columns:1fr}.disc-grid{grid-template-columns:1fr}.part-inner{grid-template-columns:1fr}}
-@media(max-width:768px){.m-nav{display:none}#hero{min-height:auto;padding:60px 20px 48px}.council-layout{grid-template-columns:1fr}.foot-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.m-nav{display:none}#hero{min-height:auto;padding:60px 20px 48px}.council-layout{grid-template-columns:1fr}.foot-inner{grid-template-columns:1fr 1fr}.m-hamburger{display:block}}
 @media(max-width:480px){.em-trad-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:400px){.panelists-grid{grid-template-columns:1fr}.disc-feed{grid-template-columns:1fr}}
+.m-hamburger{display:none;background:none;border:none;color:var(--ink2);font-size:1.35rem;cursor:pointer;padding:4px 10px;line-height:1}
+.m-hamburger:hover{color:var(--gold)}
+.mobile-nav-panel{display:none;flex-direction:column;background:var(--paper);border-top:1px solid var(--rule)}
+.mobile-nav-panel.open{display:flex}
+.mobile-nav-panel a{padding:14px 24px;color:var(--ink2);text-decoration:none;font-family:'Inter',sans-serif;font-size:.95rem;font-weight:600;border-bottom:1px solid var(--rule);cursor:pointer}
+.mobile-nav-panel a:last-child{border-bottom:none}
 
 /* ── LAST WISDOM PROJECT CSS ── */
 
@@ -769,7 +776,7 @@ textarea{resize:vertical;line-height:1.65}
     <nav class="m-nav">
       <a class="mnl active" onclick="document.getElementById('life-areas').scrollIntoView({behavior:'smooth'})">Questions</a>
       <a class="mnl" onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'})">Council Room</a>
-      <a class="mnl" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})">Traditions</a>
+      <a class="mnl" href="library.html#traditions">Traditions</a>
       <a class="mnl" onclick="document.getElementById('compare-section').scrollIntoView({behavior:'smooth'})">Compare</a>
       <a class="mnl" onclick="document.getElementById('scout-section').scrollIntoView({behavior:'smooth'})">Wisdom Scout</a>
       <a class="mnl" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'})">Last Wisdom</a>
@@ -778,8 +785,19 @@ textarea{resize:vertical;line-height:1.65}
       <button class="m-search-btn" onclick="toggleSearch()">⌕</button>
       <a onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'})" style="padding:0 8px;color:var(--ink2);font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.1em;cursor:pointer;transition:color .2s;text-transform:uppercase;text-decoration:none" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--ink2)'">About</a>
       <a class="m-cta" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'})">Contribute</a>
+      <button class="m-hamburger" onclick="toggleMobileNav()" aria-label="Menu">☰</button>
     </div>
   </div>
+  <nav class="mobile-nav-panel" id="mobile-nav-panel">
+    <a onclick="closeMobileNavAndScroll('life-areas')">Questions</a>
+    <a onclick="closeMobileNavAndScroll('council')">Council Room</a>
+    <a href="library.html#traditions">Traditions</a>
+    <a onclick="closeMobileNavAndScroll('compare-section')">Compare</a>
+    <a onclick="closeMobileNavAndScroll('scout-section')">Wisdom Scout</a>
+    <a onclick="closeMobileNavAndScroll('last-wisdom-section')">Last Wisdom</a>
+    <a onclick="closeMobileNavAndScroll('about-section')">About</a>
+    <a onclick="closeMobileNavAndScroll('last-wisdom-section')" style="color:var(--amberb);font-weight:700">Contribute</a>
+  </nav>
 </header>
 
 <!-- HERO -->
@@ -792,7 +810,7 @@ textarea{resize:vertical;line-height:1.65}
       <p style="font-family:'Inter',sans-serif;font-size:clamp(1.1rem,1.8vw,1.3rem);color:#25313A;line-height:1.55;margin:0 auto 32px;max-width:600px">Hear how humanity's wisest voices — from ancient traditions to modern thinkers — would help you answer hard questions, learn and grow, and find real joy.</p>
       <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
         <button onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'})" style="background:var(--amber);border:none;padding:15px 24px;color:white;font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:.2s ease;border-radius:14px;box-shadow:0 12px 28px rgba(183,123,47,.22)" onmouseover="this.style.background='var(--amberb)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--amber)';this.style.transform='translateY(0)'">Bring Your Question to the Council →</button>
-        <button onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})" style="background:transparent;border:1px solid var(--rule);padding:15px 24px;color:var(--ink);font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:.2s ease;border-radius:14px" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='var(--rule)';this.style.color='var(--ink)'">Explore the Library</button>
+        <button onclick="window.location.href='library.html#traditions'" style="background:transparent;border:1px solid var(--rule);padding:15px 24px;color:var(--ink);font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:.2s ease;border-radius:14px" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='var(--rule)';this.style.color='var(--ink)'">Explore the Library</button>
       </div>
     </div>
   </div>
@@ -1374,11 +1392,11 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
 <div id="stats-bar" style="border-top:2px solid var(--amber)">
   <div class="stats-inner">
     <div style="width:100%;text-align:center;font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amberb);margin-bottom:14px">The Wisdom Table at a Glance</div>
-    <div class="stat-item" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Explore traditions">
+    <div class="stat-item" onclick="window.location.href='library.html#traditions'" style="cursor:pointer" title="Explore traditions">
       <span class="stat-n" id="stat-n-traditions">23+</span><span class="stat-l">Wisdom Traditions</span>
       <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Explore</span>
     </div>
-    <div class="stat-item" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Browse the library">
+    <div class="stat-item" onclick="window.location.href='library.html#traditions'" style="cursor:pointer" title="Browse the library">
       <span class="stat-n" id="stat-n-entries">56</span><span class="stat-l">Curated Entries</span>
       <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Browse</span>
     </div>
@@ -3146,6 +3164,16 @@ document.addEventListener('click', (e) => {
     panel.classList.remove('open');
   }
 });
+
+function toggleMobileNav() {
+  document.getElementById('mobile-nav-panel')?.classList.toggle('open');
+}
+
+function closeMobileNavAndScroll(id) {
+  document.getElementById('mobile-nav-panel')?.classList.remove('open');
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({behavior: 'smooth'});
+}
 
 function toggleSearch() {
   const o = document.getElementById('search-overlay');
