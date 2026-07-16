@@ -450,7 +450,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .part-panel{background:var(--dark2);padding:32px 28px}
 .part-head{font-family:'Inter',sans-serif;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:#0D1B26;margin-bottom:6px}
 .part-sub{font-size:.88rem;color:rgba(13,27,38,.88);font-style:italic;margin-bottom:22px;line-height:1.65}
-.part-actions{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.part-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .pa{text-align:center;cursor:pointer;padding:14px 8px;border:1px solid rgba(13,27,38,.06);transition:all .18s}
 .pa:hover{background:rgba(13,27,38,.05);border-color:rgba(183,123,47,.25)}
 .pa-icon{font-size:1.4rem;margin-bottom:6px}
@@ -1736,20 +1736,10 @@ p:last-child{margin-bottom:0}
           <div class="pa-name">Support</div>
           <div class="pa-desc">Help us preserve wisdom at risk</div>
         </div>
-        <div class="pa" onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'})">
-          <div class="pa-icon">✦</div>
-          <div class="pa-name">Curate</div>
-          <div class="pa-desc">Join the Curator's Desk</div>
-        </div>
         <div class="pa" onclick="startWisdomMatch()" style="cursor:pointer">
           <div class="pa-icon">📖</div>
           <div class="pa-name">Wisdom Match</div>
           <div class="pa-desc">Discover your wisdom profile in 5 questions</div>
-        </div>
-        <div class="pa" onclick="document.getElementById('scout-section').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">
-          <div class="pa-icon">◎</div>
-          <div class="pa-name">Quiet Room</div>
-          <div class="pa-desc">Daily poem, teaching, reflection</div>
         </div>
       </div>
     </div>
@@ -1785,7 +1775,7 @@ p:last-child{margin-bottom:0}
     <div class="fc"><h5>Traditions</h5><a onclick="openT('Buddhism')">Buddhism</a><a onclick="openT('Christianity')">Christianity</a><a onclick="openT('Islam')">Islam</a><a onclick="openT('Judaism')">Judaism</a><a onclick="openT('Hinduism')">Hinduism</a><a onclick="openT('Taoism')">Taoism</a></div>
     <div class="fc"><h5>More</h5><a onclick="openT('Sikhism')">Sikhism</a><a onclick="openT('Bahá')">Bahá'í</a><a onclick="openT('Indigenous')">Indigenous</a><a onclick="openT('African')">African</a><a onclick="openT('Secular')">Secular &amp; Atheist</a><a onclick="filterAndScroll('Ways of Knowing')">Ways of Knowing</a></div>
     <div class="fc"><h5>Navigate</h5><a onclick="document.getElementById('life-areas').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">Humanity's Questions</a><a onclick="document.getElementById('scout-section').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">Wisdom Scout</a>
-      <a href="#last-wisdom-section" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'});return false;">The Last Wisdom Project</a><a href="#about-section" onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'});return false;">About the Project</a><a onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'})" style="color:rgba(183,123,47,.90);cursor:pointer">✦ Curator's Desk</a></div>
+      <a href="#last-wisdom-section" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'});return false;">The Last Wisdom Project</a><a href="#about-section" onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'});return false;">About the Project</a></div>
     <div class="fc"><h5>The Mission</h5><a>Nothing Excluded</a><a>Radical Transparency</a><a>Preserve Endangered Wisdom</a><br><h5 style="margin-top:14px">Contact</h5><a>thewisdomtable.ai</a></div>
   </div>
   <div class="f-btm">
