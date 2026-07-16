@@ -1747,15 +1747,6 @@ p:last-child{margin-bottom:0}
       <p style="font-size:1rem;color:rgba(13,27,38,.88);max-width:620px;margin:0 auto;line-height:1.82">The Wisdom Table is opening. Founding members make everything else possible — the Last Wisdom recordings, the library, the preservation work, the platform itself. There is no wrong level of support. What matters is that you are part of this from the beginning.</p>
     </div>
 
-    <!-- Counter -->
-    <div style="text-align:center;margin-bottom:48px">
-      <div style="display:inline-flex;align-items:center;gap:16px;padding:14px 28px;border:1px solid rgba(183,123,47,.2);background:rgba(183,123,47,.05)">
-        <span style="width:8px;height:8px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite;display:inline-block;flex-shrink:0"></span>
-        <span style="font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(13,27,38,.87)">You'd be founding member</span>
-        <span style="font-family:'Inter',sans-serif;font-size:1.4rem;color:var(--gold)" id="fm-count">—</span>
-      </div>
-    </div>
-
     <!-- Membership tiers -->
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:2px;margin-bottom:48px">
 
@@ -4195,20 +4186,6 @@ async function fetchPublishedDiscoveries() {
 fetchPublishedDiscoveries();
 setInterval(fetchPublishedDiscoveries, 5 * 60 * 1000); // every 5 minutes
 
-
-// ══ FOUNDING MEMBERSHIP COUNTER ══
-(function() {
-  const FOUNDING_TARGET = 500;
-  const FOUNDING_CURRENT = 7; // Update manually until backend exists
-  const countEl = document.getElementById('fm-count');
-  const barEl = document.getElementById('fm-bar');
-  if (countEl) countEl.textContent = FOUNDING_CURRENT;
-  if (barEl) {
-    setTimeout(() => {
-      barEl.style.width = Math.min((FOUNDING_CURRENT / FOUNDING_TARGET) * 100, 100) + '%';
-    }, 600);
-  }
-})();
 
 </script>
 </body>
