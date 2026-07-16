@@ -1380,36 +1380,67 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
 
 </div>
 
-<!-- WISDOM SCOUT TICKER — the institution's heartbeat -->
-<section id="scout-section" style="background:var(--paper2);padding:36px 0 0;border-top:1px solid var(--rule)">
-  <div style="max-width:1300px;margin:0 auto;padding:0 24px 24px">
-    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:10px">
-      <div style="display:flex;align-items:center;gap:12px">
-        <span class="ticker-dot" style="position:static"></span>
-        <span style="font-family:'Libre Baskerville',serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:400;color:var(--ink)">★ Wisdom Scout — New Discoveries</span>
+<!-- WISDOM SCOUT — unified card: header, ticker, and recent discoveries in one frame -->
+<section id="scout-section" style="background:var(--paper2);padding:52px 0 48px;border-top:1px solid var(--rule)">
+  <div style="max-width:1300px;margin:0 auto;padding:0 24px">
+    <div style="background:var(--paper);border:1px solid rgba(183,123,47,.25);border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(13,27,38,.05)">
+
+      <div style="padding:28px 32px 20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:10px">
+          <div style="display:flex;align-items:center;gap:12px">
+            <span class="ticker-dot" style="position:static"></span>
+            <span style="font-family:'Libre Baskerville',serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:400;color:var(--ink)">★ Wisdom Scout — New Discoveries</span>
+          </div>
+          <div style="font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(140,106,16,.75);border:1px solid rgba(140,106,16,.3);padding:3px 10px;border-radius:3px">Live</div>
+        </div>
+        <p style="font-size:1.02rem;color:var(--muted);max-width:720px;line-height:1.6;margin:0">Our AI scouts search archives, oral repositories, and research journals daily. A living institution grows — it never stops discovering.</p>
       </div>
-      <div style="font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(140,106,16,.75);border:1px solid rgba(140,106,16,.3);padding:3px 10px;border-radius:3px">Live</div>
+
+      <div id="scout-ticker" style="border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
+        <div class="ticker-label" title="Sourced from real institutional archives — university oral history programs, indigenous archives, and preservation projects, not AI-generated content">
+          <div class="ticker-dot"></div>
+          <span class="ticker-heading">New discoveries</span>
+        </div>
+        <div class="ticker-track-wrap">
+          <div class="ticker-track" id="ticker-track">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+      </div>
+
+      <div style="padding:24px 32px 28px">
+        <div style="font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px">Recently Added to the Library</div>
+        <div class="disc-feed" style="margin-bottom:0">
+          <div class="disc-item" onclick="openE('unearthed-herculaneum-scrolls')">
+            <div class="di-cat" style="color:#1A3E28">⛏ Ancient Text</div>
+            <div class="di-title">Herculaneum Scrolls</div>
+            <div class="di-meta">AI-recovered · 79 CE · 2 days ago</div>
+          </div>
+          <div class="disc-item" onclick="openE('unearthed-gospel-of-thomas')">
+            <div class="di-cat" style="color:#6A1C1C">📜 Rediscovered</div>
+            <div class="di-title">Gospel of Thomas</div>
+            <div class="di-meta">Nag Hammadi · Gnostic · 3 days ago</div>
+          </div>
+          <div class="disc-item" onclick="openE('plant-medicine-wisdom-at-risk')">
+            <div class="di-cat" style="color:#6A1C1C">⚠ At Risk</div>
+            <div class="di-title">Amazon Plant Medicine</div>
+            <div class="di-meta">Indigenous · Disappearing · 5 days ago</div>
+          </div>
+          <div class="disc-item" onclick="openE('science-consciousness-studies')">
+            <div class="di-cat" style="color:#185060">🔭 Research</div>
+            <div class="di-title">Consciousness Studies</div>
+            <div class="di-meta">Science meets contemplation · 1 week ago</div>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <p style="font-size:1.05rem;color:var(--muted);max-width:720px;line-height:1.6;margin-bottom:4px">Our AI scouts search archives, oral repositories, and research journals daily. A living institution grows — it never stops discovering.</p>
   </div>
 </section>
-<div id="scout-ticker">
-  <div class="ticker-label" title="Sourced from real institutional archives — university oral history programs, indigenous archives, and preservation projects, not AI-generated content">
-    <div class="ticker-dot"></div>
-    <span class="ticker-heading">New discoveries</span>
-  </div>
-  <div class="ticker-track-wrap">
-    <div class="ticker-track" id="ticker-track">
-      <!-- Injected by JS -->
-    </div>
-  </div>
-</div>
 
-
-
-
-<div id="stats-bar">
+<div id="stats-bar" style="border-top:2px solid var(--amber)">
   <div class="stats-inner">
+    <div style="width:100%;text-align:center;font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amberb);margin-bottom:14px">The Wisdom Table at a Glance</div>
     <div class="stat-item" onclick="document.getElementById('traditions').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Explore traditions">
       <span class="stat-n" id="stat-n-traditions">23+</span><span class="stat-l">Wisdom Traditions</span>
       <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Explore</span>
@@ -1434,41 +1465,6 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
     <div class="stats-quote">"The table is set. There is a seat for everyone."</div>
   </div>
 </div>
-
-
-
-<section id="discover" style="background:var(--paper2);padding:8px 0 36px">
-  <div class="disc-inner">
-    <div class="disc-grid">
-      <!-- Scout panel -->
-      <div class="disc-panel" style="border:none;background:none;padding:0">
-        <div style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">Recently Added to the Library</div>
-        <div class="disc-feed">
-          <div class="disc-item" onclick="openE('unearthed-herculaneum-scrolls')">
-            <div class="di-cat" style="color:#1A3E28">⛏ Ancient Text</div>
-            <div class="di-title">Herculaneum Scrolls</div>
-            <div class="di-meta">AI-recovered · 79 CE · 2 days ago</div>
-          </div>
-          <div class="disc-item" onclick="openE('unearthed-gospel-of-thomas')">
-            <div class="di-cat" style="color:#6A1C1C">📜 Rediscovered</div>
-            <div class="di-title">Gospel of Thomas</div>
-            <div class="di-meta">Nag Hammadi · Gnostic · 3 days ago</div>
-          </div>
-          <div class="disc-item" onclick="openE('plant-medicine-wisdom-at-risk')">
-            <div class="di-cat" style="color:#6A1C1C">⚠ At Risk</div>
-            <div class="di-title">Amazon Plant Medicine</div>
-            <div class="di-meta">Indigenous · Disappearing · 5 days ago</div>
-          </div>
-          <div class="disc-item" onclick="openE('science-consciousness-studies')">
-            <div class="di-cat" style="color:#185060">🔭 Research</div>
-            <div class="di-title">Consciousness Studies</div>
-            <div class="di-meta">Science meets contemplation · 1 week ago</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- WAYS OF KNOWING -->
 <!-- LIVING ARCHIVE -->
