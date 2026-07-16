@@ -10,8 +10,9 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
       - run: cp preview-launch.html index.html
+      - run: cp preview-library.html library.html
       - run: git config user.email "action@github.com"
       - run: git config user.name "GitHub Action"
-      - run: git add -f index.html
-      - run: git diff --cached --quiet || git commit -m "Sync index.html from preview-launch.html"
+      - run: git add -f index.html library.html
+      - run: git diff --cached --quiet || git commit -m "Sync index.html and library.html from preview files"
       - run: git push
