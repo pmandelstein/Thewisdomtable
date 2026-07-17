@@ -763,6 +763,7 @@ textarea{resize:vertical;line-height:1.65}
 <!-- MASTHEAD -->
 <header id="mast">
   <div class="mast-inner">
+    <button class="m-hamburger" onclick="toggleMobileNav()" aria-label="Menu">☰</button>
     <a class="m-brand" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
       <svg class="m-logo" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="20" cy="20" r="18" stroke="rgba(183,123,47,0.6)" stroke-width="1.2"/>
@@ -783,12 +784,8 @@ textarea{resize:vertical;line-height:1.65}
       <a class="mnl" onclick="document.getElementById('scout-section').scrollIntoView({behavior:'smooth'})">Wisdom Scout</a>
       <a class="mnl" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'})">Last Wisdom</a>
     </nav>
-    <div class="m-right">
-      <button class="m-search-btn" onclick="toggleSearch()">⌕</button>
-      <a onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'})" style="padding:0 8px;color:var(--ink2);font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.1em;cursor:pointer;transition:color .2s;text-transform:uppercase;text-decoration:none" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--ink2)'">About</a>
-      <a class="m-cta" href="contribute.html#lw-submit">Contribute</a>
-      <button class="m-hamburger" onclick="toggleMobileNav()" aria-label="Menu">☰</button>
-    </div>
+    <div class="m-right">      <button class="m-search-btn" onclick="toggleSearch()">⌕</button>
+      <a onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'})" style="padding:0 8px;color:var(--ink2);font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.1em;cursor:pointer;transition:color .2s;text-transform:uppercase;text-decoration:none" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--ink2)'">About</a>      <a class="m-cta" href="contribute.html#lw-submit">Contribute</a>    </div>
   </div>
   <nav class="mobile-nav-panel" id="mobile-nav-panel">
     <a onclick="closeMobileNavAndScroll('explore-questions')">Questions</a>
