@@ -2384,7 +2384,14 @@ function filterEntries(trad,q){
   return entries;
 }
 
-function trSearch(v){renderEntries(filterEntries(activeTr,v));}
+function trSearch(v){
+  if (v.trim().length > 0) {
+    const wrap = document.getElementById('collapse-tr-grid');
+    const btn = document.getElementById('expand-tr-grid-wrap');
+    if (wrap && wrap.style.display === 'none') { wrap.style.display = 'block'; if (btn) btn.style.display = 'none'; }
+  }
+  renderEntries(filterEntries(activeTr,v));
+}
 function trClear(){document.getElementById('tr-q').value='';renderEntries(filterEntries(activeTr,''));}
 
 function openE(idOrPrompt,trad){
