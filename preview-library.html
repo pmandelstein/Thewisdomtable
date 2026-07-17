@@ -776,16 +776,26 @@ textarea{resize:vertical;line-height:1.65}
     </nav>
     <div class="m-right">
       <a href="index.html#about-section" style="padding:0 8px;color:var(--ink2);font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.1em;cursor:pointer;transition:color .2s;text-transform:uppercase;text-decoration:none">About</a>
-      <a class="m-cta" href="index.html#last-wisdom-section">Contribute</a>
+      <a class="m-cta" href="contribute.html">Contribute</a>
+      <button class="m-hamburger" onclick="toggleMobileNav()" aria-label="Menu">☰</button>
     </div>
   </div>
+  <nav class="mobile-nav-panel" id="mobile-nav-panel">
+    <a href="index.html#life-areas">Questions</a>
+    <a href="index.html#council">Council Room</a>
+    <a href="library.html">Library</a>
+    <a href="index.html#compare-section">Compare</a>
+    <a href="index.html#scout-section">Wisdom Scout</a>
+    <a href="contribute.html" style="color:var(--amberb);font-weight:700">Contribute</a>
+    <a href="index.html#about-section">About</a>
+  </nav>
 </header>
 
 <section style="background:var(--paper);padding:52px 0 20px">
   <div style="max-width:900px;margin:0 auto;padding:0 24px;text-align:center">
     <div class="sec-ey" style="justify-content:center">The Full Library</div>
     <h1 style="font-family:'Libre Baskerville',serif;font-weight:700;font-size:clamp(2.2rem,4.7vw,3.4rem);letter-spacing:-.02em;color:var(--ink);margin-bottom:14px">Every tradition. Every teacher. Every text.</h1>
-    <p style="font-family:'Inter',sans-serif;font-size:1.05rem;color:var(--muted);max-width:640px;margin:0 auto 24px;line-height:1.7">The full reference library — every wisdom tradition, every voice in the Hall of Humanity, the Great Writings, the patterns that recur across civilizations, and the Great Conversation. This page is for browsing and reading. To ask a real question and hear these traditions actually respond, head to the <a href="index.html#ask-section" style="color:var(--amber)">Ask the Library</a> or the <a href="index.html#council" style="color:var(--amber)">Council Room</a> on the homepage.</p>
+    <p style="font-family:'Inter',sans-serif;font-size:1.05rem;color:var(--muted);max-width:640px;margin:0 auto 24px;line-height:1.7">The full reference library — every wisdom tradition, every voice in the Hall of Humanity, the Great Writings, the patterns that recur across civilizations, and the Great Conversation. This page is for browsing and reading. To ask a real question and hear these traditions actually respond, head to the <a href="index.html#council" style="color:var(--amber)">Council Room</a> on the homepage.</p>
   </div>
 </section>
 
@@ -1490,14 +1500,18 @@ textarea{resize:vertical;line-height:1.65}
     <div class="fc"><h5>Traditions</h5><a href="#traditions">Buddhism</a><a href="#traditions">Christianity</a><a href="#traditions">Islam</a><a href="#traditions">Judaism</a><a href="#traditions">Hinduism</a><a href="#traditions">Taoism</a></div>
     <div class="fc"><h5>More</h5><a href="#traditions">Sikhism</a><a href="#traditions">Bahá'í</a><a href="#traditions">Indigenous</a><a href="#traditions">African</a><a href="#traditions">Secular &amp; Atheist</a><a href="#traditions">Ways of Knowing</a></div>
     <div class="fc"><h5>Navigate</h5><a href="index.html#life-areas" style="cursor:pointer">Humanity's Questions</a><a href="index.html#scout-section" style="cursor:pointer">Wisdom Scout</a>
-      <a href="index.html#last-wisdom-section">The Living Archive</a>
-      <a href="index.html#last-wisdom-section">The Last Wisdom Project</a><a href="index.html#about-section">About the Project</a><a href="index.html#about-section" style="color:rgba(183,123,47,.90);cursor:pointer">✦ Curator's Desk</a></div>
-    <div class="fc"><h5>The Mission</h5><a>Nothing Excluded</a><a>Radical Transparency</a><a>Preserve Endangered Wisdom</a><br><h5 style="margin-top:14px">Contact</h5><a>thewisdomtable.ai</a></div>
+      <a href="contribute.html">The Last Wisdom Project</a><a href="index.html#about-section">About the Project</a></div>
+    <div class="fc"><h5>The Mission</h5><a href="about.html">Nothing Excluded</a><a href="about.html">Radical Transparency</a><a href="contribute.html">Preserve Endangered Wisdom</a><br><h5 style="margin-top:14px">Contact</h5><span style="display:block;color:rgba(13,27,38,.86);font-size:.88rem">thewisdomtable.ai</span></div>
   </div>
   <div class="f-btm">
     <div class="f-epi">"The table is set. There is a seat for everyone."</div>
     <div class="f-legal">The Wisdom Table · Humanity's Living Library of Meaning · thewisdomtable.ai</div>
   </div>
 </footer>
+<script>
+function toggleMobileNav() {
+  document.getElementById('mobile-nav-panel')?.classList.toggle('open');
+}
+</script>
 </body>
 </html>
