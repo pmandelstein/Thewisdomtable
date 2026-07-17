@@ -838,6 +838,14 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
             <button class="theme-chip" onclick="fillCouncilTheme('purpose','I don\'t know what I\'m supposed to be doing with my life.')">Purpose</button>
             <button class="theme-chip" onclick="fillCouncilTheme('transitions','Everything in my life is changing at once and I feel unmoored.')">Transitions</button>
             <button class="theme-chip" onclick="fillCouncilTheme('relationships','Someone I love and I keep hurting each other, and I don\'t know how to stop.')">Relationships</button>
+            <button class="theme-chip" onclick="fillCouncilTheme('aging','I am afraid of aging and what it means')">Aging</button>
+            <button class="theme-chip" onclick="fillCouncilTheme('illness','I or someone I love is facing serious illness')">Illness</button>
+            <button class="theme-chip" onclick="fillCouncilTheme('death','I am facing death — my own or someone I love')">Death</button>
+            <button class="theme-chip" onclick="fillCouncilTheme('money','What is enough? What is wealth actually for?')">Money & Enough</button>
+            <button class="theme-chip" onclick="fillCouncilTheme('leadership','I am in a position of leadership and need wisdom about how to lead well')">Leadership</button>
+            <button class="theme-chip" onclick="fillCouncilTheme('family','I am navigating a difficult relationship within my family')">Family</button>
+            <button class="theme-chip" onclick="fillCouncilTheme('faith','I have lost my faith and feel unmoored')">Faith & Doubt</button>
+            <button class="theme-chip" onclick="fillCouncilTheme('meaning','I want to understand what different traditions say about the meaning of life')">Meaning</button>
           </div>
         </div></div>
         <div class="council-step"><div class="step-n">2</div><div style="width:100%">
@@ -1374,25 +1382,16 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
   <div style="max-width:1500px;margin:0 auto;padding:0 24px">
     <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:10px">
       <div>
-        <div style="font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--amber);margin-bottom:5px">Where are you right now?</div>
-        <div style="font-family:'Libre Baskerville',serif;font-size:1.15rem;color:var(--ink);font-weight:400">Find wisdom for where you are in life</div>
+        <div style="font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--amber);margin-bottom:5px">Browse the Library</div>
+        <div style="font-family:'Libre Baskerville',serif;font-size:1.15rem;color:var(--ink);font-weight:400">A few more areas worth exploring</div>
       </div>
       <a onclick="document.getElementById('treasury').scrollIntoView({behavior:'smooth'})" style="font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.1em;color:var(--amber);cursor:pointer;text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amberb)'" onmouseout="this.style.color='var(--amber)'">Browse all areas →</a>
     </div>
-    <div style="font-size:.68rem;color:var(--muted);margin-bottom:10px;font-style:italic">✦ Ask the Council &nbsp;·&nbsp; ⌕ Browse the Library</div>
     <div style="display:flex;flex-wrap:wrap;gap:7px">
-      <button onclick="launchCouncil('I am afraid of aging and what it means')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Aging</button>
-      <button onclick="launchCouncil('I or someone I love is facing serious illness')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Illness</button>
-      <button onclick="launchCouncil('I am facing death — my own or someone I love')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Death</button>
-      <button onclick="filterAndScroll('work')" class="la-btn"><span style="opacity:.55;margin-right:6px">⌕</span>Work &amp; Livelihood</button>
-      <button onclick="launchCouncil('What is enough? What is wealth actually for?')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Money &amp; Enough</button>
-      <button onclick="launchCouncil('I am in a position of leadership and need wisdom about how to lead well')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Leadership</button>
-      <button onclick="launchCouncil('I am navigating a difficult relationship within my family')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Family</button>
-      <button onclick="filterAndScroll('justice')" class="la-btn"><span style="opacity:.55;margin-right:6px">⌕</span>Justice</button>
-      <button onclick="filterAndScroll('war')" class="la-btn"><span style="opacity:.55;margin-right:6px">⌕</span>War &amp; Peace</button>
-      <button onclick="launchCouncil('I have lost my faith and feel unmoored')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Faith &amp; Doubt</button>
-      <button onclick="launchCouncil('I want to understand what different traditions say about the meaning of life')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Meaning</button>
-      <button onclick="filterAndScroll('nature')" class="la-btn"><span style="opacity:.55;margin-right:6px">⌕</span>Nature</button>
+      <button onclick="filterAndScroll('work')" class="la-btn">Work &amp; Livelihood</button>
+      <button onclick="filterAndScroll('justice')" class="la-btn">Justice</button>
+      <button onclick="filterAndScroll('war')" class="la-btn">War &amp; Peace</button>
+      <button onclick="filterAndScroll('nature')" class="la-btn">Nature</button>
     </div>
   </div>
 </section>
@@ -2501,7 +2500,7 @@ async function rpAsk(){
 
 async function callAI_treasury(prompt, onChunk){
   try{
-    const r=await fetch(getAPIEndpoint(),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:1000,stream:true,system:`You are the Wisdom Table guide — scholarly, warm, spanning all traditions. Respond in HTML using only <h4> headings and <p> paragraphs. End with something the seeker can use today.`,messages:[{role:"user",content:prompt}]})});
+    const r=await fetch(getAPIEndpoint(),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:4000,stream:true,system:`You are the Wisdom Table guide — scholarly, warm, spanning all traditions. Respond in HTML using only <h4> headings and <p> paragraphs. End with something the seeker can use today.`,messages:[{role:"user",content:prompt}]})});
     if (!r.ok || !r.body) {
       // Fallback: try to read as plain JSON (non-streaming proxy or error)
       try {
