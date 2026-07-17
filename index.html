@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="The Wisdom Table — Humanity's Living Library of Meaning. A living library where humanity's wisdom traditions, personal experiences, and enduring questions meet — helping people navigate life while preserving knowledge that might otherwise be lost.">
-<title>The Wisdom Table — Humanity's Living Library of Meaning</title>
+<meta name="description" content="Wisdom Table — Humanity's Living Library of Meaning. A living library where humanity's wisdom traditions, personal experiences, and enduring questions meet — helping people navigate life while preserving knowledge that might otherwise be lost.">
+<title>Wisdom Table — Humanity's Living Library of Meaning</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
@@ -772,7 +772,7 @@ textarea{resize:vertical;line-height:1.65}
         <circle cx="20" cy="20" r="2.5" fill="rgba(183,123,47,0.8)"/>
       </svg>
       <div class="m-brand-text">
-        <div class="m-brand-name">THE WISDOM TABLE</div>
+        <div class="m-brand-name">WISDOM TABLE</div>
         <div class="m-brand-sub">Humanity's Living Library of Meaning</div>
       </div>
     </a>
@@ -806,7 +806,7 @@ textarea{resize:vertical;line-height:1.65}
     <div style="opacity:0;animation:rise .9s ease .25s forwards">
       <h1 style="font-family:'Libre Baskerville',serif;font-weight:400;font-size:clamp(3rem,7vw,4.8rem);letter-spacing:-.035em;color:#0D1B26;line-height:1.08;margin-bottom:16px">Ask life's hardest questions.</h1>
       <div style="font-family:'Libre Baskerville',serif;font-style:italic;font-size:clamp(1.1rem,2.2vw,1.4rem);color:var(--amberb);margin-bottom:20px">Ask humanity, not just AI.</div>
-      <p style="font-family:'Inter',sans-serif;font-size:clamp(1.1rem,1.8vw,1.3rem);color:#25313A;line-height:1.55;margin:0 auto 32px;max-width:600px">Meet with Socrates, Buddha, Marie Curie, Confucius, Maya Angelou, and hundreds of history's greatest minds — together in one AI conversation.</p>
+      <p style="font-family:'Inter',sans-serif;font-size:clamp(1.1rem,1.8vw,1.3rem);color:#25313A;line-height:1.55;margin:0 auto 32px;max-width:600px">Explore life's hardest questions with Socrates, Buddha, Marie Curie, and hundreds of history's greatest minds—gathered at one table to illuminate your question from many perspectives.</p>
       <div class="hero-btn-row" style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
         <button class="hero-btn" onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'})" style="background:var(--amber);border:none;padding:15px 24px;color:white;font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:.2s ease;border-radius:14px;box-shadow:0 12px 28px rgba(183,123,47,.22)" onmouseover="this.style.background='var(--amberb)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--amber)';this.style.transform='translateY(0)'">Bring Your Question to the Council →</button>
         <button class="hero-btn" onclick="window.location.href='library.html'" style="background:transparent;border:1px solid var(--rule);padding:15px 24px;color:var(--ink);font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:.2s ease;border-radius:14px" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='var(--rule)';this.style.color='var(--ink)'">Explore the Library</button>
@@ -1367,6 +1367,9 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
         <button class="cmp-btn" onclick="doCompare()">Compare Across Traditions →</button>
       </div>
       <div class="cmp-out" id="cmp-out"></div>
+      <div id="cmp-speak-row" style="display:none;text-align:right;padding:8px 0">
+        <button onclick="toggleReadAloud('cmp-out')" id="cmp-out-speak-btn" style="background:none;border:1px solid var(--rule);padding:6px 12px;font-size:.85rem;cursor:pointer;border-radius:6px" title="Read aloud">🔊 Read aloud</button>
+      </div>
     </div>
   </div>
 </section><section id="library-teaser-2" style="background:var(--paper2);padding:36px 0;border-top:1px solid var(--rule)">
@@ -1412,6 +1415,7 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
   <div id="rp">
     <div class="rp-hd">
       <div class="rp-meta"><div class="rp-ey" id="rp-ey"></div><div class="rp-ttl" id="rp-ttl"></div></div>
+      <button class="rp-x" onclick="toggleReadAloud('rp-body')" id="rp-speak-btn" title="Read aloud" style="font-size:1rem;margin-right:4px">🔊</button>
       <button class="rp-x" onclick="closeRP()">✕</button>
     </div>
     <div class="rp-tabs">
@@ -1563,7 +1567,7 @@ p:last-child{margin-bottom:0}
         <div class="abt-steward-role">Author · Publisher · Teacher · Ordained Soto Zen Practitioner · Founder, Liminal Arts</div>
         <p>Paul Mandelstein has spent his life at the edge of things — where publishing meets wisdom, fatherhood meets spiritual practice, story meets the examined life. As co-founder of <em>The Book Publishing Company</em>, he originated the <em>For Dummies</em> format, then founded Quantum Publishing (acquired by John Wiley &amp; Sons) and the Father Resource Network. He wrote <em>Small Wisdoms</em> — a lifetime's distillation into 128 fables — and a body of new mythology folktales. More at <a href="https://paulmandelstein.com" target="_blank" rel="noopener" style="color:var(--amber);text-decoration:none;font-style:normal;border-bottom:1px solid rgba(140,104,0,.3);transition:border-color .2s" onmouseover="this.style.borderColor='var(--amber)'" onmouseout="this.style.borderColor='rgba(140,104,0,.3)'">paulmandelstein.com →</a></p>
         <p style="margin-top:10px">He co-founded The Farm intentional community in Tennessee, is an ordained Soto Zen practitioner in Suzuki Roshi's lineage, and served as a workshop facilitator at Esalen Institute. He founded Liminal Arts, the imprint under which The Wisdom Table operates.</p>
-        <p style="font-size:.82rem;color:var(--muted);margin-top:10px"><a href="mailto:pmandelstein@gmail.com" style="color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(78,61,32,.3)">pmandelstein@gmail.com</a> · thewisdomtable.ai</p>
+        <p style="font-size:.82rem;color:var(--muted);margin-top:10px"><a href="mailto:pmandelstein@gmail.com" style="color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(78,61,32,.3)">pmandelstein@gmail.com</a> · wisdomtable.ai</p>
       </div>
     </div>
   </div>
@@ -1743,19 +1747,19 @@ p:last-child{margin-bottom:0}
 <footer>
   <div class="foot-inner">
     <div>
-      <div class="fb-brand">✦ THE WISDOM TABLE</div>
-      <div class="fb-sub">Humanity's Living Library of Meaning · thewisdomtable.ai</div>
+      <div class="fb-brand">✦ WISDOM TABLE</div>
+      <div class="fb-sub">Humanity's Living Library of Meaning · wisdomtable.ai</div>
       <p class="fb-text">A living library where humanity's wisdom traditions, personal experiences, and enduring questions meet — helping people navigate life while preserving knowledge that might otherwise be lost. Every tradition, every voice, every civilization — from the oldest oral teachings to the newest science of meaning.</p>
     </div>
     <div class="fc"><h5>Traditions</h5><a onclick="openT('Buddhism')">Buddhism</a><a onclick="openT('Christianity')">Christianity</a><a onclick="openT('Islam')">Islam</a><a onclick="openT('Judaism')">Judaism</a><a onclick="openT('Hinduism')">Hinduism</a><a onclick="openT('Taoism')">Taoism</a></div>
     <div class="fc"><h5>More</h5><a onclick="openT('Sikhism')">Sikhism</a><a onclick="openT('Bahá')">Bahá'í</a><a onclick="openT('Indigenous')">Indigenous</a><a onclick="openT('African')">African</a><a onclick="openT('Secular')">Secular &amp; Atheist</a><a onclick="filterAndScroll('Ways of Knowing')">Ways of Knowing</a></div>
     <div class="fc"><h5>Navigate</h5><a onclick="document.getElementById('explore-questions').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">Humanity's Questions</a><a onclick="document.getElementById('scout-section').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">Wisdom Scout</a>
       <a href="#last-wisdom-section" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'});return false;">The Last Wisdom Project</a><a href="#about-section" onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'});return false;">About the Project</a></div>
-    <div class="fc"><h5>The Mission</h5><a href="about.html#what-makes-different">Nothing Excluded</a><a href="about.html#editorial-principles">Radical Transparency</a><a href="contribute.html#lw-submit">Preserve Endangered Wisdom</a><br><h5 style="margin-top:14px">Contact</h5><span style="display:block;color:rgba(13,27,38,.86);font-size:.88rem">thewisdomtable.ai</span></div>
+    <div class="fc"><h5>The Mission</h5><a href="about.html#what-makes-different">Nothing Excluded</a><a href="about.html#editorial-principles">Radical Transparency</a><a href="contribute.html#lw-submit">Preserve Endangered Wisdom</a><br><h5 style="margin-top:14px">Contact</h5><span style="display:block;color:rgba(13,27,38,.86);font-size:.88rem">wisdomtable.ai</span></div>
   </div>
   <div class="f-btm">
     <div class="f-epi">"The table is set. There is a seat for everyone."</div>
-    <div class="f-legal">The Wisdom Table · Humanity's Living Library of Meaning · thewisdomtable.ai</div>
+    <div class="f-legal">The Wisdom Table · Humanity's Living Library of Meaning · wisdomtable.ai</div>
   </div>
 </footer>
 
@@ -1884,6 +1888,7 @@ async function doCompare() {
   const html = await callAI_treasury(`Compare how these traditions answer: "${q}"\n\nTraditions: ${trads}\n\nFor each tradition give their actual, specific answer — not just that they addressed it. Use <h4> for tradition names, <p> for content. Be specific. Show real agreements and real disagreements.`);
   renderCompareGrid(out, html);
   out.classList.add('vis');
+  document.getElementById('cmp-speak-row').style.display = 'block';
 }
 
 // Parses the AI's <h4>Tradition</h4><p>...</p> response into genuine
@@ -2421,6 +2426,47 @@ function openE(idOrPrompt,trad){
   document.getElementById('treasury').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
+let currentReadAloudUtterance = null;
+let currentReadAloudBtn = null;
+
+function toggleReadAloud(elementId) {
+  const synth = window.speechSynthesis;
+  if (!synth) return;
+
+  // If something is currently speaking, stop it (acts as a pause/stop toggle)
+  if (synth.speaking) {
+    synth.cancel();
+    if (currentReadAloudBtn) currentReadAloudBtn.textContent = '🔊';
+    currentReadAloudUtterance = null;
+    currentReadAloudBtn = null;
+    return;
+  }
+
+  const el = document.getElementById(elementId);
+  if (!el) return;
+  const text = el.innerText || el.textContent || '';
+  if (!text.trim()) return;
+
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.rate = 0.95;
+  const btn = document.getElementById(elementId === 'rp-body' ? 'rp-speak-btn' : elementId + '-speak-btn');
+  utterance.onend = () => {
+    if (btn) btn.textContent = '🔊';
+    currentReadAloudUtterance = null;
+    currentReadAloudBtn = null;
+  };
+  utterance.onerror = () => {
+    if (btn) btn.textContent = '🔊';
+    currentReadAloudUtterance = null;
+    currentReadAloudBtn = null;
+  };
+
+  currentReadAloudUtterance = utterance;
+  currentReadAloudBtn = btn;
+  if (btn) btn.textContent = '⏸';
+  synth.speak(utterance);
+}
+
 function closeRP(){
   document.getElementById('rp').classList.remove('vis');
   document.querySelectorAll('.ecard').forEach(c=>c.classList.remove('active'));
@@ -2702,7 +2748,7 @@ function downloadCard() {
   ctx.font = '500 28px Georgia, serif';
   ctx.letterSpacing = '8px';
   ctx.textAlign = 'center';
-  ctx.fillText('THE WISDOM TABLE', W/2, 62);
+  ctx.fillText('WISDOM TABLE', W/2, 62);
 
   ctx.fillStyle = '#8C6800';
   ctx.font = 'italic 18px Georgia, serif';
@@ -2814,7 +2860,7 @@ function downloadCard() {
   ctx.font = 'italic 16px Georgia, serif';
   ctx.textAlign = 'center';
   ctx.letterSpacing = '0';
-  ctx.fillText('thewisdomtable.ai', W/2, H - 22);
+  ctx.fillText('wisdomtable.ai', W/2, H - 22);
 
   // ── Download ──
   const link = document.createElement('a');
@@ -2844,26 +2890,16 @@ function getCheckedPanelists() {
 }
 
 async function conveneCouncil() {
-  // ── COUNCIL ROOM: Backend activation pending ──
-  // The Council Room requires a secure API proxy to protect the Anthropic key.
-  // This will be live within days. For now, show a waitlist message.
-  const output = document.getElementById('council-output');
-  const loading = document.getElementById('council-loading');
-  if (loading) loading.style.display = 'none';
-  if (output) {
-    output.style.display = 'block';
-    output.innerHTML = `
-      <div style="text-align:center;padding:48px 24px;border:1px solid rgba(183,123,47,.2);background:rgba(183,123,47,.04)">
-        <div style="font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(183,123,47,.85);margin-bottom:16px">Coming Within Days</div>
-        <div style="font-family:'Libre Baskerville',serif;font-size:1.5rem;color:#0D1B26;margin-bottom:14px;font-style:italic">The Council Room is preparing.</div>
-        <p style="font-size:.92rem;color:rgba(13,27,38,.88);max-width:480px;margin:0 auto 22px;line-height:1.75">We are completing the final technical step to bring the Council Room live. Leave your email below and you will be the first to know when the wisest voices in human history are ready to hear your question.</p>
-        <div style="display:flex;gap:8px;max-width:380px;margin:0 auto">
-          <input type="email" id="cr-waitlist-email" placeholder="Your email address" style="flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(183,123,47,.3);padding:10px 14px;color:#0D1B26;font-family:'Inter',sans-serif;font-size:.92rem;outline:none">
-          <button onclick="crWaitlist()" style="background:var(--amber);border:none;padding:10px 18px;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.1em;color:var(--dark);cursor:pointer">Notify Me</button>
-        </div>
-        <p style="font-size:.75rem;color:rgba(13,27,38,.78);margin-top:10px;font-style:italic">Or explore the library while you wait — every tradition is already here.</p>
-      </div>`;
-  }
+  const dilemma = document.getElementById('council-input')?.value.trim();
+  if (!dilemma) return;
+  const panelists = getCheckedPanelists();
+  if (!panelists.length) return;
+
+  const btn = document.getElementById('convene-btn');
+  btn.disabled = true;
+  btn.textContent = 'Gathering the council…';
+
+  await _conveneCouncilLive(dilemma, panelists, btn);
 }
 
 function crWaitlist() {
@@ -2901,6 +2937,10 @@ Format as HTML. For each panelist use exactly this structure:
 
 Keep each response to 2-3 sentences. Make it feel like a real conversation, not a list of separate answers. Have them reference each other.`;
 
+  const renderPartial = (html) => {
+    document.getElementById('council-dialogue').innerHTML = html;
+  };
+
   try {
     const r = await fetch(getAPIEndpoint(), {
       method: "POST",
@@ -2908,12 +2948,43 @@ Keep each response to 2-3 sentences. Make it feel like a real conversation, not 
       body: JSON.stringify({
         model: "claude-sonnet-4-6",
         max_tokens: 1200,
+        stream: true,
         system: "You are the Wisdom Table Council facilitator. Generate warm, specific, actionable dialogue between wisdom traditions responding to a personal dilemma. Use only the HTML structure specified. Each voice should feel distinct and authentic.",
         messages: [{ role: "user", content: prompt }]
       })
     });
-    const d = await r.json();
-    const dialogue = d.content?.[0]?.text || '<p style="color:var(--muted);font-style:italic">Could not generate dialogue.</p>';
+
+    let dialogue = '';
+
+    if (!r.ok || !r.body) {
+      // Fallback: try plain JSON in case the proxy isn't streaming this response
+      const d = await r.json();
+      dialogue = d.content?.[0]?.text || '<p style="color:var(--muted);font-style:italic">Could not generate dialogue.</p>';
+    } else {
+      const reader = r.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop();
+        for (const line of lines) {
+          if (!line.startsWith('data: ')) continue;
+          const payload = line.slice(6).trim();
+          if (payload === '[DONE]') continue;
+          try {
+            const evt = JSON.parse(payload);
+            if (evt.type === 'content_block_delta' && evt.delta?.text) {
+              dialogue += evt.delta.text;
+              renderPartial(dialogue);
+            }
+          } catch { /* ignore malformed SSE lines */ }
+        }
+      }
+      if (!dialogue) dialogue = '<p style="color:var(--muted);font-style:italic">Could not generate dialogue.</p>';
+    }
 
     document.getElementById('council-dialogue').innerHTML = dialogue;
     document.getElementById('council-share').style.display = 'flex';
@@ -2946,7 +3017,7 @@ function shareCouncil() {
       const text = el.querySelector('.de-text')?.textContent || '';
       return `${speaker}\n${text}`;
     }).join('\n\n') +
-    '\n\nthewisdomtable.ai';
+    '\n\nwisdomtable.ai';
 
   if (navigator.clipboard) {
     navigator.clipboard.writeText(text).then(() => {
