@@ -1250,6 +1250,7 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
     <div class="sec-ey" style="justify-content:center">Your Personal Archive</div>
     <div style="font-family:'Libre Baskerville',serif;font-size:clamp(1.5rem,3vw,2rem);color:var(--ink);text-align:center;margin-bottom:10px">Everything you've saved, kept right here</div>
     <p style="text-align:center;font-size:.9rem;color:var(--muted);max-width:560px;margin:0 auto 32px;line-height:1.7">Saved directly in this browser — no account needed. Council dialogues, library entries, and comparisons you've bookmarked will appear below. Clearing your browser data will clear this too, so it stays on this device only.</p>
+    <div id="archive-signin-box"></div>
     <div id="my-archive-list" style="display:flex;flex-direction:column;gap:2px;background:var(--rule);border:1px solid var(--rule)">
       <div style="background:var(--paper);padding:32px 24px;text-align:center;color:var(--muted);font-style:italic;font-size:.92rem" id="my-archive-empty">Nothing saved yet. Look for the 💾 button on Council dialogues, library entries, and comparisons.</div>
     </div>
@@ -3128,6 +3129,80 @@ const HERO_NAME_SETS = [
 })();
 
 const ARCHIVE_KEY = 'wt_my_archive';
+const SESSION_KEY = 'wt_session_token';
+const AUTH_API = 'https://wisdomtable.pmandelstein.workers.dev';
+
+function getSessionToken() {
+  return localStorage.getItem(SESSION_KEY) || null;
+}
+
+function isSignedIn() {
+  return !!getSessionToken();
+}
+
+function signOut() {
+  localStorage.removeItem(SESSION_KEY);
+  renderArchive();
+}
+
+async function requestMagicLink(email, btn) {
+  if (!email || !email.includes('@')) return;
+  if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+  try {
+    const r = await fetch(AUTH_API + '/auth/request-link', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+    const d = await r.json();
+    const statusEl = document.getElementById('signin-status');
+    if (d.ok) {
+      if (statusEl) statusEl.innerHTML = '<span style="color:var(--amberb)">✓ Check your email for a sign-in link.</span>';
+    } else {
+      if (statusEl) statusEl.innerHTML = '<span style="color:#A03030">Something went wrong. Please try again.</span>';
+    }
+  } catch (e) {
+    const statusEl = document.getElementById('signin-status');
+    if (statusEl) statusEl.innerHTML = '<span style="color:#A03030">Could not connect. Please try again.</span>';
+  }
+  if (btn) { btn.disabled = false; btn.textContent = 'Send Magic Link'; }
+}
+
+// Check for a ?session=... token in the URL (arriving from a clicked magic link)
+(function checkForIncomingSession() {
+  const params = new URLSearchParams(window.location.search);
+  const incoming = params.get('session');
+  if (incoming) {
+    localStorage.setItem(SESSION_KEY, incoming);
+    params.delete('session');
+    const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '') + window.location.hash;
+    window.history.replaceState({}, '', newUrl);
+    syncArchiveFromServer();
+  }
+})();
+
+async function syncArchiveFromServer() {
+  const token = getSessionToken();
+  if (!token) return;
+  try {
+    const r = await fetch(AUTH_API + '/archive', {
+      headers: { 'Authorization': 'Bearer ' + token }
+    });
+    if (!r.ok) {
+      if (r.status === 401) localStorage.removeItem(SESSION_KEY); // session expired
+      renderArchive();
+      return;
+    }
+    const d = await r.json();
+    const remote = d.items || [];
+    const local = getArchive();
+    const merged = [...remote];
+    local.forEach(l => { if (!merged.find(m => m.id === l.id)) merged.push(l); });
+    merged.sort((a, b) => new Date(b.savedAt) - new Date(a.savedAt));
+    saveArchive(merged.slice(0, 100));
+  } catch (e) { /* offline or server unreachable — local copy still works */ }
+  renderArchive();
+}
 
 function getArchive() {
   try {
@@ -3143,11 +3218,12 @@ function saveArchive(items) {
 
 function saveToArchive(type, title, meta, body, btn) {
   const items = getArchive();
-  items.unshift({
+  const newItem = {
     id: 'a' + Date.now(),
     type, title, meta, body,
     savedAt: new Date().toISOString()
-  });
+  };
+  items.unshift(newItem);
   saveArchive(items.slice(0, 100)); // cap at 100 saved items
   renderArchive();
   if (btn) {
@@ -3155,16 +3231,52 @@ function saveToArchive(type, title, meta, body, btn) {
     btn.textContent = '✓ Saved';
     setTimeout(() => { btn.textContent = original; }, 1500);
   }
+
+  const token = getSessionToken();
+  if (token) {
+    fetch(AUTH_API + '/archive', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+      body: JSON.stringify(newItem)
+    }).catch(() => { /* saved locally regardless; will retry on next sync */ });
+  }
 }
 
 function deleteFromArchive(id) {
   saveArchive(getArchive().filter(item => item.id !== id));
   renderArchive();
+
+  const token = getSessionToken();
+  if (token) {
+    fetch(AUTH_API + '/archive', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+      body: JSON.stringify({ id })
+    }).catch(() => {});
+  }
 }
 
 function renderArchive() {
   const list = document.getElementById('my-archive-list');
+  const signinBox = document.getElementById('archive-signin-box');
   if (!list) return;
+
+  if (signinBox) {
+    if (isSignedIn()) {
+      signinBox.innerHTML = '<p style="font-size:.85rem;color:var(--muted);text-align:center;margin-bottom:0">✓ Signed in — your archive syncs across your devices. <a onclick="signOut()" style="color:var(--amberb);cursor:pointer;text-decoration:underline">Sign out</a></p>';
+    } else {
+      signinBox.innerHTML = `
+        <div style="max-width:420px;margin:0 auto 32px;text-align:center;border:1px solid var(--rule);padding:20px;background:var(--paper2)">
+          <p style="font-size:.85rem;color:var(--ink2);margin-bottom:12px">Sign in to sync your archive across every device.</p>
+          <div style="display:flex;gap:8px">
+            <input type="email" id="signin-email" placeholder="Your email address" style="flex:1;padding:8px 12px;border:1px solid var(--rule);font-size:.9rem">
+            <button onclick="requestMagicLink(document.getElementById('signin-email').value, this)" style="background:var(--amber);border:none;padding:8px 16px;font-size:.85rem;font-weight:700;cursor:pointer;white-space:nowrap">Send Magic Link</button>
+          </div>
+          <div id="signin-status" style="margin-top:10px;font-size:.85rem"></div>
+        </div>`;
+    }
+  }
+
   const items = getArchive();
 
   if (!items.length) {
@@ -3207,6 +3319,12 @@ function viewArchiveItem(id) {
 function toggleMobileNav() {
   document.getElementById('mobile-nav-panel')?.classList.toggle('open');
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderArchive();
+  if (isSignedIn()) syncArchiveFromServer();
+});
+
 
 function closeMobileNavAndScroll(id) {
   document.getElementById('mobile-nav-panel')?.classList.remove('open');
