@@ -518,7 +518,7 @@ footer{background:var(--dark);padding:44px 24px 24px;border-top:1px solid rgba(1
 /* ── RESPONSIVE ── */
 @media(max-width:1100px){.foot-inner{grid-template-columns:1fr 1fr 1fr;gap:24px}.em-grid{grid-template-columns:1fr}.disc-grid{grid-template-columns:1fr}.part-inner{grid-template-columns:1fr}}
 .m-hamburger{display:none;background:none;border:none;color:var(--ink2);font-size:1.35rem;cursor:pointer;padding:4px 10px;line-height:1}
-@media(max-width:1100px){.m-nav{display:none}.m-hamburger{display:block}.m-about-link{display:none}.m-search-btn{display:none}.m-right{margin-left:8px;padding-left:0}.m-brand-sub{display:none}.m-brand{padding-right:10px;border-right:none}}
+@media(max-width:1100px){.m-nav{display:none}.m-hamburger{display:block}.m-about-link{display:none}.m-search-btn{display:none}.m-right{margin-left:8px;padding-left:0}.m-brand-sub{display:none}.m-brand{padding-right:10px;border-right:none}#google_translate_element{display:none}}
 @media(max-width:768px){#hero{min-height:auto;padding:60px 20px 48px}.council-layout{grid-template-columns:1fr}.foot-inner{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.em-trad-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:400px){.panelists-grid{grid-template-columns:1fr}.disc-feed{grid-template-columns:1fr}.hero-btn{width:100%;text-align:center}.hero-btn-row{flex-direction:column}}
@@ -804,6 +804,7 @@ textarea{resize:vertical;line-height:1.65}
     <a onclick="closeMobileNavAndScroll('scout-section')">Wisdom Scout</a>
     <a onclick="closeMobileNavAndScroll('last-wisdom-section')">Last Wisdom</a>
     <a onclick="closeMobileNavAndScroll('about-section')">About</a>
+    <div style="padding:14px 24px;display:flex;justify-content:center"><div id="google_translate_element_mobile" class="lang-widget"></div></div>
     <a onclick="closeMobileNavAndScroll('my-archive-section')" style="color:var(--amberb)">💾 My Archive</a>
     <a href="contribute.html#lw-submit" style="color:var(--amberb);font-weight:700">Contribute</a>
   </nav>
@@ -4245,6 +4246,10 @@ function googleTranslateElementInit() {
     pageLanguage: 'en',
     autoDisplay: false
   }, 'google_translate_element');
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false
+  }, 'google_translate_element_mobile');
 }
 </script>
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
