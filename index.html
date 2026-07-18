@@ -2618,6 +2618,21 @@ document.querySelectorAll('.ts-pill,.tpill').forEach(p=>{
   });
 });
 
+// Deep-link support: ?tr=<tradition name> auto-filters and scrolls to Treasury on load
+(function checkForTraditionDeepLink() {
+  const params = new URLSearchParams(window.location.search);
+  const tr = params.get('tr');
+  if (tr) {
+    activeTr = tr;
+    renderEntries(filterEntries(activeTr, ''));
+    forceExpandTreasury();
+    const titleEl = document.getElementById('tr-title');
+    if (titleEl) titleEl.textContent = activeTr;
+    const t = document.getElementById('treasury');
+    if (t) setTimeout(() => t.scrollIntoView({behavior: 'smooth', block: 'start'}), 400);
+  }
+})();
+
 // Initial render
 renderEntries(ALL_ENTRIES);
 
