@@ -2619,12 +2619,13 @@ document.querySelectorAll('.ts-pill,.tpill').forEach(p=>{
 });
 
 // Deep-link support: ?tr=<tradition name> auto-filters and scrolls to Treasury on load
+let _deepLinkTradition = null;
 (function checkForTraditionDeepLink() {
   const params = new URLSearchParams(window.location.search);
   const tr = params.get('tr');
   if (tr) {
+    _deepLinkTradition = tr;
     activeTr = tr;
-    renderEntries(filterEntries(activeTr, ''));
     forceExpandTreasury();
     const titleEl = document.getElementById('tr-title');
     if (titleEl) titleEl.textContent = activeTr;
@@ -2633,8 +2634,8 @@ document.querySelectorAll('.ts-pill,.tpill').forEach(p=>{
   }
 })();
 
-// Initial render
-renderEntries(ALL_ENTRIES);
+// Initial render — use the deep-link filter if one was requested, otherwise show everything
+renderEntries(_deepLinkTradition ? filterEntries(_deepLinkTradition, '') : ALL_ENTRIES);
 
 
 // ══ AUDIO PLAYBACK ══
