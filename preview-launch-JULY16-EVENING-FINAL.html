@@ -787,7 +787,6 @@ textarea{resize:vertical;line-height:1.65}
       <a class="mnl" onclick="document.getElementById('compare-section').scrollIntoView({behavior:'smooth'})">Compare</a>
       <a class="mnl" onclick="document.getElementById('scout-section').scrollIntoView({behavior:'smooth'})">Wisdom Scout</a>
       <a class="mnl" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'})">Last Wisdom</a>
-      <a class="mnl" onclick="document.getElementById('my-archive-section').scrollIntoView({behavior:'smooth'})">My Archive</a>
     </nav>
     <div class="m-right">
       <button class="m-search-btn" onclick="toggleSearch()">⌕</button>
@@ -805,8 +804,7 @@ textarea{resize:vertical;line-height:1.65}
     <a onclick="closeMobileNavAndScroll('last-wisdom-section')">Last Wisdom</a>
     <a onclick="closeMobileNavAndScroll('about-section')">About</a>
     <div style="padding:14px 24px;display:flex;justify-content:center"><div id="google_translate_element_mobile" class="lang-widget"></div></div>
-    <a onclick="closeMobileNavAndScroll('my-archive-section')" style="color:var(--amberb)">💾 My Archive</a>
-    <a href="contribute.html#lw-submit" style="color:var(--amberb);font-weight:700">Contribute</a>
+  <a href="contribute.html#lw-submit" style="color:var(--amberb);font-weight:700">Contribute</a>
   </nav>
 </header>
 
@@ -909,7 +907,6 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
           <button class="share-btn" onclick="shareCouncil()"><span>↑</span> Copy Script</button>
           <button class="share-btn" id="audio-btn" onclick="toggleAudio()"><span id="audio-icon">▶</span> <span id="audio-label">Listen</span></button>
           <button class="share-btn" onclick="downloadCard()"><span>⬡</span> Save Card</button>
-          <button class="share-btn" id="council-archive-btn" onclick="saveCouncilToArchive(this)"><span>💾</span> Save to My Archive</button>
         </div>
         <div id="reciprocity-prompt" style="display:none;margin-top:24px;padding:22px 26px;background:var(--paper2);border:1px solid rgba(183,123,47,.25);border-radius:10px;text-align:center">
           <p style="font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.02rem;color:var(--ink);line-height:1.6;margin-bottom:14px">This council was built from the wisdom of thousands of lived lives. What have you learned from your own journey that belongs at this table?</p>
@@ -1190,20 +1187,6 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
 <!-- FOOTER -->
 
 </div>
-
-<!-- MY ARCHIVE — browser-saved personal collection, no account required -->
-<section id="my-archive-section" style="background:var(--paper);padding:52px 0 48px;border-top:1px solid var(--rule)">
-  <div style="max-width:900px;margin:0 auto;padding:0 24px">
-    <div class="sec-ey" style="justify-content:center">Your Personal Archive</div>
-    <div style="font-family:'Libre Baskerville',serif;font-size:clamp(1.5rem,3vw,2rem);color:var(--ink);text-align:center;margin-bottom:10px">Everything you've saved, kept right here</div>
-    <p style="text-align:center;font-size:.9rem;color:var(--muted);max-width:560px;margin:0 auto 32px;line-height:1.7">Saved directly in this browser — no account needed. Council dialogues, library entries, and comparisons you've bookmarked will appear below. Clearing your browser data will clear this too, so it stays on this device only.</p>
-    <div id="archive-signin-box"></div>
-    <div id="my-archive-list" style="display:flex;flex-direction:column;gap:2px;background:var(--rule);border:1px solid var(--rule)">
-      <div style="background:var(--paper);padding:32px 24px;text-align:center;color:var(--muted);font-style:italic;font-size:.92rem" id="my-archive-empty">Nothing saved yet. Look for the 💾 button on Council dialogues, library entries, and comparisons.</div>
-    </div>
-  </div>
-</section>
-
 <!-- WISDOM SCOUT — unified card: header, ticker, and recent discoveries in one frame -->
 <section id="scout-section" style="background:var(--paper2);padding:52px 0 48px;border-top:1px solid var(--rule)">
   <div style="max-width:1300px;margin:0 auto;padding:0 24px">
@@ -1340,8 +1323,7 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
       </div>
       <div class="cmp-out" id="cmp-out"></div>
       <div id="cmp-speak-row" style="display:none;text-align:right;padding:8px 0">
-        <button onclick="toggleReadAloud('cmp-out')" id="cmp-out-speak-btn" style="background:none;border:1px solid var(--rule);padding:6px 12px;font-size:.85rem;cursor:pointer;border-radius:6px" title="Read aloud">🔊 Read aloud</button>
-        <button onclick="saveCompareToArchive(this)" id="cmp-out-archive-btn" style="background:none;border:1px solid var(--rule);padding:6px 12px;font-size:.85rem;cursor:pointer;border-radius:6px;margin-left:8px" title="Save to My Archive">💾 Save</button>
+        <button onclick="toggleReadAloud('cmp-out')" id="cmp-out-speak-btn" style="background:none;border:1px solid var(--rule);padding:6px 12px;font-size:.85rem;cursor:pointer;border-radius:6px" title="Read aloud">🔊 Read aloud</button
       </div>
     </div>
   </div>
@@ -1389,7 +1371,6 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
     <div class="rp-hd">
       <div class="rp-meta"><div class="rp-ey" id="rp-ey"></div><div class="rp-ttl" id="rp-ttl"></div></div>
       <button class="rp-x" onclick="toggleReadAloud('rp-body')" id="rp-speak-btn" title="Read aloud" style="font-size:1rem;margin-right:4px">🔊</button>
-      <button class="rp-x" onclick="saveEntryToArchive(this)" id="rp-archive-btn" title="Save to My Archive" style="font-size:1rem;margin-right:4px">💾</button>
       <button class="rp-x" onclick="closeRP()">✕</button>
     </div>
     <div class="rp-tabs">
