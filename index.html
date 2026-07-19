@@ -1191,6 +1191,19 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
 
 </div>
 
+<!-- MY ARCHIVE — browser-saved personal collection, no account required -->
+<section id="my-archive-section" style="background:var(--paper);padding:52px 0 48px;border-top:1px solid var(--rule)">
+  <div style="max-width:900px;margin:0 auto;padding:0 24px">
+    <div class="sec-ey" style="justify-content:center">Your Personal Archive</div>
+    <div style="font-family:'Libre Baskerville',serif;font-size:clamp(1.5rem,3vw,2rem);color:var(--ink);text-align:center;margin-bottom:10px">Everything you've saved, kept right here</div>
+    <p style="text-align:center;font-size:.9rem;color:var(--muted);max-width:560px;margin:0 auto 32px;line-height:1.7">Saved directly in this browser — no account needed. Council dialogues, library entries, and comparisons you've bookmarked will appear below. Clearing your browser data will clear this too, so it stays on this device only.</p>
+    <div id="archive-signin-box"></div>
+    <div id="my-archive-list" style="display:flex;flex-direction:column;gap:2px;background:var(--rule);border:1px solid var(--rule)">
+      <div style="background:var(--paper);padding:32px 24px;text-align:center;color:var(--muted);font-style:italic;font-size:.92rem" id="my-archive-empty">Nothing saved yet. Look for the 💾 button on Council dialogues, library entries, and comparisons.</div>
+    </div>
+  </div>
+</section>
+
 <!-- WISDOM SCOUT — unified card: header, ticker, and recent discoveries in one frame -->
 <section id="scout-section" style="background:var(--paper2);padding:52px 0 48px;border-top:1px solid var(--rule)">
   <div style="max-width:1300px;margin:0 auto;padding:0 24px">
@@ -1376,6 +1389,7 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
     <div class="rp-hd">
       <div class="rp-meta"><div class="rp-ey" id="rp-ey"></div><div class="rp-ttl" id="rp-ttl"></div></div>
       <button class="rp-x" onclick="toggleReadAloud('rp-body')" id="rp-speak-btn" title="Read aloud" style="font-size:1rem;margin-right:4px">🔊</button>
+      <button class="rp-x" onclick="saveEntryToArchive(this)" id="rp-archive-btn" title="Save to My Archive" style="font-size:1rem;margin-right:4px">💾</button>
       <button class="rp-x" onclick="closeRP()">✕</button>
     </div>
     <div class="rp-tabs">
