@@ -1900,9 +1900,26 @@ async function doCompare() {
   const q = document.getElementById('cmp-q')?.value.trim();
   if (!q) return;
   const out = document.getElementById('cmp-out');
-  out.innerHTML = '<span style="font-style:italic;color:var(--muted)">Gathering voices…</span>';
   const trads = [...cmpSels].join(', ') || 'Buddhism, Christianity, Islam, Judaism, Stoicism';
-  const html = await callAI_treasury(`Compare how these traditions answer: "${q}"\n\nTraditions: ${trads}\n\nFor each tradition give their actual, specific answer — not just that they addressed it. Use <h4> for tradition names, <p> for content. Be specific. Show real agreements and real disagreements.`);
+  const n = cmpSels.size || 5;
+
+  // More traditions selected = more room needed, or entries get cut off partway through.
+  // ~350 tokens per tradition covers a real, specific paragraph without running long.
+  const budget = Math.min(4000, Math.max(1200, n * 350));
+
+  const cmpLoadingPhrases = n > 5
+    ? [`Gathering ${n} voices — this takes a little longer…`, "Weighing agreements and differences…", "Still comparing — almost there…"]
+    : ["Gathering voices…", "Weighing agreements and differences…"];
+  let phraseIdx = 0;
+  out.innerHTML = '<span data-loading style="font-style:italic;color:var(--muted)">' + cmpLoadingPhrases[0] + '</span>';
+  const loadingInterval = setInterval(() => {
+    if (!out.querySelector('[data-loading]')) return;
+    phraseIdx = (phraseIdx + 1) % cmpLoadingPhrases.length;
+    out.innerHTML = '<span data-loading style="font-style:italic;color:var(--muted)">' + cmpLoadingPhrases[phraseIdx] + '</span>';
+  }, 1800);
+
+  const html = await callAI_treasury(`Compare how these traditions answer: "${q}"\n\nTraditions: ${trads}\n\nFor each tradition listed, give their actual, specific answer in 3-4 concise sentences — not just that they addressed it. Cover every tradition listed; do not stop partway through the list. Use <h4> for tradition names, <p> for content. Be specific but brief per tradition so the full list fits.`, null, budget);
+  clearInterval(loadingInterval);
   renderCompareGrid(out, html);
   out.classList.add('vis');
 }
@@ -2501,9 +2518,9 @@ async function rpAsk(){
   res.innerHTML=await callAI_treasury(`Regarding "${currentE?.title}" (${currentE?.tradition}): ${q}\n\nContext: ${(currentE?.body||'').replace(/<[^>]+>/g,'').slice(0,600)}`);
 }
 
-async function callAI_treasury(prompt, onChunk){
+async function callAI_treasury(prompt, onChunk, maxTokens){
   try{
-    const r=await fetch(getAPIEndpoint(),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:1000,stream:true,system:`You are the Wisdom Table guide — scholarly, warm, spanning all traditions. Respond in HTML using only <h4> headings and <p> paragraphs. End with something the seeker can use today.`,messages:[{role:"user",content:prompt}]})});
+    const r=await fetch(getAPIEndpoint(),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:maxTokens||1000,stream:true,system:`You are the Wisdom Table guide — scholarly, warm, spanning all traditions. Respond in HTML using only <h4> headings and <p> paragraphs. End with something the seeker can use today.`,messages:[{role:"user",content:prompt}]})});
     if (!r.ok || !r.body) {
       // Fallback: try to read as plain JSON (non-streaming proxy or error)
       try {
