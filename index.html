@@ -45,9 +45,9 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .m-brand-text{}
 .m-brand-name{font-family:'Inter',sans-serif;font-size:.92rem;letter-spacing:.12em;color:var(--ink);line-height:1}
 .m-brand-sub{font-size:.54rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-top:2px}
-.m-nav{display:flex;align-items:stretch;height:100%;margin-left:8px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+.m-nav{display:flex;align-items:stretch;height:100%;margin-left:8px;overflow-x:auto;scrollbar-width:none;flex:1}
 .m-nav::-webkit-scrollbar{display:none}
-.mnl{display:flex;align-items:center;padding:0 6px;color:var(--ink2);text-decoration:none;font-family:'Inter',sans-serif;font-size:.8rem;font-weight:650;transition:color .2s;white-space:nowrap;border-bottom:2px solid transparent;cursor:pointer}
+.mnl{display:flex;align-items:center;padding:0 8px;color:var(--ink2);text-decoration:none;font-family:'Inter',sans-serif;font-size:.92rem;font-weight:650;transition:color .2s;white-space:nowrap;border-bottom:2px solid transparent;cursor:pointer}
 .mnl:hover{color:var(--gold)}
 .mnl.active{color:var(--gold);border-bottom-color:var(--gold)}
 .mnl.risk{color:rgba(180,80,80,.7)}
@@ -58,15 +58,11 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .mnl-more-panel a:hover{background:rgba(183,123,47,.08);color:var(--gold)}
 .mnl.risk:hover{color:#C05050}
 .m-right{margin-left:auto;display:flex;align-items:center;gap:16px;padding-left:24px;flex-shrink:0}
-.m-search-btn{background:none;border:none;color:var(--ink2);cursor:pointer;font-size:1rem;padding:4px 6px;transition:color .2s}
-.lang-widget select.goog-te-combo{font-family:'Inter',sans-serif;font-size:.68rem;letter-spacing:.05em;color:var(--ink2);background:none;border:1px solid var(--rule);padding:4px 8px;cursor:pointer}
-.lang-widget .goog-te-gadget{font-size:0}
-.lang-widget .goog-te-gadget-simple{border:none;background:none;padding:0}
-.lang-widget .goog-te-gadget-icon{display:none}
+.m-search-btn{background:none;border:none;color:var(--ink2);cursor:pointer;font-size:1.1rem;padding:4px 8px;transition:color .2s}
 .m-search-btn:hover{color:var(--gold)}
 .m-signin{background:none;border:1px solid rgba(183,123,47,.35);padding:5px 14px;color:rgba(13,27,38,.88);font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.1em;cursor:pointer;transition:all .2s}
 .m-signin:hover{border-color:var(--gold);color:var(--gold)}
-.m-cta{background:var(--amber);border:none;padding:6px 12px;color:var(--dark);font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:.08em;cursor:pointer;transition:background .2s;text-decoration:none;display:flex;align-items:center}
+.m-cta{background:var(--amber);border:none;padding:6px 16px;color:var(--dark);font-family:'Inter',sans-serif;font-size:.68rem;letter-spacing:.1em;cursor:pointer;transition:background .2s;text-decoration:none;display:flex;align-items:center}
 .m-cta:hover{background:var(--amberb)}
 
 /* ── HERO ── */
@@ -517,16 +513,15 @@ footer{background:var(--dark);padding:44px 24px 24px;border-top:1px solid rgba(1
 
 /* ── RESPONSIVE ── */
 @media(max-width:1100px){.foot-inner{grid-template-columns:1fr 1fr 1fr;gap:24px}.em-grid{grid-template-columns:1fr}.disc-grid{grid-template-columns:1fr}.part-inner{grid-template-columns:1fr}}
-.m-hamburger{display:none;background:none;border:none;color:var(--ink2);font-size:1.35rem;cursor:pointer;padding:4px 10px;line-height:1}
-@media(max-width:1100px){.m-nav{display:none}.m-hamburger{display:block}.m-about-link{display:none}.m-search-btn{display:none}.m-right{margin-left:8px;padding-left:0}.m-brand-sub{display:none}.m-brand{padding-right:10px;border-right:none}#google_translate_element{display:none}}
+@media(max-width:1100px){.m-nav{display:none}.m-hamburger{display:block}}
 @media(max-width:768px){#hero{min-height:auto;padding:60px 20px 48px}.council-layout{grid-template-columns:1fr}.foot-inner{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.em-trad-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:400px){.panelists-grid{grid-template-columns:1fr}.disc-feed{grid-template-columns:1fr}.hero-btn{width:100%;text-align:center}.hero-btn-row{flex-direction:column}}
+.m-hamburger{display:none;background:none;border:none;color:var(--ink2);font-size:1.35rem;cursor:pointer;padding:4px 10px;line-height:1}
 .m-hamburger:hover{color:var(--gold)}
 .mobile-nav-panel{display:none;flex-direction:column;background:var(--paper);border-top:1px solid var(--rule)}
-.mobile-nav-panel.open{display:flex;box-shadow:0 12px 24px rgba(13,27,38,.12)}
-.mobile-nav-panel a{display:block;width:100%;text-align:center;padding:16px 24px;color:var(--ink2);text-decoration:none;font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.02em;border-bottom:1px solid var(--rule);cursor:pointer;transition:background .15s}
-.mobile-nav-panel a:hover{background:var(--paper2);color:var(--amberb)}
+.mobile-nav-panel.open{display:flex}
+.mobile-nav-panel a{padding:14px 24px;color:var(--ink2);text-decoration:none;font-family:'Inter',sans-serif;font-size:.95rem;font-weight:600;border-bottom:1px solid var(--rule);cursor:pointer}
 .mobile-nav-panel a:last-child{border-bottom:none}
 
 /* ── LAST WISDOM PROJECT CSS ── */
@@ -608,9 +603,9 @@ textarea{resize:vertical;line-height:1.65}
 .lw-why-inner{max-width:900px;margin:0 auto;padding:0 24px}
 .lw-why-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--rule);border:1px solid var(--rule);margin-top:36px}
 .lw-why-item{background:var(--paper);padding:28px 24px}
-.wi2-n{font-family:'Inter',sans-serif;font-size:2rem;color:var(--amber);line-height:1;margin-bottom:8px}
-.wi2-title{font-family:'Inter',sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:.01em;color:var(--ink);margin-bottom:8px}
-.wi2-desc{font-size:.9rem;color:var(--muted);line-height:1.7}
+.lw-wi2-n{font-family:'Inter',sans-serif;font-size:2rem;color:var(--amber);line-height:1;margin-bottom:8px}
+.lw-wi2-title{font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin-bottom:8px}
+.lw-wi2-desc{font-size:.9rem;color:var(--muted);line-height:1.7}
 
 /* FOOTER STRIP */
 .foot-strip{background:var(--paper3);padding:28px 24px;border-top:2px solid var(--amber);text-align:center}
@@ -767,7 +762,6 @@ textarea{resize:vertical;line-height:1.65}
 <!-- MASTHEAD -->
 <header id="mast">
   <div class="mast-inner">
-    <button class="m-hamburger" onclick="toggleMobileNav()" aria-label="Menu">☰</button>
     <a class="m-brand" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
       <svg class="m-logo" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="20" cy="20" r="18" stroke="rgba(183,123,47,0.6)" stroke-width="1.2"/>
@@ -781,7 +775,7 @@ textarea{resize:vertical;line-height:1.65}
       </div>
     </a>
     <nav class="m-nav">
-      <a class="mnl active" onclick="document.getElementById('explore-questions').scrollIntoView({behavior:'smooth'})">Questions</a>
+      <a class="mnl active" onclick="document.getElementById('life-areas').scrollIntoView({behavior:'smooth'})">Questions</a>
       <a class="mnl" onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'})">Council</a>
       <a class="mnl" href="library.html">Library</a>
       <a class="mnl" onclick="document.getElementById('compare-section').scrollIntoView({behavior:'smooth'})">Compare</a>
@@ -790,21 +784,20 @@ textarea{resize:vertical;line-height:1.65}
     </nav>
     <div class="m-right">
       <button class="m-search-btn" onclick="toggleSearch()">⌕</button>
-      <a class="m-about-link" onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'})" style="padding:0 8px;color:var(--ink2);font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.1em;cursor:pointer;transition:color .2s;text-transform:uppercase;text-decoration:none" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--ink2)'">About</a>
-      <a class="m-cta" href="contribute.html#lw-submit">Contribute</a>
-      <div id="google_translate_element" class="lang-widget" style="display:flex;align-items:center"></div>
+      <a onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'})" style="padding:0 8px;color:var(--ink2);font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.1em;cursor:pointer;transition:color .2s;text-transform:uppercase;text-decoration:none" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--ink2)'">About</a>
+      <a class="m-cta" href="contribute.html">Contribute</a>
+      <button class="m-hamburger" onclick="toggleMobileNav()" aria-label="Menu">☰</button>
     </div>
   </div>
   <nav class="mobile-nav-panel" id="mobile-nav-panel">
-    <a onclick="closeMobileNavAndScroll('explore-questions')">Questions</a>
+    <a onclick="closeMobileNavAndScroll('life-areas')">Questions</a>
     <a onclick="closeMobileNavAndScroll('council')">Council Room</a>
     <a href="library.html">Library</a>
     <a onclick="closeMobileNavAndScroll('compare-section')">Compare</a>
     <a onclick="closeMobileNavAndScroll('scout-section')">Wisdom Scout</a>
     <a onclick="closeMobileNavAndScroll('last-wisdom-section')">Last Wisdom</a>
     <a onclick="closeMobileNavAndScroll('about-section')">About</a>
-    <div style="padding:14px 24px;display:flex;justify-content:center"><div id="google_translate_element_mobile" class="lang-widget"></div></div>
-  <a href="contribute.html#lw-submit" style="color:var(--amberb);font-weight:700">Contribute</a>
+    <a href="contribute.html" style="color:var(--amberb);font-weight:700">Contribute</a>
   </nav>
 </header>
 
@@ -815,12 +808,12 @@ textarea{resize:vertical;line-height:1.65}
     <div style="opacity:0;animation:rise .9s ease .25s forwards">
       <h1 style="font-family:'Libre Baskerville',serif;font-weight:400;font-size:clamp(3rem,7vw,4.8rem);letter-spacing:-.035em;color:#0D1B26;line-height:1.08;margin-bottom:16px">Ask life's hardest questions.</h1>
       <div style="font-family:'Libre Baskerville',serif;font-style:italic;font-size:clamp(1.1rem,2.2vw,1.4rem);color:var(--amberb);margin-bottom:20px">Ask humanity, not just AI.</div>
-      <p style="font-family:'Inter',sans-serif;font-size:clamp(1.1rem,1.8vw,1.3rem);color:#25313A;line-height:1.55;margin:0 auto 32px;max-width:600px">Bring your question to <span id="hero-names" style="display:inline-block;white-space:nowrap;color:var(--amberb);font-weight:700;transition:opacity .4s ease">Socrates, Buddha, Marie Curie</span>, and hundreds of history's greatest minds—gathered at one table to illuminate it from many perspectives.</p>
+      <p style="font-family:'Inter',sans-serif;font-size:clamp(1.1rem,1.8vw,1.3rem);color:#25313A;line-height:1.55;margin:0 auto 32px;max-width:600px">Meet with Socrates, Buddha, Marie Curie, Confucius, Maya Angelou, and hundreds of history's greatest minds — together in one AI conversation.</p>
       <div class="hero-btn-row" style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
         <button class="hero-btn" onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'})" style="background:var(--amber);border:none;padding:15px 24px;color:white;font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:.2s ease;border-radius:14px;box-shadow:0 12px 28px rgba(183,123,47,.22)" onmouseover="this.style.background='var(--amberb)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--amber)';this.style.transform='translateY(0)'">Bring Your Question to the Council →</button>
         <button class="hero-btn" onclick="window.location.href='library.html'" style="background:transparent;border:1px solid var(--rule);padding:15px 24px;color:var(--ink);font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:.2s ease;border-radius:14px" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='var(--rule)';this.style.color='var(--ink)'">Explore the Library</button>
       </div>
-      <a href="contribute.html#lw-submit" style="display:inline-block;margin-top:18px;font-family:'Inter',sans-serif;font-size:.82rem;color:var(--muted);text-decoration:none;cursor:pointer;border-bottom:1px solid transparent;transition:all .2s" onmouseover="this.style.color='var(--amberb)';this.style.borderColor='var(--amberb)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='transparent'">Have wisdom to leave behind instead? →</a>
+      <a href="contribute.html" style="display:inline-block;margin-top:18px;font-family:'Inter',sans-serif;font-size:.82rem;color:var(--muted);text-decoration:none;cursor:pointer;border-bottom:1px solid transparent;transition:all .2s" onmouseover="this.style.color='var(--amberb)';this.style.borderColor='var(--amberb)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='transparent'">Have wisdom to leave behind instead? →</a>
     </div>
   </div>
 </section>
@@ -845,14 +838,6 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
             <button class="theme-chip" onclick="fillCouncilTheme('purpose','I don\'t know what I\'m supposed to be doing with my life.')">Purpose</button>
             <button class="theme-chip" onclick="fillCouncilTheme('transitions','Everything in my life is changing at once and I feel unmoored.')">Transitions</button>
             <button class="theme-chip" onclick="fillCouncilTheme('relationships','Someone I love and I keep hurting each other, and I don\'t know how to stop.')">Relationships</button>
-            <button class="theme-chip" onclick="fillCouncilTheme('aging','I am afraid of aging and what it means')">Aging</button>
-            <button class="theme-chip" onclick="fillCouncilTheme('illness','I or someone I love is facing serious illness')">Illness</button>
-            <button class="theme-chip" onclick="fillCouncilTheme('death','I am facing death — my own or someone I love')">Death</button>
-            <button class="theme-chip" onclick="fillCouncilTheme('money','What is enough? What is wealth actually for?')">Money & Enough</button>
-            <button class="theme-chip" onclick="fillCouncilTheme('leadership','I am in a position of leadership and need wisdom about how to lead well')">Leadership</button>
-            <button class="theme-chip" onclick="fillCouncilTheme('family','I am navigating a difficult relationship within my family')">Family</button>
-            <button class="theme-chip" onclick="fillCouncilTheme('faith','I have lost my faith and feel unmoored')">Faith & Doubt</button>
-            <button class="theme-chip" onclick="fillCouncilTheme('meaning','I want to understand what different traditions say about the meaning of life')">Meaning</button>
           </div>
         </div></div>
         <div class="council-step"><div class="step-n">2</div><div style="width:100%">
@@ -910,8 +895,26 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
         </div>
         <div id="reciprocity-prompt" style="display:none;margin-top:24px;padding:22px 26px;background:var(--paper2);border:1px solid rgba(183,123,47,.25);border-radius:10px;text-align:center">
           <p style="font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.02rem;color:var(--ink);line-height:1.6;margin-bottom:14px">This council was built from the wisdom of thousands of lived lives. What have you learned from your own journey that belongs at this table?</p>
-          <button onclick="window.location.href='contribute.html#lw-submit'" style="background:var(--amber);border:none;padding:11px 26px;color:white;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;border-radius:10px;transition:background .2s" onmouseover="this.style.background='var(--amberb)'" onmouseout="this.style.background='var(--amber)'">Share Your Story →</button>
+          <button onclick="window.location.href='contribute.html'" style="background:var(--amber);border:none;padding:11px 26px;color:white;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;border-radius:10px;transition:background .2s" onmouseover="this.style.background='var(--amberb)'" onmouseout="this.style.background='var(--amber)'">Share Your Story →</button>
         </div>
+      </div>
+    </div>
+
+    <!-- Famous Councils -->
+    <div style="background:var(--paper3);border-top:1px solid var(--rule);padding:12px 26px">
+      <div style="font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:8px">
+        <span style="color:var(--amber)">✦</span> Famous Councils — One Click, No Typing Required
+        <span style="font-family:'Inter',sans-serif;font-size:.5rem;letter-spacing:.06em;color:var(--amberb);border:1px solid rgba(183,123,47,.4);border-radius:8px;padding:1px 6px" title="These are AI-generated dialogues drawing on real historical teachings — not verified archival recordings">✦ AI SYNTHESIS</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        <button class="fc-btn" onclick="famousCouncil('How do I face my own mortality and death?',['Marcus Aurelius','Thích Nhất Hạnh','Viktor Frankl','An Indigenous Elder'])">How do I face mortality?</button>
+        <button class="fc-btn" onclick="famousCouncil('My child will not speak to me. I do not know how to repair this.',['Confucius','Rabbi Hillel','An Indigenous Elder','A Neuroscientist'])">My child won't speak to me</button>
+        <button class="fc-btn" onclick="famousCouncil('I cannot forgive someone who hurt me deeply and may never apologize.',['Rumi','Rabbi Hillel','The Bhagavad Gita','Marcus Aurelius'])">I cannot forgive</button>
+        <button class="fc-btn" onclick="famousCouncil('I have left my faith and feel unmoored. I miss something I cannot name.',['Rumi','Viktor Frankl','Marcus Aurelius','An Indigenous Elder'])">I left my faith</button>
+        <button class="fc-btn" onclick="famousCouncil('I am afraid of aging — of losing who I am, of becoming irrelevant.',['Marcus Aurelius','Confucius','Thích Nhất Hạnh','Viktor Frankl'])">I'm afraid of aging</button>
+        <button class="fc-btn" onclick="famousCouncil('I am caring for a spouse with dementia. I am exhausted and grief-stricken.',['Marcus Aurelius','Thích Nhất Hạnh','Rumi','A Neuroscientist'])">Caring for a spouse with dementia</button>
+        <button class="fc-btn" onclick="famousCouncil('I am navigating grief and loss.',['Marcus Aurelius','Thích Nhất Hạnh','Rumi','An Indigenous Elder'])">Navigating grief</button>
+        <button class="fc-btn" onclick="famousCouncil('I am searching for purpose and meaning in my life.',['Viktor Frankl','Confucius','The Buddha','A Neuroscientist'])">Finding purpose</button>
       </div>
     </div>
 
@@ -939,53 +942,67 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
   </div>
 </div>
 
+<!-- CONCRETE EXAMPLE — shows what actually happens before anyone has to click -->
+<section id="see-it-in-action" style="background:var(--paper2);padding:52px 0 48px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
+  <div style="max-width:900px;margin:0 auto;padding:0 24px">
+    <div class="sec-ey" style="justify-content:center">See It In Action</div>
+    <div style="font-family:'Libre Baskerville',serif;font-size:clamp(1.3rem,2.5vw,1.8rem);text-align:center;color:var(--ink);margin-bottom:8px">This is what happens when you ask.</div>
+    <p style="text-align:center;color:var(--muted);font-size:.92rem;margin-bottom:32px">A real question. Real curated answers. No account, no click required to see it.</p>
 
+    <div style="background:var(--paper);border:1px solid var(--rule);border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(13,27,38,.06)">
+      <div style="background:var(--ink);padding:18px 24px">
+        <div style="font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.15rem;color:#FBF7EF">"How do I forgive someone who never apologized?"</div>
+      </div>
+      <div style="padding:8px 0">
 
-<!-- EXPLORE QUESTIONS PEOPLE ASK — real, existing Council situations, made visible near the top -->
-<section id="explore-questions" style="background:var(--paper2);padding:52px 0 48px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
-  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
-    <div style="font-family:'Libre Baskerville',serif;font-size:clamp(1.3rem,2.5vw,1.8rem);text-align:center;color:var(--ink);margin-bottom:8px">Explore Questions People Ask</div>
-    <p style="text-align:center;color:var(--muted);font-size:.92rem;margin-bottom:36px">Dive into timeless topics and see how wisdom traditions respond. Each one launches a real Council — not a preview.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px">
-      <div class="eq-card eq-photo" style="background-image:linear-gradient(0deg,rgba(20,14,6,.75),rgba(20,14,6,.15)),url('https://images.unsplash.com/photo-1759434192754-1ae85603cf8a?fm=jpg&q=60&w=600&auto=format&fit=crop')" onclick="launchCouncil('I am navigating grief and loss')">
-        <div class="eq-label eq-label-photo">Grief &amp; Loss</div>
-        <div class="eq-sub-photo">— and the peace that follows</div>
+        <div style="display:flex;gap:16px;padding:18px 24px;border-bottom:1px solid var(--rule)">
+          <div style="flex-shrink:0;width:36px;height:36px;border-radius:50%;background:#7A5020;color:#FBF7EF;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:700;font-size:.85rem">T</div>
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:.78rem;font-weight:700;color:var(--ink);margin-bottom:3px">Talmud <span style="font-weight:400;color:var(--muted)">· Judaism</span></div>
+            <div style="font-size:.92rem;color:var(--ink2);line-height:1.55">Teshuvah — return. Forgiveness requires genuine remorse, changed behavior, and making amends. God forgives on Yom Kippur; humans must do their part first.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:16px;padding:18px 24px;border-bottom:1px solid var(--rule)">
+          <div style="flex-shrink:0;width:36px;height:36px;border-radius:50%;background:#1A3E28;color:#FBF7EF;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:700;font-size:.85rem">D</div>
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:.78rem;font-weight:700;color:var(--ink);margin-bottom:3px">Archbishop Desmond Tutu <span style="font-weight:400;color:var(--muted)">· African · Christian</span></div>
+            <div style="font-size:.92rem;color:var(--ink2);line-height:1.55">Forgiveness is not forgetting or condoning — it is refusing to let the past define the future. Ubuntu: my humanity is restored when I restore yours.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:16px;padding:18px 24px;border-bottom:1px solid var(--rule)">
+          <div style="flex-shrink:0;width:36px;height:36px;border-radius:50%;background:#8C6A10;color:#FBF7EF;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:700;font-size:.85rem">M</div>
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:.78rem;font-weight:700;color:var(--ink);margin-bottom:3px">Marcus Aurelius <span style="font-weight:400;color:var(--muted)">· Stoicism</span></div>
+            <div style="font-size:.92rem;color:var(--ink2);line-height:1.55">People do wrong out of ignorance — they cannot help being what they are. Anger at them is as pointless as anger at a rock for being hard.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:16px;padding:18px 24px">
+          <div style="flex-shrink:0;width:36px;height:36px;border-radius:50%;background:#6A1C1C;color:#FBF7EF;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:700;font-size:.85rem">J</div>
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:.78rem;font-weight:700;color:var(--ink);margin-bottom:3px">Jesus <span style="font-weight:400;color:var(--muted)">· Christianity</span></div>
+            <div style="font-size:.92rem;color:var(--ink2);line-height:1.55">Forgive seventy times seven — not as a limit but as a description of what forgiveness actually is: unlimited, unconditional, non-transactional.</div>
+          </div>
+        </div>
+
       </div>
-      <div class="eq-card eq-photo" style="background-image:linear-gradient(0deg,rgba(20,14,6,.72),rgba(20,14,6,.12)),url('https://images.unsplash.com/photo-1745946596837-0393d87a1706?fm=jpg&q=60&w=600&auto=format&fit=crop')" onclick="launchCouncil('I am thinking about love and my relationship')">
-        <div class="eq-label eq-label-photo">Love &amp; Relationships</div>
-      </div>
-      <div class="eq-card eq-photo" style="background-image:linear-gradient(0deg,rgba(20,14,6,.7),rgba(20,14,6,.1)),url('https://images.unsplash.com/photo-1740421198589-f98aa30526ac?fm=jpg&q=60&w=600&auto=format&fit=crop')" onclick="launchCouncil('I am searching for purpose and meaning')">
-        <div class="eq-label eq-label-photo">Purpose &amp; Meaning</div>
-      </div>
-      <div class="eq-card eq-photo" style="background-image:linear-gradient(0deg,rgba(20,14,6,.72),rgba(20,14,6,.15)),url('https://images.unsplash.com/photo-1632159336539-21104caef467?fm=jpg&q=60&w=600&auto=format&fit=crop')" onclick="launchCouncil('I cannot forgive someone who hurt me')">
-        <div class="eq-label eq-label-photo">Forgiveness</div>
-        <div class="eq-sub-photo">— and the freedom it brings</div>
-      </div>
-      <div class="eq-card eq-photo" style="background-image:linear-gradient(0deg,rgba(20,14,6,.78),rgba(20,14,6,.2)),url('https://images.unsplash.com/photo-1758512202812-3bbe6806fff4?fm=jpg&q=60&w=600&auto=format&fit=crop')" onclick="launchCouncil('I am struggling with anxiety and cannot find peace')">
-        <div class="eq-label eq-label-photo">Fear &amp; Anxiety</div>
-        <div class="eq-sub-photo">— and the calm beneath it</div>
-      </div>
-      <div class="eq-card eq-photo" style="background-image:linear-gradient(0deg,rgba(20,14,6,.72),rgba(20,14,6,.15)),url('https://images.unsplash.com/photo-1647565110431-abfbeedd25cd?fm=jpg&q=60&w=600&auto=format&fit=crop')" onclick="launchCouncil('I am thinking about what kind of parent I want to be')">
-        <div class="eq-label eq-label-photo">Parenting &amp; Family</div>
-      </div>
-      <div class="eq-card eq-photo" style="background-image:linear-gradient(0deg,rgba(20,14,6,.72),rgba(20,14,6,.15)),url('https://images.unsplash.com/photo-1752842175346-a503a147ed8b?fm=jpg&q=60&w=600&auto=format&fit=crop')" onclick="launchCouncil('What actually brings real, lasting joy and equanimity? I want to understand it and find more of it')">
-        <div class="eq-label eq-label-photo">Joy &amp; Equanimity</div>
+      <div style="padding:16px 24px;background:var(--paper2);border-top:1px solid var(--rule);text-align:center">
+        <a onclick="launchCouncil('How do I forgive someone who never apologized?')" style="font-family:'Inter',sans-serif;font-size:.78rem;letter-spacing:.06em;color:var(--amberb);cursor:pointer;text-decoration:none">This is real, curated content — not a preview. See it live →</a>
       </div>
     </div>
-    <div style="text-align:center;margin-top:32px">
-      <a onclick="document.getElementById('explore-questions').scrollIntoView({behavior:'smooth'})" style="font-family:'Inter',sans-serif;font-size:.68rem;letter-spacing:.1em;color:var(--amber);cursor:pointer;text-decoration:none">Browse every topic →</a>
-    </div>
+
+    <p style="text-align:center;color:var(--muted);font-size:.85rem;margin-top:18px;font-style:italic">Every question works this way — bring your own to the Council above.</p>
   </div>
 </section>
-
-
 
 <section id="why-we-exist" style="background:var(--paper2);padding:64px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
   <div style="max-width:1300px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start">
 
     <div style="flex:1 1 480px;min-width:280px">
       <div class="sec-ey" style="margin-bottom:14px;color:var(--amberb)">Why This Matters</div>
-      <h2 style="font-family:'Libre Baskerville',serif;font-weight:700;font-size:clamp(2rem,4.4vw,3.1rem);letter-spacing:-.02em;line-height:1.15;color:var(--ink);margin-bottom:24px">Nobody wakes up asking what tradition to explore. They wake up asking: how do I go on, and grow?</h2>
+      <h2 style="font-family:'Libre Baskerville',serif;font-weight:700;font-size:clamp(2rem,4.4vw,3.1rem);letter-spacing:-.02em;line-height:1.15;color:var(--ink);margin-bottom:24px">Nobody wakes up asking what tradition to explore. They wake up asking: how do I go on?</h2>
       <p style="font-family:'Inter',sans-serif;font-size:1.1rem;color:var(--ink2);line-height:1.65;margin-bottom:16px">Everyone eventually faces questions Google can't answer. How do I forgive? How do I find purpose after retirement? How do I face illness? Humanity has spent thousands of years exploring exactly these questions.</p>
       <p style="font-family:'Inter',sans-serif;font-size:1.1rem;color:var(--ink2);line-height:1.65;margin-bottom:32px">The Wisdom Table brings those voices together in one place — and preserves them before they disappear. Elders pass every day, taking libraries with them that exist nowhere else. The books will survive. The grandmothers will not.</p>
       <button onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'})" style="background:var(--amber);border:none;border-radius:14px;padding:15px 28px;color:white;font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:.2s ease" onmouseover="this.style.background='var(--amberb)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--amber)';this.style.transform='translateY(0)'">Learn more about the project →</button>
@@ -1031,28 +1048,28 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(140,104,0,.08) 0%,transparent 65%);pointer-events:none"></div>
   <div style="position:absolute;inset:0;pointer-events:none;background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 28px,rgba(13,27,38,.018) 28px,rgba(13,27,38,.018) 29px)"></div>
   <div class="lw-hero-inner" style="position:relative;z-index:1;max-width:760px;margin:0 auto">
-    <div style="font-size:.6rem;letter-spacing:.36em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:14px">
+    <div style="font-size:.6rem;letter-spacing:.36em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:14px">
       <span style="display:block;width:48px;height:1px;background:rgba(183,123,47,.35)"></span>
       The Last Wisdom Project
       <span style="display:block;width:48px;height:1px;background:rgba(183,123,47,.35)"></span>
     </div>
+    <div style="font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(13,27,38,.45);margin-bottom:20px;font-style:italic">A Wisdom Table Preservation Initiative</div>
     <h1 style="font-family:'Libre Baskerville',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:400;color:var(--ink);line-height:1.1;margin-bottom:18px">What do you know now<br>that you wish you knew <em style="color:var(--gold);font-style:italic">at 20?</em></h1>
     <p style="font-size:1.05rem;color:rgba(13,27,38,.90);line-height:1.78;max-width:620px;margin:0 auto 28px">Every elder who dies takes a library with them. The hospice nurse who has sat with 300 people at the end. The farmer who worked the same land for sixty years. The grandmother who survived things she never told anyone. Their wisdom is not in any book. It lives only in them — and it is disappearing every day.</p>
     <div style="font-family:'Libre Baskerville',serif;font-size:clamp(1.1rem,2.2vw,1.6rem);font-style:italic;color:var(--gold);border-top:1px solid rgba(183,123,47,.2);border-bottom:1px solid rgba(183,123,47,.2);padding:18px 0;margin-bottom:28px">"The last word is never written in a book. It is spoken to someone who is listening."</div>
     <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:28px;max-width:680px;margin-left:auto;margin-right:auto">
-      <a href="contribute.html?q=What%20did%20love%20teach%20you%3F#lw-submit" style="font-family:'Inter',sans-serif;font-size:.88rem;font-style:italic;color:rgba(13,27,38,.86);padding:5px 12px;border:1px solid rgba(183,123,47,.15);border-radius:1px;text-decoration:none;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='rgba(183,123,47,.15)';this.style.color='rgba(13,27,38,.86)'">What did love teach you?</a>
-      <a href="contribute.html?q=What%20has%20brought%20you%20the%20deepest%20joy%3F#lw-submit" style="font-family:'Inter',sans-serif;font-size:.88rem;font-style:italic;color:rgba(13,27,38,.86);padding:5px 12px;border:1px solid rgba(183,123,47,.15);border-radius:1px;text-decoration:none;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='rgba(183,123,47,.15)';this.style.color='rgba(13,27,38,.86)'">What has brought you the deepest joy?</a>
-      <a href="contribute.html?q=What%20did%20loss%20teach%20you%3F#lw-submit" style="font-family:'Inter',sans-serif;font-size:.88rem;font-style:italic;color:rgba(13,27,38,.86);padding:5px 12px;border:1px solid rgba(183,123,47,.15);border-radius:1px;text-decoration:none;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='rgba(183,123,47,.15)';this.style.color='rgba(13,27,38,.86)'">What did loss teach you?</a>
-      <a href="contribute.html?q=What%20did%20your%20work%20teach%20you%3F#lw-submit" style="font-family:'Inter',sans-serif;font-size:.88rem;font-style:italic;color:rgba(13,27,38,.86);padding:5px 12px;border:1px solid rgba(183,123,47,.15);border-radius:1px;text-decoration:none;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='rgba(183,123,47,.15)';this.style.color='rgba(13,27,38,.86)'">What did your work teach you?</a>
-      <a href="contribute.html?q=What%20is%20disappearing%20with%20you%3F#lw-submit" style="font-family:'Inter',sans-serif;font-size:.88rem;font-style:italic;color:rgba(13,27,38,.86);padding:5px 12px;border:1px solid rgba(183,123,47,.15);border-radius:1px;text-decoration:none;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='rgba(183,123,47,.15)';this.style.color='rgba(13,27,38,.86)'">What is disappearing with you?</a>
-      <a href="contribute.html?q=What%20have%20the%20dying%20taught%20you%3F#lw-submit" style="font-family:'Inter',sans-serif;font-size:.88rem;font-style:italic;color:rgba(13,27,38,.86);padding:5px 12px;border:1px solid rgba(183,123,47,.15);border-radius:1px;text-decoration:none;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='rgba(183,123,47,.15)';this.style.color='rgba(13,27,38,.86)'">What have the dying taught you?</a>
-      <a href="contribute.html?q=What%20did%20crossing%20worlds%20teach%20you%3F#lw-submit" style="font-family:'Inter',sans-serif;font-size:.88rem;font-style:italic;color:rgba(13,27,38,.86);padding:5px 12px;border:1px solid rgba(183,123,47,.15);border-radius:1px;text-decoration:none;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='rgba(183,123,47,.15)';this.style.color='rgba(13,27,38,.86)'">What did crossing worlds teach you?</a>
-      <a href="contribute.html?q=What%20beauty%20have%20you%20witnessed%3F#lw-submit" style="font-family:'Inter',sans-serif;font-size:.88rem;font-style:italic;color:rgba(13,27,38,.86);padding:5px 12px;border:1px solid rgba(183,123,47,.15);border-radius:1px;text-decoration:none;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='rgba(183,123,47,.15)';this.style.color='rgba(13,27,38,.86)'">What beauty have you witnessed?</a>
+      <a href="contribute.html?q=What%20did%20love%20teach%20you%3F" style="font-family:'Inter',sans-serif;font-size:.88rem;font-style:italic;color:rgba(13,27,38,.86);padding:5px 12px;border:1px solid rgba(183,123,47,.15);border-radius:1px;text-decoration:none;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='rgba(183,123,47,.15)';this.style.color='rgba(13,27,38,.86)'">What did love teach you?</a>
+      <a href="contribute.html?q=What%20has%20brought%20you%20the%20deepest%20joy%3F" style="font-family:'Inter',sans-serif;font-size:.88rem;font-style:italic;color:rgba(13,27,38,.86);padding:5px 12px;border:1px solid rgba(183,123,47,.15);border-radius:1px;text-decoration:none;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='rgba(183,123,47,.15)';this.style.color='rgba(13,27,38,.86)'">What has brought you the deepest joy?</a>
+      <a href="contribute.html?q=What%20did%20loss%20teach%20you%3F" style="font-family:'Inter',sans-serif;font-size:.88rem;font-style:italic;color:rgba(13,27,38,.86);padding:5px 12px;border:1px solid rgba(183,123,47,.15);border-radius:1px;text-decoration:none;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='rgba(183,123,47,.15)';this.style.color='rgba(13,27,38,.86)'">What did loss teach you?</a>
+      <a href="contribute.html?q=What%20did%20your%20work%20teach%20you%3F" style="font-family:'Inter',sans-serif;font-size:.88rem;font-style:italic;color:rgba(13,27,38,.86);padding:5px 12px;border:1px solid rgba(183,123,47,.15);border-radius:1px;text-decoration:none;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='rgba(183,123,47,.15)';this.style.color='rgba(13,27,38,.86)'">What did your work teach you?</a>
+      <a href="contribute.html?q=What%20is%20disappearing%20with%20you%3F" style="font-family:'Inter',sans-serif;font-size:.88rem;font-style:italic;color:rgba(13,27,38,.86);padding:5px 12px;border:1px solid rgba(183,123,47,.15);border-radius:1px;text-decoration:none;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='rgba(183,123,47,.15)';this.style.color='rgba(13,27,38,.86)'">What is disappearing with you?</a>
+      <a href="contribute.html?q=What%20have%20the%20dying%20taught%20you%3F" style="font-family:'Inter',sans-serif;font-size:.88rem;font-style:italic;color:rgba(13,27,38,.86);padding:5px 12px;border:1px solid rgba(183,123,47,.15);border-radius:1px;text-decoration:none;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='rgba(183,123,47,.15)';this.style.color='rgba(13,27,38,.86)'">What have the dying taught you?</a>
+      <a href="contribute.html?q=What%20did%20crossing%20worlds%20teach%20you%3F" style="font-family:'Inter',sans-serif;font-size:.88rem;font-style:italic;color:rgba(13,27,38,.86);padding:5px 12px;border:1px solid rgba(183,123,47,.15);border-radius:1px;text-decoration:none;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='rgba(183,123,47,.15)';this.style.color='rgba(13,27,38,.86)'">What did crossing worlds teach you?</a>
+      <a href="contribute.html?q=What%20beauty%20have%20you%20witnessed%3F" style="font-family:'Inter',sans-serif;font-size:.88rem;font-style:italic;color:rgba(13,27,38,.86);padding:5px 12px;border:1px solid rgba(183,123,47,.15);border-radius:1px;text-decoration:none;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='rgba(183,123,47,.15)';this.style.color='rgba(13,27,38,.86)'">What beauty have you witnessed?</a>
     </div>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <a href="contribute.html#lw-submit" style="background:var(--amber);border:none;padding:13px 32px;color:var(--dark);font-family:'Inter',sans-serif;font-size:.75rem;letter-spacing:.14em;cursor:pointer;text-decoration:none;transition:background .2s" onmouseover="this.style.background='var(--amberb)'" onmouseout="this.style.background='var(--amber)'">Share Your Wisdom</a>
+      <a href="contribute.html" style="background:var(--amber);border:none;padding:13px 32px;color:var(--dark);font-family:'Inter',sans-serif;font-size:.75rem;letter-spacing:.14em;cursor:pointer;text-decoration:none;transition:background .2s" onmouseover="this.style.background='var(--amberb)'" onmouseout="this.style.background='var(--amber)'">Share Your Wisdom</a>
     </div>
-    <p style="font-size:.85rem;color:rgba(13,27,38,.65);font-style:italic;margin-top:16px">Every submission is reviewed by a human curator before it joins the library. This is not AI-generated content. This is your life, preserved.</p>
   </div>
 </section>
 
@@ -1140,14 +1157,20 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
 </section>
 
 <!-- SUBMISSION FORM -->
-
+<section id="lw-submit" style="background:var(--paper);padding:44px 0">
+  <div style="max-width:640px;margin:0 auto;padding:0 24px;text-align:center">
+    <div class="sec-ey" style="justify-content:center;margin-bottom:10px">Share Your Wisdom</div>
+    <p style="font-size:.95rem;color:var(--muted);font-style:italic;margin-bottom:22px;line-height:1.7">Every submission is reviewed by a human curator before it joins the library. This is not AI-generated content. This is your life, preserved.</p>
+    <a href="contribute.html" style="display:inline-block;background:var(--amber);border:none;padding:14px 32px;color:var(--dark);font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.02em;text-decoration:none;border-radius:12px;transition:background .2s" onmouseover="this.style.background='var(--amberb)'" onmouseout="this.style.background='var(--amber)'">Share Your Story →</a>
+  </div>
+</section>
 
 <!-- WHY IT MATTERS -->
 <section id="lw-why">
   <div class="lw-why-inner">
     <div style="font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--amber);margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:14px">
       <span style="display:block;width:40px;height:1px;background:rgba(140,104,0,.3)"></span>
-      Why This Matters
+      The Evidence
       <span style="display:block;width:40px;height:1px;background:rgba(140,104,0,.3)"></span>
     </div>
     <div style="font-family:'Libre Baskerville',serif;font-size:clamp(1.3rem,2.5vw,1.8rem);color:var(--ink);text-align:center;margin-bottom:32px">The books will survive.<br><em style="color:var(--muted)">The grandmothers will not.</em></div>
@@ -1155,12 +1178,12 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
       <div class="lw-why-item" style="border-left:3px solid var(--amber)">
         <div class="wi2-n" style="color:var(--amber)">!</div>
         <div class="wi2-title">The Scale of What Is Being Lost</div>
-        <div class="wi2-desc">According to tracking data compiled from global archives including <a href="https://www.atalm.org/" target="_blank" rel="noopener" style="color:var(--amberb);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(140,104,0,.3)">ATALM</a>, the <a href="https://africanoralhistory.com/" target="_blank" rel="noopener" style="color:var(--amberb);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(140,104,0,.3)">African Oral History Archive</a>, and the <a href="https://libraries.uky.edu/nunncenter" target="_blank" rel="noopener" style="color:var(--amberb);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(140,104,0,.3)">Nunn Center for Oral History</a>: over 40% of elder-held cultural traditions recorded on magnetic tape in the 20th century are currently at risk of physical degradation. It's often cited — via the <a href="https://www.endangeredlanguages.com/" target="_blank" rel="noopener" style="color:var(--amberb);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(140,104,0,.3)">Endangered Languages Project</a> and <a href="https://www.unesco.org/" target="_blank" rel="noopener" style="color:var(--amberb);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(140,104,0,.3)">UNESCO</a> — that a language, and the entire oral knowledge system it carries, disappears roughly every two weeks; more conservative academic estimates put the pace closer to every few months. Either way, The Last Wisdom Project exists because the window is closing.</div>
+        <div class="wi2-desc">According to tracking data compiled from global archives including <strong>ATALM</strong>, the <strong>African Oral History Archive</strong>, and the <strong>Nunn Center for Oral History</strong>: over 40% of elder-held cultural traditions recorded on magnetic tape in the 20th century are currently at risk of physical degradation. It's often cited — via the Endangered Languages Project and UNESCO — that a language, and the entire oral knowledge system it carries, disappears roughly every two weeks; more conservative academic estimates put the pace closer to every few months. Either way, The Last Wisdom Project exists because the window is closing.</div>
       </div>
       <div class="lw-why-item">
         <div class="wi2-n">2</div>
         <div class="wi2-title">Community Ownership</div>
-        <div class="wi2-desc">Our archival data policy follows the data sovereignty guidelines of the <a href="https://indigenousarchives.net/" target="_blank" rel="noopener" style="color:var(--amberb);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(140,104,0,.3)">Indigenous Archives Collective</a> and the <a href="https://oralhistory.org/indigenous-caucus/" target="_blank" rel="noopener" style="color:var(--amberb);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(140,104,0,.3)">Indigenous Caucus of the Oral History Association</a> — ensuring source communities retain complete ownership over their ancestors' spoken words. We hold in trust; we do not own.</div>
+        <div class="wi2-desc">Our archival data policy follows the data sovereignty guidelines of the <strong>Indigenous Archives Collective</strong> and the <strong>Indigenous Caucus of the Oral History Association</strong> — ensuring source communities retain complete ownership over their ancestors' spoken words. We hold in trust; we do not own.</div>
       </div>
     </div>
   </div>
@@ -1169,6 +1192,7 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
 <!-- FOOTER -->
 
 </div>
+
 <!-- WISDOM SCOUT — unified card: header, ticker, and recent discoveries in one frame -->
 <section id="scout-section" style="background:var(--paper2);padding:52px 0 48px;border-top:1px solid var(--rule)">
   <div style="max-width:1300px;margin:0 auto;padding:0 24px">
@@ -1232,18 +1256,15 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
     <div style="width:100%;text-align:center;font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amberb);margin-bottom:14px">The Wisdom Table at a Glance</div>
     <div class="stat-item" onclick="window.location.href='library.html#traditions'" style="cursor:pointer" title="Explore traditions">
       <span class="stat-n" id="stat-n-traditions">23+</span><span class="stat-l">Wisdom Traditions</span>
+      <span style="display:block;font-size:.68rem;color:var(--muted);letter-spacing:.02em;margin-top:6px;font-style:italic"><span class="stat-n" id="stat-n-entries" style="font-size:.68rem;color:var(--muted);font-style:italic">56</span> curated entries</span>
       <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Explore</span>
-    </div>
-    <div class="stat-item" onclick="window.location.href='library.html#traditions'" style="cursor:pointer" title="Browse the library">
-      <span class="stat-n" id="stat-n-entries">56</span><span class="stat-l">Curated Entries</span>
-      <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Browse</span>
     </div>
     <div class="stat-item"><span class="stat-n">4,000+</span><span class="stat-l">Years Spanned</span></div>
     <div class="stat-item" onclick="document.getElementById('council').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Enter the Council Room">
       <span class="stat-n">21</span><span class="stat-l">Human Questions</span>
       <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Ask one</span>
     </div>
-    <div class="stat-item" onclick="window.location.href='library.html#ways-of-knowing'" style="cursor:pointer" title="Discover ways of knowing">
+    <div class="stat-item" onclick="document.getElementById('ways-of-knowing').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Discover ways of knowing">
       <span class="stat-n">9</span><span class="stat-l">Ways of Knowing</span>
       <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Discover</span>
     </div>
@@ -1272,6 +1293,44 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
   </div>
 </section>
 
+
+
+<!-- EXPLORE QUESTIONS PEOPLE ASK — real, existing Council situations, made visible near the top -->
+<section id="explore-questions" style="background:var(--paper2);padding:52px 0 48px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <div style="font-family:'Libre Baskerville',serif;font-size:clamp(1.3rem,2.5vw,1.8rem);text-align:center;color:var(--ink);margin-bottom:8px">Explore Questions People Ask</div>
+    <p style="text-align:center;color:var(--muted);font-size:.92rem;margin-bottom:36px">Dive into timeless topics and see how wisdom traditions respond. Each one launches a real Council — not a preview.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px">
+      <div class="eq-card eq-photo" style="background-image:linear-gradient(0deg,rgba(20,14,6,.75),rgba(20,14,6,.15)),url('https://images.unsplash.com/photo-1759434192754-1ae85603cf8a?fm=jpg&q=60&w=600&auto=format&fit=crop')" onclick="launchCouncil('I am navigating grief and loss')">
+        <div class="eq-label eq-label-photo">Grief &amp; Loss</div>
+        <div class="eq-sub-photo">— and the peace that follows</div>
+      </div>
+      <div class="eq-card eq-photo" style="background-image:linear-gradient(0deg,rgba(20,14,6,.72),rgba(20,14,6,.12)),url('https://images.unsplash.com/photo-1745946596837-0393d87a1706?fm=jpg&q=60&w=600&auto=format&fit=crop')" onclick="launchCouncil('I am thinking about love and my relationship')">
+        <div class="eq-label eq-label-photo">Love &amp; Relationships</div>
+      </div>
+      <div class="eq-card eq-photo" style="background-image:linear-gradient(0deg,rgba(20,14,6,.7),rgba(20,14,6,.1)),url('https://images.unsplash.com/photo-1740421198589-f98aa30526ac?fm=jpg&q=60&w=600&auto=format&fit=crop')" onclick="launchCouncil('I am searching for purpose and meaning')">
+        <div class="eq-label eq-label-photo">Purpose &amp; Meaning</div>
+      </div>
+      <div class="eq-card eq-photo" style="background-image:linear-gradient(0deg,rgba(20,14,6,.72),rgba(20,14,6,.15)),url('https://images.unsplash.com/photo-1632159336539-21104caef467?fm=jpg&q=60&w=600&auto=format&fit=crop')" onclick="launchCouncil('I cannot forgive someone who hurt me')">
+        <div class="eq-label eq-label-photo">Forgiveness</div>
+        <div class="eq-sub-photo">— and the freedom it brings</div>
+      </div>
+      <div class="eq-card eq-photo" style="background-image:linear-gradient(0deg,rgba(20,14,6,.78),rgba(20,14,6,.2)),url('https://images.unsplash.com/photo-1758512202812-3bbe6806fff4?fm=jpg&q=60&w=600&auto=format&fit=crop')" onclick="launchCouncil('I am struggling with anxiety and cannot find peace')">
+        <div class="eq-label eq-label-photo">Fear &amp; Anxiety</div>
+        <div class="eq-sub-photo">— and the calm beneath it</div>
+      </div>
+      <div class="eq-card eq-photo" style="background-image:linear-gradient(0deg,rgba(20,14,6,.72),rgba(20,14,6,.15)),url('https://images.unsplash.com/photo-1647565110431-abfbeedd25cd?fm=jpg&q=60&w=600&auto=format&fit=crop')" onclick="launchCouncil('I am thinking about what kind of parent I want to be')">
+        <div class="eq-label eq-label-photo">Parenting &amp; Family</div>
+      </div>
+      <div class="eq-card eq-photo" style="background-image:linear-gradient(0deg,rgba(20,14,6,.72),rgba(20,14,6,.15)),url('https://images.unsplash.com/photo-1752842175346-a503a147ed8b?fm=jpg&q=60&w=600&auto=format&fit=crop')" onclick="launchCouncil('What actually brings real, lasting joy and equanimity? I want to understand it and find more of it')">
+        <div class="eq-label eq-label-photo">Joy &amp; Equanimity</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="library.html" style="font-family:'Inter',sans-serif;font-size:.68rem;letter-spacing:.1em;color:var(--amber);cursor:pointer;text-decoration:none">Browse every topic →</a>
+    </div>
+  </div>
+</section>
 
 
 <section id="library-teaser-1" style="background:var(--paper);padding:44px 0;border-top:1px solid var(--rule)">
@@ -1304,9 +1363,6 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
         <button class="cmp-btn" onclick="doCompare()">Compare Across Traditions →</button>
       </div>
       <div class="cmp-out" id="cmp-out"></div>
-      <div id="cmp-speak-row" style="display:none;text-align:right;padding:8px 0">
-        <button onclick="toggleReadAloud('cmp-out')" id="cmp-out-speak-btn" style="background:none;border:1px solid var(--rule);padding:6px 12px;font-size:.85rem;cursor:pointer;border-radius:6px" title="Read aloud">🔊 Read aloud</button
-      </div>
     </div>
   </div>
 </section><section id="library-teaser-2" style="background:var(--paper2);padding:36px 0;border-top:1px solid var(--rule)">
@@ -1316,7 +1372,32 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
   </div>
 </section>
 
-
+<section id="life-areas" style="background:var(--paper2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:36px 0">
+  <div style="max-width:1500px;margin:0 auto;padding:0 24px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:10px">
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--amber);margin-bottom:5px">Where are you right now?</div>
+        <div style="font-family:'Libre Baskerville',serif;font-size:1.15rem;color:var(--ink);font-weight:400">Find wisdom for where you are in life</div>
+      </div>
+      <a onclick="document.getElementById('treasury').scrollIntoView({behavior:'smooth'})" style="font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.1em;color:var(--amber);cursor:pointer;text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amberb)'" onmouseout="this.style.color='var(--amber)'">Browse all areas →</a>
+    </div>
+    <div style="font-size:.68rem;color:var(--muted);margin-bottom:10px;font-style:italic">✦ Ask the Council &nbsp;·&nbsp; ⌕ Browse the Library</div>
+    <div style="display:flex;flex-wrap:wrap;gap:7px">
+      <button onclick="launchCouncil('I am afraid of aging and what it means')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Aging</button>
+      <button onclick="launchCouncil('I or someone I love is facing serious illness')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Illness</button>
+      <button onclick="launchCouncil('I am facing death — my own or someone I love')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Death</button>
+      <button onclick="filterAndScroll('work')" class="la-btn"><span style="opacity:.55;margin-right:6px">⌕</span>Work &amp; Livelihood</button>
+      <button onclick="launchCouncil('What is enough? What is wealth actually for?')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Money &amp; Enough</button>
+      <button onclick="launchCouncil('I am in a position of leadership and need wisdom about how to lead well')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Leadership</button>
+      <button onclick="launchCouncil('I am navigating a difficult relationship within my family')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Family</button>
+      <button onclick="filterAndScroll('justice')" class="la-btn"><span style="opacity:.55;margin-right:6px">⌕</span>Justice</button>
+      <button onclick="filterAndScroll('war')" class="la-btn"><span style="opacity:.55;margin-right:6px">⌕</span>War &amp; Peace</button>
+      <button onclick="launchCouncil('I have lost my faith and feel unmoored')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Faith &amp; Doubt</button>
+      <button onclick="launchCouncil('I want to understand what different traditions say about the meaning of life')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Meaning</button>
+      <button onclick="filterAndScroll('nature')" class="la-btn"><span style="opacity:.55;margin-right:6px">⌕</span>Nature</button>
+    </div>
+  </div>
+</section>
 
 
 <!-- THREE ENTRY MODES -->
@@ -1352,7 +1433,6 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
   <div id="rp">
     <div class="rp-hd">
       <div class="rp-meta"><div class="rp-ey" id="rp-ey"></div><div class="rp-ttl" id="rp-ttl"></div></div>
-      <button class="rp-x" onclick="toggleReadAloud('rp-body')" id="rp-speak-btn" title="Read aloud" style="font-size:1rem;margin-right:4px">🔊</button>
       <button class="rp-x" onclick="closeRP()">✕</button>
     </div>
     <div class="rp-tabs">
@@ -1504,7 +1584,7 @@ p:last-child{margin-bottom:0}
         <div class="abt-steward-role">Author · Publisher · Teacher · Ordained Soto Zen Practitioner · Founder, Liminal Arts</div>
         <p>Paul Mandelstein has spent his life at the edge of things — where publishing meets wisdom, fatherhood meets spiritual practice, story meets the examined life. As co-founder of <em>The Book Publishing Company</em>, he originated the <em>For Dummies</em> format, then founded Quantum Publishing (acquired by John Wiley &amp; Sons) and the Father Resource Network. He wrote <em>Small Wisdoms</em> — a lifetime's distillation into 128 fables — and a body of new mythology folktales. More at <a href="https://paulmandelstein.com" target="_blank" rel="noopener" style="color:var(--amber);text-decoration:none;font-style:normal;border-bottom:1px solid rgba(140,104,0,.3);transition:border-color .2s" onmouseover="this.style.borderColor='var(--amber)'" onmouseout="this.style.borderColor='rgba(140,104,0,.3)'">paulmandelstein.com →</a></p>
         <p style="margin-top:10px">He co-founded The Farm intentional community in Tennessee, is an ordained Soto Zen practitioner in Suzuki Roshi's lineage, and served as a workshop facilitator at Esalen Institute. He founded Liminal Arts, the imprint under which The Wisdom Table operates.</p>
-        <p style="font-size:.82rem;color:var(--muted);margin-top:10px"><a href="mailto:pmandelstein@gmail.com" style="color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(78,61,32,.3)">pmandelstein@gmail.com</a> · wisdomtable.ai</p>
+        <p style="font-size:.82rem;color:var(--muted);margin-top:10px"><a href="mailto:pmandelstein@gmail.com" style="color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(78,61,32,.3)">pmandelstein@gmail.com</a> · thewisdomtable.ai</p>
       </div>
     </div>
   </div>
@@ -1642,7 +1722,7 @@ p:last-child{margin-bottom:0}
       <div style="font-family:'Libre Baskerville',serif;font-size:1.3rem;color:#0D1B26;font-weight:400;margin-bottom:8px">Wisdom is our greatest inheritance.<br><em style="color:rgba(13,27,38,.87)">Let's preserve it together.</em></div>
       <div style="font-size:.88rem;color:rgba(13,27,38,.87);font-style:italic;margin-bottom:22px;line-height:1.65">Explore. Contribute. Be part of the living story of humanity.</div>
       <div class="part-actions">
-        <div class="pa" onclick="window.location.href='contribute.html#lw-submit'">
+        <div class="pa" onclick="window.location.href='contribute.html'">
           <div class="pa-icon">✍</div>
           <div class="pa-name">Contribute</div>
           <div class="pa-desc">Share wisdom, stories, and recordings</div>
@@ -1685,18 +1765,18 @@ p:last-child{margin-bottom:0}
   <div class="foot-inner">
     <div>
       <div class="fb-brand">✦ THE WISDOM TABLE</div>
-      <div class="fb-sub">Humanity's Living Library of Meaning · wisdomtable.ai</div>
+      <div class="fb-sub">Humanity's Living Library of Meaning · thewisdomtable.ai</div>
       <p class="fb-text">A living library where humanity's wisdom traditions, personal experiences, and enduring questions meet — helping people navigate life while preserving knowledge that might otherwise be lost. Every tradition, every voice, every civilization — from the oldest oral teachings to the newest science of meaning.</p>
     </div>
     <div class="fc"><h5>Traditions</h5><a onclick="openT('Buddhism')">Buddhism</a><a onclick="openT('Christianity')">Christianity</a><a onclick="openT('Islam')">Islam</a><a onclick="openT('Judaism')">Judaism</a><a onclick="openT('Hinduism')">Hinduism</a><a onclick="openT('Taoism')">Taoism</a></div>
     <div class="fc"><h5>More</h5><a onclick="openT('Sikhism')">Sikhism</a><a onclick="openT('Bahá')">Bahá'í</a><a onclick="openT('Indigenous')">Indigenous</a><a onclick="openT('African')">African</a><a onclick="openT('Secular')">Secular &amp; Atheist</a><a onclick="filterAndScroll('Ways of Knowing')">Ways of Knowing</a></div>
-    <div class="fc"><h5>Navigate</h5><a onclick="document.getElementById('explore-questions').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">Humanity's Questions</a><a onclick="document.getElementById('scout-section').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">Wisdom Scout</a>
+    <div class="fc"><h5>Navigate</h5><a onclick="document.getElementById('life-areas').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">Humanity's Questions</a><a onclick="document.getElementById('scout-section').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">Wisdom Scout</a>
       <a href="#last-wisdom-section" onclick="document.getElementById('last-wisdom-section').scrollIntoView({behavior:'smooth'});return false;">The Last Wisdom Project</a><a href="#about-section" onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'});return false;">About the Project</a></div>
-    <div class="fc"><h5>The Mission</h5><a href="about.html#what-makes-different">Nothing Excluded</a><a href="about.html#editorial-principles">Radical Transparency</a><a href="contribute.html#lw-submit">Preserve Endangered Wisdom</a><br><h5 style="margin-top:14px">Contact</h5><span style="display:block;color:rgba(13,27,38,.86);font-size:.88rem">wisdomtable.ai</span></div>
+    <div class="fc"><h5>The Mission</h5><a href="about.html">Nothing Excluded</a><a href="about.html">Radical Transparency</a><a href="contribute.html">Preserve Endangered Wisdom</a><br><h5 style="margin-top:14px">Contact</h5><a href="mailto:pmandelstein@gmail.com" style="display:block;color:rgba(13,27,38,.86);font-size:.88rem;text-decoration:none">pmandelstein@gmail.com</a></div>
   </div>
   <div class="f-btm">
     <div class="f-epi">"The table is set. There is a seat for everyone."</div>
-    <div class="f-legal">The Wisdom Table · Humanity's Living Library of Meaning · wisdomtable.ai</div>
+    <div class="f-legal">The Wisdom Table · Humanity's Living Library of Meaning · thewisdomtable.ai</div>
   </div>
 </footer>
 
@@ -1825,7 +1905,6 @@ async function doCompare() {
   const html = await callAI_treasury(`Compare how these traditions answer: "${q}"\n\nTraditions: ${trads}\n\nFor each tradition give their actual, specific answer — not just that they addressed it. Use <h4> for tradition names, <p> for content. Be specific. Show real agreements and real disagreements.`);
   renderCompareGrid(out, html);
   out.classList.add('vis');
-  document.getElementById('cmp-speak-row').style.display = 'block';
 }
 
 // Parses the AI's <h4>Tradition</h4><p>...</p> response into genuine
@@ -2324,14 +2403,7 @@ function filterEntries(trad,q){
   return entries;
 }
 
-function trSearch(v){
-  if (v.trim().length > 0) {
-    const wrap = document.getElementById('collapse-tr-grid');
-    const btn = document.getElementById('expand-tr-grid-wrap');
-    if (wrap && wrap.style.display === 'none') { wrap.style.display = 'block'; if (btn) btn.style.display = 'none'; }
-  }
-  renderEntries(filterEntries(activeTr,v));
-}
+function trSearch(v){renderEntries(filterEntries(activeTr,v));}
 function trClear(){document.getElementById('tr-q').value='';renderEntries(filterEntries(activeTr,''));}
 
 function openE(idOrPrompt,trad){
@@ -2361,60 +2433,6 @@ function openE(idOrPrompt,trad){
   rp.classList.add('vis');
   // Scroll to treasury
   document.getElementById('treasury').scrollIntoView({behavior:'smooth',block:'start'});
-}
-
-let currentReadAloudUtterance = null;
-let currentReadAloudBtn = null;
-
-function toggleReadAloud(elementId) {
-  const synth = window.speechSynthesis;
-  if (!synth) return;
-
-  // If something is currently speaking, stop it (acts as a pause/stop toggle)
-  if (synth.speaking) {
-    synth.cancel();
-    if (currentReadAloudBtn) currentReadAloudBtn.textContent = '🔊';
-    currentReadAloudUtterance = null;
-    currentReadAloudBtn = null;
-    return;
-  }
-
-  const el = document.getElementById(elementId);
-  if (!el) return;
-  const text = el.innerText || el.textContent || '';
-  if (!text.trim()) return;
-
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.rate = 0.95;
-  const btn = document.getElementById(elementId === 'rp-body' ? 'rp-speak-btn' : elementId + '-speak-btn');
-  utterance.onend = () => {
-    if (btn) btn.textContent = '🔊';
-    currentReadAloudUtterance = null;
-    currentReadAloudBtn = null;
-  };
-  utterance.onerror = () => {
-    if (btn) btn.textContent = '🔊';
-    currentReadAloudUtterance = null;
-    currentReadAloudBtn = null;
-  };
-
-  currentReadAloudUtterance = utterance;
-  currentReadAloudBtn = btn;
-  if (btn) btn.textContent = '⏸';
-  synth.speak(utterance);
-}
-
-function saveCompareToArchive(btn) {
-  const body = document.getElementById('cmp-out')?.innerHTML || '';
-  const topic = document.getElementById('cmp-q')?.value.trim() || 'Comparison';
-  saveToArchive('Compare Traditions', topic, '', body, btn);
-}
-
-function saveEntryToArchive(btn) {
-  const title = document.getElementById('rp-ttl')?.textContent || 'Library Entry';
-  const meta = document.getElementById('rp-ey')?.textContent || '';
-  const body = document.getElementById('rp-body')?.innerHTML || '';
-  saveToArchive('Library Entry', title, meta, body, btn);
 }
 
 function closeRP(){
@@ -2485,7 +2503,7 @@ async function rpAsk(){
 
 async function callAI_treasury(prompt, onChunk){
   try{
-    const r=await fetch(getAPIEndpoint(),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:4000,stream:true,system:`You are the Wisdom Table guide — scholarly, warm, spanning all traditions. Respond in HTML using only <h4> headings and <p> paragraphs. End with something the seeker can use today.`,messages:[{role:"user",content:prompt}]})});
+    const r=await fetch(getAPIEndpoint(),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:1000,stream:true,system:`You are the Wisdom Table guide — scholarly, warm, spanning all traditions. Respond in HTML using only <h4> headings and <p> paragraphs. End with something the seeker can use today.`,messages:[{role:"user",content:prompt}]})});
     if (!r.ok || !r.body) {
       // Fallback: try to read as plain JSON (non-streaming proxy or error)
       try {
@@ -2528,24 +2546,8 @@ document.querySelectorAll('.ts-pill,.tpill').forEach(p=>{
   });
 });
 
-// Deep-link support: ?tr=<tradition name> auto-filters and scrolls to Treasury on load
-let _deepLinkTradition = null;
-(function checkForTraditionDeepLink() {
-  const params = new URLSearchParams(window.location.search);
-  const tr = params.get('tr');
-  if (tr) {
-    _deepLinkTradition = tr;
-    activeTr = tr;
-    forceExpandTreasury();
-    const titleEl = document.getElementById('tr-title');
-    if (titleEl) titleEl.textContent = activeTr;
-    const t = document.getElementById('treasury');
-    if (t) setTimeout(() => t.scrollIntoView({behavior: 'smooth', block: 'start'}), 400);
-  }
-})();
-
-// Initial render — use the deep-link filter if one was requested, otherwise show everything
-renderEntries(_deepLinkTradition ? filterEntries(_deepLinkTradition, '') : ALL_ENTRIES);
+// Initial render
+renderEntries(ALL_ENTRIES);
 
 
 // ══ AUDIO PLAYBACK ══
@@ -2826,7 +2828,7 @@ function downloadCard() {
   ctx.font = 'italic 16px Georgia, serif';
   ctx.textAlign = 'center';
   ctx.letterSpacing = '0';
-  ctx.fillText('wisdomtable.ai', W/2, H - 22);
+  ctx.fillText('thewisdomtable.ai', W/2, H - 22);
 
   // ── Download ──
   const link = document.createElement('a');
@@ -2856,16 +2858,26 @@ function getCheckedPanelists() {
 }
 
 async function conveneCouncil() {
-  const dilemma = document.getElementById('council-input')?.value.trim();
-  if (!dilemma) return;
-  const panelists = getCheckedPanelists();
-  if (!panelists.length) return;
-
-  const btn = document.getElementById('convene-btn');
-  btn.disabled = true;
-  btn.textContent = 'Gathering the council…';
-
-  await _conveneCouncilLive(dilemma, panelists, btn);
+  // ── COUNCIL ROOM: Backend activation pending ──
+  // The Council Room requires a secure API proxy to protect the Anthropic key.
+  // This will be live within days. For now, show a waitlist message.
+  const output = document.getElementById('council-output');
+  const loading = document.getElementById('council-loading');
+  if (loading) loading.style.display = 'none';
+  if (output) {
+    output.style.display = 'block';
+    output.innerHTML = `
+      <div style="text-align:center;padding:48px 24px;border:1px solid rgba(183,123,47,.2);background:rgba(183,123,47,.04)">
+        <div style="font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(183,123,47,.85);margin-bottom:16px">Coming Within Days</div>
+        <div style="font-family:'Libre Baskerville',serif;font-size:1.5rem;color:#0D1B26;margin-bottom:14px;font-style:italic">The Council Room is preparing.</div>
+        <p style="font-size:.92rem;color:rgba(13,27,38,.88);max-width:480px;margin:0 auto 22px;line-height:1.75">We are completing the final technical step to bring the Council Room live. Leave your email below and you will be the first to know when the wisest voices in human history are ready to hear your question.</p>
+        <div style="display:flex;gap:8px;max-width:380px;margin:0 auto">
+          <input type="email" id="cr-waitlist-email" placeholder="Your email address" style="flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(183,123,47,.3);padding:10px 14px;color:#0D1B26;font-family:'Inter',sans-serif;font-size:.92rem;outline:none">
+          <button onclick="crWaitlist()" style="background:var(--amber);border:none;padding:10px 18px;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.1em;color:var(--dark);cursor:pointer">Notify Me</button>
+        </div>
+        <p style="font-size:.75rem;color:rgba(13,27,38,.78);margin-top:10px;font-style:italic">Or explore the library while you wait — every tradition is already here.</p>
+      </div>`;
+  }
 }
 
 function crWaitlist() {
@@ -2903,10 +2915,6 @@ Format as HTML. For each panelist use exactly this structure:
 
 Keep each response to 2-3 sentences. Make it feel like a real conversation, not a list of separate answers. Have them reference each other.`;
 
-  const renderPartial = (html) => {
-    document.getElementById('council-dialogue').innerHTML = html;
-  };
-
   try {
     const r = await fetch(getAPIEndpoint(), {
       method: "POST",
@@ -2914,43 +2922,12 @@ Keep each response to 2-3 sentences. Make it feel like a real conversation, not 
       body: JSON.stringify({
         model: "claude-sonnet-4-6",
         max_tokens: 1200,
-        stream: true,
         system: "You are the Wisdom Table Council facilitator. Generate warm, specific, actionable dialogue between wisdom traditions responding to a personal dilemma. Use only the HTML structure specified. Each voice should feel distinct and authentic.",
         messages: [{ role: "user", content: prompt }]
       })
     });
-
-    let dialogue = '';
-
-    if (!r.ok || !r.body) {
-      // Fallback: try plain JSON in case the proxy isn't streaming this response
-      const d = await r.json();
-      dialogue = d.content?.[0]?.text || '<p style="color:var(--muted);font-style:italic">Could not generate dialogue.</p>';
-    } else {
-      const reader = r.body.getReader();
-      const decoder = new TextDecoder();
-      let buffer = '';
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        buffer += decoder.decode(value, { stream: true });
-        const lines = buffer.split('\n');
-        buffer = lines.pop();
-        for (const line of lines) {
-          if (!line.startsWith('data: ')) continue;
-          const payload = line.slice(6).trim();
-          if (payload === '[DONE]') continue;
-          try {
-            const evt = JSON.parse(payload);
-            if (evt.type === 'content_block_delta' && evt.delta?.text) {
-              dialogue += evt.delta.text;
-              renderPartial(dialogue);
-            }
-          } catch { /* ignore malformed SSE lines */ }
-        }
-      }
-      if (!dialogue) dialogue = '<p style="color:var(--muted);font-style:italic">Could not generate dialogue.</p>';
-    }
+    const d = await r.json();
+    const dialogue = d.content?.[0]?.text || '<p style="color:var(--muted);font-style:italic">Could not generate dialogue.</p>';
 
     document.getElementById('council-dialogue').innerHTML = dialogue;
     document.getElementById('council-share').style.display = 'flex';
@@ -2974,13 +2951,6 @@ function loadTrending(dilemma) {
   });
 }
 
-function saveCouncilToArchive(btn) {
-  if (!window._lastCouncil) return;
-  const { dilemma, panelists, dialogue } = window._lastCouncil;
-  const meta = panelists.map(p => p.name).join(', ');
-  saveToArchive('Council Dialogue', dilemma, meta, dialogue, btn);
-}
-
 function shareCouncil() {
   if (!window._lastCouncil) return;
   const { dilemma, panelists, dialogue } = window._lastCouncil;
@@ -2990,7 +2960,7 @@ function shareCouncil() {
       const text = el.querySelector('.de-text')?.textContent || '';
       return `${speaker}\n${text}`;
     }).join('\n\n') +
-    '\n\nwisdomtable.ai';
+    '\n\nthewisdomtable.ai';
 
   if (navigator.clipboard) {
     navigator.clipboard.writeText(text).then(() => {
@@ -3033,224 +3003,9 @@ document.addEventListener('click', (e) => {
   }
 });
 
-const HERO_NAME_SETS = [
-  'Socrates, Buddha, Marie Curie',
-  'Rumi, Maya Angelou, Marcus Aurelius',
-  'Confucius, Simone de Beauvoir, Thích Nhất Hạnh',
-  'Mahatma Gandhi, Harriet Tubman, Lao Tzu'
-];
-
-(function rotateHeroNames() {
-  const el = document.getElementById('hero-names');
-  if (!el) return;
-  let i = 0;
-  setInterval(() => {
-    i = (i + 1) % HERO_NAME_SETS.length;
-    el.style.opacity = '0';
-    setTimeout(() => {
-      el.textContent = HERO_NAME_SETS[i];
-      el.style.opacity = '1';
-    }, 400);
-  }, 4000);
-})();
-
-const ARCHIVE_KEY = 'wt_my_archive';
-const SESSION_KEY = 'wt_session_token';
-const AUTH_API = 'https://wisdomtable.pmandelstein.workers.dev';
-
-function getSessionToken() {
-  return localStorage.getItem(SESSION_KEY) || null;
-}
-
-function isSignedIn() {
-  return !!getSessionToken();
-}
-
-function signOut() {
-  localStorage.removeItem(SESSION_KEY);
-  renderArchive();
-}
-
-async function requestMagicLink(email, btn) {
-  if (!email || !email.includes('@')) return;
-  if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
-  try {
-    const r = await fetch(AUTH_API + '/auth/request-link', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email })
-    });
-    const d = await r.json();
-    const statusEl = document.getElementById('signin-status');
-    if (d.ok) {
-      if (statusEl) statusEl.innerHTML = '<span style="color:var(--amberb)">✓ Check your email for a sign-in link.</span>';
-    } else {
-      if (statusEl) statusEl.innerHTML = '<span style="color:#A03030">Something went wrong. Please try again.</span>';
-    }
-  } catch (e) {
-    const statusEl = document.getElementById('signin-status');
-    if (statusEl) statusEl.innerHTML = '<span style="color:#A03030">Could not connect. Please try again.</span>';
-  }
-  if (btn) { btn.disabled = false; btn.textContent = 'Send Magic Link'; }
-}
-
-// Check for a ?session=... token in the URL (arriving from a clicked magic link)
-(function checkForIncomingSession() {
-  const params = new URLSearchParams(window.location.search);
-  const incoming = params.get('session');
-  if (incoming) {
-    localStorage.setItem(SESSION_KEY, incoming);
-    params.delete('session');
-    const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '') + window.location.hash;
-    window.history.replaceState({}, '', newUrl);
-    syncArchiveFromServer();
-  }
-})();
-
-async function syncArchiveFromServer() {
-  const token = getSessionToken();
-  if (!token) return;
-  try {
-    const r = await fetch(AUTH_API + '/archive', {
-      headers: { 'Authorization': 'Bearer ' + token }
-    });
-    if (!r.ok) {
-      if (r.status === 401) localStorage.removeItem(SESSION_KEY); // session expired
-      renderArchive();
-      return;
-    }
-    const d = await r.json();
-    const remote = d.items || [];
-    const local = getArchive();
-    const merged = [...remote];
-    local.forEach(l => { if (!merged.find(m => m.id === l.id)) merged.push(l); });
-    merged.sort((a, b) => new Date(b.savedAt) - new Date(a.savedAt));
-    saveArchive(merged.slice(0, 100));
-  } catch (e) { /* offline or server unreachable — local copy still works */ }
-  renderArchive();
-}
-
-function getArchive() {
-  try {
-    return JSON.parse(localStorage.getItem(ARCHIVE_KEY) || '[]');
-  } catch { return []; }
-}
-
-function saveArchive(items) {
-  try {
-    localStorage.setItem(ARCHIVE_KEY, JSON.stringify(items));
-  } catch { /* storage full or unavailable — silently no-op */ }
-}
-
-function saveToArchive(type, title, meta, body, btn) {
-  const items = getArchive();
-  const newItem = {
-    id: 'a' + Date.now(),
-    type, title, meta, body,
-    savedAt: new Date().toISOString()
-  };
-  items.unshift(newItem);
-  saveArchive(items.slice(0, 100)); // cap at 100 saved items
-  renderArchive();
-  if (btn) {
-    const original = btn.textContent;
-    btn.textContent = '✓ Saved';
-    setTimeout(() => { btn.textContent = original; }, 1500);
-  }
-
-  const token = getSessionToken();
-  if (token) {
-    fetch(AUTH_API + '/archive', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
-      body: JSON.stringify(newItem)
-    }).catch(() => { /* saved locally regardless; will retry on next sync */ });
-  }
-}
-
-function deleteFromArchive(id) {
-  saveArchive(getArchive().filter(item => item.id !== id));
-  renderArchive();
-
-  const token = getSessionToken();
-  if (token) {
-    fetch(AUTH_API + '/archive', {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
-      body: JSON.stringify({ id })
-    }).catch(() => {});
-  }
-}
-
-function renderArchive() {
-  const list = document.getElementById('my-archive-list');
-  const signinBox = document.getElementById('archive-signin-box');
-  if (!list) return;
-
-  if (signinBox) {
-    if (isSignedIn()) {
-      signinBox.innerHTML = '<p style="font-size:.85rem;color:var(--muted);text-align:center;margin-bottom:0">✓ Signed in — your archive syncs across your devices. <a onclick="signOut()" style="color:var(--amberb);cursor:pointer;text-decoration:underline">Sign out</a></p>';
-    } else {
-      signinBox.innerHTML = `
-        <div style="max-width:420px;margin:0 auto 32px;text-align:center;border:1px solid var(--rule);padding:20px;background:var(--paper2)">
-          <p style="font-size:.85rem;color:var(--ink2);margin-bottom:12px">Sign in to sync your archive across every device.</p>
-          <div style="display:flex;gap:8px">
-            <input type="email" id="signin-email" placeholder="Your email address" style="flex:1;padding:8px 12px;border:1px solid var(--rule);font-size:.9rem">
-            <button onclick="requestMagicLink(document.getElementById('signin-email').value, this)" style="background:var(--amber);border:none;padding:8px 16px;font-size:.85rem;font-weight:700;cursor:pointer;white-space:nowrap">Send Magic Link</button>
-          </div>
-          <div id="signin-status" style="margin-top:10px;font-size:.85rem"></div>
-        </div>`;
-    }
-  }
-
-  const items = getArchive();
-
-  if (!items.length) {
-    list.innerHTML = '<div style="background:var(--paper);padding:32px 24px;text-align:center;color:var(--muted);font-style:italic;font-size:.92rem">Nothing saved yet. Look for the 💾 button on Council dialogues, library entries, and comparisons.</div>';
-    return;
-  }
-
-  list.innerHTML = items.map(item => `
-    <div style="background:var(--paper);padding:18px 20px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px">
-      <div style="flex:1;min-width:0">
-        <div style="font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:4px">${item.type}</div>
-        <div style="font-family:'Libre Baskerville',serif;font-size:1.05rem;color:var(--ink);margin-bottom:4px">${item.title}</div>
-        <div style="font-size:.8rem;color:var(--muted)">${item.meta || ''}</div>
-      </div>
-      <div style="display:flex;gap:8px;flex-shrink:0">
-        <button onclick='viewArchiveItem("${item.id}")' style="background:none;border:1px solid var(--rule);padding:6px 12px;font-size:.78rem;cursor:pointer;border-radius:6px">View</button>
-        <button onclick="deleteFromArchive('${item.id}')" style="background:none;border:1px solid var(--rule);padding:6px 10px;font-size:.78rem;cursor:pointer;border-radius:6px;color:#A03030">✕</button>
-      </div>
-    </div>
-  `).join('');
-}
-
-function viewArchiveItem(id) {
-  const item = getArchive().find(i => i.id === id);
-  if (!item) return;
-  const modal = document.createElement('div');
-  modal.style.cssText = 'position:fixed;inset:0;background:rgba(13,27,38,.6);z-index:2000;display:flex;align-items:center;justify-content:center;padding:24px';
-  modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
-  modal.innerHTML = `
-    <div style="background:var(--paper);max-width:640px;max-height:80vh;overflow-y:auto;padding:32px;border-radius:8px;position:relative">
-      <button onclick="this.closest('div[style*=fixed]').remove()" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:1.2rem;cursor:pointer">✕</button>
-      <div style="font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:8px">${item.type}</div>
-      <div style="font-family:'Libre Baskerville',serif;font-size:1.4rem;color:var(--ink);margin-bottom:16px">${item.title}</div>
-      <div style="font-size:.95rem;color:var(--ink2);line-height:1.7">${item.body}</div>
-    </div>
-  `;
-  document.body.appendChild(modal);
-}
-
 function toggleMobileNav() {
   document.getElementById('mobile-nav-panel')?.classList.toggle('open');
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  renderArchive();
-  if (isSignedIn()) syncArchiveFromServer();
-});
-
 
 function closeMobileNavAndScroll(id) {
   document.getElementById('mobile-nav-panel')?.classList.remove('open');
@@ -4284,18 +4039,5 @@ setInterval(fetchPublishedDiscoveries, 5 * 60 * 1000); // every 5 minutes
 
 
 </script>
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    autoDisplay: false
-  }, 'google_translate_element');
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    autoDisplay: false
-  }, 'google_translate_element_mobile');
-}
-</script>
-<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
