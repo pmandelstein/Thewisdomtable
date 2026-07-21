@@ -818,6 +818,37 @@ textarea{resize:vertical;line-height:1.65}
   </div>
 </section>
 
+<!-- DEMONSTRATION — show, don't just explain: a real example before anyone types a question -->
+<div style="max-width:760px;margin:0 auto 8px;padding:0 24px">
+  <div style="border:1px solid var(--rule);border-top:3px solid var(--amber);background:var(--paper2)">
+    <div style="padding:16px 22px 12px;border-bottom:1px solid var(--rule)">
+      <div style="font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:5px">This is what happens when you ask</div>
+      <div style="font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.15rem;color:var(--ink)">"Should I forgive someone who betrayed me?"</div>
+    </div>
+    <div style="padding:6px 22px 4px">
+      <div class="dialogue-entry">
+        <div class="de-speaker">Buddha <span class="de-trad">· Buddhism</span></div>
+        <div class="de-text">Holding onto resentment is like drinking poison and expecting the other person to suffer. Forgiveness is not for them — it is the release of your own grip on the wound.</div>
+      </div>
+      <div class="dialogue-entry">
+        <div class="de-speaker">Marcus Aurelius <span class="de-trad">· Stoicism</span></div>
+        <div class="de-text">They did wrong out of ignorance, not malice they fully understood. Anger at them for being what they are is as pointless as anger at a rock for being hard.</div>
+      </div>
+      <div class="dialogue-entry">
+        <div class="de-speaker">Maya Angelou <span class="de-trad">· Secular · Poetry</span></div>
+        <div class="de-text">Forgiveness is one of the greatest gifts you can give yourself. Not because you excuse what happened, but because you refuse to let it keep costing you.</div>
+      </div>
+      <div class="dialogue-entry" style="border-bottom:none">
+        <div class="de-speaker">Confucius <span class="de-trad">· Confucianism</span></div>
+        <div class="de-text">The superior person examines their own conduct first. Ask what this betrayal reveals about the relationship — then decide, with clear eyes, whether trust can be rebuilt.</div>
+      </div>
+    </div>
+    <div style="padding:12px 22px 18px;text-align:center">
+      <span style="font-size:.8rem;color:var(--muted);font-style:italic">Every question gets real, distinct answers — you choose how many voices weigh in.</span>
+    </div>
+  </div>
+</div>
+
 <!-- WHY WE EXIST — the mission, introduced only after someone has had a reason to care -->
 <div 
 id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px solid var(--rule)">
@@ -1021,7 +1052,6 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
     <div style="font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(13,27,38,.45);margin-bottom:20px;font-style:italic">A Wisdom Table Preservation Initiative</div>
     <h1 style="font-family:'Libre Baskerville',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:400;color:var(--ink);line-height:1.1;margin-bottom:18px">What do you know now<br>that you wish you knew <em style="color:var(--gold);font-style:italic">at 20?</em></h1>
     <p style="font-size:1.05rem;color:rgba(13,27,38,.90);line-height:1.78;max-width:620px;margin:0 auto 28px">Every elder who dies takes a library with them. The hospice nurse who has sat with 300 people at the end. The farmer who worked the same land for sixty years. The grandmother who survived things she never told anyone. Their wisdom is not in any book. It lives only in them — and it is disappearing every day.</p>
-    <div style="font-family:'Libre Baskerville',serif;font-size:clamp(1.1rem,2.2vw,1.6rem);font-style:italic;color:var(--gold);border-top:1px solid rgba(183,123,47,.2);border-bottom:1px solid rgba(183,123,47,.2);padding:18px 0;margin-bottom:28px">"The last word is never written in a book. It is spoken to someone who is listening."</div>
     <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:28px;max-width:680px;margin-left:auto;margin-right:auto">
       <a href="contribute.html?q=What%20did%20love%20teach%20you%3F" style="font-family:'Inter',sans-serif;font-size:.88rem;font-style:italic;color:rgba(13,27,38,.86);padding:5px 12px;border:1px solid rgba(183,123,47,.15);border-radius:1px;text-decoration:none;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='rgba(183,123,47,.15)';this.style.color='rgba(13,27,38,.86)'">What did love teach you?</a>
       <a href="contribute.html?q=What%20has%20brought%20you%20the%20deepest%20joy%3F" style="font-family:'Inter',sans-serif;font-size:.88rem;font-style:italic;color:rgba(13,27,38,.86);padding:5px 12px;border:1px solid rgba(183,123,47,.15);border-radius:1px;text-decoration:none;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amberb)'" onmouseout="this.style.borderColor='rgba(183,123,47,.15)';this.style.color='rgba(13,27,38,.86)'">What has brought you the deepest joy?</a>
@@ -1316,11 +1346,9 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
       <button onclick="filterAndScroll('work')" class="la-btn"><span style="opacity:.55;margin-right:6px">⌕</span>Work &amp; Livelihood</button>
       <button onclick="launchCouncil('What is enough? What is wealth actually for?')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Money &amp; Enough</button>
       <button onclick="launchCouncil('I am in a position of leadership and need wisdom about how to lead well')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Leadership</button>
-      <button onclick="launchCouncil('I am navigating a difficult relationship within my family')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Family</button>
       <button onclick="filterAndScroll('justice')" class="la-btn"><span style="opacity:.55;margin-right:6px">⌕</span>Justice</button>
       <button onclick="filterAndScroll('war')" class="la-btn"><span style="opacity:.55;margin-right:6px">⌕</span>War &amp; Peace</button>
       <button onclick="launchCouncil('I have lost my faith and feel unmoored')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Faith &amp; Doubt</button>
-      <button onclick="launchCouncil('I want to understand what different traditions say about the meaning of life')" class="la-btn"><span style="opacity:.55;margin-right:6px">✦</span>Meaning</button>
       <button onclick="filterAndScroll('nature')" class="la-btn"><span style="opacity:.55;margin-right:6px">⌕</span>Nature</button>
     </div>
   </div>
@@ -1373,9 +1401,6 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
   </div>
   <div id="collapse-tr-grid" style="display:none">
   <div id="tr-grid"></div>
-  </div>
-  <div id="expand-tr-grid-wrap" style="text-align:center;padding:16px 0">
-    <button onclick="toggleCollapse('tr-grid')" style="background:none;border:1px solid rgba(183,123,47,.4);padding:12px 28px;color:var(--amberb);font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;border-radius:10px;transition:all .2s" onmouseover="this.style.background='rgba(183,123,47,.08)'" onmouseout="this.style.background='none'">Browse All Entries →</button>
   </div>
 </div>
 <div id="about-section">
