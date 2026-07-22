@@ -1255,7 +1255,7 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
       <span class="stat-n">21</span><span class="stat-l">Human Questions</span>
       <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Ask one</span>
     </div>
-    <div class="stat-item" onclick="document.getElementById('ways-of-knowing').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Discover ways of knowing">
+    <div class="stat-item" onclick="window.location.href='library.html#ways-of-knowing'" style="cursor:pointer" title="Discover ways of knowing">
       <span class="stat-n">9</span><span class="stat-l">Ways of Knowing</span>
       <span style="display:block;font-size:.6rem;color:rgba(140,104,0,.5);letter-spacing:.1em;margin-top:3px">→ Discover</span>
     </div>
@@ -2786,11 +2786,8 @@ async function conveneCouncil() {
   // ── COUNCIL ROOM: Backend activation pending ──
   // The Council Room requires a secure API proxy to protect the Anthropic key.
   // This will be live within days. For now, show a waitlist message.
-  const output = document.getElementById('council-output');
-  const loading = document.getElementById('council-loading');
-  if (loading) loading.style.display = 'none';
+  const output = document.getElementById('council-dialogue');
   if (output) {
-    output.style.display = 'block';
     output.innerHTML = `
       <div style="text-align:center;padding:48px 24px;border:1px solid rgba(183,123,47,.2);background:rgba(183,123,47,.04)">
         <div style="font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(183,123,47,.85);margin-bottom:16px">Coming Within Days</div>
@@ -2802,13 +2799,14 @@ async function conveneCouncil() {
         </div>
         <p style="font-size:.75rem;color:rgba(13,27,38,.78);margin-top:10px;font-style:italic">Or explore the library while you wait — every tradition is already here.</p>
       </div>`;
+    output.scrollIntoView({behavior:'smooth', block:'center'});
   }
 }
 
 function crWaitlist() {
   const email = document.getElementById('cr-waitlist-email')?.value?.trim();
   if (!email) return;
-  const output = document.getElementById('council-output');
+  const output = document.getElementById('council-dialogue');
   if (output) output.innerHTML = `<div style="text-align:center;padding:32px;color:rgba(13,27,38,.90);font-style:italic;font-family:'Libre Baskerville',serif;font-size:1.1rem">"The table is set. We will save your seat."<br><span style="font-size:.8rem;font-style:normal;color:rgba(13,27,38,.4);font-family:'Inter',sans-serif">You'll hear from us within days.</span></div>`;
 }
 
