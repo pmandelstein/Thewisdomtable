@@ -3903,6 +3903,21 @@ const HERO_NAME_COLOR = '#6A1C1C'; // red for all rotating name sets
   }, 4000);
 })();
 
+// ══ DEEP LINK FROM OTHER PAGES — opens a specific entry when arriving via
+// index.html?entry=<id> (used by library.html's Ways of Knowing tiles, and
+// available for any other page that wants to link straight to an entry) ══
+(function openEntryFromQueryParam() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('entry');
+    if (id && typeof openE === 'function') {
+      openE(id);
+    }
+  } catch (e) {
+    // Fail silently — a bad or missing param should never break the homepage
+  }
+})();
+
 </script>
 </body>
 </html>
