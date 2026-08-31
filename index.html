@@ -3626,6 +3626,7 @@ Respond as each panelist in their authentic voice.`;
       window._lastCouncilDilemma = dilemma;
       window._lastCouncilText = text;
       window._lastCouncilPanelists = panelList;
+      window._lastCouncil = { dilemma, panelists: panelList, dialogue: text };
 
     } catch (err) {
       clearInterval(loadingInterval);
