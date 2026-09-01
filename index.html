@@ -4160,6 +4160,27 @@ const HERO_NAME_COLOR = '#6A1C1C'; // red for all rotating name sets
   }
 })();
 
+// ══ DEEP LINK — filter the treasury by tradition/tag when arriving via
+// index.html?tr=<value>#treasury (used by "Explore feminine wisdom →" on
+// library.html, and any other link that wants to land on a filtered set) ══
+(function filterTreasuryFromQueryParam() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const tr = params.get('tr');
+    if (tr && typeof filterEntries === 'function' && typeof renderEntries === 'function') {
+      activeTr = tr;
+      renderEntries(filterEntries(activeTr, ''));
+      if (typeof forceExpandTreasury === 'function') forceExpandTreasury();
+      const title = document.getElementById('tr-title');
+      if (title) title.textContent = activeTr;
+      const t = document.getElementById('treasury');
+      if (t) setTimeout(() => t.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+    }
+  } catch (e) {
+    // Fail silently — a bad or missing param should never break the homepage
+  }
+})();
+
 </script>
 </body>
 </html>
