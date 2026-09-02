@@ -154,6 +154,18 @@ const VIDEO_LIBRARY = [
     tradition: 'Buddhism · Theravada'
   },
   {
+    entryId: 'julie-mcfadden-hospice-nurse',
+    youtubeId: 'wlGASIhgrA4',
+    title: 'How Dying Looks In Dementia',
+    tradition: 'Secular · End-of-Life Care'
+  },
+  {
+    entryId: 'oren-lyons-onondaga-faithkeeper',
+    youtubeId: 'SOw6S_immM4',
+    title: 'Chief Oren Lyons Discusses Sovereignty',
+    tradition: 'Indigenous · Haudenosaunee (Iroquois Confederacy)'
+  },
+  {
     entryId: 'kate-raworth-doughnut-economics',
     youtubeId: 'Rhcrbcg8HBw',
     title: 'A healthy economy should be designed to thrive, not grow',
