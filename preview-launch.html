@@ -922,6 +922,8 @@ id="council" style="padding:56px 0 52px;background:var(--paper);border-top:1px s
           <button class="share-btn" onclick="shareCouncil()"><span>↑</span> Copy Script</button>
           <button class="share-btn" id="audio-btn" onclick="toggleAudio()"><span id="audio-icon">▶</span> <span id="audio-label">Listen</span></button>
           <button class="share-btn" onclick="downloadCard()"><span>⬡</span> Save Card</button>
+          <button class="share-btn" onclick="saveCouncilAnswer()"><span>☆</span> Save This</button>
+          <button class="share-btn" onclick="openSavedAnswers()"><span>📖</span> My Saved (<span id="saved-count">0</span>)</button>
         </div>
         <div id="reciprocity-prompt" style="display:none;margin-top:24px;padding:22px 26px;background:var(--paper2);border:1px solid rgba(183,123,47,.25);border-radius:10px;text-align:center">
           <p style="font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.02rem;color:var(--ink);line-height:1.6;margin-bottom:14px">This council was built from the wisdom of thousands of lived lives. What have you learned from your own journey that belongs at this table?</p>
@@ -1832,6 +1834,30 @@ p:last-child{margin-bottom:0}
 </div>
 
 <canvas id="council-canvas" style="display:none" width="1080" height="1080"></canvas>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SAVED ANSWERS MODAL — localStorage-backed, no account needed -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="saved-answers-overlay" style="display:none;position:fixed;inset:0;background:rgba(13,27,38,.55);z-index:9998" onclick="if(event.target===this)closeSavedAnswers()">
+  <div style="max-width:640px;margin:60px auto;background:var(--paper);border-radius:12px;max-height:80vh;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+    <div style="padding:20px 26px;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center">
+      <div style="font-family:'Libre Baskerville',serif;font-size:1.2rem;color:var(--ink)">Your Saved Wisdom</div>
+      <button onclick="closeSavedAnswers()" style="background:none;border:none;font-size:1.3rem;color:var(--muted);cursor:pointer;line-height:1">×</button>
+    </div>
+    <div id="saved-answers-list" style="padding:16px 26px;overflow-y:auto;flex:1"></div>
+    <div style="padding:14px 26px;border-top:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.75rem;color:var(--muted)">Saved only on this device, in this browser. Nothing is sent anywhere.</div>
+  </div>
+</div>
+<div id="saved-answer-detail-overlay" style="display:none;position:fixed;inset:0;background:rgba(13,27,38,.55);z-index:9999" onclick="if(event.target===this)closeSavedAnswerDetail()">
+  <div style="max-width:640px;margin:60px auto;background:var(--paper);border-radius:12px;max-height:80vh;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+    <div style="padding:20px 26px;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center">
+      <div id="saved-detail-title" style="font-family:'Libre Baskerville',serif;font-style:italic;font-size:1.05rem;color:var(--ink)"></div>
+      <button onclick="closeSavedAnswerDetail()" style="background:none;border:none;font-size:1.3rem;color:var(--muted);cursor:pointer;line-height:1">×</button>
+    </div>
+    <div id="saved-detail-body" style="padding:20px 26px;overflow-y:auto;flex:1;font-family:'Inter',sans-serif;font-size:.92rem;color:var(--ink);line-height:1.7"></div>
+  </div>
+</div>
+
 
 <script>
 
@@ -3048,6 +3074,126 @@ function shareCouncil() {
     });
   }
 }
+
+// ══ SAVE THIS / MY SAVED WISDOM ══
+// Client-side only (localStorage) — no account system exists yet, so this
+// keeps saved answers private to the person's own browser/device. If an
+// account system is built later, this is the natural spot to sync instead.
+const SAVED_ANSWERS_KEY = 'wt_saved_council_answers';
+
+function getSavedAnswers() {
+  try {
+    return JSON.parse(localStorage.getItem(SAVED_ANSWERS_KEY) || '[]');
+  } catch (e) {
+    return [];
+  }
+}
+
+function setSavedAnswers(list) {
+  try {
+    localStorage.setItem(SAVED_ANSWERS_KEY, JSON.stringify(list));
+  } catch (e) {
+    // Storage full or unavailable — fail silently, nothing to show the user here
+  }
+  updateSavedCountBadge();
+}
+
+function updateSavedCountBadge() {
+  const el = document.getElementById('saved-count');
+  if (el) el.textContent = getSavedAnswers().length;
+}
+
+function saveCouncilAnswer() {
+  if (!window._lastCouncil) {
+    alert('Ask the council a question first, then save the answer.');
+    return;
+  }
+  const { dilemma, panelists, dialogue } = window._lastCouncil;
+  const list = getSavedAnswers();
+  const alreadySaved = list.some(a => a.dilemma === dilemma && a.dialogue === dialogue);
+  if (alreadySaved) {
+    const btn = event?.currentTarget;
+    if (btn) {
+      const orig = btn.innerHTML;
+      btn.innerHTML = '<span>✓</span> Already saved';
+      setTimeout(() => btn.innerHTML = orig, 1800);
+    }
+    return;
+  }
+  list.unshift({
+    id: (crypto?.randomUUID ? crypto.randomUUID() : 'a' + Date.now() + Math.random().toString(36).slice(2)),
+    dilemma,
+    panelists: panelists || [],
+    dialogue,
+    savedAt: new Date().toISOString()
+  });
+  // Keep this bounded so localStorage never grows unbounded
+  if (list.length > 200) list.length = 200;
+  setSavedAnswers(list);
+  const btn = event?.currentTarget;
+  if (btn) {
+    const orig = btn.innerHTML;
+    btn.innerHTML = '<span>✓</span> Saved';
+    setTimeout(() => btn.innerHTML = orig, 1800);
+  }
+}
+
+function deleteSavedAnswer(id) {
+  const list = getSavedAnswers().filter(a => a.id !== id);
+  setSavedAnswers(list);
+  renderSavedAnswersList();
+}
+
+function renderSavedAnswersList() {
+  const container = document.getElementById('saved-answers-list');
+  if (!container) return;
+  const list = getSavedAnswers();
+  if (list.length === 0) {
+    container.innerHTML = '<p style="font-family:\'Inter\',sans-serif;color:var(--muted);text-align:center;padding:30px 0">Nothing saved yet. After the council answers a question, click "Save This" to keep it here.</p>';
+    return;
+  }
+  container.innerHTML = list.map(a => {
+    const dateStr = new Date(a.savedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+    const preview = (a.dilemma || '').slice(0, 90) + (a.dilemma && a.dilemma.length > 90 ? '…' : '');
+    const panelistNames = (a.panelists || []).map(p => typeof p === 'string' ? p : (p.name || '')).filter(Boolean).join(', ');
+    return `<div style="padding:14px 0;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:flex-start;gap:14px">
+      <div style="flex:1;cursor:pointer" onclick="openSavedAnswerDetail('${a.id}')">
+        <div style="font-family:'Libre Baskerville',serif;font-style:italic;color:var(--ink);font-size:.95rem;line-height:1.5">${escapeSavedHtml(preview)}</div>
+        <div style="font-family:'Inter',sans-serif;font-size:.72rem;color:var(--muted);margin-top:4px">${dateStr}${panelistNames ? ' · ' + escapeSavedHtml(panelistNames) : ''}</div>
+      </div>
+      <button onclick="deleteSavedAnswer('${a.id}')" title="Delete" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:.85rem;padding:4px 6px;flex-shrink:0">✕</button>
+    </div>`;
+  }).join('');
+}
+
+function escapeSavedHtml(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function openSavedAnswers() {
+  renderSavedAnswersList();
+  document.getElementById('saved-answers-overlay').style.display = 'block';
+}
+
+function closeSavedAnswers() {
+  document.getElementById('saved-answers-overlay').style.display = 'none';
+}
+
+function openSavedAnswerDetail(id) {
+  const a = getSavedAnswers().find(x => x.id === id);
+  if (!a) return;
+  document.getElementById('saved-detail-title').textContent = '"' + a.dilemma + '"';
+  document.getElementById('saved-detail-body').innerHTML = escapeSavedHtml(a.dialogue).replace(/\n/g, '<br>');
+  document.getElementById('saved-answer-detail-overlay').style.display = 'block';
+}
+
+function closeSavedAnswerDetail() {
+  document.getElementById('saved-answer-detail-overlay').style.display = 'none';
+}
+
+// Show the saved count on page load
+document.addEventListener('DOMContentLoaded', updateSavedCountBadge);
+if (document.readyState !== 'loading') updateSavedCountBadge();
 
 
 
