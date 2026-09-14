@@ -1,1 +1,30 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Wisdom Table</title>
+<script>
+  // GitHub Pages serves this file for any URL with no matching real file —
+  // including our own /entry/<id> deep links, which only exist as a
+  // client-side history.pushState URL, not an actual file on the server.
+  // Rather than show a dead 404, redirect straight into index.html with
+  // the entry id passed as a query param, which openEntryFromQueryParam()
+  // on that page already knows how to open automatically.
+  (function () {
+    var path = window.location.pathname; // e.g. /entry/bear-heart-muscogee-creek
+    var match = path.match(/\/entry\/([^\/]+)\/?$/);
+    if (match && match[1]) {
+      window.location.replace('/index.html?entry=' + match[1]);
+    } else {
+      // Any other unmatched URL — just send them to the homepage
+      window.location.replace('/index.html');
+    }
+  })();
+</script>
+</head>
+<body>
+  <p style="font-family:sans-serif;text-align:center;margin-top:80px;color:#52616B">Redirecting to The Wisdom Table…</p>
+</body>
+</html>
