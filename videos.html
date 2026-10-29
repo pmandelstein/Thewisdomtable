@@ -56,6 +56,8 @@ a{color:inherit}
 .vcard-thumb img{width:100%;height:100%;object-fit:cover;display:block}
 .vcard-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(13,27,38,.15)}
 .vcard-play span{width:52px;height:52px;border-radius:50%;background:rgba(251,247,239,.92);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--amberb);box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.vcard-thumb.fb-thumb{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#14213d 0%,#1b2c4f 100%)}
+.vcard-thumb.fb-thumb .fb-mark{font-family:'Libre Baskerville',serif;font-size:3.2rem;color:#f7f1e3;opacity:.9}
 .vcard-body{padding:16px 18px 18px}
 .vcard-trad{font-family:'Inter',sans-serif;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);margin-bottom:6px}
 .vcard-title{font-family:'Libre Baskerville',serif;font-size:1.05rem;color:var(--ink);line-height:1.35}
@@ -139,6 +141,12 @@ function toggleMobileNav(){
 // same manual-pairing pattern already used for the Hall of Humanity cards
 // on library.html, so nothing new to learn.
 const VIDEO_LIBRARY = [
+  {
+    // Facebook-hosted video: no entryId/youtubeId. Card opens the post in a new tab.
+    facebookUrl: 'https://m.facebook.com/story.php?story_fbid=pfbid033zxWQpKiGZrB8u3F2ngUktAhVMU4LxHdzWMtNXrQhWzq2X5Z5XLr13Wf2TMxE9DBl&id=752640593',
+    title: 'The Wisdom Table on Facebook',
+    tradition: 'The Wisdom Table'
+  },
   {
     entryId: 'robert-thurman-tibetan-buddhism',
     youtubeId: 'ltF4ypByPxs',
@@ -525,7 +533,21 @@ function renderVideoLibrary(list) {
   }
   grid.style.display = 'grid';
   empty.style.display = 'none';
-  grid.innerHTML = list.map(v => `
+  grid.innerHTML = list.map(v => {
+    if (v.facebookUrl) {
+      return `
+    <div class="video-card" onclick="window.open('${v.facebookUrl}','_blank','noopener')">
+      <div class="vcard-thumb fb-thumb">
+        <span class="fb-mark">W</span>
+        <div class="vcard-play"><span>▶</span></div>
+      </div>
+      <div class="vcard-body">
+        <div class="vcard-trad">${escapeHtml(v.tradition)}</div>
+        <div class="vcard-title">${escapeHtml(v.title)}</div>
+      </div>
+    </div>`;
+    }
+    return `
     <div class="video-card" onclick="window.location.href='index.html?entry=${v.entryId}'">
       <div class="vcard-thumb">
         <img src="https://img.youtube.com/vi/${v.youtubeId}/hqdefault.jpg" alt="${escapeHtml(v.title)}" loading="lazy">
@@ -535,8 +557,8 @@ function renderVideoLibrary(list) {
         <div class="vcard-trad">${escapeHtml(v.tradition)}</div>
         <div class="vcard-title">${escapeHtml(v.title)}</div>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 }
 
 // ══ VIDEO LIBRARY SEARCH ══
