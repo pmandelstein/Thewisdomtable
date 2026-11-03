@@ -13,97 +13,81 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root{
-  --cream:#FBF7EF; --paper:#F3EADB; --paper2:#E7D6BD;
-  --gold:#B77B2F; --gold-d:#8E5D22; --gold-l:rgba(183,123,47,.12);
-  --ink:#0D1B26; --muted:#52616B; --line:rgba(13,27,38,.12);
-  --navy:#071927;
-  --serif:'Libre Baskerville',Georgia,serif;
+  --cream:#0E3B43; --surface:#134A53; --ink:#F6F1E3; --muted:#9FC4BC; --line:rgba(246,241,227,.18);
+  --gold:#F7B267; --gold-d:#F7B267; --gold-l:rgba(247,178,103,.14); --on-gold:#0E3B43;
+  --mint:#9FD3C7; --hl:rgba(247,178,103,.28);
+  --serif:'DM Serif Display',Georgia,serif;
   --sans:'Inter',system-ui,-apple-system,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
 body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;min-height:100vh}
-button{font-family:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.wrap{max-width:760px;margin:0 auto;padding:0 18px}
-
-/* Top bar */
-.top{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
-.brand{font-family:var(--serif);font-size:.95rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);text-decoration:none}
-.brand span{color:var(--gold)}
+button{font-family:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;color:var(--ink)}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.brand{font-family:var(--serif);font-size:1.15rem;color:var(--ink);text-decoration:none}
+.brand span{color:var(--gold);font-style:italic}
 .top a.about{font-size:.85rem;color:var(--muted);text-decoration:none}
-
-/* Hero */
-.hero{text-align:center;padding:34px 0 22px}
-.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,6vw,2.9rem);line-height:1.2;letter-spacing:-.01em}
+.hero{text-align:center;padding:18px 0 26px}
+.table-art{width:210px;height:150px;display:block;margin:0 auto 14px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.1rem,8vw,3.2rem);line-height:1.1}
 .hero h1 em{color:var(--gold)}
-.hero p{color:var(--muted);margin-top:12px;font-size:1.05rem}
-
-/* Question box */
-.ask{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 6px 24px rgba(13,27,38,.06)}
-.ask textarea{width:100%;border:none;outline:none;resize:none;font-family:var(--serif);font-size:1.15rem;line-height:1.5;color:var(--ink);background:transparent;min-height:84px}
-.ask textarea::placeholder{color:#9AA4AA;font-style:italic}
-
-.label{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-d);font-weight:600;margin:26px 0 10px}
-
-/* Chips */
+.hero p{color:var(--muted);margin-top:12px;font-size:1.02rem}
+.ask{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:18px}
+.ask textarea{width:100%;border:none;outline:none;resize:none;font-family:var(--serif);font-size:1.25rem;line-height:1.45;color:var(--ink);background:transparent;min-height:84px}
+.ask textarea::placeholder{color:var(--muted);font-style:italic}
+.label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mint);font-weight:600;margin:28px 0 12px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 15px;font-size:.92rem;color:var(--ink);transition:all .15s}
+.chip{border:1px solid var(--line);background:transparent;border-radius:999px;padding:9px 15px;font-size:.92rem;transition:all .15s}
 .chip:active{transform:scale(.97)}
 .chip.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
-.theme{background:var(--gold-l);border-color:transparent;color:var(--gold-d);font-weight:500}
-.theme:hover{background:rgba(183,123,47,.2)}
-.more{background:transparent;border-style:dashed;color:var(--muted)}
-
+.theme{border-color:var(--gold);color:var(--gold)}
+.theme:hover{background:var(--gold-l)}
+.more{border-style:dashed;color:var(--muted)}
 .voice-row{display:flex;gap:8px;margin-top:10px}
-.voice-row input{flex:1;min-width:0;border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:.95rem;font-family:var(--sans);background:#fff;outline:none}
+.voice-row input{flex:1;min-width:0;border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:.95rem;font-family:var(--sans);background:var(--surface);color:var(--ink);outline:none}
+.voice-row input::placeholder{color:var(--muted)}
 .voice-row input:focus{border-color:var(--gold)}
-.small-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 16px;font-size:.92rem;white-space:nowrap}
+.small-btn{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:10px 16px;font-size:.92rem;white-space:nowrap}
 .count{font-size:.85rem;color:var(--muted);margin-top:10px}
-
-/* Actions */
-.actions{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
-.go{flex:1 1 220px;background:var(--gold);color:#fff;border:none;border-radius:14px;padding:16px 20px;font-size:1.05rem;font-weight:600;letter-spacing:.01em;transition:background .15s}
-.go:hover{background:var(--gold-d)}
+.actions{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.go{flex:1 1 200px;white-space:nowrap;background:var(--gold);color:var(--on-gold);border:none;border-radius:999px;padding:17px 22px;font-size:1.05rem;font-weight:600}
+.go:hover{filter:brightness(1.05)}
 .go:disabled{opacity:.55;cursor:default}
-.surprise{flex:0 1 auto;background:#fff;border:1.5px solid var(--gold);color:var(--gold-d);border-radius:14px;padding:16px 20px;font-size:1rem;font-weight:600}
-
-/* Famous councils */
+.surprise{flex:0 1 auto;background:transparent;border:1.5px solid var(--mint);color:var(--mint);border-radius:999px;padding:17px 22px;font-size:1rem;font-weight:600}
 .presets{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
-.preset{text-align:left;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;transition:border-color .15s}
+.preset{text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px 16px;color:var(--ink)}
 .preset:hover{border-color:var(--gold)}
-.preset b{display:block;font-family:var(--serif);font-weight:400;font-size:1.02rem;margin-bottom:4px}
+.preset b{display:block;font-family:var(--serif);font-weight:400;font-size:1.15rem;margin-bottom:4px}
 .preset small{color:var(--muted);font-size:.82rem;line-height:1.4;display:block}
-
-/* Results */
 #results{scroll-margin-top:16px}
-.q-show{font-family:var(--serif);font-style:italic;font-size:1.3rem;text-align:center;margin:40px 0 18px;line-height:1.45}
-.q-show:before,.q-show:after{content:'"'}
+.q-show{font-family:var(--serif);font-style:italic;font-size:1.45rem;text-align:center;margin:44px 0 20px;line-height:1.35}
+.q-show:before,.q-show:after{content:'"';color:var(--gold)}
 .loading{text-align:center;color:var(--muted);font-style:italic;font-family:var(--serif);padding:30px 0}
 .loading .dots:after{content:'';animation:dots 1.4s infinite}
 @keyframes dots{0%{content:''}33%{content:'.'}66%{content:'..'}100%{content:'...'}}
-.voice-card{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:14px;padding:18px 18px 12px;margin-bottom:14px;animation:rise .45s ease both}
+.voice-card{background:var(--surface);border-radius:22px;padding:18px 18px 10px;margin-bottom:12px;animation:rise .45s ease both}
 @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.voice-card h3{font-family:var(--serif);font-weight:700;font-size:1.05rem}
-.voice-card .role{font-family:var(--sans);font-weight:400;color:var(--muted);font-size:.85rem}
-.voice-card p{margin-top:8px;font-family:var(--serif);font-size:1.02rem;line-height:1.7}
-.voice-card p em{font-style:normal;background:linear-gradient(transparent 58%,rgba(183,123,47,.22) 58%)}
-.card-tools{display:flex;gap:6px;margin-top:10px}
-.tool{background:transparent;border:none;color:var(--gold-d);font-size:.85rem;font-weight:500;padding:6px 8px;border-radius:8px}
-.tool:hover{background:var(--gold-l)}
+.voice-card h3{font-family:var(--serif);font-weight:400;font-size:1.2rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.voice-card .seal{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);font-family:var(--serif);font-size:16px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.voice-card:nth-child(3n+2) .seal{border-color:var(--mint);color:var(--mint)}
+.voice-card:nth-child(3n) .seal{border-color:var(--ink);color:var(--ink)}
+.voice-card .role{font-family:var(--sans);color:var(--muted);font-size:.82rem}
+.voice-card p{margin-top:10px;font-size:1.02rem;line-height:1.75}
+.voice-card p em{font-style:normal;color:var(--gold)}
+.card-tools{display:flex;gap:6px;margin-top:8px}
+.tool{background:transparent;border:none;color:var(--mint);font-size:.85rem;font-weight:500;padding:6px 8px;border-radius:8px}
+.tool:hover{background:rgba(159,211,199,.12)}
 .after{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:20px 0 8px}
-.after .small-btn{font-size:.9rem}
 .note{text-align:center;color:var(--muted);font-size:.8rem;margin:10px auto 0;max-width:520px}
 .err{text-align:center;padding:24px;color:var(--muted)}
-
-/* Footer */
-footer{text-align:center;padding:60px 0 40px;color:var(--muted);font-size:.85rem}
-footer .tag{font-family:var(--serif);font-style:italic;color:var(--ink);font-size:1rem;margin-bottom:10px}
+footer{text-align:center;padding:64px 0 40px;color:var(--muted);font-size:.85rem}
+footer .tag{font-family:var(--serif);font-size:1.25rem;color:var(--ink);margin-bottom:10px}
+footer .tag i{color:var(--gold)}
 footer a{color:var(--muted)}
-
-/* Toast */
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(80px);background:var(--ink);color:var(--cream);padding:10px 18px;border-radius:999px;font-size:.9rem;transition:transform .25s;z-index:50;pointer-events:none}
 .toast.show{transform:translateX(-50%) translateY(0)}
 .hidden{display:none!important}
@@ -113,13 +97,21 @@ footer a{color:var(--muted)}
 <div class="wrap">
 
   <header class="top">
-    <a class="brand" href="play.html">The <span>Wisdom</span> Table</a>
-    <a class="about" href="about.html">About</a>
+    <a class="brand" href="play.html">The Wisdom <span>Table</span></a>
+    <a class="about" href="about-play.html">About</a>
   </header>
 
   <section class="hero">
-    <h1>Pull up a chair with<br>history's <em>wisest minds.</em></h1>
-    <p>Ask anything. Hear from everyone.</p>
+    <svg class="table-art" viewBox="0 0 210 150" aria-hidden="true">
+      <ellipse cx="105" cy="82" rx="58" ry="30" fill="none" stroke="#F6F1E3" stroke-opacity=".5" stroke-width="1.5"/>
+      <circle cx="105" cy="26" r="15" fill="none" stroke="#F7B267" stroke-width="2"/>
+      <circle cx="30" cy="70" r="15" fill="none" stroke="#9FD3C7" stroke-width="2"/>
+      <circle cx="180" cy="70" r="15" fill="none" stroke="#F6F1E3" stroke-width="2"/>
+      <circle cx="58" cy="128" r="15" fill="none" stroke="#F6F1E3" stroke-opacity=".6" stroke-width="2"/>
+      <circle cx="152" cy="128" r="15" fill="#F7B267"/>
+    </svg>
+    <h1>The table is <em>set.</em></h1>
+    <p>Pull up a chair with history's wisest minds.</p>
   </section>
 
   <div class="ask">
@@ -139,7 +131,7 @@ footer a{color:var(--muted)}
 
   <div class="actions">
     <button class="go" id="goBtn">Convene the Council →</button>
-    <button class="surprise" id="surpriseBtn">🎲 Surprise me</button>
+    <button class="surprise" id="surpriseBtn">Surprise me</button>
   </div>
 
   <section id="results"></section>
@@ -148,8 +140,8 @@ footer a{color:var(--muted)}
   <div class="presets" id="presets"></div>
 
   <footer>
-    <div class="tag">"The table is set. There is a seat for everyone."</div>
-    <div>Free and open to all · <a href="about.html">About</a> · <a href="mailto:pmandelstein@gmail.com">Contact</a></div>
+    <div class="tag">There is a seat for <i>everyone.</i></div>
+    <div>Free and open to all · <a href="about-play.html">About</a> · <a href="mailto:pmandelstein@gmail.com">Contact</a></div>
     <div style="margin-top:6px">A project of Liminal Arts</div>
   </footer>
 </div>
@@ -299,7 +291,7 @@ function renderEntries(entries, done){
     let card=box.children[idx];
     if(!card){ card=el('article','voice-card'); box.appendChild(card); }
     card.innerHTML='';
-    const h=el('h3',null,e.name+' ');
+    const h=el('h3'); const ini=(e.name.replace(/^(A|An|The|Your)\s+/i,'')[0]||'·'); h.appendChild(el('span','seal',ini)); h.appendChild(document.createTextNode(e.name));
     if(e.role) h.appendChild(el('span','role','· '+e.role));
     card.appendChild(h);
     const p=el('p');
@@ -393,7 +385,7 @@ function renderAfter(){
   const res=$('results');
   const row=el('div','after');
   const listen=el('button','small-btn','▶ Listen'); listen.id='listenBtn'; listen.onclick=toggleListen;
-  const again=el('button','small-btn','🎲 Same question, new voices'); again.onclick=()=>{
+  const again=el('button','small-btn','Same question, new voices'); again.onclick=()=>{
     const q=$('q').value; surpriseVoicesOnly(); $('q').value=q; convene(); };
   const fresh=el('button','small-btn','Ask something new'); fresh.onclick=()=>{ $('q').value=''; window.scrollTo({top:0,behavior:'smooth'}); setTimeout(()=>$('q').focus(),400); };
   row.append(listen,again,fresh);
@@ -438,40 +430,29 @@ function wrapLines(ctx,text,maxW){
 async function drawCard(idx){
   const e=lastRun.entries[idx]; const quote=bestLine(e);
   const W=1080,H=1350,c=$('cardCanvas'); c.width=W; c.height=H; const ctx=c.getContext('2d');
-  try{ await Promise.all([document.fonts.load('italic 40px "Libre Baskerville"'),document.fonts.load('400 40px "Libre Baskerville"'),document.fonts.load('500 20px Inter')]); }catch(_){}
-  const serif='"Libre Baskerville", Georgia, serif', sans='Inter, system-ui, sans-serif';
-  const bg=ctx.createLinearGradient(0,0,0,H); bg.addColorStop(0,'#FBF7EF'); bg.addColorStop(1,'#EFE3CC');
-  ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
-  ctx.strokeStyle='rgba(183,123,47,.45)'; ctx.lineWidth=2; ctx.strokeRect(40,40,W-80,H-80);
-  ctx.textAlign='center';
-  ctx.fillStyle='#0D1B26'; ctx.font=`400 26px ${serif}`;
-  ctx.fillText('T H E   W I S D O M   T A B L E',W/2,120);
-  ctx.fillStyle='#B77B2F'; ctx.fillRect(W/2-40,148,80,2);
-
-  // Question
-  ctx.fillStyle='#52616B'; ctx.font=`italic 34px ${serif}`;
-  const qLines=wrapLines(ctx,`"${lastRun.q}"`,W-240).slice(0,4);
-  let y=230; qLines.forEach(l=>{ ctx.fillText(l,W/2,y); y+=50; });
-
-  // Quote — shrink to fit
-  let size=58, qlines;
-  do{ ctx.font=`400 ${size}px ${serif}`; qlines=wrapLines(ctx,quote,W-220); size-=4; } while(qlines.length*size*1.45>620 && size>30);
-  size+=4; const lh=size*1.45;
-  const blockH=qlines.length*lh; let qy=Math.max(y+80,(H-blockH)/2+40);
-  ctx.fillStyle='#B77B2F'; ctx.font=`400 140px ${serif}`; ctx.fillText('“',W/2,qy-20);
-  ctx.fillStyle='#0D1B26'; ctx.font=`400 ${size}px ${serif}`;
-  qlines.forEach(l=>{ qy+=lh; ctx.fillText(l,W/2,qy); });
-
-  // Speaker
-  ctx.fillStyle='#8E5D22'; ctx.font=`600 30px ${sans}`;
-  ctx.fillText('— '+e.name,W/2,qy+90);
-  if(e.role){ ctx.fillStyle='#52616B'; ctx.font=`400 24px ${sans}`; ctx.fillText(e.role,W/2,qy+130); }
-
-  // Footer
-  ctx.fillStyle='#0D1B26'; ctx.font=`500 26px ${sans}`;
-  ctx.fillText('Ask your own question at wisdomtable.ai',W/2,H-110);
-  ctx.fillStyle='#8A949A'; ctx.font=`italic 20px ${serif}`;
-  ctx.fillText('Imagined from their real teachings',W/2,H-74);
+  try{ await Promise.all([document.fonts.load('400 40px "DM Serif Display"'),document.fonts.load('italic 40px "DM Serif Display"'),document.fonts.load('500 20px Inter')]); }catch(_){}
+  const serif='"DM Serif Display", Georgia, serif', sans='Inter, system-ui, sans-serif';
+  const TEAL='#0E3B43', CHALK='#F6F1E3', APR='#F7B267', MINT='#9FD3C7';
+  ctx.fillStyle=TEAL; ctx.fillRect(0,0,W,H);
+  // chairs around the table
+  const ring=(x,y,r,col,fill)=>{ ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); if(fill){ctx.fillStyle=col;ctx.fill();} else {ctx.strokeStyle=col;ctx.lineWidth=4;ctx.stroke();} };
+  ring(W-170,150,34,APR); ring(W-260,110,22,MINT); ring(W-100,240,22,CHALK); ring(W-210,250,16,APR,true);
+  ctx.textAlign='left'; ctx.fillStyle=CHALK; ctx.font=`400 36px ${serif}`; ctx.fillText('The Wisdom ',90,140);
+  const tw=ctx.measureText('The Wisdom ').width; ctx.fillStyle=APR; ctx.font=`italic 36px ${serif}`; ctx.fillText('Table',90+tw,140);
+  ctx.fillStyle=MINT; ctx.font=`italic 32px ${serif}`;
+  const qLines=wrapLines(ctx,`"${lastRun.q}"`,W-260).slice(0,4);
+  let y=330; qLines.forEach(l=>{ ctx.fillText(l,90,y); y+=46; });
+  let size=72, ql;
+  do{ ctx.font=`400 ${size}px ${serif}`; ql=wrapLines(ctx,quote,W-180); size-=4; } while(ql.length*size*1.3>620 && size>34);
+  size+=4; const lh=size*1.3; let qy=Math.max(y+70,(H-ql.length*lh)/2+20);
+  ctx.fillStyle=CHALK; ctx.font=`400 ${size}px ${serif}`;
+  ql.forEach(l=>{ qy+=lh; ctx.fillText(l,90,qy); });
+  const sy=qy+110; const ini=(e.name.replace(/^(A|An|The|Your)\s+/i,'')[0]||'·');
+  ring(122,sy-12,32,APR); ctx.fillStyle=APR; ctx.textAlign='center'; ctx.font=`400 32px ${serif}`; ctx.fillText(ini,122,sy);
+  ctx.textAlign='left'; ctx.fillStyle=CHALK; ctx.font=`400 38px ${serif}`; ctx.fillText(e.name,174,sy-4);
+  if(e.role){ ctx.fillStyle=MINT; ctx.font=`400 24px ${sans}`; ctx.fillText(e.role,174,sy+30); }
+  ctx.fillStyle=APR; ctx.beginPath(); ctx.roundRect?ctx.roundRect(90,H-180,W-180,96,48):ctx.rect(90,H-180,W-180,96); ctx.fill();
+  ctx.fillStyle=TEAL; ctx.textAlign='center'; ctx.font=`600 30px ${sans}`; ctx.fillText('Pull up a chair · wisdomtable.ai',W/2,H-121);
   return c;
 }
 async function shareCard(idx){
