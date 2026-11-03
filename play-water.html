@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Wisdom Table — Pull Up a Chair</title>
+<meta name="description" content="Ask any question and hear how history's wisest voices would answer — together, at one table. Free and open to everyone.">
+<meta property="og:title" content="The Wisdom Table — Pull up a chair with history's wisest minds">
+<meta property="og:description" content="Ask anything. Hear from Socrates, the Buddha, Maya Angelou, your grandmother — all at one table.">
+<meta property="og:image" content="https://wisdomtable.ai/og-image.png">
+<meta property="og:url" content="https://wisdomtable.ai/play.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#0E3B43; --surface:#134A53; --ink:#F6F1E3; --muted:#9FC4BC; --line:rgba(246,241,227,.18);
+  --gold:#F7B267; --gold-d:#F7B267; --gold-l:rgba(247,178,103,.14); --on-gold:#0E3B43;
+  --mint:#9FD3C7; --hl:rgba(247,178,103,.28);
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;min-height:100vh}
+button{font-family:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;color:var(--ink)}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.brand{font-family:var(--serif);font-size:1.15rem;color:var(--ink);text-decoration:none}
+.brand span{color:var(--gold);font-style:italic}
+.top a.about{font-size:.85rem;color:var(--muted);text-decoration:none}
+.hero{text-align:center;padding:18px 0 26px}
+.table-art{width:210px;height:150px;display:block;margin:0 auto 14px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.1rem,8vw,3.2rem);line-height:1.1}
+.hero h1 em{color:var(--gold)}
+.hero p{color:var(--muted);margin-top:12px;font-size:1.02rem}
+.ask{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:18px}
+.ask textarea{width:100%;border:none;outline:none;resize:none;font-family:var(--serif);font-size:1.25rem;line-height:1.45;color:var(--ink);background:transparent;min-height:84px}
+.ask textarea::placeholder{color:var(--muted);font-style:italic}
+.label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mint);font-weight:600;margin:28px 0 12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:transparent;border-radius:999px;padding:9px 15px;font-size:.92rem;transition:all .15s}
+.chip:active{transform:scale(.97)}
+.chip.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.theme{border-color:var(--gold);color:var(--gold)}
+.theme:hover{background:var(--gold-l)}
+.more{border-style:dashed;color:var(--muted)}
+.voice-row{display:flex;gap:8px;margin-top:10px}
+.voice-row input{flex:1;min-width:0;border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:.95rem;font-family:var(--sans);background:var(--surface);color:var(--ink);outline:none}
+.voice-row input::placeholder{color:var(--muted)}
+.voice-row input:focus{border-color:var(--gold)}
+.small-btn{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:10px 16px;font-size:.92rem;white-space:nowrap}
+.count{font-size:.85rem;color:var(--muted);margin-top:10px}
+.actions{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.go{flex:1 1 200px;white-space:nowrap;background:var(--gold);color:var(--on-gold);border:none;border-radius:999px;padding:17px 22px;font-size:1.05rem;font-weight:600}
+.go:hover{filter:brightness(1.05)}
+.go:disabled{opacity:.55;cursor:default}
+.surprise{flex:0 1 auto;background:transparent;border:1.5px solid var(--mint);color:var(--mint);border-radius:999px;padding:17px 22px;font-size:1rem;font-weight:600}
+.presets{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.preset{text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px 16px;color:var(--ink)}
+.preset:hover{border-color:var(--gold)}
+.preset b{display:block;font-family:var(--serif);font-weight:400;font-size:1.15rem;margin-bottom:4px}
+.preset small{color:var(--muted);font-size:.82rem;line-height:1.4;display:block}
+#results{scroll-margin-top:16px}
+.q-show{font-family:var(--serif);font-style:italic;font-size:1.45rem;text-align:center;margin:44px 0 20px;line-height:1.35}
+.q-show:before,.q-show:after{content:'"';color:var(--gold)}
+.loading{text-align:center;color:var(--muted);font-style:italic;font-family:var(--serif);padding:30px 0}
+.loading .dots:after{content:'';animation:dots 1.4s infinite}
+@keyframes dots{0%{content:''}33%{content:'.'}66%{content:'..'}100%{content:'...'}}
+.voice-card{background:var(--surface);border-radius:22px;padding:18px 18px 10px;margin-bottom:12px;animation:rise .45s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.voice-card h3{font-family:var(--serif);font-weight:400;font-size:1.2rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.voice-card .seal{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);font-family:var(--serif);font-size:16px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.voice-card:nth-child(3n+2) .seal{border-color:var(--mint);color:var(--mint)}
+.voice-card:nth-child(3n) .seal{border-color:var(--ink);color:var(--ink)}
+.voice-card .role{font-family:var(--sans);color:var(--muted);font-size:.82rem}
+.voice-card p{margin-top:10px;font-size:1.02rem;line-height:1.75}
+.voice-card p em{font-style:normal;color:var(--gold)}
+.card-tools{display:flex;gap:6px;margin-top:8px}
+.tool{background:transparent;border:none;color:var(--mint);font-size:.85rem;font-weight:500;padding:6px 8px;border-radius:8px}
+.tool:hover{background:rgba(159,211,199,.12)}
+.after{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:20px 0 8px}
+.note{text-align:center;color:var(--muted);font-size:.8rem;margin:10px auto 0;max-width:520px}
+.err{text-align:center;padding:24px;color:var(--muted)}
+footer{text-align:center;padding:64px 0 40px;color:var(--muted);font-size:.85rem}
+footer .tag{font-family:var(--serif);font-size:1.25rem;color:var(--ink);margin-bottom:10px}
+footer .tag i{color:var(--gold)}
+footer a{color:var(--muted)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(80px);background:var(--ink);color:var(--cream);padding:10px 18px;border-radius:999px;font-size:.9rem;transition:transform .25s;z-index:50;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <a class="brand" href="play-water.html">The Wisdom <span>Table</span></a>
+    <a class="about" href="about.html">About</a>
+  </header>
+
+  <section class="hero">
+    <svg class="table-art" viewBox="0 0 210 150" aria-hidden="true">
+      <ellipse cx="105" cy="82" rx="58" ry="30" fill="none" stroke="#F6F1E3" stroke-opacity=".5" stroke-width="1.5"/>
+      <circle cx="105" cy="26" r="15" fill="none" stroke="#F7B267" stroke-width="2"/>
+      <circle cx="30" cy="70" r="15" fill="none" stroke="#9FD3C7" stroke-width="2"/>
+      <circle cx="180" cy="70" r="15" fill="none" stroke="#F6F1E3" stroke-width="2"/>
+      <circle cx="58" cy="128" r="15" fill="none" stroke="#F6F1E3" stroke-opacity=".6" stroke-width="2"/>
+      <circle cx="152" cy="128" r="15" fill="#F7B267"/>
+    </svg>
+    <h1>The table is <em>set.</em></h1>
+    <p>Pull up a chair with history's wisest minds.</p>
+  </section>
+
+  <div class="ask">
+    <textarea id="q" rows="3" placeholder="What's on your mind? Ask a real question…" maxlength="600"></textarea>
+  </div>
+
+  <div class="label">Or tap a theme to begin</div>
+  <div class="chips" id="themes"></div>
+
+  <div class="label">Who's at your table?</div>
+  <div class="chips" id="voices"></div>
+  <div class="voice-row">
+    <input id="custom" placeholder="Add anyone — a poet, your grandmother…" maxlength="60">
+    <button class="small-btn" id="addBtn">Add</button>
+  </div>
+  <div class="count" id="count"></div>
+
+  <div class="actions">
+    <button class="go" id="goBtn">Convene the Council →</button>
+    <button class="surprise" id="surpriseBtn">Surprise me</button>
+  </div>
+
+  <section id="results"></section>
+
+  <div class="label" style="margin-top:44px">Famous councils</div>
+  <div class="presets" id="presets"></div>
+
+  <footer>
+    <div class="tag">There is a seat for <i>everyone.</i></div>
+    <div>Free and open to all · <a href="about.html">About</a> · <a href="mailto:pmandelstein@gmail.com">Contact</a></div>
+    <div style="margin-top:6px">A project of Liminal Arts</div>
+  </footer>
+</div>
+
+<div class="toast" id="toast"></div>
+<canvas id="cardCanvas" class="hidden"></canvas>
+
+<script>
+const API_URL = "https://wisdomtable.pmandelstein.workers.dev";
+const MODEL = "claude-sonnet-4-6";
+const MAX_VOICES = 5;
+
+const VOICE_ROLES = {
+  "The Buddha":"Buddhism","Thích Nhất Hạnh":"Zen Buddhism","Rumi":"Sufi poet","Marcus Aurelius":"Stoic emperor",
+  "Viktor Frankl":"Psychiatrist, survivor","Maya Angelou":"Poet","Socrates":"Philosopher","Laozi":"Taoism",
+  "Confucius":"Confucianism","Epictetus":"Stoic teacher","Mary Oliver":"Poet","Carl Sagan":"Astronomer",
+  "A Hospice Nurse":"Has sat with hundreds at the end","A Zen Monk":"Zen practice","Indigenous Elder":"Indigenous wisdom",
+  "Rabbi Hillel":"Judaism","Simone Weil":"Mystic philosopher","Hildegard von Bingen":"Christian mystic",
+  "Bhagavad Gita":"Hindu scripture","A Neuroscientist":"Modern science","Your Grandmother":"Lived experience",
+  "Mark Twain":"Humorist","Epicurus":"Philosopher of joy","Desmond Tutu":"Archbishop","Albert Einstein":"Physicist",
+  "Marie Curie":"Scientist","Seneca":"Stoic","Meister Eckhart":"Christian mystic","Emily Dickinson":"Poet",
+  "Benjamin Franklin":"Statesman, inventor","Julia Child":"Chef","Leonardo da Vinci":"Artist, inventor",
+  "Harriet Tubman":"Freedom fighter","A Five-Year-Old":"Beginner's mind","A Bartender":"Has heard it all",
+  "Shakespeare":"Playwright","Abraham Lincoln":"President","A Farmer":"Fifty years on the land","Mister Rogers":"Children's television"
+};
+const ALL_VOICES = Object.keys(VOICE_ROLES);
+const SHOW_FIRST = 14;
+
+const THEMES = [
+  {t:"Grief", q:"How do I go on after losing someone I love?", v:["Thích Nhất Hạnh","A Hospice Nurse","Rumi"]},
+  {t:"Love", q:"How do I know if this relationship is right for me?", v:["Maya Angelou","Rumi","Your Grandmother"]},
+  {t:"Purpose", q:"What should I do with the rest of my life?", v:["Viktor Frankl","Mary Oliver","Marcus Aurelius"]},
+  {t:"Worry", q:"How do I stop worrying about the future?", v:["Epictetus","A Zen Monk","Laozi"]},
+  {t:"Forgiveness", q:"Should I forgive someone who hurt me and never apologized?", v:["The Buddha","Desmond Tutu","Marcus Aurelius"]},
+  {t:"Growing older", q:"How do I grow old well?", v:["Confucius","Indigenous Elder","Mary Oliver"]},
+  {t:"Work", q:"I'm unhappy in my work. Should I make a change?", v:["Bhagavad Gita","Seneca","Mark Twain"]},
+  {t:"Joy", q:"Why is it so hard to just be happy?", v:["Epicurus","Thích Nhất Hạnh","Maya Angelou"]},
+];
+
+const PRESETS = [
+  {name:"The Stoics' Table", d:"Marcus Aurelius, Epictetus and Seneca on staying steady", v:["Marcus Aurelius","Epictetus","Seneca"], q:"How do I stay calm when everything feels out of control?"},
+  {name:"Mystics at Midnight", d:"Rumi, Hildegard and Meister Eckhart on the sacred", v:["Rumi","Hildegard von Bingen","Meister Eckhart"], q:"How do I find the sacred in an ordinary day?"},
+  {name:"Science & Wonder", d:"Sagan, Curie and Einstein on meaning in a vast universe", v:["Carl Sagan","Marie Curie","Albert Einstein"], q:"Does my life matter in such a vast universe?"},
+  {name:"The Kitchen Table", d:"Your grandmother, a farmer and a bartender — plain truth", v:["Your Grandmother","A Farmer","A Bartender"], q:"How do I know when to stay and when to walk away?"},
+  {name:"The Unlikely Dinner Party", d:"Socrates, Julia Child, a Zen monk and Mark Twain", v:["Socrates","Julia Child","A Zen Monk","Mark Twain"], q:"What makes a life well lived?"},
+  {name:"Beginner's Mind", d:"A five-year-old, Mister Rogers and Laozi", v:["A Five-Year-Old","Mister Rogers","Laozi"], q:"Why do grown-ups make everything so complicated?"},
+];
+
+const selected = new Set(["Marcus Aurelius","Thích Nhất Hạnh","Maya Angelou"]);
+let showAll = false;
+let lastRun = null;   // {q, voices, entries}
+let busy = false;
+
+const $ = id => document.getElementById(id);
+function toast(msg){ const t=$('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('show'),2000); }
+function el(tag, cls, text){ const e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; }
+
+/* ── Render controls ── */
+function renderThemes(){
+  const box=$('themes');
+  THEMES.forEach(th=>{
+    const b=el('button','chip theme',th.t);
+    b.onclick=()=>{ $('q').value=th.q; setVoices(th.v); convene(); };
+    box.appendChild(b);
+  });
+}
+function renderVoices(){
+  const box=$('voices'); box.innerHTML='';
+  const extras=[...selected].filter(v=>!ALL_VOICES.slice(0,SHOW_FIRST).includes(v));
+  const list = showAll ? [...new Set([...ALL_VOICES,...selected])] : [...new Set([...ALL_VOICES.slice(0,SHOW_FIRST),...extras])];
+  list.forEach(v=>{
+    const b=el('button','chip'+(selected.has(v)?' on':''),v);
+    b.onclick=()=>toggleVoice(v);
+    box.appendChild(b);
+  });
+  if(!showAll){ const m=el('button','chip more','More voices +'); m.onclick=()=>{showAll=true;renderVoices();}; box.appendChild(m); }
+  const n=selected.size;
+  $('count').textContent = n===0 ? 'Choose at least one voice' : `${n} at the table` + (n>=MAX_VOICES?' (that\'s the most)':'');
+}
+function renderPresets(){
+  const box=$('presets');
+  PRESETS.forEach(p=>{
+    const b=el('button','preset');
+    b.appendChild(el('b',null,p.name)); b.appendChild(el('small',null,p.d));
+    b.onclick=()=>{ if(!$('q').value.trim()) $('q').value=p.q; setVoices(p.v); convene(); };
+    box.appendChild(b);
+  });
+}
+function toggleVoice(v){
+  if(selected.has(v)) selected.delete(v);
+  else { if(selected.size>=MAX_VOICES){ toast(`Up to ${MAX_VOICES} voices at one table`); return; } selected.add(v); }
+  renderVoices();
+}
+function setVoices(arr){ selected.clear(); arr.slice(0,MAX_VOICES).forEach(v=>selected.add(v)); renderVoices(); }
+function addCustom(){
+  const v=$('custom').value.trim().replace(/[<>"]/g,'');
+  if(!v) return;
+  if(selected.size>=MAX_VOICES){ toast(`Up to ${MAX_VOICES} voices at one table`); return; }
+  selected.add(v); $('custom').value=''; renderVoices();
+}
+function surprise(){
+  // A deliberately unlikely mix: one sage, one modern or everyday voice, one wildcard
+  const sages=["Socrates","The Buddha","Laozi","Confucius","Rumi","Marcus Aurelius","Hildegard von Bingen","Epicurus","Meister Eckhart","Rabbi Hillel"];
+  const moderns=["Carl Sagan","Marie Curie","Albert Einstein","Maya Angelou","Mary Oliver","Viktor Frankl","Emily Dickinson","Harriet Tubman","Mister Rogers","Abraham Lincoln"];
+  const wild=["A Five-Year-Old","A Bartender","Julia Child","Mark Twain","Your Grandmother","A Farmer","Benjamin Franklin","Leonardo da Vinci","Shakespeare","A Hospice Nurse"];
+  const pick=a=>a[Math.floor(Math.random()*a.length)];
+  setVoices([pick(sages),pick(moderns),pick(wild)]);
+  if(!$('q').value.trim()){
+    const th=THEMES[Math.floor(Math.random()*THEMES.length)];
+    $('q').value=th.q;
+  }
+  convene();
+}
+
+/* ── Parse the streamed dialogue safely into {name, role, parts:[{text,em}]} ── */
+function parseEntries(raw){
+  let t=raw; const i=t.search(/<h4[\s>]/i); if(i>0) t=t.slice(i);
+  t=t.replace(/\*\*(.*?)\*\*/g,'$1');
+  const out=[]; const re=/<h4[^>]*>([\s\S]*?)<\/h4>\s*(?:<p[^>]*>([\s\S]*?)(?:<\/p>|$))?/gi; let m;
+  while((m=re.exec(t))){
+    const head=textOf(m[1]); const [name,...rest]=head.split('·');
+    const parts=[];
+    if(m[2]){
+      const doc=new DOMParser().parseFromString('<div>'+m[2]+'</div>','text/html');
+      doc.body.firstChild.childNodes.forEach(n=>{
+        if(n.nodeType===3) parts.push({text:n.textContent});
+        else parts.push({text:n.textContent, em:n.nodeName==='EM'||n.nodeName==='STRONG'||n.nodeName==='B'});
+      });
+    }
+    out.push({name:name.trim(), role:rest.join('·').trim(), parts});
+  }
+  return out;
+}
+function textOf(html){ return new DOMParser().parseFromString(html,'text/html').body.textContent||''; }
+function plain(entry){ return entry.parts.map(p=>p.text).join('').trim(); }
+function bestLine(entry){
+  const hi=entry.parts.find(p=>p.em && p.text.trim().length>8);
+  if(hi) return hi.text.trim();
+  const sentences=plain(entry).match(/[^.!?]+[.!?]+/g)||[plain(entry)];
+  return (sentences.find(s=>s.split(' ').length>=6 && s.split(' ').length<=30)||sentences[0]).trim();
+}
+
+/* ── Results rendering ── */
+function renderEntries(entries, done){
+  const box=$('cards');
+  entries.forEach((e,idx)=>{
+    let card=box.children[idx];
+    if(!card){ card=el('article','voice-card'); box.appendChild(card); }
+    card.innerHTML='';
+    const h=el('h3'); const ini=(e.name.replace(/^(A|An|The|Your)\s+/i,'')[0]||'·'); h.appendChild(el('span','seal',ini)); h.appendChild(document.createTextNode(e.name));
+    if(e.role) h.appendChild(el('span','role','· '+e.role));
+    card.appendChild(h);
+    const p=el('p');
+    e.parts.forEach(part=>{ p.appendChild(part.em ? el('em',null,part.text) : document.createTextNode(part.text)); });
+    card.appendChild(p);
+    if(done){
+      const tools=el('div','card-tools');
+      const s=el('button','tool','↗ Share this'); s.onclick=()=>shareCard(idx);
+      const c=el('button','tool','Copy'); c.onclick=()=>copyEntry(idx);
+      tools.append(s,c); card.appendChild(tools);
+    }
+  });
+}
+
+async function convene(){
+  if(busy) return;
+  const q=$('q').value.trim();
+  if(!q){ $('q').focus(); toast('Type a question first'); return; }
+  if(selected.size===0){ toast('Choose at least one voice'); return; }
+  const voices=[...selected];
+  busy=true; $('goBtn').disabled=true; $('goBtn').textContent='Gathering the council…';
+  stopSpeaking();
+
+  const res=$('results'); res.innerHTML='';
+  res.appendChild(el('div','q-show',q));
+  const cards=el('div'); cards.id='cards'; res.appendChild(cards);
+  const loading=el('div','loading'); loading.innerHTML='The council is gathering<span class="dots"></span>';
+  res.appendChild(loading);
+  res.scrollIntoView({behavior:'smooth',block:'start'});
+
+  const system=`You are the Wisdom Table Council Room. You speak as the greatest wisdom voices in human history, each in their authentic voice.
+
+CRITICAL OUTPUT RULES — follow these exactly:
+- Output ONLY the formatted dialogue. No planning, reasoning, or commentary.
+- No markdown. Use ONLY the HTML tags <h4>, <p> and <em> as described.
+- Begin immediately with the first <h4> tag.
+
+For each panelist, write a genuine, warm response to the person's question — 3 to 5 sentences in their actual voice, drawing on their real teachings, worldview and way of speaking. Be specific to what they actually taught, not generic wisdom. Let them occasionally nod to or gently differ from another voice at the table. Paraphrase rather than quoting long passages. If a panelist is an everyday person or archetype (a grandmother, a bartender, a five-year-old), speak plainly as that person would — it's fine to be funny or tender.
+
+In each response, wrap the single most memorable, quotable sentence (under 25 words) in <em></em>.
+
+Format each response as exactly:
+<h4>Name · Tradition or Role</h4>
+<p>Their response.</p>
+
+Repeat this pair once per panelist, in the order given, with nothing else.`;
+
+  let text='', entries=[];
+  try{
+    const r=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:MODEL,max_tokens:1600,stream:true,system,
+        messages:[{role:'user',content:`Question: "${q}"\n\nPanelists: ${voices.join(', ')}`}]})});
+    if(!r.ok || !r.body || !(r.headers.get('content-type')||'').includes('event-stream')){
+      const d=await r.json();
+      if(d.error) throw new Error(d.error.message||'error');
+      text=d.content?.[0]?.text||'';
+    } else {
+      const reader=r.body.getReader(); const dec=new TextDecoder(); let buf='';
+      while(true){
+        const {done,value}=await reader.read(); if(done) break;
+        buf+=dec.decode(value,{stream:true});
+        const lines=buf.split('\n'); buf=lines.pop();
+        for(const line of lines){
+          if(!line.startsWith('data:')) continue;
+          const payload=line.slice(5).trim(); if(!payload||payload==='[DONE]') continue;
+          try{ const evt=JSON.parse(payload);
+            if(evt.type==='content_block_delta' && evt.delta?.text){
+              text+=evt.delta.text; entries=parseEntries(text);
+              if(entries.length){ loading.classList.add('hidden'); renderEntries(entries,false); }
+            }
+          }catch(_){}
+        }
+      }
+    }
+    entries=parseEntries(text);
+    if(!entries.length) throw new Error('empty');
+    loading.remove();
+    renderEntries(entries,true);
+    lastRun={q,voices,entries};
+    renderAfter();
+  }catch(err){
+    loading.remove(); cards.innerHTML='';
+    const e=el('div','err','The council couldn\'t gather just now. ');
+    const retry=el('button','small-btn','Try again'); retry.onclick=()=>{busy=false;convene();};
+    e.appendChild(retry); res.appendChild(e);
+  }
+  busy=false; $('goBtn').disabled=false; $('goBtn').textContent='Convene the Council →';
+}
+
+function renderAfter(){
+  const res=$('results');
+  const row=el('div','after');
+  const listen=el('button','small-btn','▶ Listen'); listen.id='listenBtn'; listen.onclick=toggleListen;
+  const again=el('button','small-btn','Same question, new voices'); again.onclick=()=>{
+    const q=$('q').value; surpriseVoicesOnly(); $('q').value=q; convene(); };
+  const fresh=el('button','small-btn','Ask something new'); fresh.onclick=()=>{ $('q').value=''; window.scrollTo({top:0,behavior:'smooth'}); setTimeout(()=>$('q').focus(),400); };
+  row.append(listen,again,fresh);
+  res.appendChild(row);
+  res.appendChild(el('div','note','Imagined from each voice\'s real teachings and way of speaking — not their actual words.'));
+}
+function surpriseVoicesOnly(){
+  const pool=ALL_VOICES.filter(v=>!selected.has(v));
+  const pick=[]; while(pick.length<3){ const v=pool.splice(Math.floor(Math.random()*pool.length),1)[0]; pick.push(v); }
+  setVoices(pick);
+}
+
+/* ── Listen ── */
+let speaking=false;
+function stopSpeaking(){ if(window.speechSynthesis) speechSynthesis.cancel(); speaking=false; const b=$('listenBtn'); if(b) b.textContent='▶ Listen'; }
+function toggleListen(){
+  if(!window.speechSynthesis||!lastRun){ toast('Listening isn\'t available on this device'); return; }
+  if(speaking){ stopSpeaking(); return; }
+  speaking=true; $('listenBtn').textContent='■ Stop';
+  const queue=lastRun.entries.map(e=>`${e.name}. ${plain(e)}`);
+  let i=0;
+  const next=()=>{
+    if(!speaking||i>=queue.length){ stopSpeaking(); return; }
+    const u=new SpeechSynthesisUtterance(queue[i++]); u.rate=.95; u.onend=next; u.onerror=next;
+    speechSynthesis.speak(u);
+  };
+  next();
+}
+
+/* ── Copy & share ── */
+function copyEntry(idx){
+  const e=lastRun.entries[idx];
+  const t=`"${lastRun.q}"\n\n${e.name}: ${plain(e)}\n\nAsk your own at wisdomtable.ai`;
+  navigator.clipboard?.writeText(t).then(()=>toast('Copied')).catch(()=>toast('Couldn\'t copy'));
+}
+
+function wrapLines(ctx,text,maxW){
+  const words=text.split(/\s+/); const lines=[]; let line='';
+  words.forEach(w=>{ const test=line?line+' '+w:w; if(ctx.measureText(test).width>maxW && line){ lines.push(line); line=w; } else line=test; });
+  if(line) lines.push(line); return lines;
+}
+async function drawCard(idx){
+  const e=lastRun.entries[idx]; const quote=bestLine(e);
+  const W=1080,H=1350,c=$('cardCanvas'); c.width=W; c.height=H; const ctx=c.getContext('2d');
+  try{ await Promise.all([document.fonts.load('400 40px "DM Serif Display"'),document.fonts.load('italic 40px "DM Serif Display"'),document.fonts.load('500 20px Inter')]); }catch(_){}
+  const serif='"DM Serif Display", Georgia, serif', sans='Inter, system-ui, sans-serif';
+  const TEAL='#0E3B43', CHALK='#F6F1E3', APR='#F7B267', MINT='#9FD3C7';
+  ctx.fillStyle=TEAL; ctx.fillRect(0,0,W,H);
+  // chairs around the table
+  const ring=(x,y,r,col,fill)=>{ ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); if(fill){ctx.fillStyle=col;ctx.fill();} else {ctx.strokeStyle=col;ctx.lineWidth=4;ctx.stroke();} };
+  ring(W-170,150,34,APR); ring(W-260,110,22,MINT); ring(W-100,240,22,CHALK); ring(W-210,250,16,APR,true);
+  ctx.textAlign='left'; ctx.fillStyle=CHALK; ctx.font=`400 36px ${serif}`; ctx.fillText('The Wisdom ',90,140);
+  const tw=ctx.measureText('The Wisdom ').width; ctx.fillStyle=APR; ctx.font=`italic 36px ${serif}`; ctx.fillText('Table',90+tw,140);
+  ctx.fillStyle=MINT; ctx.font=`italic 32px ${serif}`;
+  const qLines=wrapLines(ctx,`"${lastRun.q}"`,W-260).slice(0,4);
+  let y=330; qLines.forEach(l=>{ ctx.fillText(l,90,y); y+=46; });
+  let size=72, ql;
+  do{ ctx.font=`400 ${size}px ${serif}`; ql=wrapLines(ctx,quote,W-180); size-=4; } while(ql.length*size*1.3>620 && size>34);
+  size+=4; const lh=size*1.3; let qy=Math.max(y+70,(H-ql.length*lh)/2+20);
+  ctx.fillStyle=CHALK; ctx.font=`400 ${size}px ${serif}`;
+  ql.forEach(l=>{ qy+=lh; ctx.fillText(l,90,qy); });
+  const sy=qy+110; const ini=(e.name.replace(/^(A|An|The|Your)\s+/i,'')[0]||'·');
+  ring(122,sy-12,32,APR); ctx.fillStyle=APR; ctx.textAlign='center'; ctx.font=`400 32px ${serif}`; ctx.fillText(ini,122,sy);
+  ctx.textAlign='left'; ctx.fillStyle=CHALK; ctx.font=`400 38px ${serif}`; ctx.fillText(e.name,174,sy-4);
+  if(e.role){ ctx.fillStyle=MINT; ctx.font=`400 24px ${sans}`; ctx.fillText(e.role,174,sy+30); }
+  ctx.fillStyle=APR; ctx.beginPath(); ctx.roundRect?ctx.roundRect(90,H-180,W-180,96,48):ctx.rect(90,H-180,W-180,96); ctx.fill();
+  ctx.fillStyle=TEAL; ctx.textAlign='center'; ctx.font=`600 30px ${sans}`; ctx.fillText('Pull up a chair · wisdomtable.ai',W/2,H-121);
+  return c;
+}
+async function shareCard(idx){
+  const c=await drawCard(idx);
+  const blob=await new Promise(r=>c.toBlob(r,'image/png'));
+  const file=new File([blob],'wisdom-table.png',{type:'image/png'});
+  const e=lastRun.entries[idx];
+  if(navigator.canShare && navigator.canShare({files:[file]})){
+    try{ await navigator.share({files:[file], text:`${e.name} on "${lastRun.q}" — wisdomtable.ai`}); }catch(_){}
+    return;
+  }
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='wisdom-table.png'; a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+  toast('Card saved');
+}
+
+/* ── Init ── */
+renderThemes(); renderVoices(); renderPresets();
+$('goBtn').onclick=convene;
+$('surpriseBtn').onclick=surprise;
+$('addBtn').onclick=addCustom;
+$('custom').addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); addCustom(); }});
+$('q').addEventListener('keydown',e=>{ if(e.key==='Enter' && (e.metaKey||e.ctrlKey)) convene(); });
+const params=new URLSearchParams(location.search); if(params.get('q')) $('q').value=params.get('q').slice(0,600);
+</script>
+</body>
+</html>
