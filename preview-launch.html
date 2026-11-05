@@ -88,6 +88,8 @@ button{font-family:inherit;cursor:pointer;-webkit-tap-highlight-color:transparen
 .tool{background:transparent;border:none;color:var(--mint);font-size:.85rem;font-weight:500;padding:6px 8px;border-radius:8px}
 .tool:hover{background:rgba(159,211,199,.12)}
 .after{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:20px 0 8px}
+.voice-pick{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:10px 14px;font-size:.92rem;font-family:var(--sans);max-width:190px;-webkit-appearance:none;appearance:none;cursor:pointer}
+.voice-pick option{color:#0E3B43}
 .note{text-align:center;color:var(--muted);font-size:.8rem;margin:10px auto 0;max-width:520px}
 .err{text-align:center;padding:24px;color:var(--muted)}
 footer{text-align:center;padding:64px 0 40px;color:var(--muted);font-size:.85rem}
@@ -394,8 +396,11 @@ function renderAfter(){
   const again=el('button','small-btn','Same question, new voices'); again.onclick=()=>{
     const q=$('q').value; surpriseVoicesOnly(); $('q').value=q; convene(); };
   const fresh=el('button','small-btn','Ask something new'); fresh.onclick=()=>{ $('q').value=''; window.scrollTo({top:0,behavior:'smooth'}); setTimeout(()=>$('q').focus(),400); };
-  row.append(listen,again,fresh);
+  const pick=document.createElement('select'); pick.className='voice-pick'; pick.id='voicePick'; pick.setAttribute('aria-label','Reading voice');
+  pick.onchange=()=>{ chosenVoiceName=pick.value; try{ localStorage.setItem('wt_voice',pick.value); }catch(_){} if(speaking){ stopSpeaking(); toggleListen(); } };
+  row.append(listen,pick,again,fresh);
   res.appendChild(row);
+  fillVoicePicker();
   res.appendChild(el('div','note','Imagined from each voice\'s real teachings and way of speaking — not their actual words.'));
 }
 function surpriseVoicesOnly(){
@@ -405,17 +410,59 @@ function surpriseVoicesOnly(){
 }
 
 /* ── Listen ── */
+// Uses the device's own voices, but picks the most natural one available
+// and lets people choose. Novelty voices (Bells, Zarvox, etc.) are left out.
+const NOVELTY=/^(Albert|Bad News|Bahh|Bells|Boing|Bubbles|Cellos|Good News|Jester|Organ|Superstar|Trinoids|Whisper|Wobble|Zarvox|Fred|Junior|Ralph|Kathy|Grandma|Grandpa|Rocko|Shelley|Flo|Eddy|Reed|Sandy|Deranged|Hysterical|Pipe Organ)\b/i;
+const FAVORITES=['Ava','Zoe','Evan','Allison','Samantha','Susan','Nathan','Noelle','Joelle','Tom','Serena','Daniel','Moira','Karen','Tessa','Fiona'];
+let chosenVoiceName=null; try{ chosenVoiceName=localStorage.getItem('wt_voice'); }catch(_){}
+function voiceScore(v){
+  let s=0; const n=v.name;
+  if(/premium/i.test(n)) s+=60; else if(/enhanced/i.test(n)) s+=45;
+  if(/natural|neural|online/i.test(n)) s+=50;
+  if(/^Google/i.test(n)) s+=30;
+  const fav=FAVORITES.findIndex(f=>n.startsWith(f)); if(fav>=0) s+=25-fav;
+  if(/en[-_]US/i.test(v.lang)) s+=6; else if(/en[-_](GB|AU|IE|CA)/i.test(v.lang)) s+=4;
+  if(v.localService===false) s+=2;
+  return s;
+}
+function goodVoices(){
+  if(!window.speechSynthesis) return [];
+  const seen=new Set();
+  return speechSynthesis.getVoices()
+    .filter(v=>/^en/i.test(v.lang) && !NOVELTY.test(v.name))
+    .filter(v=>{ const k=v.name; if(seen.has(k)) return false; seen.add(k); return true; })
+    .sort((a,b)=>voiceScore(b)-voiceScore(a));
+}
+function currentVoice(){
+  const list=goodVoices(); if(!list.length) return null;
+  return list.find(v=>v.name===chosenVoiceName) || list[0];
+}
+function prettyName(v){ return v.name.replace(/^Microsoft\s+/,'').replace(/\s*Online\s*\(Natural\)\s*-.*$/,' (Natural)').replace(/\s*-\s*English.*$/,''); }
+function fillVoicePicker(){
+  const pick=$('voicePick'); if(!pick) return;
+  const list=goodVoices().slice(0,10);
+  if(!list.length){ pick.classList.add('hidden'); return; }
+  pick.classList.remove('hidden');
+  const cur=currentVoice();
+  pick.innerHTML='';
+  list.forEach(v=>{ const o=document.createElement('option'); o.value=v.name; o.textContent='Voice: '+prettyName(v)+'  ▾'; if(cur&&v.name===cur.name) o.selected=true; pick.appendChild(o); });
+}
+if(window.speechSynthesis){ speechSynthesis.getVoices(); speechSynthesis.addEventListener?.('voiceschanged',fillVoicePicker); }
+
 let speaking=false;
 function stopSpeaking(){ if(window.speechSynthesis) speechSynthesis.cancel(); speaking=false; const b=$('listenBtn'); if(b) b.textContent='▶ Listen'; }
 function toggleListen(){
   if(!window.speechSynthesis||!lastRun){ toast('Listening isn\'t available on this device'); return; }
   if(speaking){ stopSpeaking(); return; }
   speaking=true; $('listenBtn').textContent='■ Stop';
+  const voice=currentVoice();
   const queue=lastRun.entries.map(e=>`${e.name}. ${plain(e)}`);
   let i=0;
   const next=()=>{
     if(!speaking||i>=queue.length){ stopSpeaking(); return; }
-    const u=new SpeechSynthesisUtterance(queue[i++]); u.rate=.95; u.onend=next; u.onerror=next;
+    const u=new SpeechSynthesisUtterance(queue[i++]);
+    if(voice){ u.voice=voice; u.lang=voice.lang; }
+    u.rate=.92; u.pitch=1; u.onend=()=>setTimeout(next,450); u.onerror=next;
     speechSynthesis.speak(u);
   };
   next();
