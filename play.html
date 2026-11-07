@@ -412,7 +412,7 @@ function renderAfter(){
   const fresh=el('button','small-btn','Ask something new'); fresh.onclick=()=>{ $('q').value=''; window.scrollTo({top:0,behavior:'smooth'}); setTimeout(()=>$('q').focus(),400); };
   const pick=document.createElement('select'); pick.className='voice-pick'; pick.id='voicePick'; pick.setAttribute('aria-label','Reading voice');
   pick.onchange=()=>{ chosenVoiceName=pick.value; try{ localStorage.setItem('wt_voice',pick.value); }catch(_){} if(speaking){ stopSpeaking(); toggleListen(); } };
-  const all=el('button','small-btn','↗ Share the whole council'); all.onclick=shareAll;
+  const all=el('button','small-btn','↗ Share / Save'); all.onclick=shareAll;
   row.append(listen,pick,all,again,fresh);
   res.appendChild(row);
   fillVoicePicker();
