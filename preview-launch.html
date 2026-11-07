@@ -410,12 +410,8 @@ function renderAfter(){
   const again=el('button','small-btn','Same question, new voices'); again.onclick=()=>{
     const q=$('q').value; surpriseVoicesOnly(); $('q').value=q; convene(); };
   const fresh=el('button','small-btn','Ask something new'); fresh.onclick=()=>{ $('q').value=''; window.scrollTo({top:0,behavior:'smooth'}); setTimeout(()=>$('q').focus(),400); };
-  const pick=document.createElement('select'); pick.className='voice-pick'; pick.id='voicePick'; pick.setAttribute('aria-label','Reading voice');
-  pick.onchange=()=>{ chosenVoiceName=pick.value; try{ localStorage.setItem('wt_voice',pick.value); }catch(_){} if(speaking){ stopSpeaking(); toggleListen(); } };
-  const all=el('button','small-btn','↗ Share / Save'); all.onclick=shareAll;
-  row.append(listen,pick,all,again,fresh);
+  row.append(listen,again,fresh);
   res.appendChild(row);
-  fillVoicePicker();
   res.appendChild(el('div','note','Imagined from each voice\'s real teachings and way of speaking — not their actual words.'));
 }
 function surpriseVoicesOnly(){
