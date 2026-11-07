@@ -32,7 +32,7 @@
 html{-webkit-text-size-adjust:100%}
 body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;min-height:100vh}
 button{font-family:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;color:var(--ink)}
-.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+.wrap{max-width:720px;margin:0 auto;padding:env(safe-area-inset-top) max(20px,env(safe-area-inset-right)) env(safe-area-inset-bottom) max(20px,env(safe-area-inset-left))}
 .top{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
 .brand{font-family:var(--serif);font-size:1.15rem;color:var(--ink);text-decoration:none}
 .brand span{color:var(--gold);font-style:italic}
@@ -98,8 +98,20 @@ footer .tag i{color:var(--gold)}
 footer a{color:var(--muted)}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(80px);background:var(--ink);color:var(--cream);padding:10px 18px;border-radius:999px;font-size:.9rem;transition:transform .25s;z-index:50;pointer-events:none}
 .toast.show{transform:translateX(-50%) translateY(0)}
+.install{background:var(--surface);border-radius:22px;padding:18px 20px;margin:18px auto 0;max-width:460px;text-align:left;color:var(--ink);font-size:.92rem;line-height:1.6}
+.install b{color:var(--gold);font-weight:600}
+.install ol{margin:8px 0 0 20px}
+.linkbtn{background:none;border:none;color:var(--gold);font-size:.85rem;text-decoration:underline;padding:0}
 .hidden{display:none!important}
 </style>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0E3B43">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Wisdom Table">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 <body>
 <div class="wrap">
@@ -149,7 +161,9 @@ footer a{color:var(--muted)}
 
   <footer>
     <div class="tag">There is a seat for <i>everyone.</i></div>
-    <div>Free and open to all · <a href="about.html">About</a> · <a href="mailto:pmandelstein@gmail.com">Contact</a></div>
+    <div><button class="linkbtn" id="installBtn">Add to your home screen</button></div>
+    <div class="install hidden" id="installHelp"></div>
+    <div style="margin-top:10px">Free and open to all · <a href="about.html">About</a> · <a href="mailto:pmandelstein@gmail.com">Contact</a></div>
     <div style="margin-top:6px">A project of Liminal Arts</div>
   </footer>
 </div>
@@ -398,7 +412,8 @@ function renderAfter(){
   const fresh=el('button','small-btn','Ask something new'); fresh.onclick=()=>{ $('q').value=''; window.scrollTo({top:0,behavior:'smooth'}); setTimeout(()=>$('q').focus(),400); };
   const pick=document.createElement('select'); pick.className='voice-pick'; pick.id='voicePick'; pick.setAttribute('aria-label','Reading voice');
   pick.onchange=()=>{ chosenVoiceName=pick.value; try{ localStorage.setItem('wt_voice',pick.value); }catch(_){} if(speaking){ stopSpeaking(); toggleListen(); } };
-  row.append(listen,pick,again,fresh);
+  const all=el('button','small-btn','↗ Share the whole council'); all.onclick=shareAll;
+  row.append(listen,pick,all,again,fresh);
   res.appendChild(row);
   fillVoicePicker();
   res.appendChild(el('div','note','Imagined from each voice\'s real teachings and way of speaking — not their actual words.'));
@@ -522,6 +537,35 @@ async function shareCard(idx){
   toast('Card saved');
 }
 
+
+/* ── Share / save the whole council as text ── */
+function councilText(){
+  const lines=[`"${lastRun.q}"`,''];
+  lastRun.entries.forEach(e=>{ lines.push(e.name+(e.role?` · ${e.role}`:'')); lines.push(plain(e)); lines.push(''); });
+  lines.push('From The Wisdom Table, wisdomtable.ai');
+  return lines.join('\n');
+}
+async function shareAll(){
+  if(!lastRun) return;
+  const text=councilText();
+  if(navigator.share){ try{ await navigator.share({title:'The Wisdom Table',text}); return; }catch(err){ if(err&&err.name==='AbortError') return; } }
+  try{ await navigator.clipboard.writeText(text); toast('Council copied'); }catch(_){ toast('Couldn\'t share on this device'); }
+}
+
+/* ── Add to home screen ── */
+let deferredInstall=null;
+window.addEventListener('beforeinstallprompt',e=>{ e.preventDefault(); deferredInstall=e; });
+const isStandalone=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+if(isStandalone){ const b=$('installBtn'); if(b) b.parentElement.classList.add('hidden'); }
+$('installBtn').onclick=async()=>{
+  if(deferredInstall){ deferredInstall.prompt(); try{ await deferredInstall.userChoice; }catch(_){} deferredInstall=null; return; }
+  const box=$('installHelp'); const ios=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  box.innerHTML = ios
+    ? '<b>On iPhone or iPad</b><ol><li>Open this page in Safari.</li><li>Tap the Share button (the square with an arrow).</li><li>Choose <b>Add to Home Screen</b>, then tap Add.</li></ol>'
+    : '<b>On Android</b><ol><li>Open this page in Chrome.</li><li>Tap the ⋮ menu at the top right.</li><li>Choose <b>Add to Home screen</b> or <b>Install app</b>.</li></ol>';
+  box.classList.toggle('hidden');
+};
+
 /* ── Init ── */
 renderThemes(); renderVoices(); renderPresets();
 $('goBtn').onclick=convene;
@@ -531,5 +575,6 @@ $('custom').addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefaul
 $('q').addEventListener('keydown',e=>{ if(e.key==='Enter' && (e.metaKey||e.ctrlKey)) convene(); });
 const params=new URLSearchParams(location.search); if(params.get('q')) $('q').value=params.get('q').slice(0,600);
 </script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));}</script>
 </body>
 </html>
