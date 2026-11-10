@@ -410,7 +410,8 @@ function renderAfter(){
   const again=el('button','small-btn','Same question, new voices'); again.onclick=()=>{
     const q=$('q').value; surpriseVoicesOnly(); $('q').value=q; convene(); };
   const fresh=el('button','small-btn','Ask something new'); fresh.onclick=()=>{ $('q').value=''; window.scrollTo({top:0,behavior:'smooth'}); setTimeout(()=>$('q').focus(),400); };
-  row.append(listen,again,fresh);
+  const all=el('button','small-btn','↗ Share the whole table'); all.onclick=shareAll;
+  row.append(listen,all,again,fresh);
   res.appendChild(row);
   res.appendChild(el('div','note','Imagined from each voice\'s real teachings and way of speaking — not their actual words.'));
 }
