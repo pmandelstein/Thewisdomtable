@@ -174,7 +174,7 @@ footer a{color:var(--muted)}
 <script>
 const API_URL = "https://wisdomtable.pmandelstein.workers.dev";
 const MODEL = "claude-sonnet-4-6";
-const MAX_VOICES = 5;
+const MAX_VOICES = 10;
 
 const VOICE_ROLES = {
   "The Buddha":"Buddhism","Thích Nhất Hạnh":"Zen Buddhism","Rumi":"Sufi poet","Marcus Aurelius":"Stoic emperor",
@@ -351,7 +351,7 @@ CRITICAL OUTPUT RULES — follow these exactly:
 - No markdown. Use ONLY the HTML tags <h4>, <p> and <em> as described.
 - Begin immediately with the first <h4> tag.
 
-For each panelist, write a genuine, warm response to the person's question — 3 to 5 sentences in their actual voice, drawing on their real teachings, worldview and way of speaking. Be specific to what they actually taught, not generic wisdom. Let them occasionally nod to or gently differ from another voice at the table. Paraphrase rather than quoting long passages. If a panelist is an everyday person or archetype (a grandmother, a bartender, a five-year-old), speak plainly as that person would — it's fine to be funny or tender.
+For each panelist, write a genuine, warm response to the person's question — ${voices.length>5?'2 to 3':'3 to 5'} sentences in their actual voice, drawing on their real teachings, worldview and way of speaking. Be specific to what they actually taught, not generic wisdom. Let them occasionally nod to or gently differ from another voice at the table. Paraphrase rather than quoting long passages. If a panelist is an everyday person or archetype (a grandmother, a bartender, a five-year-old), speak plainly as that person would — it's fine to be funny or tender.
 
 In each response, wrap the single most memorable, quotable sentence (under 25 words) in <em></em>.
 
@@ -364,7 +364,7 @@ Repeat this pair once per panelist, in the order given, with nothing else.`;
   let text='', entries=[];
   try{
     const r=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:MODEL,max_tokens:1600,stream:true,system,
+      body:JSON.stringify({model:MODEL,max_tokens:Math.min(4000,600+voices.length*320),stream:true,system,
         messages:[{role:'user',content:`Question: "${q}"\n\nPanelists: ${voices.join(', ')}`}]})});
     if(!r.ok || !r.body || !(r.headers.get('content-type')||'').includes('event-stream')){
       const d=await r.json();
